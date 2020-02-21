@@ -42,14 +42,14 @@ Every possible fragment recombination is enumerated in order to create a virtual
     git clone https://github.com/volkamerlab/KinFragLib.git
     ```
 
-2. Create and activate `kffl` conda environment. 
+2. Create and activate the `kffl` conda environment. 
 
     ```bash
     conda env create -f environment.yml
     conda activate kffl
     ```
 
-3. Open `quick_start.ipynb` for an introduction on how to load and use the fragment library.
+3. Open the notebook `quick_start.ipynb` for an introduction on how to load and use the fragment library.
 
     ```bash
     cd /path/to/KinFragLib
@@ -63,7 +63,7 @@ Every possible fragment recombination is enumerated in order to create a virtual
 This repository holds (i) fragment library data and (ii) a *quick start* notebook explaining how to load and use the library alongside additional analysis notebooks.
 
     data/
-    └── FragmentLibrary/
+    └── fragment_library/
             ├── AP.sdf
             ├── FP.sdf
             ├── GA.sdf
@@ -72,16 +72,21 @@ This repository holds (i) fragment library data and (ii) a *quick start* noteboo
             ├── B2.sdf
             └── X.sdf
     notebooks/
-    ├── `quick_start.ipynb`
-    ├── `cluster_most_common_fragments.ipynb`
-    └── `TBA`
+    ├── quick_start.ipynb
+    ├── cluster_most_common_fragments.ipynb
+    └── TBA
     
 
 ### Contact
 
 (Back to [Table of contents](#table-of-contents).)
 
-TBA
+Please contact us if you have questions or suggestions.
+
+* Open an issue on our GitHub repository: https://github.com/volkamerlab/KinFragLib/issues
+* Or send us an email: andrea.volkamer@charite.de
+
+We are looking forward to hearing from you!
 
 ### License
 
