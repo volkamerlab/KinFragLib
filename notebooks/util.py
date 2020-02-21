@@ -63,6 +63,8 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
     smiles_list = []
     fragment_list = []
     group_list = []
+    complex_pdb_list = []
+    ligand_pdb_list = []
 
     for mol_raw in mol_supplier:
         
@@ -88,11 +90,17 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
         
         # kinase group
         group_list.append(mol.GetProp('group'))
+
+        # PDBs
+        complex_pdb_list.append(mol.GetProp('complex_pdb'))
+        ligand_pdb_list.append(mol.GetProp('ligand_pdb'))
      
     df['smiles'] = smiles_list
     df['fragment'] = fragment_list
     df['group'] = group_list
-    
+    df['complex_pdb'] = complex_pdb_list
+    df['ligand_pdb'] = ligand_pdb_list
+
     return df
 
 def most_common_fragments(fragments, top_x=50):
