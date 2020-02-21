@@ -76,7 +76,7 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
             
         else:
             
-            mol = mol_raw
+            mol = Chem.RemoveHs(mol_raw)
         
         # Generate SMILES for comparing fragments
         smiles = Chem.MolToSmiles(mol)
