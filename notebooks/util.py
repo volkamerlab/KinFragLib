@@ -8,7 +8,7 @@ from rdkit.Chem.Draw import IPythonConsole
 from rdkit.Chem import rdFingerprintGenerator
 from rdkit.ML.Cluster import Butina
 
-def read_fragment_library(path_to_lib):
+def read_fragment_library(path_to_lib, remove_dummy=True):
     """
     Read fragment library from sdf files (one file per subpocket).
     
@@ -16,6 +16,9 @@ def read_fragment_library(path_to_lib):
     ----------
     path_to_lib : str
         Path to fragment library folder.
+    remove_dummy : bool
+        Replace dummy atoms with hydrogens in fragments (default), or leave dummy atoms in fragments.
+    
     
     Returns
     -------
@@ -31,7 +34,7 @@ def read_fragment_library(path_to_lib):
     # iterate over subpockets
     for subpocket in subpockets:
 
-        data[subpocket] = _read_subpocket_fragments(subpocket, path_to_lib)
+    	data[subpocket] = _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy)
         
     return data
 
