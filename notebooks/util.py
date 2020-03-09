@@ -1,4 +1,6 @@
-# Utility functions for fragment library
+"""
+Utility functions to work with the fragment library.
+"""
 
 import pandas as pd
 import numpy as np
