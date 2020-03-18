@@ -1,11 +1,12 @@
-# Kinase focused fragmentation library *KinFragLib*
+# `KinFragLib`: Kinase focused fragment library
 
-Subpocket-based fragmentation of kinase ligands from KLIFS
+**Subpocket-based fragmentation of kinase ligands from KLIFS**
 
 Protein kinases play a crucial role in many cell signaling processes, 
 making them one of the most important families of drug targets.
 Fragment-based drug design has proven useful as an approach to develop novel kinase inhibitors. 
 Fragment-based methods usually follow the knowledge-driven approach of optimizing a focused set of fragments. 
+
 We offer here a data-driven kinase-focused fragment library instead 
 based on the structural kinome data from the [KLIFS](https://klifs.vu-compmedchem.nl) database.
 Each kinase binding pocket (for DFG-in structures with non-covalent ligands) is divided into six subpockets, i.e.
