@@ -1,40 +1,25 @@
 # Kinase focused fragmentation library *KinFragLib*
 
-## Exploring the chemical space of kinase inhibitors: Subpocket-based fragmentation for data-driven recombination
+Subpocket-based fragmentation of kinase ligands from KLIFS
 
-## Table of contents  
+Protein kinases play a crucial role in many cell signaling processes, 
+making them one of the most important families of drug targets.
+Fragment-based drug design has proven useful as an approach to develop novel kinase inhibitors. 
+Fragment-based methods usually follow the knowledge-driven approach of optimizing a focused set of fragments. 
+We offer here a data-driven kinase-focused fragment library instead 
+based on the structural kinome data from the [KLIFS](https://klifs.vu-compmedchem.nl) database.
+Each kinase binding pocket (for DFG-in structures with non-covalent ligands) is divided into six subpockets, i.e.
+the adenine pocket, front pocket, solvent-exposed pocket, gate area as well as back pocket 1 and 2.
+The ligands are fragmented according to the occupied subpockets, 
+creating a fragment library with respective subpocket pools. 
+This fragment library enables an in-depth analysis of the chemical space of known kinase inhibitors, 
+and is used to recombine fragments in order to generate novel potential inhibitors.
 
-* [Introduction](#introduction)
-* [Quick start](#quick-start)
-* [Repository content](#repository-content)
-* [Contact](#contact)
-* [License](#license)
-* [Citation](#citation)
-
-### Introduction
-
-(Back to [Table of contents](#table-of-contents).)
-
-Protein kinases play a crucial role in many cell signaling processes, making them one of the most important families of drug targets.
-Fragment-based drug design has proven useful as an approach to develop novel kinase inhibitors. However, fragment-based methods are usually limited to a knowledge-driven approach of optimizing a focused set of fragments. 
-Here, we present a data-driven fragmentation and recombination approach instead. 
-A novel computational fragmentation method was implemented, which splits known kinase inhibitors into fragments with respect to the subpockets that they occupy. Thereby, a fragment library with several pools, representing the subpockets, is created.
-This fragment library enables an in-depth analysis of the chemical space of known kinase inhibitors, and is used to recombine fragments in order to generate novel potential inhibitors.
-
-#### Fragmentation
-
-For each input kinase-ligand complex, the kinase binding pocket is divided into six subpockets. The ligands are fragmented according to these subpockets, and a fragment library with several pools is created, where each pool corresponds to one subpocket and contains the fragments that were assigned to this subpocket.
 
 <img src ="./docs/img/subpocket_centers.png" width = "600" align="left"> 
 <br clear="all" />
 
-#### Recombination
-
-Every possible fragment recombination is enumerated in order to create a virtual combinatorial compound library. The fragments are reconnected only at the broken bonds, while preserving the original subpocket connection of each bond. 
-
 ### Quick start
-
-(Back to [Table of contents](#table-of-contents).)
 
 1. Clone this repository.
 
@@ -58,8 +43,6 @@ Every possible fragment recombination is enumerated in order to create a virtual
 
 ### Repository content
 
-(Back to [Table of contents](#table-of-contents).)
-
 This repository holds (i) fragment library data and (ii) a *quick start* notebook explaining how to load and use the library alongside additional analysis notebooks.
 
     data/
@@ -79,8 +62,6 @@ This repository holds (i) fragment library data and (ii) a *quick start* noteboo
 
 ### Contact
 
-(Back to [Table of contents](#table-of-contents).)
-
 Please contact us if you have questions or suggestions.
 
 * Open an issue on our GitHub repository: https://github.com/volkamerlab/KinFragLib/issues
@@ -90,12 +71,8 @@ We are looking forward to hearing from you!
 
 ### License
 
-(Back to [Table of contents](#table-of-contents).)
-
 TBA
 
 ### Citation
-
-(Back to [Table of contents](#table-of-contents).)
 
 TBA
