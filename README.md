@@ -1,4 +1,4 @@
-# `KinFragLib`: Kinase focused fragment library
+# KinFragLib: Kinase focused fragment library
 
 **Subpocket-based fragmentation of kinase ligands from KLIFS**
 
