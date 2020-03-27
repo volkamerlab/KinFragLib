@@ -91,7 +91,7 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
             
             mol = Chem.RemoveHs(mol_raw)
         
-        # Generate SMILES for comparing fragments
+        # Generate SMILES
         smiles = Chem.MolToSmiles(mol)
         
         # 2D coordinates
@@ -306,7 +306,7 @@ def draw_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb, mols_per_r
 
 def _descriptors_from_mol(mol):
     """
-    Get descriptors for a molecule, i.e. number of heavy atoms, logP, and number of hydrogen bond acceptors/donors.
+    Get descriptors for a molecule, i.e. number of hydrogen bond acceptors/donors, logP, and number of heavy atoms.
 
     Parameters
     ----------
@@ -319,12 +319,13 @@ def _descriptors_from_mol(mol):
         Descriptors for input molecule.
     """
 
-    size = mol.GetNumHeavyAtoms()
-    logp = Descriptors.MolLogP(mol)
+    smiles = Chem.MolToSmiles(mol)
     hbd = Lipinski.NumHDonors(mol)
     hba = Lipinski.NumHAcceptors(mol)
+    logp = Descriptors.MolLogP(mol)
+    size = mol.GetNumHeavyAtoms()
 
-    return pd.Series([size, logp, hbd, hba], index='size logp hbd hba'.split())
+    return pd.Series([smiles, mol, hbd, hba, logp, size], index='smiles mol hbd hba logp size'.split())
 
 
 def descriptors_from_smiles(smiles):
@@ -367,15 +368,23 @@ def descriptors_by_fragments(fragment_library):
         Properties of fragment library.
     """
     
-    properties = {}
+    descriptors = {}
 
     for subpocket, fragments in fragment_library.items():
-        properties[subpocket] = descriptors_from_smiles(fragments['smiles'].drop_duplicates())
+        
+        # Deduplicate SMILES per subpocket
+        fragments.drop_duplicates('smiles', inplace=True)
+        
+        # Get descriptors for subpocket
+        descriptors[subpocket] = fragments.apply(
+            lambda x: _descriptors_from_mol(x.fragment),
+            axis=1
+        )
 
-    properties = pd.concat(properties).reset_index()
+    descriptors = pd.concat(descriptors).reset_index()
 
-    properties.drop('level_1', axis=1, inplace=True)
-    properties.rename(
+    descriptors.drop('level_1', axis=1, inplace=True)
+    descriptors.rename(
         columns={
             'level_0': 'subpocket',
             'size': '# Heavy atoms',
@@ -385,7 +394,7 @@ def descriptors_by_fragments(fragment_library):
         },
         inplace=True
     )
-    return properties
+    return descriptors
 
 
 def _drug_likeness_from_mol(mol):
@@ -531,26 +540,24 @@ def connections_count_by_ligand(connections_by_ligand):
     return connections_count
 
 
-def fragment_similarity(fragment_library_concat, by='subpocket'):
+def fragment_similarity_per_subpocket(fragment_library_concat):
     """
-    Calculate similarities for all pairwise fragment combinations within each group.
+    Calculate similarities for all pairwise fragment combinations within each subpocket.
     
     Parameters
     ----------
     fragment_library_concat : pandas.DataFrame
         Fragment library data for one or mulitple subpockets.
-    by : str
-        Group by which fragments are grouped and similarity is calculated, e.g. subpocket or kinase groups.
         
     Returns
     -------
     pandas.DataFrame
-        Similarity values for each fragment pair per subpocket.
+        Similarity values for all pairwise fragment combinations within each subpocket.
     """
     
-    similarities_by_group = []
+    similarities_all = []
 
-    for group_name, fragments in fragment_library_concat.groupby(by):
+    for subpocket, fragments in fragment_library_concat.groupby('subpocket', sort=False):
 
         smiles_deduplicated = fragments['smiles'].drop_duplicates()
 
@@ -564,16 +571,65 @@ def fragment_similarity(fragment_library_concat, by='subpocket'):
             
         similarities = pd.DataFrame(similarities)
         similarities.rename(columns={0: 'similarity'}, inplace=True)
-        similarities[by] = group_name
+        similarities['subpocket'] = subpocket
 
-        similarities_by_group.append(similarities)
+        similarities_all.append(similarities)
+        
+    similarities_all = pd.concat(similarities_all)
 
-    return pd.concat(similarities_by_group)
+    return similarities_all
 
 
-def plot_fragment_similarity(similarities_by_group):
+def fragment_similarity_per_kinase_group(fragment_library_concat):
+    """
+    Calculate similarities for all pairwise fragment combinations within each kinase group and subpocket.
     
-    plt.figure(figsize=(8,8))
+    Parameters
+    ----------
+    fragment_library_concat : pandas.DataFrame
+        Fragment library data for one or mulitple subpockets.
+        
+    Returns
+    -------
+    pandas.DataFrame
+        Similarity values for all pairwise fragment combinations within each kinase group and subpocket.
+    """
+    
+    similarities_all = []
+
+    for group, fragments in fragment_library_concat.groupby(['group', 'subpocket']):
+
+        # Group and deduplicate fragments by kinase group and subpockets
+        fragments_deduplicated = fragments.drop_duplicates('smiles')
+
+        fingerprints = generate_fingerprints(fragments_deduplicated.fragment)
+
+        similarities = []
+
+        for fp1, fp2 in combinations(fingerprints, 2):
+            similarities.append(DataStructs.FingerprintSimilarity(fp1, fp2))
+
+        similarities = pd.DataFrame(similarities)
+        similarities.rename(columns={0: 'similarity'}, inplace=True)
+        similarities['group'] = group[0]
+        similarities['subpocket'] = group[1]
+
+        similarities_all.append(similarities)
+    
+    similarities_all = pd.concat(similarities_all)
+    
+    # Add subpocket 'Total' for similarites which were calculated between fragments within each kinase group and subpockt
+    similarities_total = similarities_all.copy()
+    similarities_total['group'] = 'Total'
+    
+    similarities_all = pd.concat([similarities_all, similarities_total])
+    
+    return similarities_all
+
+
+def plot_fragment_similarity(similarities_by_group, group_name):
+    
+    plt.figure(figsize=(10,8))
     
     try:
         ax = sns.boxplot(
@@ -590,6 +646,6 @@ def plot_fragment_similarity(similarities_by_group):
         color='dodgerblue'
     )
     plt.ylabel('Tanimoto similarity', fontsize=18)
-    plt.xlabel(similarities_by_group.columns[1], fontsize=18)
+    plt.xlabel(group_name, fontsize=18)
     plt.xticks(fontsize=18)
     plt.yticks(fontsize=18)
