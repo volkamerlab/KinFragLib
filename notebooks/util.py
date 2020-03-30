@@ -4,6 +4,7 @@ Utility functions to work with the fragment library.
 
 from itertools import combinations
 
+from bravado.client import SwaggerClient
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -627,9 +628,55 @@ def fragment_similarity_per_kinase_group(fragment_library_concat):
     return similarities_all
 
 
-def plot_fragment_similarity(similarities_by_group, group_name):
+def plot_n_subpockets(n_subpockets_per_ligand_distribution):
+    """
+    Plot number of subpockets occupied across all ligands.
+    """
+
+    plt.figure(figsize=(8,8))
+    plt.bar(
+        n_subpockets_per_ligand_distribution.index, 
+        n_subpockets_per_ligand_distribution.ligand_count
+    )
+    plt.ylabel('# Ligands', fontsize=17)
+    plt.xlabel('# Subpockets', fontsize=17)
+    plt.yticks(fontsize=17)
+    plt.xticks(fontsize=17)
     
-    plt.figure(figsize=(10,8))
+    plt.savefig(f'figures/n_subpockets.png', dpi=300)
+    
+    
+def plot_n_fragments_per_subpocket(n_fragments_per_subpocket, n_fragments_per_subpocket_deduplicated):
+    """
+    Plot number of fragments and deduplicated fragments per subpocket.
+    """
+    
+    plt.figure(figsize=(8,8))
+    plt.bar(
+        SUBPOCKET_COLORS.keys(), 
+        n_fragments_per_subpocket, 
+        fill=False, 
+        edgecolor=SUBPOCKET_COLORS.values()
+    )
+    plt.bar(
+        SUBPOCKET_COLORS.keys(), 
+        n_fragments_per_subpocket_deduplicated, 
+        color=SUBPOCKET_COLORS.values()
+    )
+    plt.legend(['All fragments', 'Deduplicated\nfragments'], fontsize=17)
+    plt.ylabel('# Fragments', fontsize=17)
+    plt.xticks(fontsize=17)
+    plt.yticks(fontsize=17)
+    
+    plt.savefig(f'figures/n_fragments_per_subpocket.png', dpi=300)
+
+
+def plot_fragment_similarity(similarities_by_group, group_name):
+    """
+    Plot fragment similarity by category, such as subpocket or kinase group.
+    """
+    
+    plt.figure(figsize=(9,9))
     
     try:
         ax = sns.boxplot(
@@ -649,3 +696,164 @@ def plot_fragment_similarity(similarities_by_group, group_name):
     plt.xlabel(group_name, fontsize=18)
     plt.xticks(fontsize=18)
     plt.yticks(fontsize=18)
+    
+    plt.savefig(f'figures/similarities_by_{group_name.lower().replace(" ", "_")}.png', dpi=300)
+    
+    
+def plot_fragment_descriptors(descriptors):
+    """
+    Plot fragment descriptors.
+    """
+    
+    plt.figure(figsize=(25,6))
+
+    for i, descriptor_name in enumerate(descriptors.columns[3:]):
+
+        plt.subplot(1, 4, i+1)
+        sns.boxplot(
+            x='subpocket', 
+            y=descriptor_name, 
+            data=descriptors, 
+            palette=SUBPOCKET_COLORS, 
+            medianprops={'linewidth':3, 'linestyle':'-'}
+        )
+        plt.ylabel(descriptor_name, fontsize=16)
+        plt.xlabel('Subpocket', fontsize=16)
+        plt.xticks(fontsize=16)
+        plt.yticks(fontsize=16)
+        
+    plt.savefig(f'figures/descriptors.png', dpi=300)
+    
+    
+def draw_selected_fragments(selected_fragments, fragments, mols_per_row=3):
+    """
+    Draw fragments selected by complex and ligand PDB ID.
+    
+    Parameters
+    ----------
+    selected_fragments : list of list of str
+        List of fragments defined by complex and ligand PDB ID.
+    fragments : pandas.DataFrame
+        Fragments (including data ligke complex and ligand PDB ID, chain ID, and alternate model).
+        
+    Returns
+    -------
+    PIL.PngImagePlugin.PngImageFile
+        Image of selected fragments.
+    """
+
+    # Create DataFrame
+    selected_fragments = pd.DataFrame(
+        selected_fragments, 
+        columns=['complex_pdb', 'ligand_pdb']
+    )
+
+    # Merge selected fragments with full fragment table in order to get full details on selected fragments
+    selected_fragments = pd.merge(
+        selected_fragments, 
+        fragments, 
+        left_on=['complex_pdb', 'ligand_pdb'],
+        right_on=['complex_pdb', 'ligand_pdb'],
+        how='left'
+    )
+
+    # Draw selected fragments
+    image = draw_fragments(selected_fragments, mols_per_row)
+    
+    return image
+
+
+def draw_fragments(fragments, mols_per_row=10):
+    """
+    Draw fragments.
+    
+    Parameters
+    ----------
+    fragments : pandas.DataFrame
+        Fragments (including data ligke complex and ligand PDB ID, chain ID, and alternate model).
+        
+    Returns
+    -------
+    PIL.PngImagePlugin.PngImageFile
+        Image of fragments.
+    """
+    
+    image = Draw.MolsToGridImage(
+        fragments.fragment, 
+        maxMols=200,
+        molsPerRow=mols_per_row, 
+        legends=fragments.apply(
+            lambda x: f'{x.complex_pdb}|{x.chain}:{x.ligand_pdb}' if x.alt == ' ' else f'{x.complex_pdb}|{x.chain}|{x.alt}:{x.ligand_pdb}',
+            axis=1
+        ).to_list()
+    )
+        
+    return image
+
+
+def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150)):
+    """
+    Draw ligands from PDB ID (fetch data from KLIFS database).
+    
+    Parameters
+    ----------
+    pdb_ids : list of str
+        List of complex PDB IDs.
+
+    Returns
+    -------
+    PIL.PngImagePlugin.PngImageFile
+        Ligand images.
+    """
+    
+    KLIFS_API_DEFINITIONS = "http://klifs.vu-compmedchem.nl/swagger/swagger.json"
+    KLIFS_CLIENT = SwaggerClient.from_url(KLIFS_API_DEFINITIONS, config={'validate_responses': False})
+
+    # Get KLIFS structures by PDB ID
+    structures = KLIFS_CLIENT.Structures.get_structures_pdb_list(pdb_codes=pdb_ids).response().result
+
+    # Get KLIFS structure IDs
+    structures = [
+        {
+            'structure_id': structure['structure_ID'],
+            'kinase': structure['kinase'],
+            'complex_pdb': structure['pdb'],
+            'chain': structure['chain'],
+            'alt': structure['alt'],
+            'ligand_pdb': structure['ligand'],
+        } for structure in structures
+    ]
+
+    mols = []
+    legends = []
+
+    for structure in structures:
+
+        # Get ligand mol2 text
+        ligand_mol2_text = KLIFS_CLIENT.Structures.get_structure_get_ligand(
+                structure_ID=structure['structure_id']
+        ).response().result
+
+        # Draw ligand in 2D
+        mol = Chem.MolFromMol2Block(ligand_mol2_text)
+        AllChem.Compute2DCoords(mol)
+        mols.append(mol)
+        
+        # Generate legend label
+        if structure['alt'] == '':
+            legends.append(
+                f'{structure["complex_pdb"]}|{structure["chain"]}:{structure["ligand_pdb"]}'
+            )
+        else:
+            legends.append(
+                f'{structure["complex_pdb"]}|{structure["chain"]}|{structure["alt"]}:{structure["ligand_pdb"]}'
+            )
+
+    image = Draw.MolsToGridImage(
+        mols,
+        subImgSize=sub_img_size,
+        legends=legends
+    )
+    
+    return image
+
