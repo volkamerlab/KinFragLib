@@ -17,7 +17,7 @@ This fragment library enables an in-depth analysis of the chemical space of know
 and is used to recombine fragments in order to generate novel potential inhibitors.
 
 
-<img src ="./docs/img/subpocket_centers.png" width = "600" align="left"> 
+<img src ="./docs/img/toc_github_kinfraglib.png" width = "600" align="left"> 
 <br clear="all" />
 
 ### Quick start

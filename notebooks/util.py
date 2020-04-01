@@ -42,7 +42,6 @@ def read_fragment_library(path_to_lib, remove_dummy=True):
     dict of pandas.DataFrame
         Fragment details, i.e. SMILES, kinase groups, and fragment RDKit molecules, (values) for each subpocket (key).
     """
-    
     # list of folders for each subpocket
     subpockets = ['AP', 'FP', 'SE', 'GA', 'B1', 'B2', 'X']
     
@@ -263,11 +262,12 @@ def get_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb):
     for subpocket in subpockets:
         
         subpocket_fragments = fragment_library[subpocket]
-        subpocket_fragments = subpocket_fragments[
+        subpocket_fragments_selected = subpocket_fragments[
             (subpocket_fragments.complex_pdb == complex_pdb) & (subpocket_fragments.ligand_pdb == ligand_pdb)
         ].copy()
-        subpocket_fragments['subpocket'] = subpocket
-        fragments.append(subpocket_fragments)
+        
+        subpocket_fragments_selected['subpocket'] = subpocket
+        fragments.append(subpocket_fragments_selected)
 
     fragmented_ligand = pd.concat(fragments)
     
@@ -374,7 +374,7 @@ def descriptors_by_fragments(fragment_library):
     for subpocket, fragments in fragment_library.items():
         
         # Deduplicate SMILES per subpocket
-        fragments.drop_duplicates('smiles', inplace=True)
+        fragments = fragments.drop_duplicates('smiles').copy()
         
         # Get descriptors for subpocket
         descriptors[subpocket] = fragments.apply(
