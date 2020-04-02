@@ -44,7 +44,7 @@ and is used to recombine fragments in order to generate novel potential inhibito
 
 ### Repository content
 
-This repository holds (i) fragment library data and (ii) a *quick start* notebook explaining how to load and use the library alongside additional analysis notebooks.
+This repository holds (i) fragment library data, (ii) a *quick start* notebook explaining how to load and use the library, alongside (iii) notebooks covering the full fragment analysis as described in the corresponding paper.
 
     data/
     └── fragment_library/
@@ -57,8 +57,8 @@ This repository holds (i) fragment library data and (ii) a *quick start* noteboo
             └── X.sdf
     notebooks/
     ├── quick_start.ipynb
-    ├── cluster_most_common_fragments.ipynb
-    └── TBA
+    ├── fragment_analysis.ipynb
+    └── cluster_most_common_fragments.ipynb
     
 
 ### Contact
