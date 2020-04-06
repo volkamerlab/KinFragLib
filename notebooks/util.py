@@ -390,8 +390,8 @@ def descriptors_by_fragments(fragment_library):
             'level_0': 'subpocket',
             'size': '# Heavy atoms',
             'logp': 'LogP',
-            'hbd': '# HB donors',
-            'hba': '# HB acceptors'
+            'hbd': '# HBD',
+            'hba': '# HBA'
         },
         inplace=True
     )
@@ -643,7 +643,7 @@ def plot_n_subpockets(n_subpockets_per_ligand_distribution):
     plt.yticks(fontsize=17)
     plt.xticks(fontsize=17)
     
-    plt.savefig(f'figures/n_subpockets.png', dpi=300)
+    plt.savefig(f'figures/n_subpockets.png', dpi=300, bbox_inches='tight')
     
     
 def plot_n_fragments_per_subpocket(n_fragments_per_subpocket, n_fragments_per_subpocket_deduplicated):
@@ -652,23 +652,44 @@ def plot_n_fragments_per_subpocket(n_fragments_per_subpocket, n_fragments_per_su
     """
     
     plt.figure(figsize=(8,8))
-    plt.bar(
+    ax1 = plt.bar(
         SUBPOCKET_COLORS.keys(), 
         n_fragments_per_subpocket, 
         fill=False, 
         edgecolor=SUBPOCKET_COLORS.values()
     )
-    plt.bar(
+    ax2 = plt.bar(
         SUBPOCKET_COLORS.keys(), 
         n_fragments_per_subpocket_deduplicated, 
         color=SUBPOCKET_COLORS.values()
     )
     plt.legend(['All fragments', 'Deduplicated\nfragments'], fontsize=17)
     plt.ylabel('# Fragments', fontsize=17)
+    plt.xlabel('Subpocket', fontsize=17)
     plt.xticks(fontsize=17)
     plt.yticks(fontsize=17)
     
-    plt.savefig(f'figures/n_fragments_per_subpocket.png', dpi=300)
+    # Add percentages to bars
+    bars = ax1.patches
+    bar_labels = [
+        str(int(round((i-j)/i*100, 0))) for i, j in zip(
+            n_fragments_per_subpocket, 
+            n_fragments_per_subpocket_deduplicated
+        )
+    ]
+    for bar, label in zip(bars, bar_labels):
+
+        plt.text(
+            bar.get_x() + bar.get_width() / 2, 
+            bar.get_height(),
+            label, 
+            ha='center', 
+            va='bottom', 
+            fontsize=17,
+            color='black'
+        )
+    
+    plt.savefig(f'figures/n_fragments_per_subpocket.png', dpi=300, bbox_inches='tight')
 
 
 def plot_fragment_similarity(similarities_by_group, group_name):
