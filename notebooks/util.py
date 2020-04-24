@@ -119,7 +119,7 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
         columns='smiles fragment kinase family group complex_pdb ligand_pdb alt chain atom_subpockets atom_environments'.split()
     )
 
-def most_common_fragments(fragments, top_x=50):
+def get_most_common_fragments(fragments, top_x=50):
     """
     Get most common fragments.
     
@@ -184,7 +184,7 @@ def cluster_molecules(fingerprints, cutoff=0.6):
     """
     
     # Calculate Tanimoto distance matrix
-    distance_matrix = _tanimoto_distance_matrix(fingerprints)
+    distance_matrix = _get_tanimoto_distance_matrix(fingerprints)
     
     # Now cluster the data with the implemented Butina algorithm:
     clusters = Butina.ClusterData(
@@ -208,7 +208,7 @@ def cluster_molecules(fingerprints, cutoff=0.6):
     
     return clusters
 
-def _tanimoto_distance_matrix(fingerprints):
+def _get_tanimoto_distance_matrix(fingerprints):
     """
     Calculate distance matrix for list of fingerprints.
     
@@ -305,7 +305,7 @@ def draw_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb, mols_per_r
     return img
 
 
-def _descriptors_from_mol(mol):
+def _get_descriptors_from_mol(mol):
     """
     Get descriptors for a molecule, i.e. number of hydrogen bond acceptors/donors, logP, and number of heavy atoms.
 
@@ -329,7 +329,7 @@ def _descriptors_from_mol(mol):
     return pd.Series([smiles, mol, hbd, hba, logp, size], index='smiles mol hbd hba logp size'.split())
 
 
-def descriptors_from_smiles(smiles):
+def get_descriptors_from_smiles(smiles):
     """
     Get descriptors for a set of SMILES.
 
@@ -346,14 +346,14 @@ def descriptors_from_smiles(smiles):
 
     descriptors = pd.DataFrame(
         smiles.apply(
-            lambda x: _descriptors_from_mol(Chem.MolFromSmiles(x))
+            lambda x: _get_descriptors_from_mol(Chem.MolFromSmiles(x))
         )
     )
 
     return descriptors
 
 
-def descriptors_by_fragments(fragment_library):
+def get_descriptors_by_fragments(fragment_library):
     """
     Get physicochemical properties of fragment library, i.e. size (# heavy atoms), logP, hydrogen bond donors and acceptors.
     
@@ -376,7 +376,7 @@ def descriptors_by_fragments(fragment_library):
         
         # Get descriptors for subpocket
         descriptors[subpocket] = fragments.apply(
-            lambda x: _descriptors_from_mol(x.fragment),
+            lambda x: _get_descriptors_from_mol(x.fragment),
             axis=1
         )
 
@@ -396,7 +396,7 @@ def descriptors_by_fragments(fragment_library):
     return descriptors
 
 
-def _drug_likeness_from_mol(mol):
+def _get_drug_likeness_from_mol(mol):
     """
     Get drug-likeness criteria for a molecule, i.e. molecular weight, logP, number of hydrogen bond acceptors/donors and
     accordance to Lipinski's rule of five.
@@ -422,7 +422,7 @@ def _drug_likeness_from_mol(mol):
     return pd.Series([mw, logp, hbd, hba, lipinski], index='mw logp hbd hba lipinski'.split())
 
 
-def drug_likeness_from_smiles(smiles):
+def get_drug_likeness_from_smiles(smiles):
     """
     Get drug-likeness for a set of SMILES.
 
@@ -439,7 +439,7 @@ def drug_likeness_from_smiles(smiles):
 
     drug_likeness = pd.DataFrame(
         smiles.apply(
-            lambda x: _drug_likeness_from_mol(Chem.MolFromSmiles(x))
+            lambda x: _get_drug_likeness_from_mol(Chem.MolFromSmiles(x))
         )
     )
     print(f'Number of molecules: {drug_likeness.shape[0]}')
@@ -449,7 +449,7 @@ def drug_likeness_from_smiles(smiles):
     return drug_likeness_ratio
 
 
-def connections_by_fragment(fragment_library_concat):
+def get_connections_by_fragment(fragment_library_concat):
     """
     For each fragment, extract connecting subpockets (e.g. ['FP', 'SE'] for subpocket 'AP') and define subpocket connections (e.g. ['AP=FP', 'AP=SE']). 
     
@@ -476,7 +476,7 @@ def connections_by_fragment(fragment_library_concat):
     return fragment_library_concat['kinase complex_pdb ligand_pdb atom_subpockets connections connections_name'.split()]
 
 
-def connections_by_ligand(connections_by_fragment):
+def get_connections_by_ligand(connections_by_fragment):
     """
     For each ligand, extract subpocket connections.
     
@@ -500,7 +500,7 @@ def connections_by_ligand(connections_by_fragment):
     return connections_by_ligand
 
 
-def connections_count_by_ligand(connections_by_ligand):
+def get_connections_count_by_ligand(connections_by_ligand):
     """
     Count subpocket connections (by type) across all ligands, i.e. how often a specific connection appears in the data set.
     
@@ -539,7 +539,7 @@ def connections_count_by_ligand(connections_by_ligand):
     return connections_count
 
 
-def fragment_similarity_per_subpocket(fragment_library_concat):
+def get_fragment_similarity_per_subpocket(fragment_library_concat):
     """
     Calculate fingerprint similarities for all pairwise fragment combinations within each subpocket.
     
@@ -579,7 +579,7 @@ def fragment_similarity_per_subpocket(fragment_library_concat):
     return similarities_all
 
 
-def fragment_similarity_per_kinase_group(fragment_library_concat):
+def get_fragment_similarity_per_kinase_group(fragment_library_concat):
     """
     Calculate fingerprint similarities for all pairwise fragment combinations within each kinase group and subpocket.
     
