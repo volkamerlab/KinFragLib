@@ -1,5 +1,5 @@
 """
-Utility functions to work with the fragment library.
+Utility functions to work with the KinFragLib fragment library.
 """
 
 from itertools import combinations
@@ -97,7 +97,7 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
         # 2D coordinates
         AllChem.Compute2DCoords(mol)
         
-        # kinase group
+        # add property information stored for each fragment, e.g. kinase group
         data.append(
             [
                 smiles,
@@ -137,7 +137,7 @@ def most_common_fragments(fragments, top_x=50):
         List of top x fragments (RDKit molecules) and frequence of top x fragments in subpocket (Series).
     """
     
-    # Sort fragments by number of counts
+    # Sort fragments by frequency
     mols_count = fragments.smiles.value_counts()  # Sorted in descending order
     
     # Get RDKit Mol from SMILES
@@ -168,7 +168,7 @@ def generate_fingerprints(mols):
 
 def cluster_molecules(fingerprints, cutoff=0.6):
     """
-    Cluster fingerprints using the Butina algorithm.
+    Cluster mols by fingerprint similarity using the Butina algorithm.
     
     Parameters
     ----------
@@ -179,7 +179,7 @@ def cluster_molecules(fingerprints, cutoff=0.6):
         
     Returns
     -------
-    list of tuple of int
+    list of tuple of integers (ids)
         List of clusters, whereby each cluster is described by its cluster member IDs.
     """
     
@@ -237,7 +237,7 @@ def _tanimoto_distance_matrix(fingerprints):
 
 def get_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb):
     """
-    Show fragments per subpocket for ligand by PDB ID.
+    Get fragments with subpocket assignment for ligand by PDB ID.
     
     Parameters
     ----------
@@ -276,7 +276,7 @@ def get_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb):
 
 def draw_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb, mols_per_row=6):
     """
-    Show fragments per subpocket for ligand by PDB ID.
+    Show fragments with subpocket assignment for ligand by PDB ID.
     
     Parameters
     ----------
@@ -362,7 +362,7 @@ def descriptors_by_fragments(fragment_library):
     fragment_library : dict of pandas.DataFrame
         Fragment details, i.e. SMILES, and fragment RDKit molecules, KLIFS and fragmentation details (values)
         for each subpocket (key).
-        
+        Here only value 'smiles' is necessary.
     Returns
     -------
     pandas.DataFrame
@@ -458,7 +458,7 @@ def connections_by_fragment(fragment_library_concat):
     Parameters
     ----------
     fragment_library_concat : pandas.DataFrame
-        Fragment library data for one or mulitple subpockets.
+        Fragment library data for one or multiple subpockets.
         
     Returns
     -------
@@ -504,7 +504,7 @@ def connections_by_ligand(connections_by_fragment):
 
 def connections_count_by_ligand(connections_by_ligand):
     """
-    Count subpocket connections (by type) across all ligands.
+    Count subpocket connections (by type) across all ligands, i.e. how often a specific connection appears in the data set.
     
     Parameters
     ----------
@@ -543,12 +543,12 @@ def connections_count_by_ligand(connections_by_ligand):
 
 def fragment_similarity_per_subpocket(fragment_library_concat):
     """
-    Calculate similarities for all pairwise fragment combinations within each subpocket.
+    Calculate fingerprint similarities for all pairwise fragment combinations within each subpocket.
     
     Parameters
     ----------
     fragment_library_concat : pandas.DataFrame
-        Fragment library data for one or mulitple subpockets.
+        Fragment library data for one or multiple subpockets.
         
     Returns
     -------
@@ -583,12 +583,12 @@ def fragment_similarity_per_subpocket(fragment_library_concat):
 
 def fragment_similarity_per_kinase_group(fragment_library_concat):
     """
-    Calculate similarities for all pairwise fragment combinations within each kinase group and subpocket.
+    Calculate fingerprint similarities for all pairwise fragment combinations within each kinase group and subpocket.
     
     Parameters
     ----------
     fragment_library_concat : pandas.DataFrame
-        Fragment library data for one or mulitple subpockets.
+        Fragment library data for one or multiple subpockets.
         
     Returns
     -------
@@ -755,7 +755,8 @@ def draw_selected_fragments(selected_fragments, fragments, mols_per_row=3):
     selected_fragments : list of list of str
         List of fragments defined by complex and ligand PDB ID.
     fragments : pandas.DataFrame
-        Fragments (including data ligke complex and ligand PDB ID, chain ID, and alternate model).
+        Fragments (including data like complex and ligand PDB ID, chain ID, and alternate model).
+    mols_per_row : number of molecules drawn per row
         
     Returns
     -------
@@ -791,8 +792,9 @@ def draw_fragments(fragments, mols_per_row=10):
     Parameters
     ----------
     fragments : pandas.DataFrame
-        Fragments (including data ligke complex and ligand PDB ID, chain ID, and alternate model).
-        
+        Fragments (including data like complex and ligand PDB ID, chain ID, and alternate model).
+    mols_per_row : number of molecules drawn per row
+
     Returns
     -------
     PIL.PngImagePlugin.PngImageFile
@@ -812,14 +814,16 @@ def draw_fragments(fragments, mols_per_row=10):
     return image
 
 
-def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150)):
+def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=5):
     """
-    Draw ligands from PDB ID (fetch data from KLIFS database).
+    Draw ligands from PDB ID (fetch data directly from KLIFS database).
     
     Parameters
     ----------
     pdb_ids : list of str
         List of complex PDB IDs.
+    sub_img_size : size of image
+    mols_per_row : number of molecules drawn per row
 
     Returns
     -------
@@ -873,7 +877,8 @@ def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150)):
     image = Draw.MolsToGridImage(
         mols,
         subImgSize=sub_img_size,
-        legends=legends
+        legends=legends,
+        molsPerRow=mols_per_row
     )
     
     return image
