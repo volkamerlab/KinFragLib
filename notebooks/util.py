@@ -97,7 +97,7 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
         # 2D coordinates
         AllChem.Compute2DCoords(mol)
         
-        # add property information stored for each fragment, e.g. kinase group
+        # Add property information stored for each fragment, e.g. kinase group
         data.append(
             [
                 smiles,
@@ -168,7 +168,7 @@ def generate_fingerprints(mols):
 
 def cluster_molecules(fingerprints, cutoff=0.6):
     """
-    Cluster mols by fingerprint similarity using the Butina algorithm.
+    Cluster molecules by fingerprint similarity using the Butina algorithm.
     
     Parameters
     ----------
@@ -179,8 +179,8 @@ def cluster_molecules(fingerprints, cutoff=0.6):
         
     Returns
     -------
-    list of tuple of integers (ids)
-        List of clusters, whereby each cluster is described by its cluster member IDs.
+    list of tuple of int
+        List of clusters, whereby each cluster is described by the IDs of its cluster members.
     """
     
     # Calculate Tanimoto distance matrix
@@ -360,9 +360,7 @@ def descriptors_by_fragments(fragment_library):
     Parameters
     ----------
     fragment_library : dict of pandas.DataFrame
-        Fragment details, i.e. SMILES, and fragment RDKit molecules, KLIFS and fragmentation details (values)
-        for each subpocket (key).
-        Here only value 'smiles' is necessary.
+        SMILES and RDKit molecules for fragments (values) per subpocket (key).
     Returns
     -------
     pandas.DataFrame
@@ -756,7 +754,8 @@ def draw_selected_fragments(selected_fragments, fragments, mols_per_row=3):
         List of fragments defined by complex and ligand PDB ID.
     fragments : pandas.DataFrame
         Fragments (including data like complex and ligand PDB ID, chain ID, and alternate model).
-    mols_per_row : number of molecules drawn per row
+    mols_per_row : 
+        Number of molecules per row.
         
     Returns
     -------
@@ -793,7 +792,8 @@ def draw_fragments(fragments, mols_per_row=10):
     ----------
     fragments : pandas.DataFrame
         Fragments (including data like complex and ligand PDB ID, chain ID, and alternate model).
-    mols_per_row : number of molecules drawn per row
+    mols_per_row : 
+        Number of molecules per row.
 
     Returns
     -------
@@ -822,8 +822,10 @@ def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=5):
     ----------
     pdb_ids : list of str
         List of complex PDB IDs.
-    sub_img_size : size of image
-    mols_per_row : number of molecules drawn per row
+    sub_img_size : 
+        Image size.
+    mols_per_row : 
+        Number of molecules per row.
 
     Returns
     -------
