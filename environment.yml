@@ -1,19 +1,15 @@
-name: kffl
+name: kinfraglib
 channels:
-  - conda-forge
-  - omnia
   - rdkit
-  - samoturk
+  - conda-forge
 dependencies:
+  - python
+  - jupyterlab
+  - rdkit 
   - biopandas
-  - jupyter
-  - matplotlib
   - numpy
   - pandas
-  - rdkit=2019.03.2
-  - parmed  
-  - pmw
-  - pymol
-  - python=3.6.8
   - scikit-learn
+  - matplotlib
   - seaborn
+  - bravado
