@@ -805,7 +805,7 @@ def draw_fragments(fragments, mols_per_row=10):
     PIL.PngImagePlugin.PngImageFile
         Image of fragments.
     """
-    
+
     image = Draw.MolsToGridImage(
         fragments.fragment, 
         maxMols=200,
@@ -819,7 +819,7 @@ def draw_fragments(fragments, mols_per_row=10):
     return image
 
 
-def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=5):
+def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=1):
     """
     Draw ligands from PDB ID (fetch data directly from KLIFS database).
     
@@ -845,21 +845,26 @@ def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=5):
     structures = KLIFS_CLIENT.Structures.get_structures_pdb_list(pdb_codes=pdb_ids).response().result
 
     # Get KLIFS structure IDs
-    structures = [
-        {
-            'structure_id': structure['structure_ID'],
-            'kinase': structure['kinase'],
-            'complex_pdb': structure['pdb'],
-            'chain': structure['chain'],
-            'alt': structure['alt'],
-            'ligand_pdb': structure['ligand'],
-        } for structure in structures
-    ]
+    structures = pd.DataFrame(
+        [
+            {
+                'structure_id': structure['structure_ID'],
+                'kinase': structure['kinase'],
+                'complex_pdb': structure['pdb'],
+                'chain': structure['chain'],
+                'alt': structure['alt'],
+                'ligand_pdb': structure['ligand'],
+            } for structure in structures
+        ]
+    )
+    
+    # Get only first KLIFS entry per PDB complex and ligand ID
+    structures = structures.groupby(['complex_pdb', 'ligand_pdb']).first().reset_index()
 
     mols = []
     legends = []
 
-    for structure in structures:
+    for index, structure in structures.iterrows():
 
         # Get ligand mol2 text
         ligand_mol2_text = KLIFS_CLIENT.Structures.get_structure_get_ligand(
@@ -872,14 +877,9 @@ def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=5):
         mols.append(mol)
         
         # Generate legend label
-        if structure['alt'] == '':
-            legends.append(
-                f'{structure["complex_pdb"]}|{structure["chain"]}:{structure["ligand_pdb"]}'
-            )
-        else:
-            legends.append(
-                f'{structure["complex_pdb"]}|{structure["chain"]}|{structure["alt"]}:{structure["ligand_pdb"]}'
-            )
+        legends.append(
+            f'{structure["complex_pdb"]}:{structure["ligand_pdb"]}'
+        )
 
     image = Draw.MolsToGridImage(
         mols,
