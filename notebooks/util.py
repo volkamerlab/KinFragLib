@@ -357,7 +357,8 @@ def get_descriptors_from_smiles(smiles):
 
 def get_descriptors_by_fragments(fragment_library):
     """
-    Get physicochemical properties of fragment library, i.e. size (# heavy atoms), logP, hydrogen bond donors and acceptors.
+    Get physicochemical properties of fragment library, i.e. size (# heavy atoms), logP, hydrogen bond donors and acceptors,
+    after deduplicating fragments per subpocket based on their smiles.
     
     Parameters
     ----------
@@ -543,7 +544,8 @@ def get_connections_count_by_ligand(connections_by_ligand):
 
 def get_fragment_similarity_per_subpocket(fragment_library_concat):
     """
-    Calculate fingerprint similarities for all pairwise fragment combinations within each subpocket.
+    Calculate fingerprint similarities for all pairwise fragment combinations within each subpocket,
+    after deduplicating fragments per subpocket based on their smiles.
     
     Parameters
     ----------
@@ -583,7 +585,8 @@ def get_fragment_similarity_per_subpocket(fragment_library_concat):
 
 def get_fragment_similarity_per_kinase_group(fragment_library_concat):
     """
-    Calculate fingerprint similarities for all pairwise fragment combinations within each kinase group and subpocket.
+    Calculate fingerprint similarities for all pairwise fragment combinations within each kinase group and subpocket
+    after deduplicating fragments per subpocket and kinase group based on their smiles.
     
     Parameters
     ----------
