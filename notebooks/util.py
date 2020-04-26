@@ -168,7 +168,7 @@ def generate_fingerprints(mols):
 
 def cluster_molecules(fingerprints, cutoff=0.6):
     """
-    Cluster molecules by fingerprint similarity using the Butina algorithm.
+    Cluster molecules by fingerprint distance using the Butina algorithm.
     
     Parameters
     ----------
@@ -186,7 +186,7 @@ def cluster_molecules(fingerprints, cutoff=0.6):
     # Calculate Tanimoto distance matrix
     distance_matrix = _get_tanimoto_distance_matrix(fingerprints)
     
-    # Now cluster the data with the implemented Butina algorithm:
+    # Now cluster the data with the implemented Butina algorithm
     clusters = Butina.ClusterData(
         distance_matrix,
         len(fingerprints),
@@ -220,13 +220,15 @@ def _get_tanimoto_distance_matrix(fingerprints):
     Returns
     -------
     list of floats
-        Distance matrix (a triangular similarity matrix in the form of a list)
+        Distance matrix (a triangular distance matrix in the form of a list)
     """
     
     fingerprints = list(fingerprints)
     distance_matrix = []
     
     for i in range(1,len(fingerprints)):
+        
+        # Calculate Tanimoto similarity between fingerprints
         similarities = DataStructs.BulkTanimotoSimilarity(fingerprints[i], fingerprints[:i])
         
         # Since we need a distance matrix, calculate 1-x for every element in similarity matrix
