@@ -473,7 +473,7 @@ def get_connections_by_fragment(fragment_library_concat):
     # Extract each connection (join connecting subpockets), e.g. ['AP=FP', 'AP=SE']
     fragment_library_concat['connections_name'] = fragment_library_concat.apply(lambda x: ["=".join(sorted([x.subpocket, i])) for i in x.connections], axis=1)
 
-    return fragment_library_concat['kinase complex_pdb ligand_pdb atom_subpockets connections connections_name'.split()]
+    return fragment_library_concat['kinase complex_pdb ligand_pdb atom_subpockets connections connections_name subpocket'.split()]
 
 
 def get_connections_by_ligand(connections_by_fragment):
