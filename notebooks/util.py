@@ -119,6 +119,69 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
         columns='smiles fragment kinase family group complex_pdb ligand_pdb alt chain atom_subpockets atom_environments'.split()
     )
 
+
+def get_original_ligands(fragment_library_concat):
+    """
+    Get ligands from which the fragment library originated from, 
+    including each ligand's occupied subpockets, RDKit molecule (remote KLIFS access) and SMILES (from RDKit molecule).
+    
+    Parameters
+    ----------
+    fragment_library_concat : pandas.DataFrame
+        Fragment library data for one or multiple subpockets.
+    
+    Returns
+    -------
+    pandas.DataFrame
+        Original ligand data, including kinase, structure and fragment subpocket data.
+    """
+
+    # Get ligands from which the fragment library originated from, 
+    # while collecting each ligand's occupied subpockets.
+    original_ligands = pd.concat(
+        [
+            fragment_library_concat.groupby(['complex_pdb', 'ligand_pdb'])['subpocket'].apply(list),
+            fragment_library_concat.groupby(['complex_pdb', 'ligand_pdb']).first().drop(
+                ['subpocket', 'smiles', 'fragment', 'atom_subpockets', 'atom_environments'], 
+                axis=1
+            )
+        ],
+        axis=1
+    ).reset_index()
+
+    # Get structures (metadata) for original ligands (takes a couple of minutes)
+    structures = pd.concat(
+        [
+            klifs_utils.remote.structures.structures_from_pdb_id(
+                original_ligand.complex_pdb, 
+                chain=original_ligand.chain
+            ) 
+            if original_ligand.alt == ' ' 
+            else klifs_utils.remote.structures.structures_from_pdb_id(
+                original_ligand.complex_pdb,
+                alt=original_ligand.alt,
+                chain=original_ligand.chain
+            ) 
+            for index, original_ligand in original_ligands.iterrows()
+        ]
+    )
+
+    # Get structure IDs for original ligands
+    structure_ids = structures.structure_ID
+
+    # Get RDKit molecules for original ligands (takes a couple of minutes)
+    original_ligands['ROMol'] = [
+        klifs_utils.remote.coordinates.ligand.mol2_to_rdkit_mol(structure_id) for structure_id in structure_ids
+    ]
+
+    # Get all SMILES for original ligands (generate SMILES from RdKit molecule)
+    original_ligands['smiles'] = [
+        Chem.MolToSmiles(mol) for mol in original_ligands.ROMol
+    ]
+
+    return original_ligands
+
+
 def get_most_common_fragments(fragments, top_x=50):
     """
     Get most common fragments.
