@@ -28,11 +28,17 @@ and can be used to enumerate recombined fragments in order to generate novel pot
     git clone https://github.com/volkamerlab/KinFragLib.git
     ```
 
-2. Create and activate the `kffl` conda environment. 
+2. Create and activate the `kinfraglib` conda environment. 
 
     ```bash
     conda env create -f environment.yml
-    conda activate kffl
+    conda activate kinfraglib
+
+    # Link the conda environment to the Jupyter notebook
+    python -m ipykernel install --user --name kinfraglib
+
+    # Optionally, add TOC extension for Jupyter Lab
+    jupyter labextension install @jupyterlab/toc
     ```
 
 3. Open the notebook `quick_start.ipynb` for an introduction on how to load and use the fragment library.
@@ -59,6 +65,7 @@ This repository holds (i) fragment library data, (ii) a *quick start* notebook e
     ├── quick_start.ipynb
     ├── fragment_analysis.ipynb
     └── cluster_most_common_fragments.ipynb
+    └── util.py
     
 
 ### Contact
