@@ -9,11 +9,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from rdkit import Chem, DataStructs
-from rdkit.Chem import AllChem, Draw
+from rdkit.Chem import AllChem, Draw, QED
 from rdkit.Chem.Draw import IPythonConsole
 from rdkit.Chem import rdFingerprintGenerator, Descriptors, Lipinski
 from rdkit.ML.Cluster import Butina
 import seaborn as sns
+
+import klifs_utils
 
 SUBPOCKET_COLORS = {
     'AP': 'purple', 
@@ -100,7 +102,6 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
         # Add property information stored for each fragment, e.g. kinase group
         data.append(
             [
-                smiles,
                 mol,
                 mol.GetProp('kinase'),
                 mol.GetProp('family'),
@@ -110,13 +111,14 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
                 mol.GetProp('alt'),
                 mol.GetProp('chain'),
                 mol.GetProp('atom.prop.subpocket'),
-                mol.GetProp('atom.prop.environment')
+                mol.GetProp('atom.prop.environment'),
+                smiles
             ]
         )
 
     return pd.DataFrame(
         data,
-        columns='smiles fragment kinase family group complex_pdb ligand_pdb alt chain atom_subpockets atom_environments'.split()
+        columns='ROMol kinase family group complex_pdb ligand_pdb alt chain atom_subpockets atom_environments smiles'.split()
     )
 
 
@@ -142,7 +144,7 @@ def get_original_ligands(fragment_library_concat):
         [
             fragment_library_concat.groupby(['complex_pdb', 'ligand_pdb'])['subpocket'].apply(list),
             fragment_library_concat.groupby(['complex_pdb', 'ligand_pdb']).first().drop(
-                ['subpocket', 'smiles', 'fragment', 'atom_subpockets', 'atom_environments'], 
+                ['subpocket', 'smiles', 'smiles_dummy_atoms', 'ROMol', 'atom_subpockets', 'atom_environments'], 
                 axis=1
             )
         ],
@@ -153,11 +155,6 @@ def get_original_ligands(fragment_library_concat):
     structures = pd.concat(
         [
             klifs_utils.remote.structures.structures_from_pdb_id(
-                original_ligand.complex_pdb, 
-                chain=original_ligand.chain
-            ) 
-            if original_ligand.alt == ' ' 
-            else klifs_utils.remote.structures.structures_from_pdb_id(
                 original_ligand.complex_pdb,
                 alt=original_ligand.alt,
                 chain=original_ligand.chain
@@ -165,10 +162,13 @@ def get_original_ligands(fragment_library_concat):
             for index, original_ligand in original_ligands.iterrows()
         ]
     )
+    
+    # Get aC-helix conformation of structure
+    original_ligands['aC_helix'] = structures.aC_helix.to_list()
 
     # Get structure IDs for original ligands
     structure_ids = structures.structure_ID
-
+    
     # Get RDKit molecules for original ligands (takes a couple of minutes)
     original_ligands['ROMol'] = [
         klifs_utils.remote.coordinates.ligand.mol2_to_rdkit_mol(structure_id) for structure_id in structure_ids
@@ -362,7 +362,7 @@ def draw_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb, mols_per_r
     fragmented_ligand = get_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb)
     
     img = Draw.MolsToGridImage(
-        fragmented_ligand.fragment.tolist(), 
+        fragmented_ligand.ROMol.tolist(), 
         legends=fragmented_ligand.subpocket.tolist(), 
         molsPerRow=mols_per_row
     )
@@ -442,7 +442,7 @@ def get_descriptors_by_fragments(fragment_library):
         
         # Get descriptors for subpocket
         descriptors[subpocket] = fragments.apply(
-            lambda x: _get_descriptors_from_mol(x.fragment),
+            lambda x: _get_descriptors_from_mol(x.ROMol),
             axis=1
         )
 
@@ -462,7 +462,7 @@ def get_descriptors_by_fragments(fragment_library):
     return descriptors
 
 
-def _get_drug_likeness_from_mol(mol):
+def get_drug_likeness_from_mol(mol):
     """
     Get drug-likeness criteria for a molecule, i.e. molecular weight, logP, number of hydrogen bond acceptors/donors and
     accordance to Lipinski's rule of five.
@@ -488,6 +488,37 @@ def _get_drug_likeness_from_mol(mol):
     return pd.Series([mw, logp, hbd, hba, lipinski], index='mw logp hbd hba lipinski'.split())
 
 
+def get_fragment_likeness_from_mol(mol):
+    """
+    Get fragment-likeness criteria for a fragment, i.e. molecular weight, logP, number of hydrogen bond acceptors/donors.
+
+    Parameters
+    ----------
+    mol : rdkit.Chem.rdchem.Mol
+        Fragment.
+
+    Returns
+    -------
+    pd.Series
+        Fragment-likeness criteria for input fragment.
+        
+    Notes
+    -----
+    Taken from: https://europepmc.org/article/med/14554012
+    """
+    
+    properties = QED.properties(mol)
+
+    mw = 1 if properties.MW < 300 else 0
+    logp = 1 if properties.ALOGP <= 3 else 0
+    hbd = 1 if properties.HBD <= 3 else 0
+    hba = 1 if properties.HBA <= 3 else 0
+    nrot = 1 if properties.ROTB <=3 else 0
+    psa = 1 if properties.PSA <= 60 else 0
+
+    return pd.Series([mw, logp, hbd, hba, nrot, psa], index='mw logp hbd hba nrot psa'.split())
+
+
 def get_drug_likeness_from_smiles(smiles):
     """
     Get drug-likeness for a set of SMILES.
@@ -505,7 +536,7 @@ def get_drug_likeness_from_smiles(smiles):
 
     drug_likeness = pd.DataFrame(
         smiles.apply(
-            lambda x: _get_drug_likeness_from_mol(Chem.MolFromSmiles(x))
+            lambda x: get_drug_likeness_from_mol(Chem.MolFromSmiles(x))
         )
     )
     print(f'Number of molecules: {drug_likeness.shape[0]}')
@@ -669,7 +700,7 @@ def get_fragment_similarity_per_kinase_group(fragment_library_concat):
         # Group and deduplicate fragments by kinase group and subpockets
         fragments_deduplicated = fragments.drop_duplicates('smiles')
 
-        fingerprints = generate_fingerprints(fragments_deduplicated.fragment)
+        fingerprints = generate_fingerprints(fragments_deduplicated.ROMol)
 
         similarities = []
 
@@ -870,7 +901,7 @@ def draw_fragments(fragments, mols_per_row=10):
     """
 
     image = Draw.MolsToGridImage(
-        fragments.fragment, 
+        fragments.ROMol, 
         maxMols=200,
         molsPerRow=mols_per_row, 
         legends=fragments.apply(
