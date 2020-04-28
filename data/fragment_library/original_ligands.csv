@@ -1,4 +1,4 @@
-complex_pdb,ligand_pdb,subpocket,kinase,family,group,alt,chain,aC_helix,smiles
+complex_pdb,ligand_pdb,subpocket,kinase,family,group,alt,chain,ac_helix,smiles
 1a9u,SB2,"['AP', 'GA', 'B2']",p38a,MAPK,CMGC, ,A,out-like,C[S@](=O)c1ccc(-c2nc(-c3ccc(F)cc3)c(-c3ccncc3)[nH]2)cc1
 1agw,SU2,"['AP', 'SE']",FGFR1,FGFR,TK,B,B,out-like,O=CN1CCN(c2ccc(C[C@@H]3C(=O)Nc4ccccc43)cc2)CC1
 1bl6,SB6,"['AP', 'FP', 'GA']",p38a,MAPK,CMGC, ,A,out-like,Fc1ccc(-c2ncn(CC3CC3)c2-c2ccncc2)cc1

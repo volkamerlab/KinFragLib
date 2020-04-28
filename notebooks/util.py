@@ -164,7 +164,7 @@ def get_original_ligands(fragment_library_concat):
     )
     
     # Get aC-helix conformation of structure
-    original_ligands['aC_helix'] = structures.aC_helix.to_list()
+    original_ligands['ac_helix'] = structures.aC_helix.to_list()
 
     # Get structure IDs for original ligands
     structure_ids = structures.structure_ID
