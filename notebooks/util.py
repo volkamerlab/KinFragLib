@@ -27,7 +27,7 @@ SUBPOCKET_COLORS = {
     'X': 'grey'
 }
 
-def read_fragment_library(path_to_lib, remove_dummy=True):
+def read_fragment_library(path_to_lib, remove_dummy=True, reduced=''):
     """
     Read fragment library from sdf files (one file per subpocket).
     
@@ -37,6 +37,9 @@ def read_fragment_library(path_to_lib, remove_dummy=True):
         Path to fragment library folder.
     remove_dummy : bool
         Replace dummy atoms with hydrogens in fragments (default), or leave dummy atoms in fragments.
+    reduced : str
+        Add here string in file name describing the library reduction, e.g. add '_reduced_0.6' if file name is
+        'AP_reduced_0.6.sdf'.
     
     
     Returns
@@ -44,19 +47,21 @@ def read_fragment_library(path_to_lib, remove_dummy=True):
     dict of pandas.DataFrame
         Fragment details, i.e. SMILES, kinase groups, and fragment RDKit molecules, (values) for each subpocket (key).
     """
-    # list of folders for each subpocket
-    subpockets = ['AP', 'FP', 'SE', 'GA', 'B1', 'B2', 'X']
+    # List of folders for each subpocket
+    if reduced == '':
+        subpockets = ['AP', 'FP', 'SE', 'GA', 'B1', 'B2', 'X']
+    else:
+        subpockets = ['AP', 'FP', 'SE', 'GA', 'B1', 'B2']
     
     data = {}
 
     # iterate over subpockets
     for subpocket in subpockets:
-
-    	data[subpocket] = _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy)
+    	data[subpocket] = _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy, reduced)
         
     return data
 
-def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
+def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True, reduced=''):
     """
     Read fragments for input subpocket.
     
@@ -68,6 +73,9 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
         Path to fragment library folder.
     remove_dummy : bool
         Replace dummy atoms with hydrogens in fragments (default), or leave dummy atoms in fragments.
+    reduced : str
+        Add here string in file name describing the library reduction, e.g. add '_reduced_0.6' if file name is
+        'AP_reduced_0.6.sdf'.
     
     Returns
     -------
@@ -75,7 +83,7 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
         Fragment details, i.e. SMILES, kinase groups, and fragment RDKit molecules, for input subpocket.
     """
 
-    mol_supplier = Chem.SDMolSupplier(str(path_to_lib / f'{subpocket}.sdf'), removeHs=False)
+    mol_supplier = Chem.SDMolSupplier(str(path_to_lib / f'{subpocket}{reduced}.sdf'), removeHs=False)
         
     data = []
 
