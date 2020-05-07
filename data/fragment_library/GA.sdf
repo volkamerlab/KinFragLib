@@ -30664,7 +30664,7 @@ B
 B
 
 >  <atom.prop.subpocket>  (1) 
-GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP FP
+GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
 16 16 16 16 16 16 3 3 3 3 3 16 16 3 3 3 3 3 16 5 na na
@@ -42190,7 +42190,7 @@ TK
 A
 
 >  <atom.prop.subpocket>  (1) 
-GA GA GA GA GA GA FP FP
+GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
 8 8 8 8 8 8 na na
@@ -42233,7 +42233,7 @@ A
 A
 
 >  <atom.prop.subpocket>  (1) 
-GA GA GA FP FP
+GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
 8 8 8 na na
@@ -50096,7 +50096,7 @@ A
 A
 
 >  <atom.prop.subpocket>  (1) 
-GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP FP
+GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
 5 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
@@ -50230,7 +50230,7 @@ TK
 A
 
 >  <atom.prop.subpocket>  (1) 
-GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP FP
+GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
 5 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
@@ -57030,7 +57030,7 @@ B
 A
 
 >  <atom.prop.subpocket>  (1) 
-GA GA GA GA GA GA GA GA GA GA GA GA FP FP
+GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
 5 16 16 16 16 16 16 16 16 16 16 16 na na
