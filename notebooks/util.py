@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from rdkit import Chem, DataStructs
-from rdkit.Chem import AllChem, Draw, QED
+from rdkit.Chem import AllChem, Draw, QED, PandasTools
 from rdkit.Chem.Draw import IPythonConsole
 from rdkit.Chem import rdFingerprintGenerator, Descriptors, Lipinski
 from rdkit.ML.Cluster import Butina
@@ -190,24 +190,51 @@ def get_most_common_fragments(fragments, top_x=50):
     ----------
     fragments : pandas.DataFrame
         Fragment details, i.e. SMILES, kinase groups, and fragment RDKit molecules, for input subpocket.
-        
     top_x : int
         Top x most common fragments.
         
     Returns
     -------
-    tuple (list of rdkit.Chem.rdchem.Mol, pandas.Series)
-        List of top x fragments (RDKit molecules) and frequence of top x fragments in subpocket (Series).
+    pandas.DataFrame
+        Most common fragments (sorted in descending order), including fragments' SMILES, ROMol, and count.
     """
     
-    # Sort fragments by frequency
-    mols_count = fragments.smiles.value_counts()  # Sorted in descending order
+    # Get number of occurrences (count) per fragment (based on SMILES) in decending order
+    fragment_counts = fragments.smiles.value_counts()
+    fragment_counts.name = 'fragment_count'
+
+    # Cast Series to DataFrame and add ROMol column
+    fragment_counts = fragment_counts.reset_index().rename(columns={'index': 'smiles'})
+    PandasTools.AddMoleculeColumnToFrame(fragment_counts, 'smiles')
+
+    # Sort fragments by their count (descending)
+    fragment_counts.sort_values('fragment_count', ascending=False, inplace=True)
+    fragment_counts.reset_index(inplace=True, drop=True)
     
-    # Get RDKit Mol from SMILES
-    mols = [Chem.MolFromSmiles(smiles) for smiles in mols_count.index]
+    # Set molecule ID
+    fragment_counts.insert(0, 'molecule_id', fragment_counts.index)
+
+    # Get the top X most common fragments
+    if fragment_counts.shape[0] < top_x:
+        
+        # Select all fragments if there are less than top X fragments in subpocket
+        most_common_fragments = fragment_counts
+        
+    else: 
+        
+        # If multiple fragments have the same count but some make it into the top X and some not,
+        # include the latter also
     
-    # N most common fragments
-    return mols[:top_x], mols_count[:top_x]
+        # Get lowest fragment count that is included in top X fragments
+        lowest_fragment_count = fragment_counts.iloc[top_x-1].fragment_count
+
+        # Get all fragments with more or equal to the lowest fragment count
+        most_common_fragments = fragment_counts[
+            fragment_counts.fragment_count >= lowest_fragment_count
+        ]
+    
+    return most_common_fragments
+    
 
 def generate_fingerprints(mols):
     """
@@ -242,8 +269,8 @@ def cluster_molecules(fingerprints, cutoff=0.6):
         
     Returns
     -------
-    list of tuple of int
-        List of clusters, whereby each cluster is described by the IDs of its cluster members.
+    pandas.DataFrame
+        Table with cluster ID - molecule ID pairs.
     """
     
     # Calculate Tanimoto distance matrix
@@ -260,16 +287,23 @@ def cluster_molecules(fingerprints, cutoff=0.6):
     # Sort clusters by size
     clusters = sorted(clusters, key=len, reverse=True)
     
-    # Get number of singleton clusters
-    num_singletons = len([cluster for cluster in clusters if len(cluster) == 1])
+    # Get cluster ID - molecule ID pairs
+    clustered_molecules = []
+
+    for cluster_id, molecule_ids in enumerate(clusters, start=1):
+
+        for molecule_id in molecule_ids:
+            clustered_molecules.append([cluster_id, molecule_id])
+
+    clustered_molecules = pd.DataFrame(clustered_molecules, columns=['cluster_id', 'molecule_id'])
     
     # Print details on clustering
     print("Number of fragments:", len(fingerprints))    
     print("Threshold: ", cutoff)
     print("Number of clusters: ", len(clusters))
-    print("# clusters with only 1 compound: ", num_singletons)
+    print("# clusters with only 1 compound: ", len([cluster for cluster in clusters if len(cluster) == 1]))
     
-    return clusters
+    return clustered_molecules
 
 def _get_tanimoto_distance_matrix(fingerprints):
     """
