@@ -13,3 +13,4 @@ dependencies:
   - matplotlib
   - seaborn
   - bravado
+  - nodejs
