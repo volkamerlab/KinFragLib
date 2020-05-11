@@ -496,9 +496,9 @@ def get_descriptors_by_fragments(fragment_library):
     return descriptors
 
 
-def get_drug_likeness_from_mol(mol):
+def get_ro5_from_mol(mol):
     """
-    Get drug-likeness criteria for a molecule, i.e. molecular weight, logP, number of hydrogen bond acceptors/donors and
+    Get Lipinski's rule of five criteria for a molecule, i.e. molecular weight, logP, number of hydrogen bond acceptors/donors and
     accordance to Lipinski's rule of five.
     (Takes about 1s for 2000 mols.)
 
@@ -510,7 +510,7 @@ def get_drug_likeness_from_mol(mol):
     Returns
     -------
     pd.Series
-        Drug-likeness criteria for input molecule.
+        Rule of five criteria for input molecule.
     """
 
     mw = 1 if Descriptors.ExactMolWt(mol) <= 500 else 0
@@ -522,9 +522,9 @@ def get_drug_likeness_from_mol(mol):
     return pd.Series([mw, logp, hbd, hba, lipinski], index='mw logp hbd hba lipinski'.split())
 
 
-def get_fragment_likeness_from_mol(mol):
+def get_ro3_from_mol(mol):
     """
-    Get fragment-likeness criteria for a fragment, i.e. molecular weight, logP, number of hydrogen bond acceptors/donors.
+    Get rule of three criteria for a fragment, i.e. molecular weight, logP, number of hydrogen bond acceptors/donors, number of rotatable bonds, and PSA.
 
     Parameters
     ----------
@@ -534,7 +534,7 @@ def get_fragment_likeness_from_mol(mol):
     Returns
     -------
     pd.Series
-        Fragment-likeness criteria for input fragment.
+        Rule of three criteria for input fragment.
         
     Notes
     -----
@@ -553,9 +553,9 @@ def get_fragment_likeness_from_mol(mol):
     return pd.Series([mw, logp, hbd, hba, nrot, psa], index='mw logp hbd hba nrot psa'.split())
 
 
-def get_drug_likeness_from_smiles(smiles):
+def get_ro5_from_smiles(smiles):
     """
-    Get drug-likeness for a set of SMILES.
+    Get Lipinski's rule of five criteria for a set of SMILES.
 
     Parameters
     ----------
@@ -565,12 +565,12 @@ def get_drug_likeness_from_smiles(smiles):
     Returns
     -------
     pd.Series
-        Ratio of drug like molecules.
+        Ratio of molecules that fulfill Lipinski's rule of five.
     """
 
     drug_likeness = pd.DataFrame(
         smiles.apply(
-            lambda x: get_drug_likeness_from_mol(Chem.MolFromSmiles(x))
+            lambda x: get_ro5_from_mol(Chem.MolFromSmiles(x))
         )
     )
     print(f'Number of molecules: {drug_likeness.shape[0]}')
