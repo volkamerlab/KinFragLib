@@ -211,8 +211,8 @@ def get_most_common_fragments(fragments, top_x=50):
     fragment_counts.sort_values('fragment_count', ascending=False, inplace=True)
     fragment_counts.reset_index(inplace=True, drop=True)
     
-    # Set molecule ID
-    fragment_counts.insert(0, 'molecule_id', fragment_counts.index)
+    # Set molecule ID as index name
+    fragment_counts.index.name = 'molecule_id'
 
     # Get the top X most common fragments
     if fragment_counts.shape[0] < top_x:
@@ -298,10 +298,13 @@ def cluster_molecules(fingerprints, cutoff=0.6):
     clustered_molecules = pd.DataFrame(clustered_molecules, columns=['cluster_id', 'molecule_id'])
     
     # Print details on clustering
-    print("Number of fragments:", len(fingerprints))    
+    print("Number of molecules:", len(fingerprints))    
     print("Threshold: ", cutoff)
     print("Number of clusters: ", len(clusters))
-    print("# clusters with only 1 compound: ", len([cluster for cluster in clusters if len(cluster) == 1]))
+    print("# Clusters with only 1 molecule: ", len([cluster for cluster in clusters if len(cluster) == 1]))
+    print("# Clusters with more than 5 molecules: ", len([cluster for cluster in clusters if len(cluster) > 5]))
+    print("# Clusters with more than 25 molecules: ", len([cluster for cluster in clusters if len(cluster) > 25]))
+    print("# Clusters with more than 100 molecules: ", len([cluster for cluster in clusters if len(cluster) > 100]))
     
     return clustered_molecules
 
