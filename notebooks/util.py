@@ -236,7 +236,7 @@ def get_most_common_fragments(fragments, top_x=50):
     return most_common_fragments
     
 
-def generate_fingerprints(mols):
+def _generate_fingerprints(mols):
     """
     Generate RDKit fingerprint from list of molecules.
     
@@ -256,14 +256,14 @@ def generate_fingerprints(mols):
     
     return fingerprints
 
-def cluster_molecules(fingerprints, cutoff=0.6):
+def cluster_molecules(mols, cutoff=0.6):
     """
     Cluster molecules by fingerprint distance using the Butina algorithm.
     
     Parameters
     ----------
-    fingerprints : list of rdkit.DataStructs.cDataStructs.ExplicitBitVect
-        List of fingerprints.
+    mols : list of rdkit.Chem.rdchem.Mol
+        List of molecules.
     cutoff : float
         Distance cutoff Butina clustering.
         
@@ -272,6 +272,9 @@ def cluster_molecules(fingerprints, cutoff=0.6):
     pandas.DataFrame
         Table with cluster ID - molecule ID pairs.
     """
+    
+    # Generate fingerprints
+    fingerprints = _generate_fingerprints(mols)
     
     # Calculate Tanimoto distance matrix
     distance_matrix = _get_tanimoto_distance_matrix(fingerprints)
@@ -292,10 +295,10 @@ def cluster_molecules(fingerprints, cutoff=0.6):
 
     for cluster_id, molecule_ids in enumerate(clusters, start=1):
 
-        for molecule_id in molecule_ids:
-            clustered_molecules.append([cluster_id, molecule_id])
+        for cluster_member_id, molecule_id in enumerate(molecule_ids, start=1):
+            clustered_molecules.append([cluster_id, cluster_member_id, molecule_id])
 
-    clustered_molecules = pd.DataFrame(clustered_molecules, columns=['cluster_id', 'molecule_id'])
+    clustered_molecules = pd.DataFrame(clustered_molecules, columns=['cluster_id', 'cluster_member_id', 'molecule_id'])
     
     # Print details on clustering
     print("Number of molecules:", len(fingerprints))    
@@ -696,7 +699,7 @@ def get_fragment_similarity_per_subpocket(fragment_library_concat):
         smiles_deduplicated = fragments['smiles'].drop_duplicates()
 
         mols = smiles_deduplicated.apply(lambda x: Chem.MolFromSmiles(x))
-        fingerprints = generate_fingerprints(mols)
+        fingerprints = _generate_fingerprints(mols)
 
         similarities = []
 
@@ -737,7 +740,7 @@ def get_fragment_similarity_per_kinase_group(fragment_library_concat):
         # Group and deduplicate fragments by kinase group and subpockets
         fragments_deduplicated = fragments.drop_duplicates('smiles')
 
-        fingerprints = generate_fingerprints(fragments_deduplicated.ROMol)
+        fingerprints = _generate_fingerprints(fragments_deduplicated.ROMol)
 
         similarities = []
 
