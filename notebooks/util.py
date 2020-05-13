@@ -950,14 +950,16 @@ def draw_fragments(fragments, mols_per_row=10):
     return image
 
 
-def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=1):
+def draw_ligands_from_pdb_ids(complex_pdbs, ligand_pdbs, sub_img_size=(150, 150), mols_per_row=1):
     """
     Draw ligands from PDB ID (fetch data directly from KLIFS database).
     
     Parameters
     ----------
-    pdb_ids : list of str
-        List of complex PDB IDs.
+    complex_pdbs : str or list of str
+        One or more complex PDB IDs.
+    ligand_pdbs : str or list of str
+        One or more ligand PDB IDs complementary to complex PDB IDs.
     sub_img_size : 
         Image size.
     mols_per_row : 
@@ -968,14 +970,20 @@ def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=1):
     PIL.PngImagePlugin.PngImageFile
         Ligand images.
     """
+        
+    if isinstance(complex_pdbs, str):
+        complex_pdbs = [complex_pdbs]
+    if isinstance(ligand_pdbs, str):
+        ligand_pdbs = [ligand_pdbs]
+        
+    if len(complex_pdbs) != len(ligand_pdbs):
+        raise ValueError(f'Complex and ligand PDB ID lists must be of same length.')
     
     KLIFS_API_DEFINITIONS = "http://klifs.vu-compmedchem.nl/swagger/swagger.json"
     KLIFS_CLIENT = SwaggerClient.from_url(KLIFS_API_DEFINITIONS, config={'validate_responses': False})
 
-    # Get KLIFS structures by PDB ID
-    structures = KLIFS_CLIENT.Structures.get_structures_pdb_list(pdb_codes=pdb_ids).response().result
-
-    # Get KLIFS structure IDs
+    # Get KLIFS structures by PDB ID (these include all complex PDB related details, thus multiple ligand PDBs are possible)
+    structures = KLIFS_CLIENT.Structures.get_structures_pdb_list(pdb_codes=complex_pdbs).response().result
     structures = pd.DataFrame(
         [
             {
@@ -989,8 +997,22 @@ def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=1):
         ]
     )
     
-    # Get only first KLIFS entry per PDB complex and ligand ID
-    structures = structures.groupby(['complex_pdb', 'ligand_pdb']).first().reset_index()
+    # Keep only intended complex-ligand pairs (if multiple keep only first entry)
+    complex_ligand_pairs = pd.DataFrame(
+        {
+            'complex_pdb': complex_pdbs,
+            'ligand_pdb': ligand_pdbs
+        }
+    )
+    
+    # Filter database result by intended complex-ligand pairs
+    structures = structures.merge(
+        complex_ligand_pairs, 
+        on=['complex_pdb', 'ligand_pdb']
+    ).groupby(
+        ['complex_pdb', 'ligand_pdb']
+    ).first().reset_index()
+        
 
     mols = []
     legends = []
@@ -1006,12 +1028,12 @@ def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=1):
         mol = Chem.MolFromMol2Block(ligand_mol2_text)
         AllChem.Compute2DCoords(mol)
         mols.append(mol)
-        
+
         # Generate legend label
         legends.append(
             f'{structure["complex_pdb"]}:{structure["ligand_pdb"]}'
         )
-
+            
     image = Draw.MolsToGridImage(
         mols,
         subImgSize=sub_img_size,
