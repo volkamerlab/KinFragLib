@@ -145,7 +145,7 @@ def get_original_ligands(fragment_library_concat):
         [
             fragment_library_concat.groupby(['complex_pdb', 'ligand_pdb'])['subpocket'].apply(list),
             fragment_library_concat.groupby(['complex_pdb', 'ligand_pdb']).first().drop(
-                ['subpocket', 'smiles', 'smiles_dummy_atoms', 'ROMol', 'atom_subpockets', 'atom_environments'], 
+                ['subpocket', 'smiles', 'smiles_dummy', 'ROMol', 'ROMol_dummy', 'ROMol_original', 'atom_subpockets', 'atom_environments'], 
                 axis=1
             )
         ],
