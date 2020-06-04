@@ -604,38 +604,40 @@ def get_connections_by_fragment(fragment_library_concat):
 
     # For each fragment, extract connecting subpocket from atom_subpockets, e.g. ['FP', 'SE'] for subpocket 'AP'
     fragment_library_concat['connections'] = fragment_library_concat.apply(
-        lambda x: [i for i in x.atom_subpockets.split() if i != x.subpocket], 
+        lambda x: _get_connecting_subpockets(x.subpocket, x.atom_subpockets.split()), 
         axis=1
     )
     
     # Extract each connection (join connecting subpockets), e.g. ['AP=FP', 'AP=SE']
-    fragment_library_concat['connections_name'] = fragment_library_concat.apply(lambda x: ["=".join(sorted([x.subpocket, i])) for i in x.connections], axis=1)
+    fragment_library_concat['connections_name'] = fragment_library_concat.apply(
+        lambda x: ["=".join(sorted([x.subpocket, i])) for i in x.connections], 
+        axis=1
+    )
 
     return fragment_library_concat['kinase complex_pdb ligand_pdb atom_subpockets connections connections_name subpocket'.split()]
 
 
-def get_connections_by_ligand(connections_by_fragment):
+def _get_connecting_subpockets(subpocket, atom_subpockets):
     """
-    For each ligand, extract subpocket connections.
+    Get a fragment's connecting subpockets based on the fragment's subpocket and all fragment atoms' subpockets (only dummy atoms will have differing subpockets).
     
     Parameters
     ----------
-    connections_by_fragment : pandas.DataFrame
-        Fragment library data including connecting subpockets and connections (see connections_by_fragment() function).
+    subpocket : str
+        Fragment's subpocket.
+    atom_subpockets : list of str
+        Fragment atoms' subpockets.
         
     Returns
     -------
-    pandas.DataFrame
-        Ligands represented by fragment library with details on their subpocket connections. 
+    list of str
+        Dummy atoms' subpockets (i.e. the subpockets that the fragment is connected to)
     """
-
-    # Pool fragment connections by ligand
-    connections_by_ligand = connections_by_fragment.groupby(['group', 'complex_pdb', 'ligand_pdb'])['connections_name'].sum()
-
-    # Deduplicate connections (count each connection only once)
-    connections_by_ligand = connections_by_ligand.apply(lambda x: set(x))
-
-    return connections_by_ligand
+    
+    if subpocket != 'X':
+        return [i if i[0] != 'X' else i[0] for i in atom_subpockets if i != subpocket]
+    else:
+        return [i for i in atom_subpockets if i[0] != subpocket]
 
 
 def get_connections_count_by_ligand(connections_by_ligand):
