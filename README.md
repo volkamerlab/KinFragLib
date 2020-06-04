@@ -1,6 +1,6 @@
 # KinFragLib: Kinase focused fragment library
 
-Developed by: Paula Schmiel, Dominique Sydow, Jérémie Mortier and Andrea Volkamer, 04/2020
+Developed by: Dominique Sydow, Paula Schmiel, Jérémie Mortier and Andrea Volkamer, 04/2020
 
 **Subpocket-based fragmentation of kinase ligands from KLIFS**
 
@@ -50,22 +50,16 @@ and can be used to enumerate recombined fragments in order to generate novel pot
 
 ### Repository content
 
-This repository holds (i) fragment library data, (ii) a *quick start* notebook explaining how to load and use the library, alongside (iii) notebooks covering the full fragment analysis as described in the corresponding paper.
+This repository holds 
+(i) fragment library data, 
+(ii) a *quick start* notebook explaining how to load and use the library, alongside 
+(iii) notebooks covering the full fragment analysis as described in the corresponding paper.
 
     data/
-    └── fragment_library/
-            ├── AP.sdf
-            ├── FP.sdf
-            ├── GA.sdf
-            ├── SE.sdf
-            ├── B1.sdf
-            ├── B2.sdf
-            └── X.sdf
     notebooks/
-    ├── quick_start.ipynb
-    ├── fragment_analysis.ipynb
-    └── cluster_most_common_fragments.ipynb
-    └── util.py
+    environment.yml
+    
+Please find detailed description of files in `data/` and `notebooks/` in the folders' README files.
     
 
 ### Contact
