@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from rdkit import Chem, DataStructs
-from rdkit.Chem import AllChem, Draw, QED
+from rdkit.Chem import AllChem, Draw, QED, PandasTools
 from rdkit.Chem.Draw import IPythonConsole
 from rdkit.Chem import rdFingerprintGenerator, Descriptors, Lipinski
 from rdkit.ML.Cluster import Butina
@@ -27,7 +27,7 @@ SUBPOCKET_COLORS = {
     'X': 'grey'
 }
 
-def read_fragment_library(path_to_lib, remove_dummy=True):
+def read_fragment_library(path_to_lib):
     """
     Read fragment library from sdf files (one file per subpocket).
     
@@ -35,8 +35,6 @@ def read_fragment_library(path_to_lib, remove_dummy=True):
     ----------
     path_to_lib : str
         Path to fragment library folder.
-    remove_dummy : bool
-        Replace dummy atoms with hydrogens in fragments (default), or leave dummy atoms in fragments.
     
     
     Returns
@@ -52,11 +50,11 @@ def read_fragment_library(path_to_lib, remove_dummy=True):
     # iterate over subpockets
     for subpocket in subpockets:
 
-    	data[subpocket] = _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy)
+    	data[subpocket] = _read_subpocket_fragments(subpocket, path_to_lib)
         
     return data
 
-def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
+def _read_subpocket_fragments(subpocket, path_to_lib):
     """
     Read fragments for input subpocket.
     
@@ -66,8 +64,6 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
         Subpocket name, i.e. AP, SE, FP, GA, B1, or B2.
     path_to_lib : str
         Path to fragment library folder.
-    remove_dummy : bool
-        Replace dummy atoms with hydrogens in fragments (default), or leave dummy atoms in fragments.
     
     Returns
     -------
@@ -79,47 +75,52 @@ def _read_subpocket_fragments(subpocket, path_to_lib, remove_dummy=True):
         
     data = []
 
-    for mol_raw in mol_supplier:
+    for mol in mol_supplier:
         
-        if remove_dummy:
+        # Replace dummy atoms with hydrogens in fragments
+        dummy = Chem.MolFromSmiles('*')
+        hydrogen = Chem.MolFromSmiles('[H]', sanitize=False)
+        mol_wo_dummy = AllChem.ReplaceSubstructs(mol, dummy, hydrogen, replaceAll=True)[0]
         
-            # Replace dummy atoms with hydrogens in fragments
-            dummy = Chem.MolFromSmiles('*')
-            hydrogen = Chem.MolFromSmiles('[H]', sanitize=False)
-            mol = AllChem.ReplaceSubstructs(mol_raw, dummy, hydrogen, replaceAll=True)[0]
-            mol = Chem.RemoveHs(mol)  # Remove all hydrogens but explicit hydrogens
-            
-        else:
-            
-            mol = Chem.RemoveHs(mol_raw)
+        # Remove all hydrogens but explicit hydrogens
+        mol_wo_dummy = Chem.RemoveHs(mol_wo_dummy)      
+        mol_w_dummy = Chem.RemoveHs(mol)
         
         # Generate SMILES
-        smiles = Chem.MolToSmiles(mol)
+        smiles_wo_dummy = Chem.MolToSmiles(mol_wo_dummy)
+        smiles_w_dummy = Chem.MolToSmiles(mol_w_dummy)
         
         # 2D coordinates
-        AllChem.Compute2DCoords(mol)
+        AllChem.Compute2DCoords(mol_wo_dummy)
+        AllChem.Compute2DCoords(mol_w_dummy)
         
         # Add property information stored for each fragment, e.g. kinase group
         data.append(
             [
+                mol_wo_dummy,
+                mol_w_dummy,
                 mol,
-                mol.GetProp('kinase'),
-                mol.GetProp('family'),
-                mol.GetProp('group'),
-                mol.GetProp('complex_pdb'),
-                mol.GetProp('ligand_pdb'),
-                mol.GetProp('alt'),
-                mol.GetProp('chain'),
-                mol.GetProp('atom.prop.subpocket'),
-                mol.GetProp('atom.prop.environment'),
-                smiles
+                mol_w_dummy.GetProp('kinase'),
+                mol_w_dummy.GetProp('family'),
+                mol_w_dummy.GetProp('group'),
+                mol_w_dummy.GetProp('complex_pdb'),
+                mol_w_dummy.GetProp('ligand_pdb'),
+                mol_w_dummy.GetProp('alt'),
+                mol_w_dummy.GetProp('chain'),
+                mol_w_dummy.GetProp('atom.prop.subpocket'),
+                mol_w_dummy.GetProp('atom.prop.environment'),
+                smiles_wo_dummy,
+                smiles_w_dummy
             ]
         )
-
-    return pd.DataFrame(
+        
+    fragment_library = pd.DataFrame(
         data,
-        columns='ROMol kinase family group complex_pdb ligand_pdb alt chain atom_subpockets atom_environments smiles'.split()
+        columns='ROMol ROMol_dummy ROMol_original kinase family group complex_pdb ligand_pdb alt chain atom_subpockets atom_environments smiles smiles_dummy'.split()
     )
+    fragment_library['subpocket'] = subpocket
+
+    return fragment_library
 
 
 def get_original_ligands(fragment_library_concat):
@@ -144,7 +145,7 @@ def get_original_ligands(fragment_library_concat):
         [
             fragment_library_concat.groupby(['complex_pdb', 'ligand_pdb'])['subpocket'].apply(list),
             fragment_library_concat.groupby(['complex_pdb', 'ligand_pdb']).first().drop(
-                ['subpocket', 'smiles', 'smiles_dummy_atoms', 'ROMol', 'atom_subpockets', 'atom_environments'], 
+                ['subpocket', 'smiles', 'smiles_dummy', 'ROMol', 'ROMol_dummy', 'ROMol_original', 'atom_subpockets', 'atom_environments'], 
                 axis=1
             )
         ],
@@ -190,26 +191,53 @@ def get_most_common_fragments(fragments, top_x=50):
     ----------
     fragments : pandas.DataFrame
         Fragment details, i.e. SMILES, kinase groups, and fragment RDKit molecules, for input subpocket.
-        
     top_x : int
         Top x most common fragments.
         
     Returns
     -------
-    tuple (list of rdkit.Chem.rdchem.Mol, pandas.Series)
-        List of top x fragments (RDKit molecules) and frequence of top x fragments in subpocket (Series).
+    pandas.DataFrame
+        Most common fragments (sorted in descending order), including fragments' SMILES, ROMol, and count.
     """
     
-    # Sort fragments by frequency
-    mols_count = fragments.smiles.value_counts()  # Sorted in descending order
-    
-    # Get RDKit Mol from SMILES
-    mols = [Chem.MolFromSmiles(smiles) for smiles in mols_count.index]
-    
-    # N most common fragments
-    return mols[:top_x], mols_count[:top_x]
+    # Get number of occurrences (count) per fragment (based on SMILES) in decending order
+    fragment_counts = fragments.smiles.value_counts()
+    fragment_counts.name = 'fragment_count'
 
-def generate_fingerprints(mols):
+    # Cast Series to DataFrame and add ROMol column
+    fragment_counts = fragment_counts.reset_index().rename(columns={'index': 'smiles'})
+    PandasTools.AddMoleculeColumnToFrame(fragment_counts, 'smiles')
+
+    # Sort fragments by their count (descending)
+    fragment_counts.sort_values('fragment_count', ascending=False, inplace=True)
+    fragment_counts.reset_index(inplace=True, drop=True)
+    
+    # Set molecule ID as index name
+    fragment_counts.index.name = 'molecule_id'
+
+    # Get the top X most common fragments
+    if fragment_counts.shape[0] < top_x:
+        
+        # Select all fragments if there are less than top X fragments in subpocket
+        most_common_fragments = fragment_counts
+        
+    else: 
+        
+        # If multiple fragments have the same count but some make it into the top X and some not,
+        # include the latter also
+    
+        # Get lowest fragment count that is included in top X fragments
+        lowest_fragment_count = fragment_counts.iloc[top_x-1].fragment_count
+
+        # Get all fragments with more or equal to the lowest fragment count
+        most_common_fragments = fragment_counts[
+            fragment_counts.fragment_count >= lowest_fragment_count
+        ]
+    
+    return most_common_fragments
+    
+
+def _generate_fingerprints(mols):
     """
     Generate RDKit fingerprint from list of molecules.
     
@@ -229,22 +257,25 @@ def generate_fingerprints(mols):
     
     return fingerprints
 
-def cluster_molecules(fingerprints, cutoff=0.6):
+def cluster_molecules(mols, cutoff=0.6):
     """
     Cluster molecules by fingerprint distance using the Butina algorithm.
     
     Parameters
     ----------
-    fingerprints : list of rdkit.DataStructs.cDataStructs.ExplicitBitVect
-        List of fingerprints.
+    mols : list of rdkit.Chem.rdchem.Mol
+        List of molecules.
     cutoff : float
         Distance cutoff Butina clustering.
         
     Returns
     -------
-    list of tuple of int
-        List of clusters, whereby each cluster is described by the IDs of its cluster members.
+    pandas.DataFrame
+        Table with cluster ID - molecule ID pairs.
     """
+    
+    # Generate fingerprints
+    fingerprints = _generate_fingerprints(mols)
     
     # Calculate Tanimoto distance matrix
     distance_matrix = _get_tanimoto_distance_matrix(fingerprints)
@@ -260,16 +291,26 @@ def cluster_molecules(fingerprints, cutoff=0.6):
     # Sort clusters by size
     clusters = sorted(clusters, key=len, reverse=True)
     
-    # Get number of singleton clusters
-    num_singletons = len([cluster for cluster in clusters if len(cluster) == 1])
+    # Get cluster ID - molecule ID pairs
+    clustered_molecules = []
+
+    for cluster_id, molecule_ids in enumerate(clusters, start=1):
+
+        for cluster_member_id, molecule_id in enumerate(molecule_ids, start=1):
+            clustered_molecules.append([cluster_id, cluster_member_id, molecule_id])
+
+    clustered_molecules = pd.DataFrame(clustered_molecules, columns=['cluster_id', 'cluster_member_id', 'molecule_id'])
     
     # Print details on clustering
-    print("Number of fragments:", len(fingerprints))    
+    print("Number of molecules:", len(fingerprints))    
     print("Threshold: ", cutoff)
     print("Number of clusters: ", len(clusters))
-    print("# clusters with only 1 compound: ", num_singletons)
+    print("# Clusters with only 1 molecule: ", len([cluster for cluster in clusters if len(cluster) == 1]))
+    print("# Clusters with more than 5 molecules: ", len([cluster for cluster in clusters if len(cluster) > 5]))
+    print("# Clusters with more than 25 molecules: ", len([cluster for cluster in clusters if len(cluster) > 25]))
+    print("# Clusters with more than 100 molecules: ", len([cluster for cluster in clusters if len(cluster) > 100]))
     
-    return clusters
+    return clustered_molecules
 
 def _get_tanimoto_distance_matrix(fingerprints):
     """
@@ -462,9 +503,9 @@ def get_descriptors_by_fragments(fragment_library):
     return descriptors
 
 
-def get_drug_likeness_from_mol(mol):
+def get_ro5_from_mol(mol):
     """
-    Get drug-likeness criteria for a molecule, i.e. molecular weight, logP, number of hydrogen bond acceptors/donors and
+    Get Lipinski's rule of five criteria for a molecule, i.e. molecular weight, logP, number of hydrogen bond acceptors/donors and
     accordance to Lipinski's rule of five.
     (Takes about 1s for 2000 mols.)
 
@@ -476,7 +517,7 @@ def get_drug_likeness_from_mol(mol):
     Returns
     -------
     pd.Series
-        Drug-likeness criteria for input molecule.
+        Rule of five criteria for input molecule.
     """
 
     mw = 1 if Descriptors.ExactMolWt(mol) <= 500 else 0
@@ -488,9 +529,9 @@ def get_drug_likeness_from_mol(mol):
     return pd.Series([mw, logp, hbd, hba, lipinski], index='mw logp hbd hba lipinski'.split())
 
 
-def get_fragment_likeness_from_mol(mol):
+def get_ro3_from_mol(mol):
     """
-    Get fragment-likeness criteria for a fragment, i.e. molecular weight, logP, number of hydrogen bond acceptors/donors.
+    Get rule of three criteria for a fragment, i.e. molecular weight, logP, number of hydrogen bond acceptors/donors, number of rotatable bonds, and PSA.
 
     Parameters
     ----------
@@ -500,7 +541,7 @@ def get_fragment_likeness_from_mol(mol):
     Returns
     -------
     pd.Series
-        Fragment-likeness criteria for input fragment.
+        Rule of three criteria for input fragment.
         
     Notes
     -----
@@ -519,9 +560,9 @@ def get_fragment_likeness_from_mol(mol):
     return pd.Series([mw, logp, hbd, hba, nrot, psa], index='mw logp hbd hba nrot psa'.split())
 
 
-def get_drug_likeness_from_smiles(smiles):
+def get_ro5_from_smiles(smiles):
     """
-    Get drug-likeness for a set of SMILES.
+    Get Lipinski's rule of five criteria for a set of SMILES.
 
     Parameters
     ----------
@@ -531,12 +572,12 @@ def get_drug_likeness_from_smiles(smiles):
     Returns
     -------
     pd.Series
-        Ratio of drug like molecules.
+        Ratio of molecules that fulfill Lipinski's rule of five.
     """
 
     drug_likeness = pd.DataFrame(
         smiles.apply(
-            lambda x: get_drug_likeness_from_mol(Chem.MolFromSmiles(x))
+            lambda x: get_ro5_from_mol(Chem.MolFromSmiles(x))
         )
     )
     print(f'Number of molecules: {drug_likeness.shape[0]}')
@@ -563,38 +604,40 @@ def get_connections_by_fragment(fragment_library_concat):
 
     # For each fragment, extract connecting subpocket from atom_subpockets, e.g. ['FP', 'SE'] for subpocket 'AP'
     fragment_library_concat['connections'] = fragment_library_concat.apply(
-        lambda x: [i for i in x.atom_subpockets.split() if i != x.subpocket], 
+        lambda x: _get_connecting_subpockets(x.subpocket, x.atom_subpockets.split()), 
         axis=1
     )
     
     # Extract each connection (join connecting subpockets), e.g. ['AP=FP', 'AP=SE']
-    fragment_library_concat['connections_name'] = fragment_library_concat.apply(lambda x: ["=".join(sorted([x.subpocket, i])) for i in x.connections], axis=1)
+    fragment_library_concat['connections_name'] = fragment_library_concat.apply(
+        lambda x: ["=".join(sorted([x.subpocket, i])) for i in x.connections], 
+        axis=1
+    )
 
     return fragment_library_concat['kinase complex_pdb ligand_pdb atom_subpockets connections connections_name subpocket'.split()]
 
 
-def get_connections_by_ligand(connections_by_fragment):
+def _get_connecting_subpockets(subpocket, atom_subpockets):
     """
-    For each ligand, extract subpocket connections.
+    Get a fragment's connecting subpockets based on the fragment's subpocket and all fragment atoms' subpockets (only dummy atoms will have differing subpockets).
     
     Parameters
     ----------
-    connections_by_fragment : pandas.DataFrame
-        Fragment library data including connecting subpockets and connections (see connections_by_fragment() function).
+    subpocket : str
+        Fragment's subpocket.
+    atom_subpockets : list of str
+        Fragment atoms' subpockets.
         
     Returns
     -------
-    pandas.DataFrame
-        Ligands represented by fragment library with details on their subpocket connections. 
+    list of str
+        Dummy atoms' subpockets (i.e. the subpockets that the fragment is connected to)
     """
-
-    # Pool fragment connections by ligand
-    connections_by_ligand = connections_by_fragment.groupby(['group', 'complex_pdb', 'ligand_pdb'])['connections_name'].sum()
-
-    # Deduplicate connections (count each connection only once)
-    connections_by_ligand = connections_by_ligand.apply(lambda x: set(x))
-
-    return connections_by_ligand
+    
+    if subpocket != 'X':
+        return [i if i[0] != 'X' else i[0] for i in atom_subpockets if i != subpocket]
+    else:
+        return [i for i in atom_subpockets if i[0] != subpocket]
 
 
 def get_connections_count_by_ligand(connections_by_ligand):
@@ -659,7 +702,7 @@ def get_fragment_similarity_per_subpocket(fragment_library_concat):
         smiles_deduplicated = fragments['smiles'].drop_duplicates()
 
         mols = smiles_deduplicated.apply(lambda x: Chem.MolFromSmiles(x))
-        fingerprints = generate_fingerprints(mols)
+        fingerprints = _generate_fingerprints(mols)
 
         similarities = []
 
@@ -700,7 +743,7 @@ def get_fragment_similarity_per_kinase_group(fragment_library_concat):
         # Group and deduplicate fragments by kinase group and subpockets
         fragments_deduplicated = fragments.drop_duplicates('smiles')
 
-        fingerprints = generate_fingerprints(fragments_deduplicated.ROMol)
+        fingerprints = _generate_fingerprints(fragments_deduplicated.ROMol)
 
         similarities = []
 
@@ -913,14 +956,16 @@ def draw_fragments(fragments, mols_per_row=10):
     return image
 
 
-def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=1):
+def draw_ligands_from_pdb_ids(complex_pdbs, ligand_pdbs, sub_img_size=(150, 150), mols_per_row=1):
     """
     Draw ligands from PDB ID (fetch data directly from KLIFS database).
     
     Parameters
     ----------
-    pdb_ids : list of str
-        List of complex PDB IDs.
+    complex_pdbs : str or list of str
+        One or more complex PDB IDs.
+    ligand_pdbs : str or list of str
+        One or more ligand PDB IDs complementary to complex PDB IDs.
     sub_img_size : 
         Image size.
     mols_per_row : 
@@ -931,14 +976,20 @@ def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=1):
     PIL.PngImagePlugin.PngImageFile
         Ligand images.
     """
+        
+    if isinstance(complex_pdbs, str):
+        complex_pdbs = [complex_pdbs]
+    if isinstance(ligand_pdbs, str):
+        ligand_pdbs = [ligand_pdbs]
+        
+    if len(complex_pdbs) != len(ligand_pdbs):
+        raise ValueError(f'Complex and ligand PDB ID lists must be of same length.')
     
     KLIFS_API_DEFINITIONS = "http://klifs.vu-compmedchem.nl/swagger/swagger.json"
     KLIFS_CLIENT = SwaggerClient.from_url(KLIFS_API_DEFINITIONS, config={'validate_responses': False})
 
-    # Get KLIFS structures by PDB ID
-    structures = KLIFS_CLIENT.Structures.get_structures_pdb_list(pdb_codes=pdb_ids).response().result
-
-    # Get KLIFS structure IDs
+    # Get KLIFS structures by PDB ID (these include all complex PDB related details, thus multiple ligand PDBs are possible)
+    structures = KLIFS_CLIENT.Structures.get_structures_pdb_list(pdb_codes=complex_pdbs).response().result
     structures = pd.DataFrame(
         [
             {
@@ -952,8 +1003,22 @@ def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=1):
         ]
     )
     
-    # Get only first KLIFS entry per PDB complex and ligand ID
-    structures = structures.groupby(['complex_pdb', 'ligand_pdb']).first().reset_index()
+    # Keep only intended complex-ligand pairs (if multiple keep only first entry)
+    complex_ligand_pairs = pd.DataFrame(
+        {
+            'complex_pdb': complex_pdbs,
+            'ligand_pdb': ligand_pdbs
+        }
+    )
+    
+    # Filter database result by intended complex-ligand pairs
+    structures = structures.merge(
+        complex_ligand_pairs, 
+        on=['complex_pdb', 'ligand_pdb']
+    ).groupby(
+        ['complex_pdb', 'ligand_pdb']
+    ).first().reset_index()
+        
 
     mols = []
     legends = []
@@ -969,12 +1034,12 @@ def draw_ligands_from_pdb_ids(pdb_ids, sub_img_size=(150, 150), mols_per_row=1):
         mol = Chem.MolFromMol2Block(ligand_mol2_text)
         AllChem.Compute2DCoords(mol)
         mols.append(mol)
-        
+
         # Generate legend label
         legends.append(
             f'{structure["complex_pdb"]}:{structure["ligand_pdb"]}'
         )
-
+            
     image = Draw.MolsToGridImage(
         mols,
         subImgSize=sub_img_size,
