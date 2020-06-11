@@ -884,48 +884,6 @@ def plot_fragment_descriptors(descriptors):
         plt.yticks(fontsize=16)
         
     plt.savefig(f'figures/descriptors.png', dpi=300)
-    
-    
-def draw_selected_fragments(selected_fragments, fragments, mols_per_row=3, max_mols=50):
-    """
-    Draw fragments selected by complex and ligand PDB ID.
-    
-    Parameters
-    ----------
-    selected_fragments : list of list of str
-        List of fragments defined by complex and ligand PDB ID.
-    fragments : pandas.DataFrame
-        Fragments (including data like complex and ligand PDB ID, chain ID, and alternate model).
-    mols_per_row : 
-        Number of molecules per row.
-    max_mols : int
-        Number of molecules displayed.
-        
-    Returns
-    -------
-    PIL.PngImagePlugin.PngImageFile
-        Image of selected fragments.
-    """
-
-    # Create DataFrame
-    selected_fragments = pd.DataFrame(
-        selected_fragments, 
-        columns=['complex_pdb', 'ligand_pdb']
-    )
-
-    # Merge selected fragments with full fragment table in order to get full details on selected fragments
-    selected_fragments = pd.merge(
-        selected_fragments, 
-        fragments, 
-        left_on=['complex_pdb', 'ligand_pdb'],
-        right_on=['complex_pdb', 'ligand_pdb'],
-        how='left'
-    )
-
-    # Draw selected fragments
-    image = draw_fragments(selected_fragments, mols_per_row, max_mols)
-    
-    return image
 
 
 def draw_fragments(fragments, mols_per_row=10, max_mols=50):
