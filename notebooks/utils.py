@@ -884,49 +884,9 @@ def plot_fragment_descriptors(descriptors):
         plt.yticks(fontsize=16)
         
     plt.savefig(f'figures/descriptors.png', dpi=300)
-    
-    
-def draw_selected_fragments(selected_fragments, fragments, mols_per_row=3):
-    """
-    Draw fragments selected by complex and ligand PDB ID.
-    
-    Parameters
-    ----------
-    selected_fragments : list of list of str
-        List of fragments defined by complex and ligand PDB ID.
-    fragments : pandas.DataFrame
-        Fragments (including data like complex and ligand PDB ID, chain ID, and alternate model).
-    mols_per_row : 
-        Number of molecules per row.
-        
-    Returns
-    -------
-    PIL.PngImagePlugin.PngImageFile
-        Image of selected fragments.
-    """
-
-    # Create DataFrame
-    selected_fragments = pd.DataFrame(
-        selected_fragments, 
-        columns=['complex_pdb', 'ligand_pdb']
-    )
-
-    # Merge selected fragments with full fragment table in order to get full details on selected fragments
-    selected_fragments = pd.merge(
-        selected_fragments, 
-        fragments, 
-        left_on=['complex_pdb', 'ligand_pdb'],
-        right_on=['complex_pdb', 'ligand_pdb'],
-        how='left'
-    )
-
-    # Draw selected fragments
-    image = draw_fragments(selected_fragments, mols_per_row)
-    
-    return image
 
 
-def draw_fragments(fragments, mols_per_row=10):
+def draw_fragments(fragments, mols_per_row=10, max_mols=50):
     """
     Draw fragments.
     
@@ -934,8 +894,10 @@ def draw_fragments(fragments, mols_per_row=10):
     ----------
     fragments : pandas.DataFrame
         Fragments (including data like complex and ligand PDB ID, chain ID, and alternate model).
-    mols_per_row : 
+    mols_per_row : int
         Number of molecules per row.
+    max_mols : int
+        Number of molecules displayed.
 
     Returns
     -------
@@ -944,9 +906,9 @@ def draw_fragments(fragments, mols_per_row=10):
     """
 
     image = Draw.MolsToGridImage(
-        fragments.ROMol, 
-        maxMols=200,
+        fragments.ROMol,
         molsPerRow=mols_per_row, 
+        maxMols=max_mols,
         legends=fragments.apply(
             lambda x: f'{x.complex_pdb}|{x.chain}:{x.ligand_pdb}' if x.alt == ' ' else f'{x.complex_pdb}|{x.chain}|{x.alt}:{x.ligand_pdb}',
             axis=1
@@ -956,7 +918,7 @@ def draw_fragments(fragments, mols_per_row=10):
     return image
 
 
-def draw_ligands_from_pdb_ids(complex_pdbs, ligand_pdbs, sub_img_size=(150, 150), mols_per_row=1):
+def draw_ligands_from_pdb_ids(complex_pdbs, ligand_pdbs, sub_img_size=(150, 150), mols_per_row=1, max_mols=50):
     """
     Draw ligands from PDB ID (fetch data directly from KLIFS database).
     
@@ -970,6 +932,8 @@ def draw_ligands_from_pdb_ids(complex_pdbs, ligand_pdbs, sub_img_size=(150, 150)
         Image size.
     mols_per_row : 
         Number of molecules per row.
+    max_mols : int
+        Number of molecules displayed.
 
     Returns
     -------
@@ -1044,7 +1008,8 @@ def draw_ligands_from_pdb_ids(complex_pdbs, ligand_pdbs, sub_img_size=(150, 150)
         mols,
         subImgSize=sub_img_size,
         legends=legends,
-        molsPerRow=mols_per_row
+        molsPerRow=mols_per_row,
+        maxMols=max_mols
     )
     
     return image
