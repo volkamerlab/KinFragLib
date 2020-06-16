@@ -73,7 +73,7 @@ We are looking forward to hearing from you!
 
 ### License
 
-TBA
+This resource is licensed under the [MIT](https://opensource.org/licenses/MIT) license, a permissive open source license.
 
 ### Citation
 
