@@ -8,6 +8,7 @@ from bravado.client import SwaggerClient
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import requests
 from rdkit import Chem, DataStructs
 from rdkit.Chem import AllChem, Draw, QED, PandasTools
 from rdkit.Chem.Draw import IPythonConsole
@@ -1014,3 +1015,98 @@ def draw_ligands_from_pdb_ids(complex_pdbs, ligand_pdbs, sub_img_size=(150, 150)
     
     return image
 
+def get_protein_target_classifications(target_chembl_ids):
+    """
+    Get protein target classifications for a list of target ChEMBL IDs (in the form of a DataFrame).
+    
+    Parameters
+    ----------
+    target_chembl_ids : list of str
+        Target ChEMBL IDs
+        
+    Returns
+    -------
+    pandas.DataFrame
+        Protein target classifications for target ChEMBL IDs with columns: 
+        'l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'l7', 'l8', 
+        'protein_class_id', 'target_chembl_id', 'component_id', 'protein_classification_id'.
+    """
+
+    results = []
+
+    for target_chembl_id in target_chembl_ids:
+        #print(target_chembl_id)
+
+        # Go to `target` endpoint and extract `component_id`
+        component_ids = _component_id_from_target(target_chembl_id)
+        
+        if len(component_ids) != 1:
+            print(f'{target_chembl_id}: {len(component_ids)} component IDs for target ChEMBL ID.')
+
+        for component_id in component_ids:
+            #print(component_id)
+
+            # Go to `target_components` endpoint and extract `protein_classification_id`
+            protein_classification_ids = _protein_classification_id_from_target_components(component_id)
+
+            if len(protein_classification_ids) != 1:
+                print(f'{target_chembl_id}: {len(protein_classification_ids)} protein classification IDs for target ChEMBL ID.\n')    
+            
+            for protein_classification_id in protein_classification_ids:
+                #print(protein_classification_id)
+
+                # Go to `protein_class` endpoint and extract protein target classification.
+                protein_target_classification = _protein_target_classification_from_protein_class(protein_classification_id)
+
+                # Add ID details
+                protein_target_classification['target_chembl_id'] = target_chembl_id
+                protein_target_classification['component_id'] = component_id
+                protein_target_classification['protein_classification_id'] = protein_classification_id
+
+                results.append(protein_target_classification)
+                
+    return pd.DataFrame(results)
+
+def _component_id_from_target(target_chembl_id):
+    """
+    Use ChEMBL API: Go to `target` endpoint and extract `component_id`.
+    """
+    
+    target_url = f'https://www.ebi.ac.uk/chembl/api/data/target/{target_chembl_id}.json'
+    
+    response = requests.get(target_url)
+    response.raise_for_status()
+    result = response.json()
+
+    component_ids = [i['component_id'] for i in result['target_components']]
+    return component_ids
+
+def _protein_classification_id_from_target_components(component_id):
+    """
+    Use ChEMBL API: Go to `target_components` endpoint and extract `protein_classification_id`
+    """
+    
+    target_components_url = f'https://www.ebi.ac.uk/chembl/api/data/target_component/{component_id}.json'
+    #print(target_components_url)
+
+    response = requests.get(target_components_url)
+    response.raise_for_status()  # this line checks for potential errors
+    result = response.json()
+
+    protein_classification_ids = [i['protein_classification_id'] for i in result['protein_classifications']]
+
+    return protein_classification_ids
+
+def _protein_target_classification_from_protein_class(protein_classification_id):
+    """
+    Use ChEMBL API: Go to `protein_class` endpoint and extract protein target classification.
+    """
+
+    protein_class_url = f'https://www.ebi.ac.uk/chembl/api/data/protein_class/{protein_classification_id}.json'
+    #print(protein_class_url)
+
+    response = requests.get(protein_class_url)
+    response.raise_for_status()  # this line checks for potential errors
+    result = response.json()
+
+    return pd.Series(result)
