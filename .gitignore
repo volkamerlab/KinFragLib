@@ -70,3 +70,6 @@ target/
 
 # Jupyter notebook
 .ipynb_checkpoints
+
+# Exclude combinatorial library
+data/combinatorial_library/combinatorial_library.json
