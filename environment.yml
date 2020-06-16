@@ -14,3 +14,5 @@ dependencies:
   - seaborn
   - bravado
   - nodejs
+  - ijson
+  - chembl_webresource_client
