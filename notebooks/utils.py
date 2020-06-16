@@ -1015,6 +1015,7 @@ def draw_ligands_from_pdb_ids(complex_pdbs, ligand_pdbs, sub_img_size=(150, 150)
     
     return image
 
+
 def get_protein_target_classifications(target_chembl_ids):
     """
     Get protein target classifications for a list of target ChEMBL IDs (in the form of a DataFrame).
@@ -1067,6 +1068,7 @@ def get_protein_target_classifications(target_chembl_ids):
                 
     return pd.DataFrame(results)
 
+
 def _component_id_from_target(target_chembl_id):
     """
     Use ChEMBL API: Go to `target` endpoint and extract `component_id`.
@@ -1080,6 +1082,7 @@ def _component_id_from_target(target_chembl_id):
 
     component_ids = [i['component_id'] for i in result['target_components']]
     return component_ids
+
 
 def _protein_classification_id_from_target_components(component_id):
     """
@@ -1096,6 +1099,7 @@ def _protein_classification_id_from_target_components(component_id):
     protein_classification_ids = [i['protein_classification_id'] for i in result['protein_classifications']]
 
     return protein_classification_ids
+
 
 def _protein_target_classification_from_protein_class(protein_classification_id):
     """
