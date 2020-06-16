@@ -51,7 +51,10 @@ def read_fragment_library(path_to_lib):
     # iterate over subpockets
     for subpocket in subpockets:
 
-    	data[subpocket] = _read_subpocket_fragments(subpocket, path_to_lib)
+        try:
+            data[subpocket] = _read_subpocket_fragments(subpocket, path_to_lib)
+        except OSError:
+            pass
         
     return data
 
