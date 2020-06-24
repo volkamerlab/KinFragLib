@@ -72,4 +72,5 @@ target/
 .ipynb_checkpoints
 
 # Exclude combinatorial library
-data/combinatorial_library/combinatorial_library.json
+data/combinatorial_library/
+!data/combinatorial_library/README.md
