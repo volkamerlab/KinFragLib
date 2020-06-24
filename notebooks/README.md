@@ -47,3 +47,21 @@ The fragment library resulting from the KinFragLib fragmentation procedure compr
 2. Select a diverse set of fragments (per subpocket) for recombination to (i) save computational cost and (ii) avoid recombination of highly similar fragments.
 
 Furthermore, we want to know (i) which original ligands can be fully recombined by the reduced fragment library and (ii) how many original ligands are represented by at least one fragment. This will help us to check our combinatorial library for expected results later.
+
+## 4. Combinatorial library
+
+### `4_1_combinatorial_library_data.ipynb`
+
+The aim of this notebook is to extract information from the combinatorial library (`json` file) about e.g. ligand sizes, Lipinski's rule of five compliance, and matches in ChEMBL and KLIFS. Since the `json` file holds mulitple millions of ligands, we do this data processing once here at the beginning and save the results to separate files which will be used for analysis/visualization in the following notebooks.
+
+### `4_2_combinatorial_library_properties.ipynb`
+
+In this notebook we want to analyze properties of the combinatorial library, such as the ligand size and Lipinski's rule of five criteria.
+
+### `4_3_combinatorial_library_comparison_klifs.ipynb`
+
+In this notebook we want to compare the combinatorial library to the original KLIFS ligands, i.e. the ligands from which the fragment library originates from. We consider exact and substructure matches.
+
+### `4_4_combinatorial_library_comparison_chembl.ipynb`
+
+In this notebook we want to compare the combinatorial library to the ChEMBL 25 dataset in order to find exact matches and the most similar ChEMBL ligand per recombined ligand.
