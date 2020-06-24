@@ -3,6 +3,7 @@ Utility functions to work with the KinFragLib fragment library.
 """
 
 from itertools import combinations
+from functools import reduce
 
 from bravado.client import SwaggerClient
 import matplotlib.pyplot as plt
@@ -10,9 +11,9 @@ import numpy as np
 import pandas as pd
 import requests
 from rdkit import Chem, DataStructs
-from rdkit.Chem import AllChem, Draw, QED, PandasTools
+from rdkit.Chem import AllChem, Draw, Descriptors, Lipinski, PandasTools, rdFingerprintGenerator, QED
 from rdkit.Chem.Draw import IPythonConsole
-from rdkit.Chem import rdFingerprintGenerator, Descriptors, Lipinski
+from rdkit.Chem.PropertyMol import PropertyMol
 from rdkit.ML.Cluster import Butina
 import seaborn as sns
 
@@ -1117,3 +1118,99 @@ def _protein_target_classification_from_protein_class(protein_classification_id)
     result = response.json()
 
     return pd.Series(result)
+
+
+def construct_ligand(fragment_ids, bond_ids, fragment_library):
+    """
+    Construct a ligand by connecting multiple fragments based on a Combination object
+
+    Parameters
+    ----------
+    fragment_ids: list of str
+        Fragment IDs of recombined ligand, e.g. `["SE_2", "AP_0", "FP_2"]` (`<subpocket>_<fragment index in subpocket pool>`).
+    bond_ids : list of list of str
+        Bond IDs of recombined ligand, e.g. `[["FP_6", "AP_10"], ["AP_11", "SE_13"]]`: Atom (`<subpocket>_<atom ID>`) pairs per fragment bond.
+    fragment_library : dict of pandas.DataFrame
+        SMILES and RDKit molecules for fragments (values) per subpocket (key).
+
+    Returns
+    -------
+    ligand: rdkit.Chem.rdchem.Mol or None
+        Recombined ligand (or None if the ligand could not be constructed)
+    """
+
+    fragments = []
+    for fragment_id in fragment_ids:
+        
+        # Get subpocket and fragment index in subpocket
+        subpocket = fragment_id[:2]
+        fragment_index = int(fragment_id[3:])
+        fragment = fragment_library[subpocket].ROMol_original[fragment_index]
+        
+        # Store unique atom identifiers in original molecule (important for recombined ligand construction based on atom IDs)
+        fragment = Chem.RemoveHs(fragment)
+        for i, atom in enumerate(fragment.GetAtoms()):
+            fragment_atom_id = f'{subpocket}_{i}'
+            atom.SetProp('fragment_atom_id', fragment_atom_id)
+            atom.SetProp('fragment_id', fragment.GetProp('complex_pdb'))
+        fragment = PropertyMol(fragment)
+        
+        # Append fragment to list of fragments
+        fragments.append(fragment)
+
+    # Combine fragments using map-reduce model
+    combo = reduce(Chem.CombineMols, fragments)
+
+    bonds_matching = True
+    ed_combo = Chem.EditableMol(combo)
+    replaced_dummies = []
+    
+    for bond in bond_ids:
+
+        dummy_1 = next(atom for atom in combo.GetAtoms() if atom.GetProp('fragment_atom_id') == bond[0])
+        dummy_2 = next(atom for atom in combo.GetAtoms() if atom.GetProp('fragment_atom_id') == bond[1])
+        atom_1 = dummy_1.GetNeighbors()[0]
+        atom_2 = dummy_2.GetNeighbors()[0]
+
+        # check bond types
+        bond_type_1 = combo.GetBondBetweenAtoms(dummy_1.GetIdx(), atom_1.GetIdx()).GetBondType()
+        bond_type_2 = combo.GetBondBetweenAtoms(dummy_2.GetIdx(), atom_2.GetIdx()).GetBondType()
+        if bond_type_1 != bond_type_2:
+            bonds_matching = False
+            break
+
+        ed_combo.AddBond(atom_1.GetIdx(), atom_2.GetIdx(), order=bond_type_1)
+
+        replaced_dummies.extend([dummy_1.GetIdx(), dummy_2.GetIdx()])
+        
+    # Do not construct this ligand if bond types are not matching
+    if not bonds_matching:
+        return
+
+    # Remove replaced dummy atoms
+    replaced_dummies.sort(reverse=True)
+    for dummy in replaced_dummies:
+        ed_combo.RemoveAtom(dummy)
+
+    ligand = ed_combo.GetMol()
+
+    # Replace remaining dummy atoms with hydrogens
+    du = Chem.MolFromSmiles('*')
+    h = Chem.MolFromSmiles('[H]', sanitize=False)
+    ligand = AllChem.ReplaceSubstructs(ligand, du, h, replaceAll=True)[0]
+    try:
+        ligand = Chem.RemoveHs(ligand)
+    except ValueError:
+        print(Chem.MolToSmiles(ligand))
+        return
+
+    # Clear properties
+    for prop in ligand.GetPropNames():
+        ligand.ClearProp(prop)
+    for atom in ligand.GetAtoms():
+        atom.ClearProp('fragment_atom_id')
+
+    # Generate 2D coordinates
+    AllChem.Compute2DCoords(ligand)
+
+    return ligand
