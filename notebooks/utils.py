@@ -1040,25 +1040,16 @@ def get_protein_target_classifications(target_chembl_ids):
     results = []
 
     for target_chembl_id in target_chembl_ids:
-        #print(target_chembl_id)
 
         # Go to `target` endpoint and extract `component_id`
         component_ids = _component_id_from_target(target_chembl_id)
-        
-        if len(component_ids) != 1:
-            print(f'{target_chembl_id}: {len(component_ids)} component IDs for target ChEMBL ID.')
 
         for component_id in component_ids:
-            #print(component_id)
 
             # Go to `target_components` endpoint and extract `protein_classification_id`
-            protein_classification_ids = _protein_classification_id_from_target_components(component_id)
-
-            if len(protein_classification_ids) != 1:
-                print(f'{target_chembl_id}: {len(protein_classification_ids)} protein classification IDs for target ChEMBL ID.\n')    
+            protein_classification_ids = _protein_classification_id_from_target_components(component_id)  
             
             for protein_classification_id in protein_classification_ids:
-                #print(protein_classification_id)
 
                 # Go to `protein_class` endpoint and extract protein target classification.
                 protein_target_classification = _protein_target_classification_from_protein_class(protein_classification_id)
@@ -1069,8 +1060,16 @@ def get_protein_target_classifications(target_chembl_ids):
                 protein_target_classification['protein_classification_id'] = protein_classification_id
 
                 results.append(protein_target_classification)
+    
+    # Set up DataFrame
+    protein_target_classifications = pd.DataFrame(results)
                 
-    return pd.DataFrame(results)
+    # Reorder columns
+    target_chembl_id = protein_target_classifications.target_chembl_id
+    protein_target_classifications.drop('target_chembl_id', axis=1, inplace=True)
+    protein_target_classifications.insert(0, column='target_chembl_id', value=target_chembl_id)
+                
+    return protein_target_classifications
 
 
 def _component_id_from_target(target_chembl_id):
