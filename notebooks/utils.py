@@ -10,14 +10,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import requests
-from rdkit import Chem, DataStructs
+from rdkit import Chem, DataStructs, RDLogger
 from rdkit.Chem import AllChem, Draw, Descriptors, Lipinski, PandasTools, rdFingerprintGenerator, QED
 from rdkit.Chem.Draw import IPythonConsole
+from rdkit.Chem.MolStandardize import rdMolStandardize
 from rdkit.Chem.PropertyMol import PropertyMol
 from rdkit.ML.Cluster import Butina
 import seaborn as sns
 
 import klifs_utils
+
+RDLogger.DisableLog('rdApp.*')
 
 SUBPOCKET_COLORS = {
     'AP': 'purple', 
@@ -1213,3 +1216,48 @@ def construct_ligand(fragment_ids, bond_ids, fragment_library):
     AllChem.Compute2DCoords(ligand)
 
     return ligand
+
+
+def standardize_mol(mol):
+    """
+    Standardize molecule.
+    Parameters
+    ----------
+    mol : rdkit.Chem.rdchem.Mol
+        Molecule.
+    Returns
+    -------
+    rdkit.Chem.rdchem.Mol or None
+        Standardized molecule or None if standardization failed.
+    """
+
+    try:
+
+        # sanitize molecule
+        Chem.SanitizeMol(mol)
+
+        # remove non-explicit hydrogens
+        mol = Chem.RemoveHs(mol)
+
+        # disconnect metals from molecule
+        mol = rdMolStandardize.MetalDisconnector().Disconnect(mol)
+
+        # normalize moleucle
+        mol = rdMolStandardize.Normalize(mol)
+
+        # reionize molecule
+        mol = rdMolStandardize.Reionize(mol)
+
+        # uncharge molecule (this helps to standardize protonation states)
+        u = rdMolStandardize.Uncharger()
+        mol = u.uncharge(mol)
+
+        # assign stereochemistry
+        Chem.AssignStereochemistry(mol, force=True, cleanIt=True)
+
+        return mol
+
+    except Exception as e:
+
+        print(f'ERROR in standardization: {e}')
+        return None
