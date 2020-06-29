@@ -1,6 +1,5 @@
 name: kinfraglib
 channels:
-  - rdkit
   - conda-forge
 dependencies:
   - python
