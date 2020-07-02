@@ -1,8 +1,8 @@
-# KinFragLib: Kinase focused fragment library
+# KinFragLib: Kinase-focused fragment library
 
-Developed by: Dominique Sydow, Paula Schmiel, Jérémie Mortier and Andrea Volkamer, 04/2020
+Developed by: Dominique Sydow, Paula Schmiel, Jérémie Mortier, and Andrea Volkamer
 
-**Subpocket-based fragmentation of kinase ligands from KLIFS**
+**Exploring the kinase inhibitor space using subpocket-focused fragmentation and recombination**
 
 Protein kinases play a crucial role in many cell signaling processes, 
 making them one of the most important families of drug targets.
