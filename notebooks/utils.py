@@ -419,6 +419,45 @@ def draw_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb, mols_per_r
     return img
 
 
+def draw_fragments_from_recombined_ligand(fragment_ids, fragment_library):
+    """
+    Draw fragments that a recombined ligand of interest is composed of.
+    
+    Parameters
+    ----------
+    fragment_ids : list of str
+        Fragment IDs of recombined ligand (<subpocket>_<fragment_index>).
+    fragment_library : pandas.DataFrame
+        Fragment library that recombined ligand was based on.
+        Must be the same as used for recombination step, otherwise fragment_ids will not match!!!
+        
+    Returns
+    -------
+    PIL.PngImagePlugin.PngImageFile
+        Fragmented ligand.
+    """
+
+    fragments = []
+    subpockets = []
+
+
+    for fragment_id in fragment_ids:
+        subpocket = fragment_id.split('_')[0]
+        fragment_index = int(fragment_id.split('_')[1])
+        fragment = fragment_library[subpocket].iloc[fragment_index]
+
+        fragments.append(fragment.ROMol_dummy)
+        subpockets.append(subpocket)
+
+    img = Draw.MolsToGridImage(
+        mols=fragments, 
+        legends=subpockets,
+        molsPerRow=6
+    )
+    
+    return img
+
+
 def _get_descriptors_from_mol(mol):
     """
     Get descriptors for a molecule, i.e. number of hydrogen bond acceptors/donors, logP, and number of heavy atoms.
