@@ -46,10 +46,6 @@ The fragment library resulting from the KinFragLib fragmentation procedure compr
 1. Remove all fragments that are not useful in a recombination, i.e. duplicates, fragments in pool X, fragments without dummy atoms, and fragments with dummy atoms only connecting to pool X. Also remove all AP fragments that show no hydrogen bond donors and acceptors (not hinge-like).
 2. Select a diverse set of fragments (per subpocket) for recombination to (i) save computational cost and (ii) avoid recombination of highly similar fragments.
 
-### `3_2_fragment_library_reduced_original_ligands.ipynb`
-
-In this notebook, we want to know (i) which original ligands can be fully recombined by the reduced fragment library and (ii) how many original ligands are represented by at least one fragment. This will help us to check our combinatorial library for expected results later.
-
 ## 4. Combinatorial library
 
 ### `4_1_combinatorial_library_data.ipynb`
