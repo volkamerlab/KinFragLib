@@ -1,6 +1,6 @@
 # KinFragLib: Kinase-focused fragment library
 
-<img src ="./docs/img/toc_github_kinfraglib.png" width = "600" align="left"> 
+![KinFragLib workflow](./docs/img/toc_github_kinfraglib.png)
 
 ## Table of contents
 
