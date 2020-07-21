@@ -3,19 +3,24 @@ Utility functions to work with the KinFragLib fragment library.
 """
 
 from itertools import combinations
+from functools import reduce
 
 from bravado.client import SwaggerClient
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from rdkit import Chem, DataStructs
-from rdkit.Chem import AllChem, Draw, QED, PandasTools
+import requests
+from rdkit import Chem, DataStructs, RDLogger
+from rdkit.Chem import AllChem, Draw, Descriptors, Lipinski, PandasTools, rdFingerprintGenerator, QED
 from rdkit.Chem.Draw import IPythonConsole
-from rdkit.Chem import rdFingerprintGenerator, Descriptors, Lipinski
+from rdkit.Chem.MolStandardize import rdMolStandardize
+from rdkit.Chem.PropertyMol import PropertyMol
 from rdkit.ML.Cluster import Butina
 import seaborn as sns
 
 import klifs_utils
+
+RDLogger.DisableLog('rdApp.*')
 
 SUBPOCKET_COLORS = {
     'AP': 'purple', 
@@ -50,7 +55,10 @@ def read_fragment_library(path_to_lib):
     # iterate over subpockets
     for subpocket in subpockets:
 
-    	data[subpocket] = _read_subpocket_fragments(subpocket, path_to_lib)
+        try:
+            data[subpocket] = _read_subpocket_fragments(subpocket, path_to_lib)
+        except OSError:
+            pass
         
     return data
 
@@ -155,7 +163,7 @@ def get_original_ligands(fragment_library_concat):
     # Get structures (metadata) for original ligands (takes a couple of minutes)
     structures = pd.concat(
         [
-            klifs_utils.remote.structures.structures_from_pdb_id(
+            klifs_utils.remote.structures.structures_from_pdb_ids(
                 original_ligand.complex_pdb,
                 alt=original_ligand.alt,
                 chain=original_ligand.chain
@@ -380,7 +388,7 @@ def get_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb):
     return fragmented_ligand
 
 
-def draw_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb, mols_per_row=6):
+def draw_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb, mols_per_row=6, include_dummy=False):
     """
     Show fragments with subpocket assignment for ligand by PDB ID.
     
@@ -402,10 +410,54 @@ def draw_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb, mols_per_r
     
     fragmented_ligand = get_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb)
     
+    if include_dummy:
+        mols = fragmented_ligand.ROMol_dummy.tolist()
+    else:
+        mols = fragmented_ligand.ROMol.tolist()
+
     img = Draw.MolsToGridImage(
-        fragmented_ligand.ROMol.tolist(), 
+        mols, 
         legends=fragmented_ligand.subpocket.tolist(), 
         molsPerRow=mols_per_row
+    )
+    
+    return img
+
+
+def draw_fragments_from_recombined_ligand(fragment_ids, fragment_library):
+    """
+    Draw fragments that a recombined ligand of interest is composed of.
+    
+    Parameters
+    ----------
+    fragment_ids : list of str
+        Fragment IDs of recombined ligand (<subpocket>_<fragment_index>).
+    fragment_library : pandas.DataFrame
+        Fragment library that recombined ligand was based on.
+        Must be the same as used for recombination step, otherwise fragment_ids will not match!!!
+        
+    Returns
+    -------
+    PIL.PngImagePlugin.PngImageFile
+        Fragmented ligand.
+    """
+
+    fragments = []
+    subpockets = []
+
+
+    for fragment_id in fragment_ids:
+        subpocket = fragment_id.split('_')[0]
+        fragment_index = int(fragment_id.split('_')[1])
+        fragment = fragment_library[subpocket].iloc[fragment_index]
+
+        fragments.append(fragment.ROMol_dummy)
+        subpockets.append(subpocket)
+
+    img = Draw.MolsToGridImage(
+        mols=fragments, 
+        legends=subpockets,
+        molsPerRow=6
     )
     
     return img
@@ -1014,3 +1066,242 @@ def draw_ligands_from_pdb_ids(complex_pdbs, ligand_pdbs, sub_img_size=(150, 150)
     
     return image
 
+
+def get_protein_target_classifications(target_chembl_ids):
+    """
+    Get protein target classifications for a list of target ChEMBL IDs (in the form of a DataFrame).
+    
+    Parameters
+    ----------
+    target_chembl_ids : list of str
+        Target ChEMBL IDs
+        
+    Returns
+    -------
+    pandas.DataFrame
+        Protein target classifications for target ChEMBL IDs with columns: 
+        'l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'l7', 'l8', 
+        'protein_class_id', 'target_chembl_id', 'component_id', 'protein_classification_id'.
+    """
+
+    results = []
+
+    for target_chembl_id in target_chembl_ids:
+
+        # Go to `target` endpoint and extract `component_id`
+        component_ids = _component_id_from_target(target_chembl_id)
+
+        for component_id in component_ids:
+
+            # Go to `target_components` endpoint and extract `protein_classification_id`
+            protein_classification_ids = _protein_classification_id_from_target_components(component_id)  
+            
+            for protein_classification_id in protein_classification_ids:
+
+                # Go to `protein_class` endpoint and extract protein target classification.
+                protein_target_classification = _protein_target_classification_from_protein_class(protein_classification_id)
+
+                # Add ID details
+                protein_target_classification['target_chembl_id'] = target_chembl_id
+                protein_target_classification['component_id'] = component_id
+                protein_target_classification['protein_classification_id'] = protein_classification_id
+
+                results.append(protein_target_classification)
+    
+    # Set up DataFrame
+    protein_target_classifications = pd.DataFrame(results)
+                
+    # Reorder columns
+    target_chembl_id = protein_target_classifications.target_chembl_id
+    protein_target_classifications.drop('target_chembl_id', axis=1, inplace=True)
+    protein_target_classifications.insert(0, column='target_chembl_id', value=target_chembl_id)
+                
+    return protein_target_classifications
+
+
+def _component_id_from_target(target_chembl_id):
+    """
+    Use ChEMBL API: Go to `target` endpoint and extract `component_id`.
+    """
+    
+    target_url = f'https://www.ebi.ac.uk/chembl/api/data/target/{target_chembl_id}.json'
+    
+    response = requests.get(target_url)
+    response.raise_for_status()
+    result = response.json()
+
+    component_ids = [i['component_id'] for i in result['target_components']]
+    return component_ids
+
+
+def _protein_classification_id_from_target_components(component_id):
+    """
+    Use ChEMBL API: Go to `target_components` endpoint and extract `protein_classification_id`
+    """
+    
+    target_components_url = f'https://www.ebi.ac.uk/chembl/api/data/target_component/{component_id}.json'
+    #print(target_components_url)
+
+    response = requests.get(target_components_url)
+    response.raise_for_status()  # this line checks for potential errors
+    result = response.json()
+
+    protein_classification_ids = [i['protein_classification_id'] for i in result['protein_classifications']]
+
+    return protein_classification_ids
+
+
+def _protein_target_classification_from_protein_class(protein_classification_id):
+    """
+    Use ChEMBL API: Go to `protein_class` endpoint and extract protein target classification.
+    """
+
+    protein_class_url = f'https://www.ebi.ac.uk/chembl/api/data/protein_class/{protein_classification_id}.json'
+    #print(protein_class_url)
+
+    response = requests.get(protein_class_url)
+    response.raise_for_status()  # this line checks for potential errors
+    result = response.json()
+
+    return pd.Series(result)
+
+
+def construct_ligand(fragment_ids, bond_ids, fragment_library):
+    """
+    Construct a ligand by connecting multiple fragments based on a Combination object
+
+    Parameters
+    ----------
+    fragment_ids: list of str
+        Fragment IDs of recombined ligand, e.g. `["SE_2", "AP_0", "FP_2"]` (`<subpocket>_<fragment index in subpocket pool>`).
+    bond_ids : list of list of str
+        Bond IDs of recombined ligand, e.g. `[["FP_6", "AP_10"], ["AP_11", "SE_13"]]`: Atom (`<subpocket>_<atom ID>`) pairs per fragment bond.
+    fragment_library : dict of pandas.DataFrame
+        SMILES and RDKit molecules for fragments (values) per subpocket (key).
+
+    Returns
+    -------
+    ligand: rdkit.Chem.rdchem.Mol or None
+        Recombined ligand (or None if the ligand could not be constructed)
+    """
+
+    fragments = []
+    for fragment_id in fragment_ids:
+        
+        # Get subpocket and fragment index in subpocket
+        subpocket = fragment_id[:2]
+        fragment_index = int(fragment_id[3:])
+        fragment = fragment_library[subpocket].ROMol_original[fragment_index]
+        
+        # Store unique atom identifiers in original molecule (important for recombined ligand construction based on atom IDs)
+        fragment = Chem.RemoveHs(fragment)
+        for i, atom in enumerate(fragment.GetAtoms()):
+            fragment_atom_id = f'{subpocket}_{i}'
+            atom.SetProp('fragment_atom_id', fragment_atom_id)
+            atom.SetProp('fragment_id', fragment.GetProp('complex_pdb'))
+        fragment = PropertyMol(fragment)
+        
+        # Append fragment to list of fragments
+        fragments.append(fragment)
+
+    # Combine fragments using map-reduce model
+    combo = reduce(Chem.CombineMols, fragments)
+
+    bonds_matching = True
+    ed_combo = Chem.EditableMol(combo)
+    replaced_dummies = []
+    
+    for bond in bond_ids:
+
+        dummy_1 = next(atom for atom in combo.GetAtoms() if atom.GetProp('fragment_atom_id') == bond[0])
+        dummy_2 = next(atom for atom in combo.GetAtoms() if atom.GetProp('fragment_atom_id') == bond[1])
+        atom_1 = dummy_1.GetNeighbors()[0]
+        atom_2 = dummy_2.GetNeighbors()[0]
+
+        # check bond types
+        bond_type_1 = combo.GetBondBetweenAtoms(dummy_1.GetIdx(), atom_1.GetIdx()).GetBondType()
+        bond_type_2 = combo.GetBondBetweenAtoms(dummy_2.GetIdx(), atom_2.GetIdx()).GetBondType()
+        if bond_type_1 != bond_type_2:
+            bonds_matching = False
+            break
+
+        ed_combo.AddBond(atom_1.GetIdx(), atom_2.GetIdx(), order=bond_type_1)
+
+        replaced_dummies.extend([dummy_1.GetIdx(), dummy_2.GetIdx()])
+        
+    # Do not construct this ligand if bond types are not matching
+    if not bonds_matching:
+        return
+
+    # Remove replaced dummy atoms
+    replaced_dummies.sort(reverse=True)
+    for dummy in replaced_dummies:
+        ed_combo.RemoveAtom(dummy)
+
+    ligand = ed_combo.GetMol()
+
+    # Replace remaining dummy atoms with hydrogens
+    du = Chem.MolFromSmiles('*')
+    h = Chem.MolFromSmiles('[H]', sanitize=False)
+    ligand = AllChem.ReplaceSubstructs(ligand, du, h, replaceAll=True)[0]
+    try:
+        ligand = Chem.RemoveHs(ligand)
+    except ValueError:
+        print(Chem.MolToSmiles(ligand))
+        return
+
+    # Clear properties
+    for prop in ligand.GetPropNames():
+        ligand.ClearProp(prop)
+    for atom in ligand.GetAtoms():
+        atom.ClearProp('fragment_atom_id')
+
+    # Generate 2D coordinates
+    AllChem.Compute2DCoords(ligand)
+
+    return ligand
+
+
+def standardize_mol(mol):
+    """
+    Standardize molecule.
+    Parameters
+    ----------
+    mol : rdkit.Chem.rdchem.Mol
+        Molecule.
+    Returns
+    -------
+    rdkit.Chem.rdchem.Mol or None
+        Standardized molecule or None if standardization failed.
+    """
+
+    try:
+
+        # sanitize molecule
+        Chem.SanitizeMol(mol)
+
+        # remove non-explicit hydrogens
+        mol = Chem.RemoveHs(mol)
+
+        # disconnect metals from molecule
+        mol = rdMolStandardize.MetalDisconnector().Disconnect(mol)
+
+        # normalize moleucle
+        mol = rdMolStandardize.Normalize(mol)
+
+        # reionize molecule
+        mol = rdMolStandardize.Reionize(mol)
+
+        # uncharge molecule (this helps to standardize protonation states)
+        u = rdMolStandardize.Uncharger()
+        mol = u.uncharge(mol)
+
+        # assign stereochemistry
+        Chem.AssignStereochemistry(mol, force=True, cleanIt=True)
+
+        return mol
+
+    except Exception as e:
+
+        print(f'ERROR in standardization: {e}')
+        return None

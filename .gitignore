@@ -70,3 +70,7 @@ target/
 
 # Jupyter notebook
 .ipynb_checkpoints
+
+# Exclude combinatorial library
+data/combinatorial_library/*
+!data/combinatorial_library/README.md

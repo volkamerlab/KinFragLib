@@ -39,6 +39,9 @@ and can be used to enumerate recombined fragments in order to generate novel pot
 
     # Optionally, add TOC extension for Jupyter Lab
     jupyter labextension install @jupyterlab/toc
+    
+    # Install klifs_utils package
+    pip install https://github.com/volkamerlab/klifs_utils/archive/master.tar.gz
     ```
 
 3. Open the notebook `quick_start.ipynb` for an introduction on how to load and use the fragment library.

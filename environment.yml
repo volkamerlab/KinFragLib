@@ -1,6 +1,5 @@
 name: kinfraglib
 channels:
-  - rdkit
   - conda-forge
 dependencies:
   - python
@@ -14,3 +13,5 @@ dependencies:
   - seaborn
   - bravado
   - nodejs
+  - ijson
+  - chembl_webresource_client
