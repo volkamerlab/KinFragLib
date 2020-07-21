@@ -388,7 +388,7 @@ def get_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb):
     return fragmented_ligand
 
 
-def draw_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb, mols_per_row=6):
+def draw_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb, mols_per_row=6, include_dummy=False):
     """
     Show fragments with subpocket assignment for ligand by PDB ID.
     
@@ -410,8 +410,13 @@ def draw_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb, mols_per_r
     
     fragmented_ligand = get_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb)
     
+    if include_dummy:
+        mols = fragmented_ligand.ROMol_dummy.tolist()
+    else:
+        mols = fragmented_ligand.ROMol.tolist()
+
     img = Draw.MolsToGridImage(
-        fragmented_ligand.ROMol.tolist(), 
+        mols, 
         legends=fragmented_ligand.subpocket.tolist(), 
         molsPerRow=mols_per_row
     )
