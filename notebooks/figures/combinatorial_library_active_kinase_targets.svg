@@ -105,7 +105,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="45.4757" y="93.8232"><tspan>HN</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="115.769" y="81.4721"><tspan>NH</tspan><tspan style="baseline-shift:sub;font-size:2.25px;">2</tspan><tspan/></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="end" x="101.276" y="69.8905"><tspan>O</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="189.8"><tspan>CHEMBL3403541 | 1.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="189.8"><tspan>3403541 | 1.0 (2971)</tspan></text>
 <path class="bond-0" d="M 352.358,121.759 L 351.273,117.02" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 351.273,117.02 L 350.188,112.28" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 351.003,113.158 L 354.457,109.948" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -178,7 +178,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="277.053" y="58.7164"><tspan>H</tspan><tspan style="baseline-shift:sub;font-size:2.25px;">2</tspan><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="294.123" y="64.7561"><tspan>O</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#CCCC00" text-anchor="start" x="299.321" y="87.462"><tspan>S</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="189.8"><tspan>CHEMBL1288278 | 1.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="189.8"><tspan>1288278 | 1.0 (4630)</tspan></text>
 <path class="bond-0" d="M 445.202,115.637 L 446.502,110.856" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 446.502,110.856 L 447.801,106.076" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 442.891,115.009 L 444.19,110.228" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -235,7 +235,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="516.362" y="87.773"><tspan>H</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="550.899" y="101.189"><tspan>O</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="497.637" y="97.0617"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="189.8"><tspan>CHEMBL4080944 | 1.2</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="189.8"><tspan>4080944 | 1.2 (4040)</tspan></text>
 <path class="bond-0" d="M 677.838,110.531 L 665.878,111.159" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 675.919,108.233 L 667.547,108.672" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-25" d="M 677.838,110.531 L 683.275,99.86" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -298,7 +298,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="749.255" y="123.258"><tspan>H</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="720.169" y="79.2254"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="713.963" y="88.5331"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="189.8"><tspan>CHEMBL2385579 | 1.37</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="189.8"><tspan>2385579 | 1.37 (4267)</tspan></text>
 <path class="bond-0" d="M 898.478,59.8883 L 895.644,63.5023" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 895.644,63.5023 L 892.809,67.1164" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 892.978,65.9307 L 887.982,65.2191" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -364,7 +364,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="940.446" y="106.12"><tspan>NH</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="848.122" y="133.385"><tspan>NH</tspan><tspan style="baseline-shift:sub;font-size:2.25px;">2</tspan><tspan/></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#CCCC00" text-anchor="end" x="879.134" y="89.0649"><tspan>S</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="189.8"><tspan>CHEMBL1287863 | 2.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="189.8"><tspan>1287863 | 2.0 (4630)</tspan></text>
 <path class="bond-0" d="M 1155.03,124.855 L 1153.98,120" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 1153.98,120 L 1152.93,115.145" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 1150.63,112.551 L 1145.86,111.02" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -433,7 +433,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="1080.03" y="58.6853"><tspan>H</tspan><tspan style="baseline-shift:sub;font-size:2.25px;">2</tspan><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="1097.02" y="64.9655"><tspan>O</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#CCCC00" text-anchor="start" x="1101.94" y="87.7296"><tspan>S</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="189.8"><tspan>CHEMBL1288009 | 3.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="189.8"><tspan>1288009 | 3.0 (4630)</tspan></text>
 <path class="bond-0" d="M 66.2231,294.757 L 54.7526,291.313" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 54.7526,291.313 L 53.124,286.659" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 53.124,286.659 L 51.4954,282.005" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -519,7 +519,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#33CCCC" text-anchor="start" x="158.087" y="290.619"><tspan>F</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="95.202" y="280.043"><tspan>O</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="66.2314" y="310.675"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="389.8"><tspan>CHEMBL4114404 | 3.1</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="389.8"><tspan>4114404 | 3.1 (4040)</tspan></text>
 <path class="bond-0" d="M 306.792,325.427 L 305.845,320.547" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 305.845,320.547 L 304.897,315.666" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 304.441,325.884 L 303.493,321.003" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -591,7 +591,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="336.226" y="328.199"><tspan>OH</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#00CC00" text-anchor="start" x="358.384" y="281.119"><tspan>Cl</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#33CCCC" text-anchor="start" x="336.536" y="273.316"><tspan>F</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="389.8"><tspan>CHEMBL3409588 | 3.9</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="389.8"><tspan>3409588 | 3.9 (4040)</tspan></text>
 <path class="bond-0" d="M 453.391,329.601 L 457.136,326.607" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 457.136,326.607 L 460.881,323.613" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 462.442,320.127 L 461.694,315.205" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -652,7 +652,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="526.404" y="337.054"><tspan>O</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="end" x="508.826" y="340.17"><tspan>HO</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="515.743" y="266.01"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="389.8"><tspan>CHEMBL1652706 | 4.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="389.8"><tspan>1652706 | 4.0 (2095191)</tspan></text>
 <path class="bond-0" d="M 703.911,334.175 L 701.732,329.817" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 701.732,329.817 L 699.553,325.459" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 701.769,335.247 L 699.59,330.889" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -706,7 +706,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="689.1" y="305.17"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="715.458" y="314.815"><tspan>O</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#7F4C19" text-anchor="start" x="715.28" y="267.107"><tspan>Br</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="389.8"><tspan>CHEMBL2030386 | 4.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="389.8"><tspan>2030386 | 4.0 (5407)</tspan></text>
 <path class="bond-0" d="M 952.505,311.371 L 947.436,312.057" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 947.436,312.057 L 942.367,312.743" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 938.907,311.167 L 935.635,307.743" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -774,7 +774,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="907.525" y="269.336"><tspan>O</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#CCCC00" text-anchor="start" x="908.22" y="292.567"><tspan>S</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="933.629" y="324.121"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="389.8"><tspan>CHEMBL4066751 | 6.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="389.8"><tspan>4066751 | 6.0 (4630)</tspan></text>
 <path class="bond-0" d="M 1088.46,261.653 L 1086.19,265.809" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 1086.19,265.809 L 1083.91,269.965" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 1083.89,268.768 L 1078.83,268.885" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -838,7 +838,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="1137.18" y="300.424"><tspan>NH</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#CCCC00" text-anchor="end" x="1043.88" y="316.692"><tspan>S</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#CCCC00" text-anchor="end" x="1073.94" y="294.063"><tspan>S</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="389.8"><tspan>CHEMBL4079910 | 6.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="389.8"><tspan>4079910 | 6.0 (4630)</tspan></text>
 <path class="bond-0" d="M 45.2024,515.637 L 46.5019,510.856" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 46.5019,510.856 L 47.8013,506.076" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 42.891,515.009 L 44.1905,510.228" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -895,7 +895,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="117.693" y="491.765"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="116.362" y="487.773"><tspan>H</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="97.6366" y="497.062"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="589.8"><tspan>CHEMBL401396 | 7.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="589.8"><tspan>401396 | 7.0 (5443)</tspan></text>
 <path class="bond-0" d="M 262.17,530.134 L 260.046,525.741" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 260.046,525.741 L 257.922,521.348" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 260.014,531.177 L 257.89,526.784" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -953,7 +953,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="311.538" y="495.377"><tspan>NH</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#00CC00" text-anchor="start" x="334.895" y="497.129"><tspan>Cl</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="286.614" y="462.155"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="589.8"><tspan>CHEMBL1652709 | 8.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="589.8"><tspan>1652709 | 8.0 (2095191)</tspan></text>
 <path class="bond-0" d="M 508.073,533.487 L 506.875,528.674" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 506.875,528.674 L 505.677,523.861" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 505.749,534.065 L 504.551,529.252" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1004,7 +1004,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="446.335" y="494.28"><tspan>HN</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="448.419" y="482.486"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="511.802" y="516.433"><tspan>NH</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="589.8"><tspan>CHEMBL526133 | 10.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="589.8"><tspan>526133 | 10.0 (5443)</tspan></text>
 <path class="bond-0" d="M 629.373,495.978 L 632.173,499.818" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 632.173,499.818 L 634.973,503.659" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 638.293,505.456 L 643.315,504.92" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1058,7 +1058,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="739.051" y="521.579"><tspan>H</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="707.849" y="479.246"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="702.156" y="488.947"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="589.8"><tspan>CHEMBL2385600 | 13.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="589.8"><tspan>2385600 | 13.0 (279)</tspan></text>
 <path class="bond-0" d="M 877.838,510.531 L 865.878,511.159" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 875.919,508.233 L 867.547,508.672" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-25" d="M 877.838,510.531 L 883.275,499.86" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1121,7 +1121,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="949.255" y="523.258"><tspan>H</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="920.169" y="479.225"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="913.963" y="488.533"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="589.8"><tspan>CHEMBL2385586 | 14.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="589.8"><tspan>2385586 | 14.0 (279)</tspan></text>
 <path class="bond-0" d="M 1066.97,520.199 L 1066.42,515.246" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 1066.42,515.246 L 1065.87,510.293" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 1064.59,520.466 L 1064.04,515.513" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1168,7 +1168,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="1082.56" y="483.082"><tspan>H</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="1126.34" y="491.926"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="1126.49" y="513.808"><tspan>NH</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="589.8"><tspan>CHEMBL253760 | 14.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="589.8"><tspan>253760 | 14.0 (5443)</tspan></text>
 <path class="bond-0" d="M 57.4345,682.501 L 67.4527,689.064" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 57.6247,685.49 L 64.6374,690.084" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-19" d="M 57.4345,682.501 L 52.9532,684.762" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1218,7 +1218,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#CCCC00" text-anchor="start" x="141.432" y="701.565"><tspan>S</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="93.6618" y="692.773"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="48.0727" y="688.495"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="789.8"><tspan>CHEMBL4081227 | 24.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="789.8"><tspan>4081227 | 24.0 (279)</tspan></text>
 <path class="bond-0" d="M 261.289,726.684 L 259.838,721.957" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 259.838,721.957 L 258.388,717.23" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 258.999,727.386 L 257.549,722.659" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1269,7 +1269,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="296.906" y="706.011"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="315.407" y="699.927"><tspan>NH</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="294.527" y="662.895"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="789.8"><tspan>CHEMBL1652699 | 27.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="789.8"><tspan>1652699 | 27.0 (2095191)</tspan></text>
 <path class="bond-0" d="M 421.624,686.831 L 430.535,694.833" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 430.535,694.833 L 441.92,691.117" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-2" d="M 441.92,691.117 L 450.831,699.119" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1320,7 +1320,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="479.508" y="724.766"><tspan>H</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="553.232" y="701.404"><tspan>OH</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="541.228" y="680.676"><tspan>OH</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="789.8"><tspan>CHEMBL1082236 | 27.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="789.8"><tspan>1082236 | 27.0 (262)</tspan></text>
 <path class="bond-0" d="M 618.562,693.541 L 621.182,697.559" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 621.182,697.559 L 623.801,701.577" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 626.967,703.473 L 632.014,703.199" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1381,7 +1381,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="748.076" y="703.585"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="697.837" y="680.933"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="691.647" y="690.254"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="789.8"><tspan>CHEMBL502351 | 32.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="789.8"><tspan>502351 | 32.0 (5903)</tspan></text>
 <path class="bond-0" d="M 872.91,740.485 L 876.21,737.585" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 876.21,737.585 L 879.511,734.686" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 879.127,735.82 L 883.867,737.424" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1455,7 +1455,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="839.765" y="688.535"><tspan>HN</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="933.121" y="710.452"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#CCCC00" text-anchor="start" x="896.856" y="717.032"><tspan>S</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="789.8"><tspan>CHEMBL1288251 | 34.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="789.8"><tspan>1288251 | 34.0 (4630)</tspan></text>
 <path class="bond-0" d="M 1031.31,673.705 L 1034.72,677.048" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 1034.72,677.048 L 1038.13,680.391" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 1041.59,681.604 L 1046.49,680.236" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1529,7 +1529,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="1122.84" y="659.917"><tspan>H</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="end" x="1105.66" y="669.483"><tspan>O</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="1107.04" y="718.158"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="789.8"><tspan>CHEMBL4105185 | 36.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="789.8"><tspan>4105185 | 36.0 (4040)</tspan></text>
 <path class="bond-0" d="M 105.041,925.177 L 112.97,916.201" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 112.97,916.201 L 118.066,916.688" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 118.066,916.688 L 123.162,917.174" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1586,7 +1586,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="69.1514" y="909.838"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="67.8205" y="913.83"><tspan>H</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="89.76" y="907.474"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="989.8"><tspan>CHEMBL72461 | 36.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="989.8"><tspan>72461 | 36.0 (301)</tspan></text>
 <path class="bond-0" d="M 253.954,950.876 L 261.909,941.923" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 261.909,941.923 L 273.828,943.096" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-27" d="M 261.909,941.923 L 260.844,937.072" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1659,7 +1659,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="269.674" y="924.767"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="268.343" y="920.775"><tspan>H</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="260.673" y="930.824"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="989.8"><tspan>CHEMBL3976130 | 50.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="989.8"><tspan>3976130 | 50.0 (1957)</tspan></text>
 <path class="bond-0" d="M 456.922,877.929 L 445.53,881.623" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 445.53,881.623 L 436.634,873.605" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 442.592,882.2 L 436.365,876.587" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1741,7 +1741,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="489.914" y="901.419"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="438.998" y="931.883"><tspan>NH</tspan><tspan style="baseline-shift:sub;font-size:2.25px;">2</tspan><tspan/></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="end" x="431.392" y="913.853"><tspan>O</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="989.8"><tspan>CHEMBL3330120 | 59.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="989.8"><tspan>3330120 | 59.0 (2971)</tspan></text>
 <path class="bond-0" d="M 633.007,919.692 L 637.406,917.176" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 637.406,917.176 L 641.805,914.661" style="fill:none;fill-rule:evenodd;stroke:#CCCC00;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 643.505,916.337 L 645.336,919.539" style="fill:none;fill-rule:evenodd;stroke:#CCCC00;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1802,7 +1802,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="756.053" y="908.824"><tspan>O</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="695.434" y="872.64"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="675.981" y="872.615"><tspan>H</tspan><tspan style="baseline-shift:sub;font-size:2.25px;">2</tspan><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="989.8"><tspan>CHEMBL3754304 | 64.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="989.8"><tspan>3754304 | 64.0 (6166)</tspan></text>
 <path class="bond-0" d="M 823.416,888.462 L 832.617,896.129" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 832.617,896.129 L 843.857,891.993" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-2" d="M 843.857,891.993 L 853.058,899.66" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1850,7 +1850,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="883.825" y="920.187"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="882.494" y="924.179"><tspan>H</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="955.625" y="898.154"><tspan>NH</tspan><tspan style="baseline-shift:sub;font-size:2.25px;">2</tspan><tspan/></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="989.8"><tspan>CHEMBL1086638 | 76.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="989.8"><tspan>1086638 | 76.0 (262)</tspan></text>
 <path class="bond-0" d="M 1163.33,907.171 L 1158.29,906.324" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 1158.29,906.324 L 1153.25,905.477" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 1149.87,907.182 L 1146.89,910.802" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1904,7 +1904,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="1079.33" y="893.876"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="1030.66" y="912.736"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="1073.99" y="883.154"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="989.8"><tspan>CHEMBL3823597 | 80.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="989.8"><tspan>3823597 | 80.0 (4578)</tspan></text>
 <path class="bond-0" d="M 46.3173,1137.75 L 49.991,1134.7" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 49.991,1134.7 L 53.6647,1131.65" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 55.1869,1128.1 L 54.3467,1123.2" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -1960,7 +1960,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="156.427" y="1113.18"><tspan>NH</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="77.0962" y="1072.32"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="57.9413" y="1075.89"><tspan>H</tspan><tspan style="baseline-shift:sub;font-size:2.25px;">2</tspan><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="1189.8"><tspan>CHEMBL3341948 | 86.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="1189.8"><tspan>3341948 | 86.0 (5903)</tspan></text>
 <path class="bond-0" d="M 282.263,1089.07 L 280.03,1093.39" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 280.03,1093.39 L 277.797,1097.71" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 284.391,1090.17 L 282.158,1094.49" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -2001,7 +2001,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="282.894" y="1088.22"><tspan>O</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="286.657" y="1108.94"><tspan>HN</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="314.387" y="1117.91"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="1189.8"><tspan>CHEMBL1269663 | 107.2</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="1189.8"><tspan>1269663 | 107.2 (279)</tspan></text>
 <path class="bond-0" d="M 433.458,1105.39 L 438.273,1104.82" style="fill:none;fill-rule:evenodd;stroke:#00CC00;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 438.273,1104.82 L 443.087,1104.24" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 443.087,1104.24 L 447.795,1093.22" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -2053,7 +2053,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="541.923" y="1114.5"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="502.253" y="1078.31"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="496.689" y="1088.11"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="1189.8"><tspan>CHEMBL328790 | 113.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="1189.8"><tspan>328790 | 113.0 (279)</tspan></text>
 <path class="bond-0" d="M 637.626,1119.81 L 640.909,1116.49" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 640.909,1116.49 L 644.192,1113.18" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 647.92,1111.79 L 652.779,1113.07" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -2110,7 +2110,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="697.663" y="1104.02"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="716.344" y="1098.56"><tspan>NH</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="696.635" y="1060.86"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="1189.8"><tspan>CHEMBL3700409 | 113.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="1189.8"><tspan>3700409 | 113.0 (3629)</tspan></text>
 <path class="bond-0" d="M 859.398,1075.02 L 863.829,1076.63" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 863.829,1076.63 L 868.26,1078.24" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 868.26,1078.24 L 871.978,1075.11" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -2172,7 +2172,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="935.811" y="1103.34"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="956.997" y="1111.51"><tspan>NH</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="844.184" y="1113.75"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="1189.8"><tspan>CHEMBL3341791 | 120.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="1189.8"><tspan>3341791 | 120.0 (5903)</tspan></text>
 <path class="bond-0" d="M 1052.29,1104.67 L 1056.94,1103.64" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 1056.94,1103.64 L 1061.59,1102.6" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 1061.59,1102.6 L 1065.18,1091.18" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -2212,7 +2212,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="1101.59" y="1083.98"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="1118.71" y="1090.21"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="1121.2" y="1111.95"><tspan>NH</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="1189.8"><tspan>CHEMBL259141 | 180.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="1189.8"><tspan>259141 | 180.0 (2431)</tspan></text>
 <path class="bond-0" d="M 32.5893,1289.95 L 42.0309,1297.31" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 42.0309,1297.31 L 53.1328,1292.82" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-2" d="M 53.1328,1292.82 L 62.5745,1300.19" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -2257,7 +2257,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#33CCCC" text-anchor="start" x="141.351" y="1296.99"><tspan>F</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#33CCCC" text-anchor="start" x="130.246" y="1309.78"><tspan>F</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#33CCCC" text-anchor="start" x="128.562" y="1285.88"><tspan>F</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="1389.8"><tspan>CHEMBL1086640 | 195.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="1389.8"><tspan>1086640 | 195.0 (262)</tspan></text>
 <path class="bond-0" d="M 368.268,1317.2 L 363.576,1315.32" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 363.576,1315.32 L 358.884,1313.43" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 355.424,1314.1 L 351.578,1317.12" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -2320,7 +2320,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="232.474" y="1330.92"><tspan>O</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="end" x="222.598" y="1314.6"><tspan>HO</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="281.049" y="1293.95"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="1389.8"><tspan>CHEMBL3359884 | 210.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="1389.8"><tspan>3359884 | 210.0 (4630)</tspan></text>
 <path class="bond-0" d="M 435.398,1328.17 L 447.006,1325.22" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 447.006,1325.22 L 455.363,1333.8" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-2" d="M 447.006,1325.22 L 448.35,1320.45" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -2378,7 +2378,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="458.879" y="1274.53"><tspan>H</tspan><tspan style="baseline-shift:sub;font-size:2.25px;">2</tspan><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="450.828" y="1294.93"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="444.174" y="1304.88"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="1389.8"><tspan>CHEMBL3921258 | 280.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="500" y="1389.8"><tspan>3921258 | 280.0 (1075104)</tspan></text>
 <path class="bond-0" d="M 684.183,1323.03 L 685.614,1318.29" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 685.614,1318.29 L 687.044,1313.56" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 685.782,1309.58 L 682.616,1306.21" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -2449,7 +2449,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#CCCC00" text-anchor="start" x="729.808" y="1285.2"><tspan>S</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="764.03" y="1298.9"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="723.495" y="1303.06"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="1389.8"><tspan>CHEMBL257127 | 350.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="700" y="1389.8"><tspan>257127 | 350.0 (3778)</tspan></text>
 <path class="bond-0" d="M 838.578,1333.74 L 849.519,1328.87" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 849.519,1328.87 L 859.208,1335.91" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-2" d="M 849.519,1328.87 L 850.04,1323.91" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -2513,7 +2513,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="852.543" y="1277.13"><tspan>H</tspan><tspan style="baseline-shift:sub;font-size:2.25px;">2</tspan><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="848.073" y="1298.6"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="843.202" y="1309.54"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="1389.8"><tspan>CHEMBL3938306 | 370.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="900" y="1389.8"><tspan>3938306 | 370.0 (1075104)</tspan></text>
 <path class="bond-0" d="M 1032.36,1307.79 L 1036.68,1310.16" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 1036.68,1310.16 L 1041,1312.53" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 1044.73,1312.42 L 1048.91,1309.88" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -2567,7 +2567,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="end" x="1097.91" y="1315.22"><tspan>O</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="1130.13" y="1327.09"><tspan>NH</tspan><tspan style="baseline-shift:sub;font-size:2.25px;">2</tspan><tspan/></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="end" x="1112.21" y="1325.31"><tspan>O</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="1389.8"><tspan>CHEMBL147281 | 460.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="1100" y="1389.8"><tspan>147281 | 460.0 (1907601)</tspan></text>
 <path class="bond-0" d="M 34.421,1496.27 L 37.5578,1499.41" style="fill:none;fill-rule:evenodd;stroke:#0000FF;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 37.5578,1499.41 L 40.6947,1502.54" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 39.5378,1502.23 L 38.2562,1507.02" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -2619,7 +2619,7 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="85.635" y="1486.74"><tspan>H</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="93.6693" y="1510.77"><tspan>N</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="middle" x="107.004" y="1496.1"><tspan>N</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="1589.8"><tspan>CHEMBL571619 | 491.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="100" y="1589.8"><tspan>571619 | 491.0 (2637)</tspan></text>
 <path class="bond-0" d="M 237.69,1523.43 L 242.61,1522.36" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-0" d="M 242.61,1522.36 L 247.53,1521.29" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
 <path class="bond-1" d="M 250.033,1518.89 L 251.54,1514.19" style="fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
@@ -2669,5 +2669,5 @@
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="end" x="307.834" y="1509.89"><tspan>HN</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#0000FF" text-anchor="start" x="323.687" y="1490.36"><tspan>NH</tspan></text>
 <text dominant-baseline="central" style="font-size:3px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#FF0000" text-anchor="start" x="314.268" y="1472.33"><tspan>O</tspan></text>
-<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="1589.8"><tspan>CHEMBL389551 | 500.0</tspan></text>
+<text dominant-baseline="central" style="font-size:14px;font-style:normal;font-weight:normal;fill-opacity:1;stroke:none;font-family:sans-serif;fill:#000000" text-anchor="middle" x="300" y="1589.8"><tspan>389551 | 500.0 (4630)</tspan></text>
 </svg>
