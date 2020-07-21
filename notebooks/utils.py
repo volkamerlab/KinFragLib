@@ -163,7 +163,7 @@ def get_original_ligands(fragment_library_concat):
     # Get structures (metadata) for original ligands (takes a couple of minutes)
     structures = pd.concat(
         [
-            klifs_utils.remote.structures.structures_from_pdb_id(
+            klifs_utils.remote.structures.structures_from_pdb_ids(
                 original_ligand.complex_pdb,
                 alt=original_ligand.alt,
                 chain=original_ligand.chain
