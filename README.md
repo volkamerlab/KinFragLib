@@ -13,15 +13,12 @@
 
 ## Repository content
 
-This repository holds 
-(i) fragment library data, 
-(ii) a *quick start* notebook explaining how to load and use the library, alongside 
-(iii) notebooks covering the full analyses regarding the fragment library and the combinatorial library as described in 
-the corresponding paper.
+This repository holds the following resources:  
 
-    data/
-    notebooks/
-    environment.yml
+1. Fragment library data and a link to the combinatorial library data.
+2. *Quick start* notebook explaining how to load and use the fragment library.  
+3. Notebooks covering the full analyses regarding the fragment and combinatorial libraries as described in 
+the corresponding paper.  
     
 Please find detailed description of files in `data/` and `notebooks/` in the folders' `README` files.
 

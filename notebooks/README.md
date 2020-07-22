@@ -1,6 +1,6 @@
 # Notebooks
 
-Overview on notebook content:
+Overview on notebook content.
 
 ## 1. Quick start
 
@@ -50,12 +50,12 @@ The aim of this notebook is to extract information from the combinatorial librar
 
 ### `4_2_combinatorial_library_properties.ipynb`
 
-In this notebook we want to analyze properties of the combinatorial library, such as the ligand size and Lipinski's rule of five criteria.
+In this notebook, we want to analyze properties of the combinatorial library, such as the ligand size and Lipinski's rule of five criteria.
 
 ### `4_3_combinatorial_library_comparison_klifs.ipynb`
 
-In this notebook we want to compare the combinatorial library to the original KLIFS ligands, i.e. the ligands from which the fragment library originates from. We consider exact and substructure matches.
+In this notebook, we want to compare the combinatorial library to the original KLIFS ligands, i.e. the ligands from which the fragment library originates from. We consider exact and substructure matches.
 
 ### `4_4_combinatorial_library_comparison_chembl.ipynb`
 
-In this notebook we want to compare the combinatorial library to the ChEMBL 25 dataset in order to find exact matches and the most similar ChEMBL ligand per recombined ligand.
+In this notebook, we want to compare the combinatorial library to the ChEMBL 25 dataset in order to find exact matches and the most similar ChEMBL molecule per recombined ligand.
