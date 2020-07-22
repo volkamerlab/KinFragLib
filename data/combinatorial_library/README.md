@@ -1,8 +1,10 @@
 # KinFragLib: Combinatorial library 
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3956580.svg)](https://doi.org/10.5281/zenodo.3956580)
+
 This folder is meant for the metadata and properties of the KinFragLib combinatorial library, which is based on the KinFragLib fragment library at https://github.com/volkamerlab/KinFragLib. This dataset is used for the analysis of the combinatorial library.
 
-**Note**: Since this dataset contains large files, we provide it outside this repository at https://zenodo.org/record/3954932 (DOI: 10.5281/zenodo.3954932, v1.0.0).
+**Note**: Since this dataset contains large files, we provide it outside this repository at https://zenodo.org/record/3956580 (DOI: 10.5281/zenodo.3956580, v1.0.1).
 In order to run the analysis notebooks, please download this dataset to this folder. 
 
 ## Raw data
