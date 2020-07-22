@@ -6,3 +6,4 @@ Overview on data content:
 - `fragment_library_filtered/`: Filtered fragment library: Select fragments meaningful for the recombination (remove pool X, deduplicate per subpocket, remove unfragmented ligands, remove all fragments that connect only to pool X, keep only fragment-like fragments, and filter for hinge-like AP fragments).
 - `fragment_library_reduced/`: Reduced fragment library: Select a diverse set of fragments (per subpocket) for recombination starting from the filtered fragment library.
 - `combinatorial_library/`: Combinatorial library based on the reduced fragment library.
+- `external/`: Data from external resources.
