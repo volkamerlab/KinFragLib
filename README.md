@@ -20,9 +20,11 @@ This repository holds the following resources:
 3. Notebooks covering the full analyses regarding the fragment and combinatorial libraries as described in 
 the corresponding paper.  
 
+    ```
     data/
     notebooks/
     environment.yml
+    ```
     
 Please find detailed description of files in `data/` and `notebooks/` in the folders' `README` files.
 
