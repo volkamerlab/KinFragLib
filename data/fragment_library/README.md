@@ -17,15 +17,15 @@ Fragments are organized by the subpockets they occupy. Each fragment subpocket p
 
 Each fragment contains the following information:
 
-- 3D coordinates of the fragment's atoms as reported in the corresponding KLIFS complex structure file
+- 3D coordinates of the fragment's atoms as reported in the corresponding KLIFS complex structure file.
 - `kinase`, `family`, and `group`: 
 *Kinase* name, *family* and *group* of the kinase that the ligand (from which the fragment originates) was 
-co-crystallized with
+co-crystallized with.
 - `complex_pdb`, `ligand_pdb`, `alt`, and `chain`: 
 *PDB complex* and *ligand ID*, *alternate model* and *chain* for the KLIFS structure that the ligand 
-(from which the fragment originates) was co-crystallized with
-- `atom.prop.subpocket`: Subpocket assignment for each of the fragment's atoms
-- `atom.prop.environment`: BRICS environment IDs for each of the fragment's atoms
+(from which the fragment originates) was co-crystallized with.
+- `atom.prop.subpocket`: Subpocket assignment for each of the fragment's atoms.
+- `atom.prop.environment`: BRICS environment IDs for each of the fragment's atoms.
 
 Please refer to `notebooks/1_1_quick_start.ipynb` on how to load and work with this dataset.
 
@@ -38,14 +38,14 @@ Original ligands that are composed of the fragments in the full fragment library
 Each ligand contains the following information:
 
 - `kinase`, `family`, and `group`: 
-*Kinase* name, *family* and *group* of the kinase that the ligand was co-crystallized with
+*Kinase* name, *family* and *group* of the kinase that the ligand was co-crystallized with.
 - `complex_pdb`, `ligand_pdb`, `alt`, and `chain`: 
-*PDB complex* and *ligand ID*, *alternate model* and *chain* for the KLIFS structure that the ligand was co-crystallized with
+*PDB complex* and *ligand ID*, *alternate model* and *chain* for the KLIFS structure that the ligand was co-crystallized with.
 - `subpocket`: 
-Subpockets that the ligand occupies
+Subpockets that the ligand occupies.
 - `ac_helix`:
-aC-helix conformation for the KLIFS structure that the ligand was co-crystallized with
+aC-helix conformation for the KLIFS structure that the ligand was co-crystallized with.
 - `smiles`:
-Ligand's SMILES string
+Ligand's SMILES string.
 
 Please refer to `notebooks/2_1_fragment_analysis_original_ligands.ipynb` where this data is generated.

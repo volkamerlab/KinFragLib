@@ -1,6 +1,6 @@
 # Notebooks
 
-Overview on notebook content:
+Overview on notebook content.
 
 ## 1. Quick start
 
@@ -39,7 +39,7 @@ This notebook contains the code that was used to analyze the most common fragmen
 
 The fragment library resulting from the KinFragLib fragmentation procedure comprises of about 3000 fragments. Ultimately, we want to demonstrate how this library can be used for recombining ligands. Before this can be done, we need to address two considerations:
 
-1. Remove all fragments that are not useful in a recombination, i.e. duplicates, fragments in pool X, fragments without dummy atoms, and fragments with dummy atoms only connecting to pool X. Also remove all AP fragments that show no hydrogen bond donors and acceptors (not hinge-like).
+1. Filter for fragments that are not useful in a recombination, i.e. duplicates, fragments in pool X, fragments without dummy atoms, and fragments with dummy atoms only connecting to pool X. Also remove all AP fragments that show no hydrogen bond donors and acceptors (not hinge-like).
 2. Select a diverse set of fragments (per subpocket) for recombination to (i) save computational cost and (ii) avoid recombination of highly similar fragments.
 
 ## 4. Combinatorial library
@@ -50,12 +50,12 @@ The aim of this notebook is to extract information from the combinatorial librar
 
 ### `4_2_combinatorial_library_properties.ipynb`
 
-In this notebook we want to analyze properties of the combinatorial library, such as the ligand size and Lipinski's rule of five criteria.
+In this notebook, we want to analyze properties of the combinatorial library, such as the ligand size and Lipinski's rule of five criteria.
 
 ### `4_3_combinatorial_library_comparison_klifs.ipynb`
 
-In this notebook we want to compare the combinatorial library to the original KLIFS ligands, i.e. the ligands from which the fragment library originates from. We consider exact and substructure matches.
+In this notebook, we want to compare the combinatorial library to the original KLIFS ligands, i.e. the ligands from which the fragment library originates from. We consider exact and substructure matches.
 
 ### `4_4_combinatorial_library_comparison_chembl.ipynb`
 
-In this notebook we want to compare the combinatorial library to the ChEMBL 25 dataset in order to find exact matches and the most similar ChEMBL ligand per recombined ligand.
+In this notebook, we want to compare the combinatorial library to the ChEMBL 25 dataset in order to find exact matches and the most similar ChEMBL molecule per recombined ligand.
