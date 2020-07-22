@@ -33,10 +33,6 @@ This notebook contains the code that was used to analyze the most common fragmen
 - Cluster these fragments using Butina clustering.
 - Draw 50 most common fragments per subpocket sorted by descending cluster size.
 
-### `2_4_fragment_analysis_literature.ipynb`
-
-[WIP] This notebook aims to load kinase inhibitor fragment data from literature and check if these fragments are included in our fragment library.
-
 ## 3. Reduced fragment library
 
 ### `3_1_fragment_library_reduced.ipynb`
