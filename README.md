@@ -15,8 +15,8 @@
 
 This repository holds 
 1. the fragment library data and a link to the combinatorial library data,
-(ii) a *quick start* notebook explaining how to load and use the fragment library, and 
-(iii) notebooks covering the full analyses regarding the fragment and combinatorial libraries as described in 
+2. a *quick start* notebook explaining how to load and use the fragment library, and 
+3. notebooks covering the full analyses regarding the fragment and combinatorial libraries as described in 
 the corresponding paper.
 
     data/
