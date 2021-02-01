@@ -9,7 +9,7 @@ on:
       - "master"
   schedule:
     # Run a cron job once daily, weekdays only
-    - cron: "0 3 * * 5"
+    - cron: "0 3 1,15 * *"
 
 jobs:
   test:
@@ -59,8 +59,11 @@ jobs:
       - name: Run tests
         shell: bash -l {0}
         run: |
+          echo "Download combinatorial library from zenodo..."
           wget -q -O data/combinatorial_library/combinatorial_library.tar.bz2 https://zenodo.org/record/3956580/files/combinatorial_library.tar.bz2?download=1
+          echo "Decompress combinatorial library..."
           tar -xvf data/combinatorial_library/combinatorial_library.tar.bz2 -C data/combinatorial_library/
+          echo "Run tests..."
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2 notebooks/4*"
           pytest $PYTEST_ARGS
 
