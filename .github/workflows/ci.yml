@@ -43,7 +43,7 @@ jobs:
           python-version: ${{ matrix.cfg.python-version }}
           activate-environment: kinfraglib
           channel-priority: true
-          environment-file: devtools/conda-envs/test_env.yml
+          environment-file: environment.yml
           auto-activate-base: false
 
       - name: Additional info about the build
