@@ -59,7 +59,7 @@ jobs:
       - name: Run tests
         shell: bash -l {0}
         run: |
-          wget -O data/combinatorial_library/combinatorial_library.tar.bz2 https://zenodo.org/record/3956580/files/combinatorial_library.tar.bz2?download=1
+          wget -q -O data/combinatorial_library/combinatorial_library.tar.bz2 https://zenodo.org/record/3956580/files/combinatorial_library.tar.bz2?download=1
           tar -xvf data/combinatorial_library/combinatorial_library.tar.bz2 -C data/combinatorial_library/
           PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2 notebooks/4*"
           pytest $PYTEST_ARGS
