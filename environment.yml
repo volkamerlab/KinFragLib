@@ -2,16 +2,32 @@ name: kinfraglib
 channels:
   - conda-forge
 dependencies:
+  # Base dependencies
   - python
-  - jupyterlab
-  - rdkit 
+  # Package dependencies
   - biopandas
+  - chembl_webresource_client
+  - ijson
+  - ipywidgets>=7.5
+  - jupyterlab
+  - matplotlib
   - numpy
   - pandas
+  - rdkit 
   - scikit-learn
-  - matplotlib
   - seaborn
+  ## CI tests
+  # Workaround for https://github.com/computationalmodelling/nbval/issues/153
+  - pytest 5.*
+  - pytest-xdist
+  - nbval
+  - shyaml  
+  # Remove when opencadd is conda-installable
+  - biopython 1.77
   - bravado
-  - nodejs
-  - ijson
-  - chembl_webresource_client
+  - nglview
+  - scipy
+  - tqdm
+  - pip:
+    - black-nb
+    - https://github.com/volkamerlab/opencadd/archive/2a6cf9bcee72a3626114cda82af758e05ed5af18.zip
