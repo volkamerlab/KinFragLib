@@ -32,9 +32,6 @@ jobs:
           #- os: windows-latest
           #  python-version: "3.6"
 
-    env:
-      PYVER: ${{ matrix.cfg.python-version }}
-
     steps:
       - uses: actions/checkout@v2
 
@@ -52,11 +49,6 @@ jobs:
           uname -a
           df -h
           ulimit -a
-
-      - name: Install package
-        shell: bash -l {0}
-        run: |
-          pip install . --no-deps -vv
 
       - name: Environment Information
         shell: bash -l {0}
