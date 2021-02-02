@@ -23,10 +23,10 @@ jobs:
           #  python-version: "3.6"
           #- os: ubuntu-latest
           #  python-version: "3.7"
-          #- os: ubuntu-latest
-          #  python-version: "3.8"
           - os: ubuntu-latest
-            python-version: "3.9"
+            python-version: "3.8"
+          #- os: ubuntu-latest
+          #  python-version: "3.9"
           #- os: macos-latest
           #  python-version: "3.6"
           #- os: windows-latest
@@ -64,5 +64,7 @@ jobs:
           echo "Decompress combinatorial library..."
           tar -xvf data/combinatorial_library/combinatorial_library.tar.bz2 -C data/combinatorial_library/
           echo "Run tests..."
-          PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
+          PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2 notebooks/4_3_combinatorial_library_comparison_klifs.ipynb"
           pytest $PYTEST_ARGS
+
+# PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
