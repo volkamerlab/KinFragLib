@@ -64,5 +64,5 @@ jobs:
           echo "Decompress combinatorial library..."
           tar -xvf data/combinatorial_library/combinatorial_library.tar.bz2 -C data/combinatorial_library/
           echo "Run tests..."
-          PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2 notebooks/4_*"
+          PYTEST_ARGS="--nbval-lax --current-env --dist loadscope --numprocesses 2"
           pytest $PYTEST_ARGS
