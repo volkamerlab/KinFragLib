@@ -1260,7 +1260,6 @@ def construct_ligand(fragment_ids, bond_ids, fragment_library):
     ligand: rdkit.Chem.rdchem.Mol or None
         Recombined ligand (or None if the ligand could not be constructed)
     """
-    print("fragment_ids", fragment_ids)
 
     fragments = []
     for fragment_id in fragment_ids:
@@ -1289,16 +1288,8 @@ def construct_ligand(fragment_ids, bond_ids, fragment_library):
     replaced_dummies = []
 
     atoms = combo.GetAtoms()
-    print("bond_ids", bond_ids)
-    print([atom.GetProp("fragment_atom_id") for atom in atoms])
 
     for bond in bond_ids:
-
-        print("dummy_1", [atom.GetProp("fragment_atom_id") for atom in combo.GetAtoms() if atom.GetProp("fragment_atom_id") == bond[0]])
-        print("dummy_1", next(
-            atom.GetProp("fragment_atom_id") for atom in combo.GetAtoms() if atom.GetProp("fragment_atom_id") == bond[0]
-        ))
-        print()
 
         dummy_1 = next(
             atom for atom in combo.GetAtoms() if atom.GetProp("fragment_atom_id") == bond[0]
