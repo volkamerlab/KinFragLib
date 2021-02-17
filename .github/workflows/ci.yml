@@ -70,7 +70,6 @@ jobs:
       - name: Run tests
         shell: bash -l {0}
         run: |
-          PYTEST_ARGS="--nbval-lax --current-env --nbval-cell-timeout=900 -vvv"
-          pytest $PYTEST_ARGS --ignore notebooks/2_4_highlight_fragments_in_ligand.ipynb
-          pytest notebooks/2_4_highlight_fragments_in_ligand.ipynb
+          PYTEST_ARGS="--nbval-lax --current-env --nbval-cell-timeout=900"
+          pytest $PYTEST_ARGS
 
