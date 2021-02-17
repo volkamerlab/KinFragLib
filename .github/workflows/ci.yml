@@ -61,11 +61,15 @@ jobs:
         run: |
           echo "Download combinatorial library from zenodo..."
           wget -q -O data/combinatorial_library/combinatorial_library.tar.bz2 https://zenodo.org/record/3956580/files/combinatorial_library.tar.bz2?download=1
-          echo "Decompress combinatorial library..."
+          ls -l data/combinatorial_library/
+          echo "Decompress (deduplicated) combinatorial library..."
           tar -xvf data/combinatorial_library/combinatorial_library.tar.bz2 combinatorial_library_deduplicated.json -C data/combinatorial_library/
+          ls -l data/combinatorial_library/
 
       - name: Run tests
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --nbval-cell-timeout=900 -vvv"
-          pytest $PYTEST_ARGS
+          pytest $PYTEST_ARGS --ignore notebooks/2_4_highlight_fragments_in_ligand.ipynb
+          pytest notebooks/2_4_highlight_fragments_in_ligand.ipynb
+
