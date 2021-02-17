@@ -13,8 +13,8 @@ dependencies:
   - jupyterlab
   - matplotlib
   - numpy
-  - pandas
-  - rdkit 
+  - pandas=1.1.2
+  - rdkit=2020.03.3
   - scikit-learn
   - seaborn
   ## CI tests
