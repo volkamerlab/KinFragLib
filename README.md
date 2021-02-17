@@ -1,5 +1,7 @@
 # KinFragLib: Kinase-focused fragment library
 
+[![GitHub Actions Build Status](https://github.com/volkamerlab/KinFragLib/workflows/CI/badge.svg)](https://github.com/volkamerlab/KinFragLib/actions?query=workflow%3ACI)
+
 ![KinFragLib workflow](./docs/img/toc_github_kinfraglib.png)
 
 ## Table of contents

@@ -26,7 +26,8 @@ from rdkit.Chem.PropertyMol import PropertyMol
 from rdkit.ML.Cluster import Butina
 import seaborn as sns
 
-import klifs_utils
+from opencadd.databases.klifs import setup_remote
+KLIFS_SESSION = setup_remote()
 
 RDLogger.DisableLog("rdApp.*")
 
@@ -182,26 +183,36 @@ def get_original_ligands(fragment_library_concat):
         ],
         axis=1,
     ).reset_index()
+    # Necessary to match format of opencadd KLIFS return values
+    original_ligands["alt"] = original_ligands["alt"].replace({" ": "-"})
+    original_ligands["chain"] = original_ligands["chain"].replace({" ": "-"})
 
-    # Get structures (metadata) for original ligands (takes a couple of minutes)
-    structures = pd.concat(
+    # Get structures (metadata) for original ligands
+    structures_all = KLIFS_SESSION.structures.all_structures()
+    structures_all = structures_all[
         [
-            klifs_utils.remote.structures.structures_from_pdb_ids(
-                original_ligand.complex_pdb, alt=original_ligand.alt, chain=original_ligand.chain
-            )
-            for index, original_ligand in original_ligands.iterrows()
+            "structure.pdb_id", 
+            "structure.alternate_model", 
+            "structure.chain", 
+            "structure.ac_helix", 
+            "structure.klifs_id"
         ]
+    ]
+    structures_all = structures_all.rename(
+        columns={
+            "structure.pdb_id": "complex_pdb", 
+            "structure.alternate_model": "alt",
+            "structure.chain": "chain",
+            "structure.ac_helix": "ac_helix",
+            "structure.klifs_id": "klifs_id"
+        }
     )
-
-    # Get aC-helix conformation of structure
-    original_ligands["ac_helix"] = structures.aC_helix.to_list()
-
-    # Get structure IDs for original ligands
-    structure_ids = structures.structure_ID
+    original_ligands = original_ligands.merge(structures_all, how="left", on=["complex_pdb", "alt", "chain"])
 
     # Get RDKit molecules for original ligands (takes a couple of minutes)
+    structure_ids = original_ligands["klifs_id"]
     original_ligands["ROMol"] = [
-        klifs_utils.remote.coordinates.ligand.mol2_to_rdkit_mol(structure_id)
+        KLIFS_SESSION.coordinates.to_rdkit(structure_id, entity="ligand", extension="mol2")
         for structure_id in structure_ids
     ]
 
@@ -1275,6 +1286,8 @@ def construct_ligand(fragment_ids, bond_ids, fragment_library):
     bonds_matching = True
     ed_combo = Chem.EditableMol(combo)
     replaced_dummies = []
+
+    atoms = combo.GetAtoms()
 
     for bond in bond_ids:
 
