@@ -74,3 +74,4 @@ target/
 # Exclude combinatorial library
 data/combinatorial_library/*
 !data/combinatorial_library/README.md
+data/combinatorial_library_constructed/*
