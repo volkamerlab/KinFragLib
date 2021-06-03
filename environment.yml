@@ -33,4 +33,4 @@ dependencies:
     - black-nb
     - https://github.com/volkamerlab/opencadd/archive/2a6cf9bcee72a3626114cda82af758e05ed5af18.zip
     # KinFragLib itself
-    - https://github.com/volkamerlab/kinfraglib/archive/pip.tar.gz
+    - https://github.com/volkamerlab/kinfraglib/archive/master.tar.gz
