@@ -27,6 +27,7 @@ from rdkit.ML.Cluster import Butina
 import seaborn as sns
 
 from opencadd.databases.klifs import setup_remote
+
 KLIFS_SESSION = setup_remote()
 
 RDLogger.DisableLog("rdApp.*")
@@ -45,13 +46,13 @@ SUBPOCKET_COLORS = {
 def read_fragment_library(path_to_lib):
     """
     Read fragment library from sdf files (one file per subpocket).
-    
+
     Parameters
     ----------
     path_to_lib : str
         Path to fragment library folder.
-    
-    
+
+
     Returns
     -------
     dict of pandas.DataFrame
@@ -76,14 +77,14 @@ def read_fragment_library(path_to_lib):
 def _read_subpocket_fragments(subpocket, path_to_lib):
     """
     Read fragments for input subpocket.
-    
+
     Parameters
     ----------
     subpocket : str
         Subpocket name, i.e. AP, SE, FP, GA, B1, or B2.
     path_to_lib : str
         Path to fragment library folder.
-    
+
     Returns
     -------
     pandas.DataFrame
@@ -144,14 +145,14 @@ def _read_subpocket_fragments(subpocket, path_to_lib):
 
 def get_original_ligands(fragment_library_concat):
     """
-    Get ligands from which the fragment library originated from, 
+    Get ligands from which the fragment library originated from,
     including each ligand's occupied subpockets, RDKit molecule (remote KLIFS access) and SMILES (from RDKit molecule).
-    
+
     Parameters
     ----------
     fragment_library_concat : pandas.DataFrame
         Fragment library data for one or multiple subpockets.
-    
+
     Returns
     -------
     pandas.DataFrame
@@ -191,23 +192,25 @@ def get_original_ligands(fragment_library_concat):
     structures_all = KLIFS_SESSION.structures.all_structures()
     structures_all = structures_all[
         [
-            "structure.pdb_id", 
-            "structure.alternate_model", 
-            "structure.chain", 
-            "structure.ac_helix", 
-            "structure.klifs_id"
+            "structure.pdb_id",
+            "structure.alternate_model",
+            "structure.chain",
+            "structure.ac_helix",
+            "structure.klifs_id",
         ]
     ]
     structures_all = structures_all.rename(
         columns={
-            "structure.pdb_id": "complex_pdb", 
+            "structure.pdb_id": "complex_pdb",
             "structure.alternate_model": "alt",
             "structure.chain": "chain",
             "structure.ac_helix": "ac_helix",
-            "structure.klifs_id": "klifs_id"
+            "structure.klifs_id": "klifs_id",
         }
     )
-    original_ligands = original_ligands.merge(structures_all, how="left", on=["complex_pdb", "alt", "chain"])
+    original_ligands = original_ligands.merge(
+        structures_all, how="left", on=["complex_pdb", "alt", "chain"]
+    )
 
     # Get RDKit molecules for original ligands (takes a couple of minutes)
     structure_ids = original_ligands["klifs_id"]
@@ -225,14 +228,14 @@ def get_original_ligands(fragment_library_concat):
 def get_most_common_fragments(fragments, top_x=50):
     """
     Get most common fragments.
-    
+
     Parameters
     ----------
     fragments : pandas.DataFrame
         Fragment details, i.e. SMILES, kinase groups, and fragment RDKit molecules, for input subpocket.
     top_x : int
         Top x most common fragments.
-        
+
     Returns
     -------
     pandas.DataFrame
@@ -279,12 +282,12 @@ def get_most_common_fragments(fragments, top_x=50):
 def _generate_fingerprints(mols):
     """
     Generate RDKit fingerprint from list of molecules.
-    
+
     Parameters
     ----------
     mols : list of rdkit.Chem.rdchem.Mol
         List of molecules.
-        
+
     Returns
     -------
     list of rdkit.DataStructs.cDataStructs.ExplicitBitVect
@@ -300,14 +303,14 @@ def _generate_fingerprints(mols):
 def cluster_molecules(mols, cutoff=0.6):
     """
     Cluster molecules by fingerprint distance using the Butina algorithm.
-    
+
     Parameters
     ----------
     mols : list of rdkit.Chem.rdchem.Mol
         List of molecules.
     cutoff : float
         Distance cutoff Butina clustering.
-        
+
     Returns
     -------
     pandas.DataFrame
@@ -365,12 +368,12 @@ def cluster_molecules(mols, cutoff=0.6):
 def _get_tanimoto_distance_matrix(fingerprints):
     """
     Calculate distance matrix for list of fingerprints.
-    
+
     Parameters
     ----------
     fingerprints : list of rdkit.DataStructs.cDataStructs.ExplicitBitVect
         List of fingerprints.
-        
+
     Returns
     -------
     list of floats
@@ -394,14 +397,14 @@ def _get_tanimoto_distance_matrix(fingerprints):
 def get_fragments_by_ligand(ligand_pdb, fragment_library):
     """
     Get all fragments in the KinFragLib fragment library originating from a ligand of interest (by ligand PDB name).
-    
+
     Parameters
     ----------
     ligand_pdb : str
         Ligand PDB name.
     fragment_library : dict of pandas.DataFrame
         Fragment library (including fragments with dummy atoms).
-        
+
     Returns
     -------
     pandas.DataFrame
@@ -425,7 +428,7 @@ def get_fragments_by_ligand(ligand_pdb, fragment_library):
 def get_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb):
     """
     Get fragments with subpocket assignment for ligand by PDB ID.
-    
+
     Parameters
     ----------
     fragment_library : dict of pandas.DataFrame
@@ -435,7 +438,7 @@ def get_fragmented_ligand(fragment_library, complex_pdb, ligand_pdb):
         PDB ID for structure with ligand of interest.
     ligand_pdb : str
         PDB ID for ligand of interest.
-    
+
     Returns
     -------
     PIL.PngImagePlugin.PngImageFile
@@ -467,7 +470,7 @@ def draw_fragmented_ligand(
 ):
     """
     Show fragments with subpocket assignment for ligand by PDB ID.
-    
+
     Parameters
     ----------
     fragment_library : dict of pandas.DataFrame
@@ -477,7 +480,7 @@ def draw_fragmented_ligand(
         PDB ID for structure with ligand of interest.
     ligand_pdb : str
         PDB ID for ligand of interest.
-    
+
     Returns
     -------
     PIL.PngImagePlugin.PngImageFile
@@ -501,7 +504,7 @@ def draw_fragmented_ligand(
 def draw_fragments_from_recombined_ligand(fragment_ids, fragment_library):
     """
     Draw fragments that a recombined ligand of interest is composed of.
-    
+
     Parameters
     ----------
     fragment_ids : list of str
@@ -509,7 +512,7 @@ def draw_fragments_from_recombined_ligand(fragment_ids, fragment_library):
     fragment_library : pandas.DataFrame
         Fragment library that recombined ligand was based on.
         Must be the same as used for recombination step, otherwise fragment_ids will not match!!!
-        
+
     Returns
     -------
     PIL.PngImagePlugin.PngImageFile
@@ -584,7 +587,7 @@ def get_descriptors_by_fragments(fragment_library):
     """
     Get physicochemical properties of fragment library, i.e. size (# heavy atoms), logP, hydrogen bond donors and acceptors,
     after deduplicating fragments per subpocket based on their smiles.
-    
+
     Parameters
     ----------
     fragment_library : dict of pandas.DataFrame
@@ -662,7 +665,7 @@ def get_ro3_from_mol(mol):
     -------
     pd.Series
         Rule of three criteria for input fragment.
-        
+
     Notes
     -----
     Taken from: https://europepmc.org/article/med/14554012
@@ -705,17 +708,17 @@ def get_ro5_from_smiles(smiles):
 
 def get_connections_by_fragment(fragment_library_concat):
     """
-    For each fragment, extract connecting subpockets (e.g. ['FP', 'SE'] for subpocket 'AP') and define subpocket connections (e.g. ['AP=FP', 'AP=SE']). 
-    
+    For each fragment, extract connecting subpockets (e.g. ['FP', 'SE'] for subpocket 'AP') and define subpocket connections (e.g. ['AP=FP', 'AP=SE']).
+
     Parameters
     ----------
     fragment_library_concat : pandas.DataFrame
         Fragment library data for one or multiple subpockets.
-        
+
     Returns
     -------
     pandas.DataFrame
-        Fragment library data including connecting subpockets and connections.    
+        Fragment library data including connecting subpockets and connections.
     """
 
     # For each fragment, extract connecting subpocket from atom_subpockets, e.g. ['FP', 'SE'] for subpocket 'AP'
@@ -736,14 +739,14 @@ def get_connections_by_fragment(fragment_library_concat):
 def _get_connecting_subpockets(subpocket, atom_subpockets):
     """
     Get a fragment's connecting subpockets based on the fragment's subpocket and all fragment atoms' subpockets (only dummy atoms will have differing subpockets).
-    
+
     Parameters
     ----------
     subpocket : str
         Fragment's subpocket.
     atom_subpockets : list of str
         Fragment atoms' subpockets.
-        
+
     Returns
     -------
     list of str
@@ -759,12 +762,12 @@ def _get_connecting_subpockets(subpocket, atom_subpockets):
 def get_connections_count_by_ligand(connections_by_ligand):
     """
     Count subpocket connections (by type) across all ligands, i.e. how often a specific connection appears in the data set.
-    
+
     Parameters
     ----------
     connections_by_ligand : pandas.DataFrame
-        Ligands represented by fragment library with details on their subpocket connections (see connections_by_ligand() function). 
-        
+        Ligands represented by fragment library with details on their subpocket connections (see connections_by_ligand() function).
+
     Returns
     -------
     pandas.DataFrame
@@ -798,12 +801,12 @@ def get_fragment_similarity_per_subpocket(fragment_library_concat):
     """
     Calculate fingerprint similarities for all pairwise fragment combinations within each subpocket,
     after deduplicating fragments per subpocket based on their smiles.
-    
+
     Parameters
     ----------
     fragment_library_concat : pandas.DataFrame
         Fragment library data for one or multiple subpockets.
-        
+
     Returns
     -------
     pandas.DataFrame
@@ -839,12 +842,12 @@ def get_fragment_similarity_per_kinase_group(fragment_library_concat):
     """
     Calculate fingerprint similarities for all pairwise fragment combinations within each kinase group and subpocket
     after deduplicating fragments per subpocket and kinase group based on their smiles.
-    
+
     Parameters
     ----------
     fragment_library_concat : pandas.DataFrame
         Fragment library data for one or multiple subpockets.
-        
+
     Returns
     -------
     pandas.DataFrame
@@ -1004,7 +1007,7 @@ def plot_fragment_descriptors(descriptors):
 def draw_fragments(fragments, mols_per_row=10, max_mols=50):
     """
     Draw fragments.
-    
+
     Parameters
     ----------
     fragments : pandas.DataFrame
@@ -1040,16 +1043,16 @@ def draw_ligands_from_pdb_ids(
 ):
     """
     Draw ligands from PDB ID (fetch data directly from KLIFS database).
-    
+
     Parameters
     ----------
     complex_pdbs : str or list of str
         One or more complex PDB IDs.
     ligand_pdbs : str or list of str
         One or more ligand PDB IDs complementary to complex PDB IDs.
-    sub_img_size : 
+    sub_img_size :
         Image size.
-    mols_per_row : 
+    mols_per_row :
         Number of molecules per row.
     max_mols : int
         Number of molecules displayed.
@@ -1134,17 +1137,17 @@ def draw_ligands_from_pdb_ids(
 def get_protein_target_classifications(target_chembl_ids):
     """
     Get protein target classifications for a list of target ChEMBL IDs (in the form of a DataFrame).
-    
+
     Parameters
     ----------
     target_chembl_ids : list of str
         Target ChEMBL IDs
-        
+
     Returns
     -------
     pandas.DataFrame
-        Protein target classifications for target ChEMBL IDs with columns: 
-        'l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'l7', 'l8', 
+        Protein target classifications for target ChEMBL IDs with columns:
+        'l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'l7', 'l8',
         'protein_class_id', 'target_chembl_id', 'component_id', 'protein_classification_id'.
     """
 
