@@ -12,7 +12,6 @@ def calc_syba(smiles_series):
     smiles_series : pandas.Series
         smiles series containing fragment smiles strings
     
-    
     Returns
     -------
     ??array??
