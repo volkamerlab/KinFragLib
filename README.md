@@ -63,8 +63,9 @@ fragments in order to generate novel potential inhibitors.
     conda env create -f environment.yml
     conda activate kinfraglib
 
-    # Optionally, add TOC extension for Jupyter Lab
-    jupyter labextension install @jupyterlab/toc
+    # Install the kinfraglib pip package
+    cd ..
+    pip install -e kinfraglib
     ```
 
 3. Open the notebook `quick_start.ipynb` for an introduction on how to load and use the fragment library.
