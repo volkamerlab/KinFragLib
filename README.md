@@ -67,7 +67,7 @@ fragments in order to generate novel potential inhibitors.
 
     # Install the kinfraglib pip package
     cd ..
-    pip install -e kinfraglib
+    pip install -e KinFragLib
     ```
 
 3. Open the notebook `quick_start.ipynb` for an introduction on how to load and use the fragment library.
