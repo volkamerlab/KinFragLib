@@ -4,6 +4,8 @@
 
 ![KinFragLib workflow](./docs/img/toc_github_kinfraglib.png)
 
+Please note that this repository is constantly updated. You can retrieve the repository state for the published KinFragLib paper in release [v1.0.0](https://github.com/volkamerlab/KinFragLib/releases/tag/v1.0.0).
+
 ## Table of contents
 
 - [Description](#description)
@@ -63,8 +65,9 @@ fragments in order to generate novel potential inhibitors.
     conda env create -f environment.yml
     conda activate kinfraglib
 
-    # Optionally, add TOC extension for Jupyter Lab
-    jupyter labextension install @jupyterlab/toc
+    # Install the kinfraglib pip package
+    cd ..
+    pip install -e kinfraglib
     ```
 
 3. Open the notebook `quick_start.ipynb` for an introduction on how to load and use the fragment library.
