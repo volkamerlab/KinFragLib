@@ -17,6 +17,7 @@ dependencies:
   - rdkit=2020.03.3
   - scikit-learn
   - seaborn
+  - lich::syba
   ## CI tests
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
