@@ -14,7 +14,7 @@ def calc_syba(smiles_series):
     
     Returns
     -------
-    list
+    list of floats
         SYBA value for each SMILES
     """
     sybas = []
