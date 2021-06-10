@@ -5,7 +5,7 @@ from syba.syba import SybaClassifier
 
 def calc_syba(smiles_series):
     """
-    Go through SMILES Series ans calculate the SYnthetic Bayesian Accessibility.
+    Go through SMILES Series and calculate the SYnthetic Bayesian Accessibility.
     
     Parameters
     ----------
@@ -14,7 +14,7 @@ def calc_syba(smiles_series):
     
     Returns
     -------
-    ??array??
+    list
         SYBA value for each SMILES
     """
     sybas = []
