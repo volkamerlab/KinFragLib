@@ -30,7 +30,7 @@ def make_hists(values_list, fragment_library, filtername = None, plot_stats = Tr
     keys = list(fragment_library.keys())
     for i in range(0, 2):
         for j in range(0, int((num_plots)/2)):
-            if (i*4)+j < num_plots-1:
+            if (i*4)+j < num_plots:
                 ax = plt.subplot(gs[i,j])
                 ax.hist(values_list[((i*4)+j)], facecolor = '#04D8B2', edgecolor='#808080')
                 ax.set_title(keys[((i*4)+j)])
