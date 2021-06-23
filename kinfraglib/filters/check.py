@@ -4,8 +4,9 @@ Contains function to check which fragments are accepted or rejectes
 
 import pandas as pd
 from . import prefilters
+from . import building_blocks
 
-def accepted_rejected (fragment_library, value_list, cutoff_value = 0, cutoff_criteria = "<"):
+def accepted_rejected (fragment_library, value_list, cutoff_value = 0, cutoff_criteria = "<", column_name = "bool"):
     """
     Go through values list and return a pandas.DataFrame of accepted/rejected fragments 
     and a boolean list if fragment with this cutoff is rejected or accepted.
@@ -41,24 +42,15 @@ def accepted_rejected (fragment_library, value_list, cutoff_value = 0, cutoff_cr
             val = value_list[i][j]
             #compare value with cutoff
             if cutoff_criteria == "<":
-                #when value < cutoff -> add fragment to rejected df
-                if val < cutoff_value:
+                #when value >= cutoff -> add fragment to rejected df
+                if val >= cutoff_value:
                     rejected.append(fragment_library[pocket].loc[j])
                     bools.append(0)
                 else:
-                    #when value >= cutoff -> add fragment to accepted df
+                    #when value < cutoff -> add fragment to accepted df
                     accepted.append(fragment_library[pocket].loc[j])
                     bools.append(1)
             elif cutoff_criteria == ">":
-                #when value > cutoff -> add fragment to rejected df
-                if val > cutoff_value:
-                    rejected.append(fragment_library[pocket].loc[j])
-                    bools.append(0)
-                else:
-                    #when value <= cutoff -> add fragment to accepted df
-                    accepted.append(fragment_library[pocket].loc[j])
-                    bools.append(1)
-            elif cutoff_criteria == "<=":
                 #when value <= cutoff -> add fragment to rejected df
                 if val <= cutoff_value:
                     rejected.append(fragment_library[pocket].loc[j])
@@ -67,25 +59,25 @@ def accepted_rejected (fragment_library, value_list, cutoff_value = 0, cutoff_cr
                     #when value > cutoff -> add fragment to accepted df
                     accepted.append(fragment_library[pocket].loc[j])
                     bools.append(1)
-            elif cutoff_criteria == ">=":
-                #when value >= cutoff -> add fragment to rejected df
-                if val >= cutoff_value:
+            elif cutoff_criteria == "<=":
+                #when value > cutoff -> add fragment to rejected df
+                if val > cutoff_value:
                     rejected.append(fragment_library[pocket].loc[j])
                     bools.append(0)
                 else:
-                #when value < cutoff -> add fragment to accepted df
+                    #when value > cutoff -> add fragment to accepted df
+                    accepted.append(fragment_library[pocket].loc[j])
+                    bools.append(1)
+            elif cutoff_criteria == ">=":
+                #when value < cutoff -> add fragment to rejected df
+                if val < cutoff_value:
+                    rejected.append(fragment_library[pocket].loc[j])
+                    bools.append(0)
+                else:
+                #when value >= cutoff -> add fragment to accepted df
                     accepted.append(fragment_library[pocket].loc[j])
                     bools.append(1)
             elif cutoff_criteria == "==":
-                #when value == cutoff -> add fragment to rejected df
-                if val == cutoff_value:
-                    rejected.append(fragment_library[pocket].loc[j])
-                    bools.append(0)
-                else:
-                #when value != cutoff -> add fragment to accepted df
-                    accepted.append(fragment_library[pocket].loc[j])
-                    bools.append(1)
-            elif cutoff_criteria == "!=":
                 #when value != cutoff -> add fragment to rejected df
                 if val != cutoff_value:
                     rejected.append(fragment_library[pocket].loc[j])
@@ -93,5 +85,16 @@ def accepted_rejected (fragment_library, value_list, cutoff_value = 0, cutoff_cr
                 else:
                 #when value == cutoff -> add fragment to accepted df
                     accepted.append(fragment_library[pocket].loc[j])
-                    bools.append(1)                 
-    return prefilters._make_df_dict(pd.DataFrame(accepted)), prefilters._make_df_dict(pd.DataFrame(rejected)), bools
+                    bools.append(1)
+            elif cutoff_criteria == "!=":
+                #when value == cutoff -> add fragment to rejected df
+                if val == cutoff_value:
+                    rejected.append(fragment_library[pocket].loc[j])
+                    bools.append(0)
+                else:
+                #when value != cutoff -> add fragment to accepted df
+                    accepted.append(fragment_library[pocket].loc[j])
+                    bools.append(1)         
+    #save bool in fraglib df
+    fragment_library_bool = building_blocks._add_bool_column(fragment_library, bools, column_name)
+    return prefilters._make_df_dict(pd.DataFrame(accepted)), prefilters._make_df_dict(pd.DataFrame(rejected)), fragment_library_bool
