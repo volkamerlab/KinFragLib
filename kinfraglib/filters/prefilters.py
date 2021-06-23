@@ -41,7 +41,7 @@ def pre_filters(fragment_library):
 
     return fragment_library
 
-    
+   
 def _remove_duplicates(fragment_library):
     """
     removes duplicates from each subpocket of the fragment library
@@ -144,9 +144,7 @@ def _make_df_dict(fragment_library):
         containing a pandas DataFrame for each subpocket
     """
     #reorder DataFrame into dict of pd.DataFrames again
-    df = pd.DataFrame(fragment_library, columns=['ROMol', 'ROMol_dummy', 'ROMol_original', 'kinase', 'family', 'group',
-       'complex_pdb', 'ligand_pdb', 'alt', 'chain', 'atom_subpockets',
-       'atom_environments', 'smiles', 'smiles_dummy', 'subpocket'])
+    df = pd.DataFrame(fragment_library, columns=list(fragment_library.keys()))
     fragment_library_dict = {}
     subpockets = fragment_library['subpocket'].unique()
     for subpocket in subpockets:
