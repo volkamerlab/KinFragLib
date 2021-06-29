@@ -17,8 +17,12 @@ def check_building_blocks(fragment_library, path_to_building_blocks):
     
     Returns
     -------
-    pandas.DataFrames
-        1) accepted fragments 2) rejected fragments 3) fragment library with bool column if fragment is accepted or rejected
+    dict
+        Containing
+            A pandas.DataFrame with accepted fragments and their information.
+            A pandas.DataFrame with rejected fragments and their information
+            A dict containing a pandas.DataFrame for each subpocket with all fragments and an additional columns defining
+            wether the fragment is accepted (1) or rejected (0)
     """
     enamine_bb = _read_bb_sdf(path_to_building_blocks)
     fragment_library_pre_filtered_df = pd.concat(fragment_library).reset_index(drop=True)
@@ -35,7 +39,11 @@ def check_building_blocks(fragment_library, path_to_building_blocks):
     enamine_bb_fragments = prefilters._make_df_dict(pd.DataFrame(enamine_bb_fragments))
     not_enamine_bb_fragments = prefilters._make_df_dict(pd.DataFrame(not_enamine_bb_fragments))
     fragment_library_bool = _add_bool_column(fragment_library, bools_enamine, "bool_bb")
-    return (enamine_bb_fragments, not_enamine_bb_fragments, fragment_library_bool)
+    d = dict()
+    d['enamine_bb_fragments']= enamine_bb_fragments
+    d['not_enamine_bb_fragments'] = not_enamine_bb_fragments
+    d['fragment_library'] = fragment_library_bool
+    return d
 
 
 def _read_bb_sdf(path_to_building_blocks):
