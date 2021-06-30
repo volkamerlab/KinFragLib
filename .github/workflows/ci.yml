@@ -69,6 +69,7 @@ jobs:
       - name: Run tests
         shell: bash -l {0}
         run: |
+          pip install -e kinfraglib
           PYTEST_ARGS="--nbval-lax --current-env --nbval-cell-timeout=900"
           pytest $PYTEST_ARGS
 
