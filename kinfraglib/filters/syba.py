@@ -5,7 +5,7 @@ from syba.syba import SybaClassifier
 from . import check
 import pandas as pd
 
-def calc_syba(fragment_library, cutoff=0, cutoff_criteria = "<", column_name = "bool_syba"):
+def calc_syba(fragment_library, cutoff=0, cutoff_criteria = ">", column_name = "bool_syba"):
     """
     Go through SMILES Series and calculate the SYnthetic Bayesian Accessibility.
     
@@ -14,9 +14,9 @@ def calc_syba(fragment_library, cutoff=0, cutoff_criteria = "<", column_name = "
     fragment_library : dict
         smiles series containing fragment smiles strings
     cutoff : int
-        defining the cutoff value for rejecting/accepting fragments
+        defining the cutoff value for rejecting/accepting fragments. Default value is 0
     cutoff_criteria : str
-        defining if the fragments values need to be >, <, >=, <=, == or != compared to the cutoff_value
+        defining if the fragments values need to be >, <, >=, <=, == or != compared to the cutoff_value. Default value is ">"
     column_name : str
         defining the column name where the bool if the fragment is accepted (1) or rejected (0) is stored
     Returns
