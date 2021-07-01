@@ -69,8 +69,8 @@ jobs:
       - name: Run tests
         shell: bash -l {0}
         run: |
-          cd ..
-          pip install -e KinFragLib
+          # Install kinfraglib again (comes already with the environment) to ensure this commit's kinfraglib version for CI testing
+          python setup.py install
           PYTEST_ARGS="--nbval-lax --current-env --nbval-cell-timeout=900"
           pytest $PYTEST_ARGS
 
