@@ -6,7 +6,7 @@ on:
       - "master"
   pull_request:
     paths-ignore:
-      - "KinFragLib/notebooks/kinfraglib/**"
+      - "notebooks/kinfraglib/**"
     branches:
       - "master"
       - "custom-base"
