@@ -5,8 +5,6 @@ on:
     branches:
       - "master"
   pull_request:
-    paths-ignore:
-      - "notebooks/kinfraglib/**"
     branches:
       - "master"
       - "custom-base"
@@ -64,5 +62,5 @@ jobs:
           cd ..
           pip install -e KinFragLib
           PYTEST_ARGS="--nbval-lax --current-env --nbval-cell-timeout=900"
-          pytest $PYTEST_ARGS
+          pytest $PYTEST_ARGS notebooks/custom_kinfraglib
 
