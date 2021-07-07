@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - "master"
+      - "custom-base"
   schedule:
     # Run a cron job once daily, weekdays only
     - cron: "0 3 1,15 * *"
@@ -54,24 +55,14 @@ jobs:
           conda info --all
           conda list
 
-      - name: Download external data
-        shell: bash -l {0}
-        run: |
-          echo "Download combinatorial library from zenodo..."
-          wget -q -O data/combinatorial_library/combinatorial_library.tar.bz2 https://zenodo.org/record/3956580/files/combinatorial_library.tar.bz2?download=1
-          ls -l data/combinatorial_library/
-          echo "Decompress selected files..."
-          tar -xvf data/combinatorial_library/combinatorial_library.tar.bz2 combinatorial_library_deduplicated.json chembl_standardized_inchi.csv
-          mv combinatorial_library_deduplicated.json data/combinatorial_library/
-          mv chembl_standardized_inchi.csv data/combinatorial_library/
-          ls -l data/combinatorial_library/
-
       - name: Run tests
         shell: bash -l {0}
         run: |
           # Install kinfraglib again (comes already with the environment) to ensure this commit's kinfraglib version for CI testing
           cd ..
           pip install -e KinFragLib
+          cd KinFragLib
+          # Run tests
           PYTEST_ARGS="--nbval-lax --current-env --nbval-cell-timeout=900"
-          pytest $PYTEST_ARGS
+          pytest $PYTEST_ARGS notebooks/custom_kinfraglib/
 
