@@ -62,5 +62,5 @@ jobs:
           cd ..
           pip install -e KinFragLib
           PYTEST_ARGS="--nbval-lax --current-env --nbval-cell-timeout=900"
-          pytest $PYTEST_ARGS notebooks/custom_kinfraglib
+          pytest $PYTEST_ARGS notebooks/custom_kinfraglib/
 
