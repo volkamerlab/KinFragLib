@@ -24,13 +24,19 @@ def count_accepted_rejected(fragment_library, bool_column_name, filtername):
         number of accepted and number of rected fragments per subpocket
     """
     # seperate df into 0 and 1 in this column
-    df = pd.concat(fragment_library).reset_index(drop=True).groupby(bool_column_name, sort=False)
+    df = (
+        pd.concat(fragment_library)
+        .reset_index(drop=True)
+        .groupby(bool_column_name, sort=False)
+    )
     # count the df's grouped by subpocket
     accepted = pd.Series(
-        df.get_group(1).groupby("subpocket", sort=False).size(), name="accepted_" + filtername
+        df.get_group(1).groupby("subpocket", sort=False).size(),
+        name="accepted_" + filtername,
     )
     rejected = pd.Series(
-        df.get_group(0).groupby("subpocket", sort=False).size(), name="rejected_" + filtername
+        df.get_group(0).groupby("subpocket", sort=False).size(),
+        name="rejected_" + filtername,
     )
     return pd.concat([accepted, rejected], axis=1)
 
@@ -52,7 +58,10 @@ def count_fragments(fragment_library, name="n_frags"):
         number of accepted and number of rected fragments per subpocket
     """
     return pd.Series(
-        pd.concat(fragment_library).reset_index(drop=True).groupby("subpocket", sort=False).size(),
+        pd.concat(fragment_library)
+        .reset_index(drop=True)
+        .groupby("subpocket", sort=False)
+        .size(),
         name=name,
     )
 

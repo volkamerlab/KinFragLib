@@ -61,9 +61,13 @@ def _remove_duplicates(fragment_library):
     fragment_library = pd.concat(fragment_library).reset_index(drop=True)
     fragment_library.groupby("subpocket", sort=False)
     # Get fragment count (by SMILES) per subpocket
-    fragment_count = fragment_library.groupby(["subpocket", "smiles"], sort=False).size()
+    fragment_count = fragment_library.groupby(
+        ["subpocket", "smiles"], sort=False
+    ).size()
     # Get first occurrence of SMILES per subpocket
-    fragment_library = fragment_library.groupby(["subpocket", "smiles"], sort=False).first()
+    fragment_library = fragment_library.groupby(
+        ["subpocket", "smiles"], sort=False
+    ).first()
     # Add fragment count to these representative fragments
     fragment_library["fragment_count"] = fragment_count
     fragment_library.reset_index(inplace=True)
@@ -91,7 +95,9 @@ def _remove_unfragmented(fragment_library):
         fragment_library
     ).connections
     # Unfragmented ligands?
-    bool_unfragmented_ligands = fragment_library.connections.apply(lambda x: len(x) == 0)
+    bool_unfragmented_ligands = fragment_library.connections.apply(
+        lambda x: len(x) == 0
+    )
     # Remove unfragmented ligands
     fragment_library = fragment_library[~bool_unfragmented_ligands].copy()
 
@@ -116,7 +122,9 @@ def _remove_connecting_only_x(fragment_library):
     # Fragment connects only to pool X?
     bool_only_pool_x_connections = fragment_library.connections.apply(
         lambda x: all(  # All connections per fragment are X?
-            [True if "X" in i else False for i in x]  # Connections per fragment X or not?
+            [
+                True if "X" in i else False for i in x
+            ]  # Connections per fragment X or not?
         )
     )
     # Remove fragments that connect only to pool X

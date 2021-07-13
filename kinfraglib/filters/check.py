@@ -67,7 +67,9 @@ def accepted_rejected(
                 rejected.append(fragment_library[pocket].loc[j])
                 bools.append(0)
     # save bool in fraglib df
-    fragment_library_bool = building_blocks._add_bool_column(fragment_library, bools, column_name)
+    fragment_library_bool = building_blocks._add_bool_column(
+        fragment_library, bools, column_name
+    )
     return (
         prefilters._make_df_dict(pd.DataFrame(accepted)),
         prefilters._make_df_dict(pd.DataFrame(rejected)),

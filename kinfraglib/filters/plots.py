@@ -6,7 +6,9 @@ import matplotlib.pyplot as plt
 from matplotlib import gridspec
 
 
-def make_hists(values_list, fragment_library, filtername=None, plot_stats=True, cutoff=None):
+def make_hists(
+    values_list, fragment_library, filtername=None, plot_stats=True, cutoff=None
+):
     """
     Creates a histogram for each subpocket.
 
@@ -33,20 +35,29 @@ def make_hists(values_list, fragment_library, filtername=None, plot_stats=True, 
         for j in range(0, int((num_plots) / 2)):
             if (i * 4) + j < num_plots:
                 ax = plt.subplot(gs[i, j])
-                ax.hist(values_list[((i * 4) + j)], facecolor="#04D8B2", edgecolor="#808080")
+                ax.hist(
+                    values_list[((i * 4) + j)], facecolor="#04D8B2", edgecolor="#808080"
+                )
                 ax.set_title(keys[((i * 4) + j)])
                 if plot_stats:
                     plt.plot(
                         [],
                         [],
                         " ",
-                        label="mean: " + str(round(statistics.mean(values_list[((i * 4) + j)]))),
+                        label="mean: "
+                        + str(round(statistics.mean(values_list[((i * 4) + j)]))),
                     )
                     plt.plot(
-                        [], [], " ", label="min: " + str(round(min(values_list[((i * 4) + j)])))
+                        [],
+                        [],
+                        " ",
+                        label="min: " + str(round(min(values_list[((i * 4) + j)]))),
                     )
                     plt.plot(
-                        [], [], " ", label="max: " + str(round(max(values_list[((i * 4) + j)])))
+                        [],
+                        [],
+                        " ",
+                        label="max: " + str(round(max(values_list[((i * 4) + j)]))),
                     )
                     plt.legend()
                 if cutoff is not None:
