@@ -44,8 +44,7 @@ def make_hists(
                         [],
                         [],
                         " ",
-                        label="mean: "
-                        + str(round(statistics.mean(values_list[((i * 4) + j)]))),
+                        label="mean: " + str(round(statistics.mean(values_list[((i * 4) + j)]))),
                     )
                     plt.plot(
                         [],
