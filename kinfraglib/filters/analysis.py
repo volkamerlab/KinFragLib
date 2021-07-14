@@ -38,7 +38,21 @@ def count_accepted_rejected(fragment_library, bool_column_name, filtername):
         df.get_group(0).groupby("subpocket", sort=False).size(),
         name="rejected_" + filtername,
     )
-    return pd.concat([accepted, rejected], axis=1)
+    # remove NaN values
+    accepted_rejected_df = pd.concat([accepted, rejected], axis=1)
+    accepted_rejected_df[str("rejected_" + filtername)] = accepted_rejected_df[
+        str("rejected_" + filtername)
+    ].fillna(0)
+    accepted_rejected_df[str("rejected_" + filtername)] = accepted_rejected_df[
+        str("rejected_" + filtername)
+    ].astype(int)
+    accepted_rejected_df[str("accepted_" + filtername)] = accepted_rejected_df[
+        str("accepted_" + filtername)
+    ].fillna(0)
+    accepted_rejected_df[str("accepted_" + filtername)] = accepted_rejected_df[
+        str("accepted_" + filtername)
+    ].astype(int)
+    return accepted_rejected_df
 
 
 def count_fragments(fragment_library, name="n_frags"):
