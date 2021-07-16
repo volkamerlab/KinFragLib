@@ -8,4 +8,6 @@ from . import (
     utils,
     pains,
     unwanted_substructures,
+    qed,
+    ruleofthree,
 )
