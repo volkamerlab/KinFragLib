@@ -47,7 +47,7 @@ fragment_library_pre_filtered = filters.prefilters.pre_filters(
     fragment_library)
 ```
 
-## 3. save fragment library for DataWarrior
+## c. Save the fragment library to be processed with DataWarrior
 ```python
 # save smiles without dummy atoms in sdf files for DataWarrior
 filters.utils.save_smiles_wo_dummy(fragment_library, PATH_DATA)
