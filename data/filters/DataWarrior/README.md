@@ -1,4 +1,6 @@
 # Use DataWarrior to create an Enamine Building Block file
+The created DataWarrior file is used in 
+`notebooks/custom_kinfraglib/1_3_custom_filters_synthesizability.ipynb`.
 
 ## Table of contents
 1. Prepare KinFragLib fragment library for DataWarrior
@@ -40,6 +42,9 @@ Apply pre-filters
 - removing duplicates
 - removing fragments without dummy atoms (unfragmented ligands)
 - removing fragments only connecting to pool X
+
+For more information to the pre-filtering steps please have a look at 
+`notebooks/kinfraglib/3_1_fragment_library_reduced.ipynb`.
 ```python
 fragment_library_pre_filtered = filters.prefilters.pre_filters(
     fragment_library)
@@ -50,7 +55,6 @@ fragment_library_pre_filtered = filters.prefilters.pre_filters(
 # save smiles without dummy atoms in sdf files for DataWarrior
 filters.utils.save_smiles_wo_dummy(fragment_library, PATH_DATA)
 ```
-
 
 ## 2. Install DataWarrior
 Go to the [DataWarrior](https://openmolecules.org/datawarrior/download.html) web page and install 
