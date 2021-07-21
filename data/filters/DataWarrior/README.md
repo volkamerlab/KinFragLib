@@ -73,7 +73,7 @@ DataWarrior for your OS
 - go to file dropdown menu 
   * save special 
   * choose SDfile 
-  * name it "Enamine_Building_Blocks.sdf" and save it in a folder called DataWarrior in same 
+  * name it `Enamine_Building_Blocks.sdf` and save it in a folder called DataWarrior in same 
     directory as your fragment library
 
 Note: if you only want to use exact matches choose "exact structures" in the dropdown menu
