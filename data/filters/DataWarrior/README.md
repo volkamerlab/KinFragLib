@@ -68,7 +68,7 @@ DataWarrior for your OS
   * choose superstructures at the top dropdown menu
   * set maximum row count to 100000 
   * set minimun package size to 1 
-  * choose " retrieve cheapest..." at the bottom 
+  * choose "retrieve cheapest..." at the bottom 
   * run query
 - go to file dropdown menu 
   * save special 
