@@ -12,7 +12,7 @@
 
 ### a. Open a new notebook in the `notebooks/custom-kinfraglib` folder
 
-## 2. Load fragment library
+## b. Load the fragment library
 
 ```python
 %load_ext autoreload
