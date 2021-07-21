@@ -60,7 +60,7 @@ DataWarrior for your OS
 
 ## 5. Get Enamine Building Blocks
 - open DataWarrior
-- open file 'smiles_wo_dummy.sdf' in the fragment_library directory 
+- open file `smiles_wo_dummy.sdf` in the `data/fragment_library` directory 
   * choose 'yes' when DataWarrior asks if it should interpret stereo centers as absolute
 - mark all structures 
   * go to Database 
