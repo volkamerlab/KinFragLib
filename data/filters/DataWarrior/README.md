@@ -5,7 +5,7 @@
 2. Load fragment library
 3. save fragment library for DataWarrior
 4. Install DataWarrior
-5. Get Enamine Building Blocks
+5. Get the Enamine Building Blocks
 
 ## 1. Open new notebook in notebooks/custom-kinfraglib folder
 
