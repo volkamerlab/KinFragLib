@@ -17,20 +17,14 @@ dependencies:
   - rdkit=2020.03.3
   - scikit-learn
   - seaborn
+  - opencadd
   ## CI tests
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
   - pytest-xdist
   - nbval
-  - shyaml  
-  # Remove when opencadd is conda-installable
-  - biopython 1.77
-  - bravado
-  - nglview
-  - scipy
-  - tqdm
+  - shyaml
   - pip:
     - black-nb
-    - https://github.com/volkamerlab/opencadd/archive/2a6cf9bcee72a3626114cda82af758e05ed5af18.zip
     # KinFragLib itself
     - https://github.com/volkamerlab/kinfraglib/archive/master.tar.gz
