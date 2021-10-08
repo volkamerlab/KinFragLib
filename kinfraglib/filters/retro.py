@@ -11,30 +11,60 @@ import requests
 import copy
 
 
-def pairwise_retrosynthesis(fragment_library_filtered):
-    res = get_valid_pairs(fragment_library_filtered)
-    valids = checkvalid(res, fragment_library_filtered)
-    bonds = get_bonds(valids, res, fragment_library_filtered)
-    pair_df = get_pairs(valids, bonds, fragment_library_filtered)
+def pairwise_retrosynthesis(fragment_library):
+    """
+    Calls several other function to get fragment pairs and check if there is a retrosynthetic step
+    available creating this pair using the fragments from the library.
+
+    Parameters
+    ----------
+    fragment_libray : dict
+        fragments organized in subpockets inculding all information
+
+    Returns
+    -------
+    dict
+        fragment library including a new column counting for each fragment the number of
+        contributions to a retrosynthesis
+    DataFrame
+        fragment ids, fragment molecules, pair molecules, children molecules, plausibility
+    DataFrame
+        fragment ids, number of contributions to retrosynthesis
+
+    """
+    # get all possible fragment pairs according to their dummy atoms connecting subpocket
+    res = get_valid_pairs(fragment_library)
+    # check if fragment pairs have same bond type and corresponding BRICS environment
+    valids = checkvalid(res, fragment_library)
+    # get for all valid fragment pairs their corresponding bond type
+    bonds = get_bonds(valids, res, fragment_library)
+    # get a pandas DataFrame containing the fragment ids the fragment molecules and the paired
+    # fragment molecules
+    pair_df = get_pairs(valids, bonds, fragment_library)
     # only for testing with subset
-    pair_df = pair_df[0:10]
+    # pair_df = pair_df[0:10]
+    # number of cores on the running machine
     num_cpu = mp.cpu_count()
-    # create list of smiles as parallel computing cannot handle molecules
+    # create list of smiles from fragment pairs because parallel computing cannot handle molecules
     pairs_smiles = []
     for mol in pair_df["pair"]:
         pairs_smiles.append(Chem.MolToSmiles(mol))
+    # create bins of pairs for calling function in parallel
     df_split = np.array_split(pairs_smiles, num_cpu)
+    # call retrosynthesis parallel
     para_res = Parallel(n_jobs=num_cpu)(
         delayed(call_retro_parallel)(split) for split in df_split
     )
+    # concatenate parallel recieved results to obtain one DataFrame
     para_result = pd.concat(para_res)
+    # create a set of children
     children_list = []
     for i, row in para_result.iterrows():
         for num_children in range(len(row["child 1"])):
             children_list.append(row["child 1"][num_children])
             children_list.append(row["child 2"][num_children])
     children_list = set(children_list)
-
+    # create smiles, molecule DataFrame for getting molecules for comparison
     children_mols = []
     children_smiles = []
     for smile in children_list:
@@ -44,7 +74,7 @@ def pairwise_retrosynthesis(fragment_library_filtered):
         else:
             children_mols.append(None)
             children_smiles.append(None)
-
+    # get SMILES strings from fragments and pairs
     pairs_frags_smiles = []
     frag1 = []
     frag2 = []
@@ -52,14 +82,14 @@ def pairwise_retrosynthesis(fragment_library_filtered):
     for fragids in pair_df["fragment ids"]:
         frag1.append(
             Chem.MolToSmiles(
-                fragment_library_filtered[fragids[0].split("_")[0]]["ROMol"][
+                fragment_library[fragids[0].split("_")[0]]["ROMol"][
                     int(fragids[0].split("_")[1])
                 ]
             )
         )
         frag2.append(
             Chem.MolToSmiles(
-                fragment_library_filtered[fragids[1].split("_")[0]]["ROMol"][
+                fragment_library[fragids[1].split("_")[0]]["ROMol"][
                     int(fragids[1].split("_")[1])
                 ]
             )
@@ -71,16 +101,37 @@ def pairwise_retrosynthesis(fragment_library_filtered):
         columns=("fragment ids", "fragment 1", "fragment 2", "pair"),
     )
     pairs_frags_smiles
-
+    # compare if children molecules have fragments molecules as substructure
     res_df = compare_mols(para_result, pairs_frags_smiles)
-    countfrag, fraglib_filtered = retro_fragments(res_df, fragment_library_filtered)
+    # count number of fragments participating in on step retrosynthesis
+    countfrag, fraglib_filtered = retro_fragments(res_df, fragment_library)
 
-    # Todo: write function to make res_df a pandas df with molecules
+    # get molecule DataFrame of fragments, pairs and children
     mol_df = get_mol_df(res_df)
+    # returns
+    # fragment library with number of retrosynthethic participations per fragment,
+    # molecule DataFrame with the fragments, pairs and children as molecules
+    # list of fragments with the counted participations in retrosynthetic steps
     return fraglib_filtered, mol_df, countfrag
 
 
 def get_mol_df(res_df):
+    """
+    Creates a DataFrame containing fragment ids, fragments molecules,
+    retrosynthetic children molecules, paired molecules and the retrosynthetic plausibility.
+
+    Parameters
+    ----------
+    res_df : DataFrame
+        contains fragment ids, SMILES strings of fragment, pairs and children and plausibility
+
+    Returns
+    -------
+    DataFrame
+        containing fragment ids, fragments molecules, retrosynthetic children molecules,
+        paired molecules and the retrosynthetic plausibility.
+
+    """
     frag1_mol = []
     frag2_mol = []
     pair_mol = []
@@ -124,6 +175,22 @@ def get_mol_df(res_df):
 
 
 def compare_mols(para_result, pairs_frags_smiles):
+    """
+    Compares the fragments and the children molecules to determine wheter this fragment pair is
+    retrosynthetically feasible.
+
+    Parameters
+    ----------
+    para_result : DataFrame
+        SMILES strings of pairs and children and the plausibility for the retrosynthesis
+    pairs_frags_smiles : DataFrame
+        fragment ids, SMILES strings of fragments and pairs
+
+    Returns
+    -------
+    DataFrame
+        fragment ids, SMILES strings of fragments, pairs and children and the plausibility
+    """
     para_res = para_result.copy(deep=True)
     para_res.set_index("pair", inplace=True)
     smiles_list = list(pairs_frags_smiles["fragment 1"])
@@ -216,6 +283,24 @@ def compare_mols(para_result, pairs_frags_smiles):
 
 
 def retro_fragments(retro_df, fragment_library):
+    """
+    Counts the number of times that a fragment participates in a retrosynthesis.
+
+    Parameters
+    ----------
+    retro_df : DataFrame
+        fragment ids, fragment1, fragment2, pair, children_1 and children_2 molecules and
+        plausibility
+    fragment_library : dict
+        fragments organized in subpockets inculding all information
+
+    Returns
+    -------
+    dict
+        fragments organized in subpockets inculding all information and the number of times
+        that a fragment participates in a retrosynthesis.
+
+    """
     fraglib = copy.deepcopy(fragment_library)
     # get list of fragment ids
     all_frags = []
@@ -261,7 +346,7 @@ def get_mol(smiles_list):
 
 def call_retro_parallel(pair_smiles):
     """
-    One step retrosynthesis using ASKCOS for all valid build pairs of fragments. 
+    One step retrosynthesis using ASKCOS for all valid build pairs of fragments.
     Saving the plausibility and the children that can build this pair according to retrosynthetic
     analysis.
 
@@ -322,8 +407,12 @@ def call_retro_parallel(pair_smiles):
             for num_tree in range(0, len(retro["trees"])):
                 if len(retro["trees"][num_tree]["children"][0]["children"]) == 2:
                     plausibility = retro["trees"][0]["children"][0]["plausibility"]
-                    child1 = retro["trees"][num_tree]["children"][0]["children"][0]["smiles"]
-                    child2 = retro["trees"][num_tree]["children"][0]["children"][1]["smiles"]
+                    child1 = retro["trees"][num_tree]["children"][0]["children"][0][
+                        "smiles"
+                    ]
+                    child2 = retro["trees"][num_tree]["children"][0]["children"][1][
+                        "smiles"
+                    ]
                     cur_children1.append(child1)
                     cur_children2.append(child2)
                     cur_plausibilities.append(plausibility)
@@ -460,7 +549,6 @@ def get_bonds(valids, data, fragment_library):
     ----------
     valids : list
         list of lists containing fragment id pairs of mathcing pairs
-    
     data : dict
         fragment library prepared for building valid pairs
 
@@ -568,19 +656,17 @@ def get_pairs(valids, bonds, fragment_library):
     ids = []
     for i in range(0, len(valids)):
         for j in range(0, len(valids[i])):
-            frag1 = fragment_library[valids[i][j][0].split("_")[0]][
-                "ROMol_dummy"
-            ][int(valids[i][j][0].split("_")[1])]
-            frag2 = fragment_library[valids[i][j][1].split("_")[0]][
-                "ROMol_dummy"
-            ][int(valids[i][j][1].split("_")[1])]
+            frag1 = fragment_library[valids[i][j][0].split("_")[0]]["ROMol_dummy"][
+                int(valids[i][j][0].split("_")[1])
+            ]
+            frag2 = fragment_library[valids[i][j][1].split("_")[0]]["ROMol_dummy"][
+                int(valids[i][j][1].split("_")[1])
+            ]
 
             frags1.append(frag1)
             frags2.append(frag2)
 
-            pair = construct_ligand(
-                valids[i][j], bonds[i][j], fragment_library
-            )
+            pair = construct_ligand(valids[i][j], bonds[i][j], fragment_library)
             pairs.append(pair)
             ids.append(valids[i][j])
 
