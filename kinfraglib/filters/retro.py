@@ -41,8 +41,9 @@ def pairwise_retrosynthesis(fragment_library):
     # get a pandas DataFrame containing the fragment ids the fragment molecules and the paired
     # fragment molecules
     pair_df = get_pairs(valids, bonds, fragment_library)
+    print("Number of pairs: " + str(len(pair_df["pair"])))
     # only for testing with subset
-    pair_df = pair_df[0:10]
+    pair_df = pair_df[0:100]
     # number of cores on the running machine
     num_cpu = mp.cpu_count()
     # create list of smiles from fragment pairs because parallel computing cannot handle molecules
@@ -55,7 +56,6 @@ def pairwise_retrosynthesis(fragment_library):
     para_res = Parallel(n_jobs=num_cpu)(
         delayed(call_retro_parallel)(split) for split in df_split
     )
-    print("parallel computation of ASKCOS done.")
     # concatenate parallel recieved results to obtain one DataFrame
     para_result = pd.concat(para_res)
     # create a set of children
@@ -101,19 +101,38 @@ def pairwise_retrosynthesis(fragment_library):
         list(zip(pair_df["fragment ids"], frag1, frag2, pair)),
         columns=("fragment ids", "fragment 1", "fragment 2", "pair"),
     )
-    pairs_frags_smiles
-    # compare if children molecules have fragments molecules as substructure
-    res_df = compare_mols(para_result, pairs_frags_smiles)
+    df_split_2 = np.array_split(pairs_frags_smiles, num_cpu)
+    returns = Parallel(n_jobs=num_cpu)(
+        delayed(compare_mols)(para_result, split) for split in df_split_2
+    )
+    res_dfs = []
+    diff_res_dfs = []
+    for i in range(0, len(returns)):
+        if returns[i][0].empty is False:
+            res_dfs.append(returns[i][0])
+        if returns[i][1].empty is False:
+            diff_res_dfs.append((returns[i][1]))
+
+    res_df = pd.concat(res_dfs)
+    res_df.reset_index(inplace=True, drop=True)
+
+    diff_res_df = pd.concat(diff_res_dfs)
+    diff_res_df.reset_index(inplace=True, drop=True)
+    diff_res_df.rename(
+        columns={'diff child 1': 'child 1', 'diff child 2': 'child 2'}, inplace=True
+    )
+
     # count number of fragments participating in on step retrosynthesis
     countfrag, fraglib_filtered = retro_fragments(res_df, fragment_library)
 
     # get molecule DataFrame of fragments, pairs and children
     mol_df = get_mol_df(res_df)
+    diff_df = get_mol_df(diff_res_df)
     # returns
     # fragment library with number of retrosynthethic participations per fragment,
     # molecule DataFrame with the fragments, pairs and children as molecules
     # list of fragments with the counted participations in retrosynthetic steps
-    return fraglib_filtered, mol_df, countfrag
+    return fraglib_filtered, mol_df, countfrag, diff_df
 
 
 def get_mol_df(res_df):
@@ -217,7 +236,17 @@ def compare_mols(para_result, pairs_frags_smiles):
         "child 2",
         "plausibility",
     ]
+    column_names_diff = [
+        "fragment ids",
+        "fragment 1",
+        "fragment 2",
+        "pair",
+        "diff child 1",
+        "diff child 2",
+        "plausibility",
+    ]
     result_df = pd.DataFrame(columns=column_names)
+    different_structure_df = pd.DataFrame(columns=column_names_diff)
 
     for i, row in pairs_frags_smiles.iterrows():
         cur_pair_smiles = row["pair"]
@@ -266,6 +295,19 @@ def compare_mols(para_result, pairs_frags_smiles):
                         },
                         ignore_index=True,
                     )
+                else:
+                    different_structure_df = different_structure_df.append(
+                        {
+                            "fragment ids": frag_ids,
+                            "fragment 1": cur_frag1_smiles,
+                            "fragment 2": cur_frag2_smiles,
+                            "pair": cur_pair_smiles,
+                            "diff child 1": child2_smiles,
+                            "diff child 2": child1_smiles,
+                            "plausibility": cur_probs[num_cur_smiles],
+                        },
+                        ignore_index=True,
+                    )
             else:
                 result_df = result_df.append(
                     {
@@ -280,7 +322,8 @@ def compare_mols(para_result, pairs_frags_smiles):
                     ignore_index=True,
                 )
 
-    return result_df
+    return [result_df, different_structure_df]
+    # return result_df
 
 
 def retro_fragments(retro_df, fragment_library):
@@ -427,6 +470,7 @@ def call_retro_parallel(pair_smiles):
             cur_children1.append(None)
             cur_children2.append(None)
             cur_plausibilities.append(0)
+            print(smile)
         children1.append(cur_children1)
         children2.append(cur_children2)
         plausibilities.append(cur_plausibilities)
