@@ -42,7 +42,7 @@ def pairwise_retrosynthesis(fragment_library):
     # fragment molecules
     pair_df = get_pairs(valids, bonds, fragment_library)
     # only for testing with subset
-    # pair_df = pair_df[0:10]
+    pair_df = pair_df[0:10]
     # number of cores on the running machine
     num_cpu = mp.cpu_count()
     # create list of smiles from fragment pairs because parallel computing cannot handle molecules
@@ -55,6 +55,7 @@ def pairwise_retrosynthesis(fragment_library):
     para_res = Parallel(n_jobs=num_cpu)(
         delayed(call_retro_parallel)(split) for split in df_split
     )
+    print("parallel computation of ASKCOS done.")
     # concatenate parallel recieved results to obtain one DataFrame
     para_result = pd.concat(para_res)
     # create a set of children
@@ -400,23 +401,28 @@ def call_retro_parallel(pair_smiles):
             "return_first": "true",  # default is false
         }
         resp = requests.get(HOST + "/api/treebuilder/", params=params, verify=False)
-        # res.append(resp.json())
+
         retro = resp.json()
 
-        if (len(retro["trees"])) > 0:
-            for num_tree in range(0, len(retro["trees"])):
-                if len(retro["trees"][num_tree]["children"][0]["children"]) == 2:
-                    plausibility = retro["trees"][0]["children"][0]["plausibility"]
-                    child1 = retro["trees"][num_tree]["children"][0]["children"][0][
-                        "smiles"
-                    ]
-                    child2 = retro["trees"][num_tree]["children"][0]["children"][1][
-                        "smiles"
-                    ]
-                    cur_children1.append(child1)
-                    cur_children2.append(child2)
-                    cur_plausibilities.append(plausibility)
+        if "trees" in retro:
+            if (len(retro["trees"])) > 0:
+                for num_tree in range(0, len(retro["trees"])):
+                    if len(retro["trees"][num_tree]["children"][0]["children"]) == 2:
+                        plausibility = retro["trees"][0]["children"][0]["plausibility"]
+                        child1 = retro["trees"][num_tree]["children"][0]["children"][0][
+                            "smiles"
+                        ]
+                        child2 = retro["trees"][num_tree]["children"][0]["children"][1][
+                            "smiles"
+                        ]
+                        cur_children1.append(child1)
+                        cur_children2.append(child2)
+                        cur_plausibilities.append(plausibility)
 
+            else:
+                cur_children1.append(None)
+                cur_children2.append(None)
+                cur_plausibilities.append(0)
         else:
             cur_children1.append(None)
             cur_children2.append(None)
