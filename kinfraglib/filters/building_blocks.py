@@ -33,13 +33,28 @@ def check_building_blocks(fragment_library, path_to_building_blocks):
     enamine_bb_fragments = []
     bools_enamine = []
     not_enamine_bb_fragments = []
+    # store smiles as molecules from enamine
+    bb_mols = []
+    for buildingblock in enamine_bb[0]:
+        bb_mols.append(Chem.MolFromSmiles(buildingblock))
+
     for row in fragment_library_pre_filtered_df.itertuples():
         if row.smiles in enamine_bb[0]:
             enamine_bb_fragments.append(row)
             bools_enamine.append(1)
         else:
-            not_enamine_bb_fragments.append(row)
-            bools_enamine.append(0)
+            in_enamine = False
+            frag_mol = Chem.MolFromSmiles(row.smiles)
+            for bb in bb_mols:
+                if bb.HasSubstructMatch(frag_mol):
+                    in_enamine = True
+                    break
+            if in_enamine:
+                enamine_bb_fragments.append(row)
+                bools_enamine.append(1)
+            else:
+                not_enamine_bb_fragments.append(row)
+                bools_enamine.append(0)
     enamine_bb_fragments = prefilters._make_df_dict(pd.DataFrame(enamine_bb_fragments))
     not_enamine_bb_fragments = prefilters._make_df_dict(
         pd.DataFrame(not_enamine_bb_fragments)
