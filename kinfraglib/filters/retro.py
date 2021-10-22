@@ -9,6 +9,7 @@ import pandas as pd
 from joblib import Parallel, delayed
 import requests
 import copy
+from time import sleep
 
 
 def pairwise_retrosynthesis(fragment_library):
@@ -43,7 +44,7 @@ def pairwise_retrosynthesis(fragment_library):
     pair_df = get_pairs(valids, bonds, fragment_library)
     print("Number of pairs: " + str(len(pair_df["pair"])))
     # only for testing with subset
-    pair_df = pair_df[0:100]
+    pair_df = pair_df[5000:9999]
     # number of cores on the running machine
     num_cpu = mp.cpu_count()
     # create list of smiles from fragment pairs because parallel computing cannot handle molecules
@@ -58,23 +59,25 @@ def pairwise_retrosynthesis(fragment_library):
     )
     # concatenate parallel recieved results to obtain one DataFrame
     para_result = pd.concat(para_res)
-    # create a set of children
-    children_list = []
-    for i, row in para_result.iterrows():
-        for num_children in range(len(row["child 1"])):
-            children_list.append(row["child 1"][num_children])
-            children_list.append(row["child 2"][num_children])
-    children_list = set(children_list)
-    # create smiles, molecule DataFrame for getting molecules for comparison
-    children_mols = []
-    children_smiles = []
-    for smile in children_list:
-        if smile is not None:
-            children_mols.append(Chem.MolFromSmiles(smile))
-            children_smiles.append(smile)
-        else:
-            children_mols.append(None)
-            children_smiles.append(None)
+    print("done with ASKCOS API request")
+    # # create a set of children
+    # children_list = []
+    # for i, row in para_result.iterrows():
+    #     for num_children in range(len(row["child 1"])):
+    #         children_list.append(row["child 1"][num_children])
+    #         children_list.append(row["child 2"][num_children])
+    # children_list = set(children_list)
+    # # create smiles, molecule DataFrame for getting molecules for comparison
+    # children_mols = []
+    # children_smiles = []
+    # for smile in children_list:
+    #     if smile is not None:
+    #         children_mols.append(Chem.MolFromSmiles(smile))
+    #         children_smiles.append(smile)
+    #     else:
+    #         children_mols.append(None)
+    #         children_smiles.append(None)
+    # print("Children SMILES MOLECULE df created")
     # get SMILES strings from fragments and pairs
     pairs_frags_smiles = []
     frag1 = []
@@ -95,6 +98,7 @@ def pairwise_retrosynthesis(fragment_library):
                 ]
             )
         )
+    print("fragments and pair as Mols saved")
     for pairmol in pair_df["pair"]:
         pair.append(Chem.MolToSmiles(pairmol))
     pairs_frags_smiles = pd.DataFrame(
@@ -105,6 +109,7 @@ def pairwise_retrosynthesis(fragment_library):
     returns = Parallel(n_jobs=num_cpu)(
         delayed(compare_mols)(para_result, split) for split in df_split_2
     )
+    print("Molecules compared")
     res_dfs = []
     diff_res_dfs = []
     for i in range(0, len(returns)):
@@ -116,18 +121,25 @@ def pairwise_retrosynthesis(fragment_library):
     res_df = pd.concat(res_dfs)
     res_df.reset_index(inplace=True, drop=True)
 
-    diff_res_df = pd.concat(diff_res_dfs)
-    diff_res_df.reset_index(inplace=True, drop=True)
-    diff_res_df.rename(
-        columns={'diff child 1': 'child 1', 'diff child 2': 'child 2'}, inplace=True
-    )
+    try:
+        diff_res_df = pd.concat(diff_res_dfs)
+        diff_res_df.reset_index(inplace=True, drop=True)
+        diff_res_df.rename(
+            columns={'diff child 1': 'child 1', 'diff child 2': 'child 2'}, inplace=True
+        )
+    except ValueError:
+        print("No rejected objects")
+        diff_res_df = []
 
     # count number of fragments participating in on step retrosynthesis
     countfrag, fraglib_filtered = retro_fragments(res_df, fragment_library)
 
     # get molecule DataFrame of fragments, pairs and children
     mol_df = get_mol_df(res_df)
-    diff_df = get_mol_df(diff_res_df)
+    try:
+        diff_df = get_mol_df(diff_res_df)
+    except AttributeError:
+        diff_df = []
     # returns
     # fragment library with number of retrosynthethic participations per fragment,
     # molecule DataFrame with the fragments, pairs and children as molecules
@@ -162,8 +174,16 @@ def get_mol_df(res_df):
         frag2_mol.append(Chem.MolFromSmiles(row["fragment 2"]))
         pair_mol.append(Chem.MolFromSmiles(row["pair"]))
         if row["child 1"] is not None:
-            child1_mol.append(Chem.MolFromSmiles(row["child 1"]))
-            child2_mol.append(Chem.MolFromSmiles(row["child 2"]))
+            if isinstance(row["child 1"], list):
+                child1_smiles = row["child 1"][0]
+            else:
+                child1_smiles = row["child 1"]
+            if isinstance(row["child 2"], list):
+                child2_smiles = row["child 2"][0]
+            else:
+                child2_smiles = row["child 2"]
+            child1_mol.append(Chem.MolFromSmiles(child1_smiles))
+            child2_mol.append(Chem.MolFromSmiles(child2_smiles))
         else:
             child1_mol.append(None)
             child2_mol.append(None)
@@ -255,56 +275,90 @@ def compare_mols(para_result, pairs_frags_smiles):
         cur_frag2_smiles = row["fragment 2"]
         frag2_mol = mols.loc[cur_frag2_smiles]["mol"]
         frag_ids = row["fragment ids"]
+        # print(para_res.loc[cur_pair_smiles])
         cur_children1_smiles = para_res.loc[cur_pair_smiles]["child 1"]
         cur_children2_smiles = para_res.loc[cur_pair_smiles]["child 2"]
         cur_probs = para_res.loc[cur_pair_smiles]["plausibility"]
         # go through children lists and compare
         for num_cur_smiles in range(len(cur_children1_smiles)):
+            # print(cur_children1_smiles[num_cur_smiles])
+            # print(cur_children1_smiles[num_cur_smiles] is None)
             child1_smiles = cur_children1_smiles[num_cur_smiles]
             child2_smiles = cur_children2_smiles[num_cur_smiles]
-            child1_mol = mols.loc[child1_smiles]["mol"]
-            child2_mol = mols.loc[child2_smiles]["mol"]
-            if child1_mol is not None and child2_mol is not None:
-                if child1_mol.HasSubstructMatch(
-                    frag1_mol
-                ) and child2_mol.HasSubstructMatch(frag2_mol):
-                    result_df = result_df.append(
-                        {
-                            "fragment ids": frag_ids,
-                            "fragment 1": cur_frag1_smiles,
-                            "fragment 2": cur_frag2_smiles,
-                            "pair": cur_pair_smiles,
-                            "child 1": child1_smiles,
-                            "child 2": child2_smiles,
-                            "plausibility": cur_probs[num_cur_smiles],
-                        },
-                        ignore_index=True,
-                    )
-                elif child1_mol.HasSubstructMatch(
-                    frag2_mol
-                ) and child2_mol.HasSubstructMatch(frag1_mol):
-                    result_df = result_df.append(
-                        {
-                            "fragment ids": frag_ids,
-                            "fragment 1": cur_frag1_smiles,
-                            "fragment 2": cur_frag2_smiles,
-                            "pair": cur_pair_smiles,
-                            "child 1": child2_smiles,
-                            "child 2": child1_smiles,
-                            "plausibility": cur_probs[num_cur_smiles],
-                        },
-                        ignore_index=True,
-                    )
+            if child1_smiles is not None and child2_smiles is not None:
+                child1_mol = mols.loc[child1_smiles]["mol"]
+                child2_mol = mols.loc[child2_smiles]["mol"]
+                # print(type(child1_mol))
+                if isinstance(child1_mol, pd.core.series.Series):
+                    # print(len(child1_mol))
+                    # print(type(child1_mol[0]))
+                    try:
+                        this_child1 = child1_mol[0]
+                        child1_mol = this_child1
+                    except IndexError:
+                        print(child1_mol)
+                        child1_mol = None
+                if isinstance(child2_mol, pd.core.series.Series):
+                    try:
+                        this_child2 = child2_mol[0]
+                        child2_mol = this_child2
+                    except IndexError:
+                        print(child2_mol)
+                        child2_mol = None
+                if child1_mol is not None and child2_mol is not None:
+                    if child1_mol.HasSubstructMatch(
+                        frag1_mol
+                    ) and child2_mol.HasSubstructMatch(frag2_mol):
+                        result_df = result_df.append(
+                            {
+                                "fragment ids": frag_ids,
+                                "fragment 1": cur_frag1_smiles,
+                                "fragment 2": cur_frag2_smiles,
+                                "pair": cur_pair_smiles,
+                                "child 1": child1_smiles,
+                                "child 2": child2_smiles,
+                                "plausibility": cur_probs[num_cur_smiles],
+                            },
+                            ignore_index=True,
+                        )
+                    elif child1_mol.HasSubstructMatch(
+                        frag2_mol
+                    ) and child2_mol.HasSubstructMatch(frag1_mol):
+                        result_df = result_df.append(
+                            {
+                                "fragment ids": frag_ids,
+                                "fragment 1": cur_frag1_smiles,
+                                "fragment 2": cur_frag2_smiles,
+                                "pair": cur_pair_smiles,
+                                "child 1": child2_smiles,
+                                "child 2": child1_smiles,
+                                "plausibility": cur_probs[num_cur_smiles],
+                            },
+                            ignore_index=True,
+                        )
+                    else:
+                        different_structure_df = different_structure_df.append(
+                            {
+                                "fragment ids": frag_ids,
+                                "fragment 1": cur_frag1_smiles,
+                                "fragment 2": cur_frag2_smiles,
+                                "pair": cur_pair_smiles,
+                                "diff child 1": child2_smiles,
+                                "diff child 2": child1_smiles,
+                                "plausibility": cur_probs[num_cur_smiles],
+                            },
+                            ignore_index=True,
+                        )
                 else:
-                    different_structure_df = different_structure_df.append(
+                    result_df = result_df.append(
                         {
                             "fragment ids": frag_ids,
                             "fragment 1": cur_frag1_smiles,
                             "fragment 2": cur_frag2_smiles,
                             "pair": cur_pair_smiles,
-                            "diff child 1": child2_smiles,
-                            "diff child 2": child1_smiles,
-                            "plausibility": cur_probs[num_cur_smiles],
+                            "child 1": None,
+                            "child 2": None,
+                            "plausibility": 0,
                         },
                         ignore_index=True,
                     )
@@ -409,6 +463,7 @@ def call_retro_parallel(pair_smiles):
     children1 = []
     children2 = []
     plausibilities = []
+    n_attempts = 5
     for smile in pair_smiles:
         pairs.append(smile)
         cur_children1 = []
@@ -443,8 +498,14 @@ def call_retro_parallel(pair_smiles):
             "filter_threshold": 0.75,
             "return_first": "true",  # default is false
         }
-        resp = requests.get(HOST + "/api/treebuilder/", params=params, verify=False)
-
+        for attempt in range(n_attempts):
+            try:
+                resp = requests.get(HOST + "/api/treebuilder/", params=params,
+                                    verify=False, timeout=30)
+            except requests.exceptions.Timeout as err:
+                print(err)
+                sleep(50)
+                continue
         retro = resp.json()
 
         if "trees" in retro:
@@ -470,7 +531,6 @@ def call_retro_parallel(pair_smiles):
             cur_children1.append(None)
             cur_children2.append(None)
             cur_plausibilities.append(0)
-            print(smile)
         children1.append(cur_children1)
         children2.append(cur_children2)
         plausibilities.append(cur_plausibilities)
