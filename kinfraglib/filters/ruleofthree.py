@@ -57,16 +57,11 @@ def get_ro3_frags(fragment_library, min_fulfilled=6, cutoff_crit=">="):
         all_fullfilled.append(num_bools)
         num_fullfilled.append(num_sp)
 
-    ro3_accepted, ro3_rejected, fragment_library_bool = check.accepted_rejected(
+    fragment_library_bool = check.accepted_rejected(
         fragment_library,
         num_fullfilled,
         cutoff_value=min_fulfilled,
         cutoff_criteria=cutoff_crit,
-        column_name="ro3",
+        column_name="bool_ro3",
     )
-    d = dict()
-    d["ro3_accepted"] = ro3_accepted
-    d["ro3_rejected"] = ro3_rejected
-    d["fragment_library"] = fragment_library_bool
-    d["ro3"] = ro3_results
-    return d
+    return fragment_library_bool

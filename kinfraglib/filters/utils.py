@@ -25,3 +25,11 @@ def save_smiles_wo_dummy(fragment_library, PATH_DATA):
     for fragment in fragments:
         writer.write(Chem.MolFromSmiles(fragment))
     writer.close()
+
+
+def add_values(fragment_library, values, colname):
+    pocket_num = 0
+    for subpocket in fragment_library.keys():
+        fragment_library[subpocket][colname] = values[pocket_num]
+        pocket_num = pocket_num + 1
+    return fragment_library

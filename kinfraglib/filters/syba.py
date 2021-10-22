@@ -3,6 +3,7 @@ Contains the SYBA filter.
 """
 from syba.syba import SybaClassifier
 from . import check
+from . import utils
 import pandas as pd
 
 
@@ -24,11 +25,9 @@ def calc_syba(fragment_library, cutoff=0, cutoff_criteria=">", column_name="bool
         stored
     Returns
     dict
-        Containing
-            A pandas.DataFrame with accepted fragments and their information.
-            A pandas.DataFrame with rejected fragments and their information
-            A dict containing a pandas.DataFrame for each subpocket with all fragments and an
-            additional columns defining wether the fragment is accepted (1) or rejected (0)
+        Containing a pandas.DataFrame for each subpocket with all fragments and an
+        additional columns defining wether the fragment is accepted (1) or rejected (0) and the
+        calculated SYBA scores for each fragment.
     -------
 
     """
@@ -45,12 +44,9 @@ def calc_syba(fragment_library, cutoff=0, cutoff_criteria=">", column_name="bool
             pocketsyba.append(syba.predict(smiles))
         sybas.append(pocketsyba)
 
-    df_accepted, df_rejected, fragment_library_bool = check.accepted_rejected(
+    fragment_library_bool = check.accepted_rejected(
         fragment_library, sybas, cutoff, cutoff_criteria, column_name
     )
-    d = dict()
-    d["df_accepted"] = df_accepted
-    d["df_rejected"] = df_rejected
-    d["fragment_library"] = fragment_library_bool
-    d["sybas"] = sybas
-    return d
+    fragment_library_bool = utils.add_values(fragment_library_bool, sybas, "syba")
+
+    return fragment_library_bool

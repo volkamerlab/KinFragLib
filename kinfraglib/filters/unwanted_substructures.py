@@ -3,7 +3,6 @@ Contains functions to filter out unwanted substructures provided by Brenk et al.
 """
 import pandas as pd
 from rdkit import Chem
-from . import prefilters
 from . import building_blocks
 
 
@@ -22,8 +21,6 @@ def get_brenk(fragment_library, DATA):
     -------
     dict
         Containing
-            A pandas.DataFrame with accepted fragments and their information.
-            A pandas.DataFrame with rejected fragments and their information.
             A dict containing a pandas.DataFrame for each subpocket with all fragments and an
             additional columns defining wether the fragment is accepted (1) or rejected (0).
             A pandas.DataFrame with the fragments, the substructures found and the substructure
@@ -65,16 +62,11 @@ def get_brenk(fragment_library, DATA):
             rejected.append(index)
 
     matches = pd.DataFrame(matches)
-    fraglib_data = fragment_library_df.loc[clean]  # keep molecules without Brenk
-    rejected_data = fragment_library_df.loc[rejected]
-    accepted_frags = prefilters._make_df_dict(pd.DataFrame(fraglib_data))
-    rejected_frags = prefilters._make_df_dict(pd.DataFrame(rejected_data))
+
     fragment_library_bool = building_blocks._add_bool_column(
         fragment_library, brenk_bool, "bool_brenk"
     )
     d = dict()
-    d["accepted_fragments"] = accepted_frags
-    d["rejected_fragments"] = rejected_frags
     d["fragment_library"] = fragment_library_bool
     d["brenk"] = matches
 
