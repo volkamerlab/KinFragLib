@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name="kinfraglib",
@@ -8,7 +8,7 @@ setup(
     author="Volkamer Lab",
     author_email="andrea.volkamer@charite.de",
     license="MIT",
-    packages=setuptools.find_packages(),
+    packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.8",
