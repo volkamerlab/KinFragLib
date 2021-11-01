@@ -101,3 +101,50 @@ def number_of_accepted(fragment_library, columns, min_accepted=1, name="bool"):
     df = pd.concat(fragment_library).reset_index(drop=True)
     df[name] = (df.loc[:, columns].sum(axis=1) >= min_accepted).astype(int)
     return prefilters._make_df_dict(pd.DataFrame(df))
+
+
+def accepted_num_filters(fragment_library, colnames, filtername, max_num_accepted=1):
+    """
+    Function to count how many fragments are accepted by max_num_accepted or less filters.
+
+    Parameters
+    ----------
+    fragment_libray : dict
+        fragments organized in subpockets inculding all information
+    colnames : list
+        strings with filter boolean column names
+    filtername : str
+        summarized filter name/ name of the resulting dataframe
+    max_num_accepted : int
+        maximum of accepted filters. By default max_num_accepted = 1
+
+    Returns
+    -------
+    DataFrame
+        Counting number of fragments that are accepted by max_num_accepted filters and less.
+    """
+    count_df = []
+    cols_df = pd.concat(fragment_library).reset_index(drop=True)
+    cols_df['sums'] = cols_df.loc[:, colnames].sum(axis=1)
+    count_df.append(pd.Series(
+        pd.concat(fragment_library)
+        .reset_index(drop=True)
+        .groupby("subpocket", sort=False)
+        .size(),
+        name="pre-filtered",
+    ))
+    for i in range(max_num_accepted, -1, -1):
+        i_accepted = cols_df.loc[cols_df['sums'] == i]
+        count_df.append(pd.Series(
+            pd.concat(prefilters._make_df_dict(pd.DataFrame(i_accepted)))
+            .reset_index(drop=True)
+            .groupby("subpocket", sort=False)
+            .size(),
+            name=str("accepted by " + str(i)),
+        ))
+    counted_df = pd.concat(count_df, axis=1)
+    counted_df = counted_df.fillna(0)
+    counted_df = counted_df.astype(int)
+    counted_df = counted_df.append(counted_df.sum().rename("Total"))
+    counted_df = counted_df.style.set_caption(filtername)
+    return(counted_df)
