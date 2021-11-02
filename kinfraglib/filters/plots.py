@@ -14,7 +14,7 @@ def make_hists(
 
     Parameters
     ----------
-    fragment_library : dict of pandas.DataFrame
+    fragment_library : dict of pandas.DataFrames
         Fragment details, i.e. SMILES, and fragment RDKit molecules, KLIFS and fragmentation
         details (values) for each subpocket (key).
 
@@ -25,6 +25,7 @@ def make_hists(
         name of the filter used as title creating the values plottet
 
     cutoff : int or float
+        cutoff value for drawing a cutoff line to the plots
     """
     # get even number if number of plots not even
     num_plots = round(len(fragment_library.keys()) + 0.5)
