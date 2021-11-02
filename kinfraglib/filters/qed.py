@@ -30,9 +30,8 @@ def get_qed(fragment_library, cutoff_val=0.42, cutoff_crit=">"):
     qedscores = []
     for pocket in fragment_library.keys():
         curqed = []
-        for frag in fragment_library[pocket]["smiles"]:
-            m = Chem.MolFromSmiles(frag)
-            qed = Chem.QED.qed(m)
+        for fragmol in fragment_library[pocket]["ROMol"]:
+            qed = Chem.QED.qed(fragmol)
             curqed.append(qed)
         qedscores.append(curqed)
     fragment_library_bool = check.accepted_rejected(
