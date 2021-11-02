@@ -59,8 +59,8 @@ def get_pains(fragment_library):
     fragment_library_bool = building_blocks._add_bool_column(
         fragment_library, accepted_bool, "bool_pains"
     )
-    d = dict()
-    d["fragment_library"] = fragment_library_bool
-    d["pains"] = matches
+    pains_dict = dict()
+    pains_dict["fragment_library"] = fragment_library_bool
+    pains_dict["pains"] = matches
 
-    return d
+    return pains_dict
