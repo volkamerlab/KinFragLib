@@ -7,7 +7,11 @@ from . import utils
 import pandas as pd
 
 
-def calc_syba(fragment_library, cutoff=0, cutoff_criteria=">", column_name="bool_syba"):
+def calc_syba(fragment_library,
+              cutoff=0, cutoff_criteria=">",
+              column_name="bool_syba",
+              query_type="mol",
+              ):
     """
     Go through SMILES Series and calculate the SYnthetic Bayesian Accessibility.
 
@@ -23,6 +27,9 @@ def calc_syba(fragment_library, cutoff=0, cutoff_criteria=">", column_name="bool
     column_name : str
         defining the column name where the bool if the fragment is accepted (1) or rejected (0) is
         stored
+    query_type : str
+        "mol" or "smiles". Defining if the SYBA score gets predicted using the ROMol from the
+        fragment library or the SMILES string. By defualt query_type = "mol".
     Returns
     dict
         Containing a pandas.DataFrame for each subpocket with all fragments and an
@@ -40,9 +47,14 @@ def calc_syba(fragment_library, cutoff=0, cutoff_criteria=">", column_name="bool
         fragment_library_df_subpocket = fragment_library_df.loc[
             fragment_library_df["subpocket"] == subpocket
         ]
-        for smiles in fragment_library_df_subpocket["smiles"]:
-            pocketsyba.append(syba.predict(smiles))
-        sybas.append(pocketsyba)
+        if query_type == "mol":
+            for molecule in fragment_library_df_subpocket["ROMol"]:
+                pocketsyba.append(syba.predict(mol=molecule))
+            sybas.append(pocketsyba)
+        elif query_type == "smiles":
+            for smiles in fragment_library_df_subpocket["smiles"]:
+                pocketsyba.append(syba.predict(smiles))
+            sybas.append(pocketsyba)
 
     fragment_library_bool = check.accepted_rejected(
         fragment_library, sybas, cutoff, cutoff_criteria, column_name
