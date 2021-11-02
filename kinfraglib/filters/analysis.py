@@ -1,5 +1,5 @@
 """
-Contains functions to analyse the results from filter steps
+Contains functions to analyze the results from filter steps
 """
 import pandas as pd
 from . import prefilters
@@ -7,16 +7,17 @@ from . import prefilters
 
 def count_accepted_rejected(fragment_library, bool_column_name, filtername):
     """
-    Function to count number of accepted and rejected fragments by boolean column.
+    Function to count number of accepted and rejected fragments by one boolean column.
 
     Parameters
     ----------
     fragment_libray : dict
         fragments organized in subpockets inculding all information
     bool_column_name : str
-        string defining the column name where the bool values are stored
+        string defining the column name where the bool values used for counting the accepted and
+        rejected fragments are stored
     filtername : str
-        string defining from which filter these bool column comes
+        string defining from which filter these bool column comes, e.g. "QED"
 
     Returns
     -------
@@ -24,18 +25,19 @@ def count_accepted_rejected(fragment_library, bool_column_name, filtername):
         number of accepted and number of rected fragments per subpocket
     """
     # seperate df into 0 and 1 in this column
-    df = (
+    # concatenate fragment library and group fragments by the bool column
+    fraglib_df = (
         pd.concat(fragment_library)
         .reset_index(drop=True)
         .groupby(bool_column_name, sort=False)
     )
     # count the df's grouped by subpocket
     accepted = pd.Series(
-        df.get_group(1).groupby("subpocket", sort=False).size(),
+        fraglib_df.get_group(1).groupby("subpocket", sort=False).size(),
         name="accepted_" + filtername,
     )
     rejected = pd.Series(
-        df.get_group(0).groupby("subpocket", sort=False).size(),
+        fraglib_df.get_group(0).groupby("subpocket", sort=False).size(),
         name="rejected_" + filtername,
     )
     # remove NaN values
@@ -57,19 +59,19 @@ def count_accepted_rejected(fragment_library, bool_column_name, filtername):
 
 def count_fragments(fragment_library, name="n_frags"):
     """
-    Function to count number of accepted and rejected fragments by boolean column.
+    Function to count the number of accepted and rejected fragments.
 
     Parameters
     ----------
     fragment_libray : dict
         fragments organized in subpockets inculding all information
     name : str
-        string defining the column name where the bool values are stored
+        string defining the column name what is counted
 
     Returns
     -------
     pandas.Series
-        number of accepted and number of rected fragments per subpocket
+        number of fragments per subpocket of the given dict
     """
     return pd.Series(
         pd.concat(fragment_library)
@@ -82,7 +84,8 @@ def count_fragments(fragment_library, name="n_frags"):
 
 def number_of_accepted(fragment_library, columns, min_accepted=1, name="bool"):
     """
-    Function to count number of accepted and rejected fragments by boolean column.
+    Function to count number of fragments that are accepted by at least min_accepted filters
+    defined in columns.
 
     Parameters
     ----------
@@ -91,16 +94,17 @@ def number_of_accepted(fragment_library, columns, min_accepted=1, name="bool"):
     min_accepted : int
         minimum number of accepted filters
     bool_column_name : str
-        string defining the column name where the bool values are stored
+        string defining the column names where the bool values are stored
 
     Returns
     -------
     dict
-        containing a pandas.DataFrame including bool column for each subpocket
+        containing a pandas.DataFrame including bool column if fragment is accepted by at least
+        min_accepted filters which are defined in columns for each subpocket
     """
-    df = pd.concat(fragment_library).reset_index(drop=True)
-    df[name] = (df.loc[:, columns].sum(axis=1) >= min_accepted).astype(int)
-    return prefilters._make_df_dict(pd.DataFrame(df))
+    fraglib_df = pd.concat(fragment_library).reset_index(drop=True)
+    fraglib_df[name] = (fraglib_df.loc[:, columns].sum(axis=1) >= min_accepted).astype(int)
+    return prefilters._make_df_dict(pd.DataFrame(fraglib_df))
 
 
 def accepted_num_filters(fragment_library, colnames, filtername, max_num_accepted=1):
@@ -112,7 +116,7 @@ def accepted_num_filters(fragment_library, colnames, filtername, max_num_accepte
     fragment_libray : dict
         fragments organized in subpockets inculding all information
     colnames : list
-        strings with filter boolean column names
+        list containing strings with filter boolean column names
     filtername : str
         summarized filter name/ name of the resulting dataframe
     max_num_accepted : int
