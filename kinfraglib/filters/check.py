@@ -13,8 +13,7 @@ def accepted_rejected(
     column_name="bool",
 ):
     """
-    Go through values list and return a pandas.DataFrame of accepted/rejected fragments
-    and a boolean list if fragment with this cutoff is rejected or accepted.
+    Go through values list and add a boolean column if fragments are accepted or rejected.
 
     Parameters
     ----------
