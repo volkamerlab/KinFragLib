@@ -1,5 +1,5 @@
 """
-Contains function to check for building blocks
+Contains functions to check for building blocks
 """
 import pandas as pd
 from . import prefilters
@@ -8,30 +8,30 @@ from rdkit import Chem
 
 def check_building_blocks(fragment_library, path_to_building_blocks):
     """
-    Read in Enamine Building Blocks from SDFile, compare fragments with building blocks.
+    Read in Enamine Building Blocks from SDFile, check if fragment molecules are a substructure
+    of building block molecules.
 
     Parameters
     ----------
     fragment_libray : dict
         fragments organized in subpockets inculding all information
     path_to_building_blocks : str
-        path where SDFile with resulting building blocks from DataWarrior is saved
+        path to SDFile with resulting building blocks from DataWarrior is saved
 
     Returns
     -------
     dict
         Containing a pandas.DataFrame for each subpocket with all fragments and an
-        additional columns defining wether the fragment is accepted (1) or rejected (0)
+        additional columns defining wether the fragment is accepted (1), meaning found as a
+        substructure in a building block, or rejected (0).
     """
-    enamine_bb = _read_bb_sdf(path_to_building_blocks)
+    # enamine_bb = _read_bb_sdf(path_to_building_blocks)
     fragment_library_pre_filtered_df = pd.concat(fragment_library).reset_index(
         drop=True
     )
     bools_enamine = []
     # store smiles as molecules from enamine
-    bb_mols = []
-    for buildingblock in enamine_bb[0]:
-        bb_mols.append(Chem.MolFromSmiles(buildingblock))
+    bb_mols = _read_bb_sdf(path_to_building_blocks)
 
     for row in fragment_library_pre_filtered_df.itertuples():
         in_enamine = False
@@ -61,17 +61,14 @@ def _read_bb_sdf(path_to_building_blocks):
 
     Returns
     -------
-    ??
-        smiles of building blocks
+    list
+        rdkit molecules of building blocks
     """
     enamine_bb = []
     curpath = str(path_to_building_blocks)
     suppl = Chem.SDMolSupplier(curpath)
-    curmols = []
     for mol in suppl:
-        smiles = Chem.MolToSmiles(mol)
-        curmols.append(smiles)
-    enamine_bb.append(curmols)
+        enamine_bb.append(mol)
     return enamine_bb
 
 
@@ -90,7 +87,7 @@ def _add_bool_column(fragment_library, bool_list, column_name="bool"):
 
     Returns
     -------
-    fragment_libray : dict
+    dict
         fragments organized in subpockets inculding boolean column
     """
     fragment_library_df = pd.concat(fragment_library).reset_index(drop=True)
