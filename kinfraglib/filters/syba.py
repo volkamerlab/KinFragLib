@@ -8,22 +8,24 @@ import pandas as pd
 
 
 def calc_syba(fragment_library,
-              cutoff=0, cutoff_criteria=">",
+              cutoff=0,
+              cutoff_criteria=">",
               column_name="bool_syba",
               query_type="mol",
               ):
     """
-    Go through SMILES Series and calculate the SYnthetic Bayesian Accessibility.
+    Calculate the SYnthetic Bayesian Accessibility for each fragment and adding a boolean column
+    if the fragment is accepted for the defined cutoff or not
 
     Parameters
     ----------
     fragment_library : dict
-        smiles series containing fragment smiles strings
+        fragments organized in subpockets inculding all information
     cutoff : int
-        defining the cutoff value for rejecting/accepting fragments. Default value is 0
+        defining the cutoff value for rejecting/accepting fragments. By default cutoff=0
     cutoff_criteria : str
         defining if the fragments values need to be >, <, >=, <=, == or != compared to the
-        cutoff_value. Default value is ">"
+        cutoff_value. By default cutoff_criteria=">"
     column_name : str
         defining the column name where the bool if the fragment is accepted (1) or rejected (0) is
         stored
