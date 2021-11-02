@@ -34,19 +34,16 @@ def check_building_blocks(fragment_library, path_to_building_blocks):
         bb_mols.append(Chem.MolFromSmiles(buildingblock))
 
     for row in fragment_library_pre_filtered_df.itertuples():
-        if row.smiles in enamine_bb[0]:
+        in_enamine = False
+        frag_mol = Chem.MolFromSmiles(row.smiles)
+        for bb in bb_mols:
+            if bb.HasSubstructMatch(frag_mol):
+                in_enamine = True
+                break
+        if in_enamine:
             bools_enamine.append(1)
         else:
-            in_enamine = False
-            frag_mol = Chem.MolFromSmiles(row.smiles)
-            for bb in bb_mols:
-                if bb.HasSubstructMatch(frag_mol):
-                    in_enamine = True
-                    break
-            if in_enamine:
-                bools_enamine.append(1)
-            else:
-                bools_enamine.append(0)
+            bools_enamine.append(0)
 
     fragment_library_bool = _add_bool_column(fragment_library, bools_enamine, "bool_bb")
 
