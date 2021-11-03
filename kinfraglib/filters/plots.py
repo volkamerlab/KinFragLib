@@ -10,13 +10,12 @@ def make_hists(
     fragment_library, colname, filtername=None, plot_stats=True, cutoff=None
 ):
     """
-    Creates a histogram for each subpocket.
+    Creates a histogram for each subpocket for defined values.
 
     Parameters
     ----------
-    fragment_library : dict of pandas.DataFrames
-        Fragment details, i.e. SMILES, and fragment RDKit molecules, KLIFS and fragmentation
-        details (values) for each subpocket (key).
+    fragment_library : dict
+        fragment library organized in subpockets
 
     colname : str
         Name of the column where values for creating histograms are stored
