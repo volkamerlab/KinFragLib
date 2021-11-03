@@ -20,13 +20,16 @@ The created DataWarrior file is used in
 ```
 
 ```python
-from kinfraglib import utils
+import pandas as pd
+from pathlib import Path
+from kinfraglib import utils, filters
 ```
 
 ```python
 # define Path to data
 HERE = Path(_dh[-1])
 PATH_DATA = HERE / '../../data'
+PATH_DataWarrior = HERE / '../../data/filters/DataWarrior'
 ```
 
 ```python
@@ -46,14 +49,14 @@ Apply pre-filters
 For more information to the pre-filtering steps please have a look at 
 `notebooks/kinfraglib/3_1_fragment_library_reduced.ipynb`.
 ```python
-fragment_library_pre_filtered = filters.prefilters.pre_filters(
+fragment_library = filters.prefilters.pre_filters(
     fragment_library)
 ```
 
 ### c. Save the fragment library to be processed with DataWarrior
 ```python
 # save smiles without dummy atoms in sdf files for DataWarrior
-filters.utils.save_smiles_wo_dummy(fragment_library, PATH_DATA)
+filters.utils.save_fragments_wo_dummy(fragment_library, PATH_DataWarrior)
 ```
 
 ## 2. Install DataWarrior
@@ -62,7 +65,7 @@ DataWarrior for your OS
 
 ## 3. Get the Enamine Building Blocks
 - open DataWarrior
-- open file `smiles_wo_dummy.sdf` in the `data/fragment_library` directory 
+- open file `fragments_wo_dummy.sdf` in the `data/filters/DataWarrior` directory 
   * choose "yes" when DataWarrior asks if it should interpret stereo centers as absolute
 - mark all structures 
   * go to Database 
