@@ -8,7 +8,7 @@ from kinfraglib import utils
 def pre_filters(fragment_library):
     """
     Gets a dict containing fragments organized in subpockets.
-    Function
+    Functionality
     - Removes pool X
     - Removes duplicates
     - Removes unfragmented ligands
@@ -45,17 +45,17 @@ def pre_filters(fragment_library):
 
 def _remove_duplicates(fragment_library):
     """
-    removes duplicates from each subpocket of the fragment library
+    removes fragment duplicates from each subpocket of the fragment library
 
     Parameters
     ----------
     fragment_libray : list
-        of fragments and their information
+        fragment library organized in subpockets
 
     Returns
     -------
     pandas DataFrame
-        containing fragments without duplicates inside the subpockets
+        fragment library without fragment duplicates inside the subpockets
     """
     # remove duplicates
     fragment_library = pd.concat(fragment_library).reset_index(drop=True)
@@ -77,7 +77,7 @@ def _remove_duplicates(fragment_library):
 
 def _remove_unfragmented(fragment_library):
     """
-    removes fragments with no dummy atoms - unfragmented ligands.
+    removes fragments with no dummy atoms (unfragmented ligands).
 
     Parameters
     ----------
@@ -87,7 +87,7 @@ def _remove_unfragmented(fragment_library):
     Returns
     -------
     pandas DataFrame
-        containing no unfragmented ligands
+        fragment library containing no unfragmented ligands
     """
     # remove fragments without dummy atoms (unfragmented)
     # Get fragments' (subpocket) connections
@@ -135,18 +135,18 @@ def _remove_connecting_only_x(fragment_library):
 
 def _make_df_dict(fragment_library):
     """
-    Takes pandas DataFrame and creates dict to create the same format of the fragments as in the
-    beginning.
+    Takes the fragment library DataFrame and creates a dict to create the same format of the
+    fragments as in the beginning.
 
     Parameters
     ----------
     fragment_libray : pandas DataFrame
-        containing fragments
+        containing fragment library
 
     Returns
     -------
     dict
-        containing a pandas DataFrame for each subpocket
+        containing a pandas DataFrame with fragments for each subpocket
     """
     # reorder DataFrame into dict of pd.DataFrames again
     df = pd.DataFrame(fragment_library, columns=list(fragment_library.keys()))
