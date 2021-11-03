@@ -42,7 +42,7 @@ def get_brenk(fragment_library, DATA):
     rejected = []
     brenk_bool = []
     for index, row in fragment_library_df.iterrows():
-        molecule = Chem.MolFromSmiles(row.smiles)
+        molecule = row.ROMol
         match = False
         for _, substructure in substructures.iterrows():
             if molecule.HasSubstructMatch(substructure.rdkit_molecule):
@@ -66,8 +66,8 @@ def get_brenk(fragment_library, DATA):
     fragment_library_bool = building_blocks._add_bool_column(
         fragment_library, brenk_bool, "bool_brenk"
     )
-    d = dict()
-    d["fragment_library"] = fragment_library_bool
-    d["brenk"] = matches
+    brenk_dict = dict()
+    brenk_dict["fragment_library"] = fragment_library_bool
+    brenk_dict["brenk"] = matches
 
-    return d
+    return brenk_dict
