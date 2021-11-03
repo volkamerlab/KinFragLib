@@ -1,7 +1,6 @@
 """
 Contains function to check the rule of three parameters
 """
-from rdkit import Chem
 from kinfraglib import utils
 from . import check
 
@@ -22,28 +21,24 @@ def get_ro3_frags(fragment_library, min_fulfilled=6, cutoff_crit=">="):
         fragments organized in subpockets inculding all information
     min_fiulfilled : int
         defining the minimum number of Rule of Three Criteria that need to be fulfilled to be
-        accepted. Default: min_fulfilled=6
+        accepted. By default min_fulfilled=6.
     cutoff_crit : str
-        Per default ">="
+        Cutoff criterium, defining if the number of fulfilled parameters is ">", "<", "==", ">="
+        or "<=" than min_fulfilled. By default cutoff_crit=">=".
 
     Returns
     -------
     dict
-        Containing
-            A pandas.DataFrame with accepted fragments and their information.
-            A pandas.DataFrame with rejected fragments and their information
-            A dict containing a pandas.DataFrame for each subpocket with all fragments and an
-            additional columns defining wether the fragment is accepted (1) or rejected (0)
-            A list with the Ro3 results
+        fragment library organized in subpockets containing a boolean column if they fulfill the
+        defined number of Ro3 parameters.
     """
     ro3_results = []
     num_fullfilled = []
     all_fullfilled = []
     for subpocket in fragment_library.keys():
         ro3_subpocket = []
-        for smiles in fragment_library[subpocket]["smiles"]:
-            m = Chem.MolFromSmiles(smiles)
-            ro3_subpocket.append(utils.get_ro3_from_mol(m))
+        for mol in fragment_library[subpocket]["ROMol"]:
+            ro3_subpocket.append(utils.get_ro3_from_mol(mol))
         ro3_results.append(ro3_subpocket)
     for i in range(0, len(ro3_results)):
         num_sp = []
