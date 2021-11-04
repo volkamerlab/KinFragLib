@@ -18,6 +18,7 @@ dependencies:
   - scikit-learn
   - seaborn
   - lich::syba
+  - redo
   ## CI tests
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
