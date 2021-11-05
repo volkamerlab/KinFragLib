@@ -71,3 +71,4 @@ def make_hists(
                 plt.ylabel("Number of fragments")
                 subpocket_num = subpocket_num + 1
     plt.suptitle(filtername)
+    plt.show()
