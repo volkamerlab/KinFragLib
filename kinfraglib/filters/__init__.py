@@ -5,6 +5,7 @@ from . import (
     analysis,
     utils,
     unwanted_substructures,
+    pipeline,
     retro,
     brics_rules,
     drug_likeness,
