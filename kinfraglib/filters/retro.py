@@ -52,7 +52,8 @@ def get_valid_fragment_pairs(fragment_library):
     pair_df = get_pairs(valids, bonds, fragment_library)
     # pair_df_unique = []
     pair_smiles = []
-    for pair in pair_df['pair']:
+    for pair_id in range(0, len(pair_df['pair'])):
+        pair = pair_df['pair'][pair_id]
         pair_smiles.append(Chem.MolToSmiles(pair))
     # check if pair is already in df, if yes -> remove it.
     unique_smiles = pd.DataFrame({'pair': pair_smiles})['pair'].unique()
