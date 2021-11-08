@@ -1170,7 +1170,7 @@ def make_retro_hists(
     """
     # get even number if number of plots not even
     num_plots = round(len(fragment_library.keys()) + 0.5)
-    plt.figure(figsize=(20, 24))
+    plt.figure(figsize=(25, 29))
     gs = gridspec.GridSpec(int(num_plots / 2), int(num_plots / 2))
     keys = list(fragment_library.keys())
     subpocket_num = 0
@@ -1243,6 +1243,7 @@ def make_retro_hists(
                 if filtername is not None:
                     plt.xlabel(filtername)
                 plt.ylabel("Number of fragments")
+                plt.xlabel("Number of retrosynthetic routes")
                 subpocket_num = subpocket_num + 1
     plt.suptitle(filtername)
     plt.show()
