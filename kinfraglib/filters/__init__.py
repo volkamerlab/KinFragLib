@@ -6,7 +6,6 @@ from . import (
     building_blocks,
     analysis,
     utils,
-    pains,
     unwanted_substructures,
     qed,
     ruleofthree,
