@@ -50,6 +50,7 @@ def get_valid_fragment_pairs(fragment_library):
     valids = checkvalid(res, fragment_library)
     bonds = get_bonds(valids, res, fragment_library)
     pair_df = get_pairs(valids, bonds, fragment_library)
+    print(pair_df)
     # pair_df_unique = []
     pair_smiles = []
     for pair in pair_df['pair']:
