@@ -7,6 +7,5 @@ from . import (
     analysis,
     utils,
     unwanted_substructures,
-    qed,
-    ruleofthree,
+    drug_likeness,
 )
