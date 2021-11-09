@@ -14,7 +14,7 @@ def calc_syba(fragment_library,
               query_type="mol",
               ):
     """
-    Calculate the SYnthetic Bayesian Accessibility for each fragment and adding a boolean column
+    Calculate the SYnthetic Bayesian Accessibility for each fragment and add a boolean column
     if the fragment is accepted for the defined cutoff or not
 
     Parameters
@@ -31,12 +31,12 @@ def calc_syba(fragment_library,
         stored
     query_type : str
         "mol" or "smiles". Defining if the SYBA score gets predicted using the ROMol from the
-        fragment library or the SMILES string. By defualt query_type = "mol".
+        fragment library or the SMILES string. By default query_type = "mol".
     Returns
     dict
         Containing a pandas.DataFrame for each subpocket with all fragments and an
-        additional columns defining wether the fragment is accepted (1) or rejected (0) and the
-        calculated SYBA scores for each fragment.
+        additional column (bool_syba) defining whether the fragment is accepted (1) or rejected (0) and the
+        calculated SYBA score (syba) for each fragment.
     -------
 
     """
