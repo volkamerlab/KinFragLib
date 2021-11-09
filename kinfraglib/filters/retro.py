@@ -19,6 +19,20 @@ import statistics
 
 
 def read_retro_file(path_to_retro_file):
+    """
+    Function reading in the results retrieved from the ASKCOS query and saved in the given file.
+
+    Parameters
+    ----------
+    path_to_retro_file : Path
+        Path to file where results from the ASKCOS query are stored.
+
+    Returns
+    -------
+    DataFrame
+        Containing the requested pairs, the retrieved children and the plausibility
+
+    """
     retro_df = pd.read_csv(path_to_retro_file, sep="; ", header=None, engine='python')
     retro_df.columns = ['pair', 'child 1', 'child 2', 'plausibility']
 
@@ -50,7 +64,6 @@ def get_valid_fragment_pairs(fragment_library):
     valids = checkvalid(res, fragment_library)
     bonds = get_bonds(valids, res, fragment_library)
     pair_df = get_pairs(valids, bonds, fragment_library)
-    print(pair_df)
     # pair_df_unique = []
     pair_smiles = []
     for pair in pair_df['pair']:
@@ -154,6 +167,17 @@ def askcos_retro(smiles):
 
 
 def worker_retro(working_queue, output_queue):
+    """
+    Worker function for parallel ASKCOS API request.
+
+    Parameters
+    ----------
+    working_queue : Queue
+        containing fragment pair SMILES that still need to be requested
+
+    output_queue : Queue
+        Queue for storing output variables
+    """
     while True:
         if working_queue.empty() is True:
             break  # this is the so-called 'poison pill'
@@ -188,6 +212,38 @@ def get_pairwise_retrosynthesizability(
     valid_fragment_pairs,
     fragment_library,
 ):
+    """
+    Function calling the worker function for ASKCOS query parallel, compares ASKCOS results with
+    fragments.
+
+    Parameters
+    ----------
+    unique_smiles : list
+        containing SMILES of fragment pairs
+
+    PATH_DATA_RETRO : Path
+        Path to the folder where ASKCOS query results will be stored
+
+    valid_fragment_pairs : DataFrame
+        containing all valid fragment pairs, including their fragment ids and the fragments
+        building the pairs
+
+    fragment_library : dict
+        fragments organized in subpockets inculding all information
+
+    Returns
+    -------
+    dict
+        fragment library containing a column "retro_count"
+    pandas DataFrame
+        containing for each fragment the number of retrosynthetic routes
+    pandas DataFrame
+        containing the molecules of the fragments, the pair and the children
+    pandas DataFrame
+        containing the fragments the pairs and the children molecules where the children and the
+        fragments structures did not match each other.
+
+    """
     filtered_smiles = []
     retro_file = Path(PATH_DATA_RETRO / 'retro.txt')
     if retro_file.is_file():
