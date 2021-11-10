@@ -18,22 +18,20 @@ def accepted_rejected(
     Parameters
     ----------
     fragment_libray : dict
-        fragments organized in subpockets inculding all information
+        fragments organized in subpockets including all information
     value_list : list
         list of values calculated for filtering
     cutoff_value : int or float
         value defining the cutoff for accepting or rejecting a fragment
     cutoff_criteria : string of a basic operator
-        defining if the rejected fragments values need to be >, <, >=, <=, == or != compared to
-        the cutoff_value
+        defining if the rejected fragment values need to be ">", "<", ">=", "<=", "==" or "!="
+        compared to the cutoff_value
 
     Returns
     -------
-    pandas.DataFrames
-        accepted/rejected ligands
-
-    list of bools
-        bool defining if this fragment is accepted or rejected
+    dict
+        fragment library containing a boolean column if the fragment was accepted (1) or
+        rejected (0) by the filter according to the cutoff value.
     """
     bools = []
 

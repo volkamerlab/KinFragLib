@@ -7,6 +7,7 @@ from rdkit import Chem
 from rdkit.Chem.FilterCatalog import FilterCatalogParams, FilterCatalog
 from . import building_blocks
 
+
 def get_pains(fragment_library):
     """
     Function to check fragments for PAINS structures.
@@ -21,7 +22,8 @@ def get_pains(fragment_library):
     fragment_library, matches: tuple(dict,dict)
         Containing
             A dict containing a pandas.DataFrame for each subpocket with all fragments and an
-            additional column (bool_pains) defining wether the fragment is accepted (1) or rejected (0).
+            additional column (bool_pains) defining wether the fragment is accepted (1) or
+            rejected (0).
             A pandas.DataFrame with the fragments and the names of the first PAINS structure found
             in the fragment.
     """
@@ -59,8 +61,9 @@ def get_pains(fragment_library):
     fragment_library_bool = building_blocks._add_bool_column(
         fragment_library, accepted_bool, "bool_pains"
     )
-  
+
     return fragment_library_bool, matches
+
 
 def get_brenk(fragment_library, DATA):
     """
@@ -78,7 +81,8 @@ def get_brenk(fragment_library, DATA):
     fragment_library, matches: tuple(dict,dict)
         Containing
             A dict containing a pandas.DataFrame for each subpocket with all fragments and an
-            additional column (bool_brenk) defining wether the fragment is accepted (1) or rejected (0).
+            additional column (bool_brenk) defining wether the fragment is accepted (1) or
+            rejected (0).
             A pandas.DataFrame with the fragments, the substructures found and the substructure
             names
     """
@@ -122,5 +126,5 @@ def get_brenk(fragment_library, DATA):
     fragment_library_bool = building_blocks._add_bool_column(
         fragment_library, brenk_bool, "bool_brenk"
     )
-    
+
     return fragment_library_bool, matches

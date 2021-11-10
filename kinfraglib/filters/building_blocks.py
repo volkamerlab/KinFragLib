@@ -22,8 +22,8 @@ def check_building_blocks(fragment_library, path_to_building_blocks):
     -------
     dict
         Containing a pandas.DataFrame for each subpocket with all fragments and an
-        additional columns (bool_bb) defining whether the fragment is accepted (1), meaning found as a
-        substructure in a building block, or rejected (0).
+        additional columns (bool_bb) defining whether the fragment is accepted (1), meaning found
+        as a substructure in a building block, or rejected (0).
     """
     # enamine_bb = _read_bb_sdf(path_to_building_blocks)
     fragment_library_pre_filtered_df = pd.concat(fragment_library).reset_index(

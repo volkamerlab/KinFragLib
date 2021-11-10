@@ -35,8 +35,8 @@ def calc_syba(fragment_library,
     Returns
     dict
         Containing a pandas.DataFrame for each subpocket with all fragments and an
-        additional column (bool_syba) defining whether the fragment is accepted (1) or rejected (0) and the
-        calculated SYBA score (syba) for each fragment.
+        additional column (bool_syba) defining whether the fragment is accepted (1) or rejected (0)
+        and the calculated SYBA score (syba) for each fragment.
     -------
 
     """

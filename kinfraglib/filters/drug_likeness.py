@@ -82,8 +82,8 @@ def get_qed(fragment_library, cutoff_val=0.42, cutoff_crit=">"):
     -------
     dict
         Containing a pandas.DataFrame for each subpocket with all fragments and an
-        additional columns (bool_qed) defining whether the fragment is accepted (1) or rejected (0) and the
-        calculated QED value for each fragment.
+        additional columns (bool_qed) defining whether the fragment is accepted (1) or rejected (0)
+        and the calculated QED value for each fragment.
     """
     qedscores = []
     for pocket in fragment_library.keys():
