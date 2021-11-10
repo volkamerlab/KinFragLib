@@ -263,8 +263,6 @@ def get_pairwise_retrosynthesizability(
                     filtered_smiles.append(smiles)
     else:
         filtered_smiles = unique_smiles
-    # test with subset
-    filtered_smiles = filtered_smiles[0:110]
     print("ASKCOS query started for %s fragments." % len(filtered_smiles))
     working_q = mp.Queue()
     output_q = mp.Queue()
