@@ -246,7 +246,7 @@ def get_pairwise_retrosynthesizability(
 
     """
     filtered_smiles = []
-    retro_file = Path(PATH_DATA_RETRO / 'retro.txt')
+    retro_file = Path(PATH_DATA_RETRO / 'retro_tmp.txt')
     if retro_file.is_file():
         retro_df = pd.read_csv(retro_file, sep="; ", header=None,
                                engine='python')
@@ -342,7 +342,7 @@ def get_pairwise_retrosynthesizability(
 
 def get_retro_results(PATH_DATA_RETRO, valid_fragment_pairs, fragment_library):
     print("Comparing ASKCOS children with fragments..")
-    retro_file = Path(PATH_DATA_RETRO / "retro.txt")
+    retro_file = Path(PATH_DATA_RETRO / "retro_tmp.txt")
     retro_df = read_retro_file(retro_file)
 
     pairs_frags_smiles = []
