@@ -166,42 +166,43 @@ def askcos_retro(smiles):
     return res
 
 
-def worker_retro(working_queue, output_queue):
+def worker_retro(working_q, output_q, retro_file):
     """
     Worker function for parallel ASKCOS API request.
 
     Parameters
     ----------
-    working_queue : Queue
+    working_q : Queue
         containing fragment pair SMILES that still need to be requested
 
-    output_queue : Queue
+    output_q : Queue
         Queue for storing output variables
     """
     while True:
-        if working_queue.empty() is True:
+        if working_q.empty() is True:
             break  # this is the so-called 'poison pill'
         else:
-            smiles = working_queue.get()  # get smiles from working queue
+            smiles = working_q.get()  # get smiles from working queue
             res = askcos_retro(smiles)
             # call askcos for one smiles
             # then save result string to output_queue
             for i, row in res.iterrows():
-                output_queue.put
-                (
+                cur_item = str(
                     str(row['pair'])
                     + "; " + str(row['child 1'])
                     + "; " + str(row['child 2'])
                     + "; " + str(row['plausibility'])
                     + "\n"
                 )
-        if output_queue.qsize() > 100:
-            with open("retro_tmp.txt", "a+") as f_object:
+                output_q.put(cur_item)
+        if output_q.qsize() > 100:
+            print("saving 101 fragments to output file")
+            with open(str(retro_file), "a+") as f_object:
                 while True:
-                    if output_queue.empty() is True:
+                    if output_q.empty() is True:
                         break
                     else:
-                        f_object.write(output_queue.get_nowait())
+                        f_object.write(output_q.get_nowait())
             f_object.close()
     return
 
@@ -262,23 +263,28 @@ def get_pairwise_retrosynthesizability(
                     filtered_smiles.append(smiles)
     else:
         filtered_smiles = unique_smiles
+    # test with subset
+    filtered_smiles = filtered_smiles[0:110]
     print("ASKCOS query started for %s fragments." % len(filtered_smiles))
     working_q = mp.Queue()
     output_q = mp.Queue()
     for f_smiles in filtered_smiles:
         working_q.put(f_smiles)
     processes = [
-        mp.Process(target=worker_retro, args=(working_q, output_q)) for i in range(mp.cpu_count())]
+        mp.Process(
+            target=worker_retro,
+            args=(working_q, output_q, retro_file)) for i in range(mp.cpu_count())
+    ]
     for proc in processes:
         proc.start()
     for proc in processes:
         proc.join()
-    with open(retro_file, "a+") as f_object:
+    with open(str(retro_file), "a+") as retro_object:
         while True:
             if output_q.empty():
                 break
-            f_object.write(output_q.get_nowait())
-    f_object.close()
+            retro_object.write(output_q.get_nowait())
+    retro_object.close()
     print("ASKCOS query finished.")
     fraglib_filtered, countfrag, mol_df, diff_df = get_retro_results(
         PATH_DATA_RETRO,
@@ -517,7 +523,7 @@ def compare_mols(para_result, pairs_frags_smiles):
             cur_children2_smiles = para_res.loc[cur_pair_smiles]["child 2"]
             cur_probs = para_res.loc[cur_pair_smiles]["plausibility"]
         except KeyError:
-            print("ASKCOS result for " + cur_pair_smiles + " is missing.")
+            # print("ASKCOS result for " + cur_pair_smiles + " is missing.")
             cur_children1_smiles = []
             cur_children2_smiles = []
             cur_probs = 0
@@ -750,7 +756,7 @@ def construct_ligand(fragment_ids, bond_ids, fragment_library):
     ).GetBondType()
     if bond_type_1 != bond_type_2:
         bonds_matching = False
-        print("Bonds not matching")
+        # print("Bonds not matching")
 
     ed_combo.AddBond(atom_1.GetIdx(), atom_2.GetIdx(), order=bond_type_1)
 
@@ -918,9 +924,13 @@ def get_pairs(valids, bonds, fragment_library):
             pairs.append(pair)
             ids.append(valids[i][j])
 
-    return pd.DataFrame(
+    # filter out fragments that cannot be constructred and are therefore None
+    pair_df = pd.DataFrame(
         {"fragment ids": ids, "fragment 1": frags1, "fragment 2": frags2, "pair": pairs}
     )
+    pair_df = pair_df.loc[pair_df['pair'].notnull()]
+
+    return pair_df
 
 
 def checkvalid(data, fragment_library):
@@ -1305,3 +1315,72 @@ def make_retro_hists(
                 subpocket_num = subpocket_num + 1
     plt.suptitle(filtername)
     plt.show()
+
+
+def check_building_blocks2(fragment_library, path_to_building_blocks):
+    """
+    Read in Enamine Building Blocks from SDFile, check if fragment molecules are a substructure
+    of building block molecules.
+    Parameters
+    ----------
+    fragment_library : dict
+        fragments organized in subpockets inculding all information
+    path_to_building_blocks : str
+        path to SDFile with resulting building blocks from DataWarrior is saved
+    Returns
+    -------
+    dict
+        Containing a pandas.DataFrame for each subpocket with all fragments and an
+        additional columns (bool_bb) defining whether the fragment is accepted (1), meaning found
+        as substructure in a building block, or rejected (0).
+    """
+    # enamine_bb = _read_bb_sdf(path_to_building_blocks)
+    fragment_library_pre_filtered_df = pd.concat(fragment_library).reset_index(
+        drop=True
+    )
+    bools_enamine = []
+    # store smiles as molecules from enamine
+    from . import building_blocks
+    bb_mols = _read_bb_sdf2(path_to_building_blocks)
+
+    for row in fragment_library_pre_filtered_df.itertuples():
+        in_enamine = False
+        frag_mol = Chem.MolFromSmiles(row.smiles)
+        for bb in bb_mols:
+            if bb.HasSubstructMatch(frag_mol):
+                in_enamine = True
+                break
+        if in_enamine:
+            bools_enamine.append(1)
+        else:
+            bools_enamine.append(0)
+
+    fragment_library_bool = building_blocks._add_bool_column(
+        fragment_library,
+        bools_enamine,
+        "bool_bb",
+    )
+
+    return fragment_library_bool
+
+
+def _read_bb_sdf2(path_to_building_blocks):
+    """
+    Read in Enamine Building Blocks from SDFile.
+
+    Parameters
+    ----------
+    path_to_building_blocks : str
+        path where SDFile with resulting building blocks from DataWarrior is saved
+
+    Returns
+    -------
+    ??
+        smiles of building blocks
+    """
+    enamine_bb = []
+    curpath = str(path_to_building_blocks)
+    suppl = Chem.SDMolSupplier(curpath)
+    for mol in suppl:
+        enamine_bb.append(mol)
+    return enamine_bb
