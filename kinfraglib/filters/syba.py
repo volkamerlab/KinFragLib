@@ -10,7 +10,6 @@ import pandas as pd
 def calc_syba(fragment_library,
               cutoff=0,
               cutoff_criteria=">",
-              column_name="bool_syba",
               query_type="mol",
               ):
     """
@@ -27,12 +26,10 @@ def calc_syba(fragment_library,
     cutoff_criteria : str
         defining if the fragment values need to be ">", "<", ">=", "<=", "==" or "!=" compared to
         the cutoff_value. By default, cutoff_criteria=">"
-    column_name : str
-        defining the column name where the boolean if the fragment is accepted (1) or rejected (0)
-        is stored
     query_type : str
         "mol" or "smiles". Defining if the SYBA score gets predicted using the ROMol from the
         fragment library or the SMILES string. By default, query_type = "mol".
+
     Returns
     dict
         Containing a pandas.DataFrame for each subpocket with all fragments and an
@@ -65,7 +62,7 @@ def calc_syba(fragment_library,
             sybas.append(pocketsyba)        # add syba values from the subpocket to the syba list
     # add 'bool_syba' column to the fragment library
     fragment_library_bool = check.accepted_rejected(
-        fragment_library, sybas, cutoff, cutoff_criteria, column_name
+        fragment_library, sybas, cutoff, cutoff_criteria, "bool_syba"
     )
     # add syba values to the fragment library
     fragment_library_bool = utils.add_values(fragment_library_bool, sybas, "syba")

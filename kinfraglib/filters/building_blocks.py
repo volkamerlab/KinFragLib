@@ -8,8 +8,8 @@ from rdkit import Chem
 
 def check_building_blocks(fragment_library, path_to_building_blocks):
     """
-    Read in Enamine Building Blocks from SDFile, check if fragment molecules are a substructure
-    of building block molecules.
+    Read in Enamine Building Blocks from SDFile created with DataWarrior and check if the fragment
+    molecules are a substructure of building block molecules.
 
     Parameters
     ----------
