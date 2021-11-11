@@ -1,5 +1,5 @@
 """
-Contains function to check which fragments are accepted or rejectes
+Contains functions to check which fragments are accepted or rejected
 """
 from . import building_blocks
 import operator
@@ -13,14 +13,15 @@ def accepted_rejected(
     column_name="bool",
 ):
     """
-    Go through values list and add a boolean column if fragments are accepted or rejected.
+    Go through value_list, compare it with the given cutoff and add a boolean column if
+    fragments are accepted or rejected.
 
     Parameters
     ----------
     fragment_libray : dict
         fragments organized in subpockets including all information
     value_list : list
-        list of values calculated for filtering
+        list of values calculated by a filtering step for filtering
     cutoff_value : int or float
         value defining the cutoff for accepting or rejecting a fragment
     cutoff_criteria : string of a basic operator
@@ -54,7 +55,7 @@ def accepted_rejected(
                 bools.append(1)
             else:
                 bools.append(0)
-    # save bool in fraglib df
+    # save bool column in in fragment library  df
     fragment_library_bool = building_blocks._add_bool_column(
         fragment_library, bools, column_name
     )
