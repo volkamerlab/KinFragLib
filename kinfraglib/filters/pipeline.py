@@ -19,9 +19,7 @@ def start_pipeline(
 ):
     if pains_parameters.get('pains_filter'):
         print("Apply PAINS filter..")
-        pains_dict = filters.pains.get_pains(fragment_library)
-        fragment_library = pains_dict["fragment_library"]
-        pains_df = pains_dict["pains"]
+        fragment_library, pains_df = filters.unwanted_substructures.get_pains(fragment_library)
         if general_parameters.get("show_stats"):
             num_fragments_pains = pd.concat(
                 [
@@ -39,11 +37,9 @@ def start_pipeline(
     if brenk_parameters.get("brenk_filter"):
         print("Apply Brenk filter..")
         DATA_BRENK = brenk_parameters.get("substructure_file")
-        brenk_dict = filters.unwanted_substructures.get_brenk(
+        fragment_library, brenk_structs = filters.unwanted_substructures.get_brenk(
             fragment_library, DATA_BRENK
         )
-        fragment_library = brenk_dict["fragment_library"]
-        brenk_structs = brenk_dict["brenk"]
 
         if general_parameters.get("show_stats"):
             num_fragments_brenk = pd.concat(
@@ -60,7 +56,13 @@ def start_pipeline(
 
     if ro3_parameters.get('ro3_filter'):
         print("Apply Ro3 filter..")
-        fragment_library = filters.ruleofthree.get_ro3_frags(fragment_library)
+        min_fulfilled_ro3 = ro3_parameters.get("min_fulfilled")
+        cutoff_crit_ro3 = ro3_parameters.get("cutoff_crit")
+        fragment_library = filters.drug_likeness.get_ro3_frags(
+            fragment_library,
+            min_fulfilled=min_fulfilled_ro3,
+            cutoff_crit=cutoff_crit_ro3,
+        )
 
         if general_parameters.get("show_stats"):
             num_fragments_ro3 = pd.concat(
@@ -82,12 +84,12 @@ def start_pipeline(
         cutoff_crit_qed = qed_parameters.get("cutoff_crit")
         plot_stats_qed = qed_parameters.get("plot_stats")
 
+        fragment_library = filters.drug_likeness.get_qed(
+            fragment_library,
+            cutoff_val=cutoff_qed,
+            cutoff_crit=cutoff_crit_qed,
+        )
         if general_parameters.get("show_stats"):
-            fragment_library = filters.qed.get_qed(
-                fragment_library,
-                cutoff_val=cutoff_qed,
-                cutoff_crit=cutoff_crit_qed,
-            )
             num_fragments_qed = pd.concat(
                 [
                     filters.analysis.count_fragments(fragment_library, "pre_filtered"),
@@ -107,7 +109,7 @@ def start_pipeline(
 
     if bb_parameters.get('bb_filter'):
         print("Apply BB filter..")
-        fragment_library = filters.building_blocks.check_building_blocks(
+        fragment_library = filters.synthesizability.check_building_blocks(
             fragment_library,
             bb_parameters.get("bb_file"),
         )
@@ -129,7 +131,7 @@ def start_pipeline(
         cutoff_crit_syba = syba_parameters.get("cutoff_crit")
         query_type = syba_parameters.get("query_type")
         plot_stats_syba = syba_parameters.get("plot_stats")
-        fragment_library = filters.syba.calc_syba(
+        fragment_library = filters.synthesizability.calc_syba(
             fragment_library,
             cutoff=cutoff_syba,
             cutoff_criteria=cutoff_crit_syba,
