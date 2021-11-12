@@ -1,7 +1,7 @@
 """
 Contains functions to check which fragments are accepted or rejected
 """
-from . import building_blocks
+from . import synthesizability
 import operator
 
 
@@ -56,7 +56,7 @@ def accepted_rejected(
             else:
                 bools.append(0)
     # save bool column in in fragment library  df
-    fragment_library_bool = building_blocks._add_bool_column(
+    fragment_library_bool = synthesizability._add_bool_column(
         fragment_library, bools, column_name
     )
     return fragment_library_bool

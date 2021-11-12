@@ -5,7 +5,7 @@ Contains functions to filter out unwanted substructures
 import pandas as pd
 from rdkit import Chem
 from rdkit.Chem.FilterCatalog import FilterCatalogParams, FilterCatalog
-from . import building_blocks
+from . import synthesizability
 
 
 def get_pains(fragment_library):
@@ -58,7 +58,7 @@ def get_pains(fragment_library):
     # store fragment and pains structure found in the fragment
     matches = pd.DataFrame(matches)
     # add a boolean column if the fragment contains a pains structure
-    fragment_library_bool = building_blocks._add_bool_column(
+    fragment_library_bool = synthesizability._add_bool_column(
         fragment_library, accepted_bool, "bool_pains"
     )
 
@@ -129,7 +129,7 @@ def get_brenk(fragment_library, DATA):
     # add unwanted substructures found to DataFrame
     matches = pd.DataFrame(matches)
     # add boolean column if an unwanted substructure was found to fragment library
-    fragment_library_bool = building_blocks._add_bool_column(
+    fragment_library_bool = synthesizability._add_bool_column(
         fragment_library, brenk_bool, "bool_brenk"
     )
 

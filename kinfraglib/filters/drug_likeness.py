@@ -59,7 +59,7 @@ def get_ro3_frags(fragment_library, min_fulfilled=6, cutoff_crit=">="):
     return fragment_library_bool
 
 
-def get_qed(fragment_library, cutoff_val=0.42, cutoff_crit=">"):
+def get_qed(fragment_library, cutoff_val=0.492, cutoff_crit=">"):
     """
     Calculates the Quantitative Estimate of Druglikeness.
 
