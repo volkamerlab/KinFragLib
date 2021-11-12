@@ -5,23 +5,49 @@ from rdkit import Chem
 import pandas as pd
 
 
-def save_smiles_wo_dummy(fragment_library, PATH_DATA):
+def save_fragments_wo_dummy(fragment_library, PATH_DATA):
     """
-    Save smiles strings without dummy atoms for use in DataWarrior.
+    Save fragments without dummy atoms in a .sdf file for use in DataWarrior.
 
     Parameters
     ----------
     fragment_library : dict
-        smiles series containing fragment smiles strings
+        fragment library organized in subpockets
     PATH_DATA : str
-        Path to fragment library folder.
+        Path where file should be saved.
     -------
 
     """
+    # save fragment library as a DataFrame
     fragment_library = pd.concat(fragment_library).reset_index(drop=True)
-    fragments = fragment_library["smiles"]
-    path = str(str(PATH_DATA) + "/fragment_library/smiles_wo_dummy.sdf")
+    fragments_mols = fragment_library["ROMol"]       # save molecules of the fragments
+    path = str(str(PATH_DATA) + "/fragments_wo_dummy.sdf")      # path to save file
+    # write molecules to file
     writer = Chem.SDWriter(path)
-    for fragment in fragments:
-        writer.write(Chem.MolFromSmiles(fragment))
+    for fragment_mol in fragments_mols:
+        writer.write(fragment_mol)
     writer.close()
+
+
+def add_values(fragment_library, values, colname):
+    """
+    Adding values to the fragment library.
+
+    Parameters
+    ----------
+    fragment_library : dict
+        fragment library organized in subpockets
+    values : list
+        containing the values that should be contained in the fragment library
+    colname : str
+        name of the new column with the values
+    -------
+
+    """
+    # iterate through subpockets
+    pocket_num = 0      # helper variable to count which subpocket index is the current index
+    for subpocket in fragment_library.keys():
+        # add value list with the current subpocket index to the fragment library
+        fragment_library[subpocket][colname] = values[pocket_num]
+        pocket_num = pocket_num + 1     # increase helper index for next subpocket
+    return fragment_library

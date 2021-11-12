@@ -8,7 +8,7 @@ from kinfraglib import utils
 def pre_filters(fragment_library):
     """
     Gets a dict containing fragments organized in subpockets.
-    Function
+    Functionality
     - Removes pool X
     - Removes duplicates
     - Removes unfragmented ligands
@@ -18,12 +18,12 @@ def pre_filters(fragment_library):
     Parameters
     ----------
     fragment_libray : dict
-        fragments organized in subpockets inculding all information
+        fragments organized in subpockets including all information
 
     Returns
     -------
     dict
-        of pandas.DataFrames containing fragments organized in subpockets
+        prefiltered fragment library organized in subpockets.
     """
     # remove fragments in pool x
     [fragment_library.pop(x, None) for x in ["X"]]
@@ -45,17 +45,17 @@ def pre_filters(fragment_library):
 
 def _remove_duplicates(fragment_library):
     """
-    removes duplicates from each subpocket of the fragment library
+    removes fragment duplicates from each subpocket of the fragment library
 
     Parameters
     ----------
     fragment_libray : list
-        of fragments and their information
+        fragment library organized in subpockets
 
     Returns
     -------
     pandas DataFrame
-        containing fragments without duplicates inside the subpockets
+        fragment library without fragment duplicates inside the subpockets
     """
     # remove duplicates
     fragment_library = pd.concat(fragment_library).reset_index(drop=True)
@@ -77,17 +77,17 @@ def _remove_duplicates(fragment_library):
 
 def _remove_unfragmented(fragment_library):
     """
-    removes fragments with no dummy atoms - unfragmented ligands.
+    removes fragments with no dummy atoms (unfragmented ligands).
 
     Parameters
     ----------
     fragment_libray : pandas DataFrame
-        containing fragments
+        fragment library
 
     Returns
     -------
     pandas DataFrame
-        containing no unfragmented ligands
+        fragment library containing no unfragmented ligands
     """
     # remove fragments without dummy atoms (unfragmented)
     # Get fragments' (subpocket) connections
@@ -106,17 +106,17 @@ def _remove_unfragmented(fragment_library):
 
 def _remove_connecting_only_x(fragment_library):
     """
-    removes fragments which connect only to pool X
+    removes fragments that connect only to pool X
 
     Parameters
     ----------
     fragment_libray : pandas DataFrame
-        containing fragments
+        fragment library
 
     Returns
     -------
     pandas DataFrame
-        containing without ligands that only connect to pool X
+        fragment library without the ligands that only connect to pool X
     """
     # remove fragments only connecting to pool x
     # Fragment connects only to pool X?
@@ -135,25 +135,26 @@ def _remove_connecting_only_x(fragment_library):
 
 def _make_df_dict(fragment_library):
     """
-    Takes pandas DataFrame and creates dict to create the same format of the fragments as in the
-    beginning.
+    Takes the fragment library DataFrame and creates a dict to create the same format of the
+    fragment library as in the beginning.
 
     Parameters
     ----------
     fragment_libray : pandas DataFrame
-        containing fragments
+        containing fragment library
 
     Returns
     -------
     dict
-        containing a pandas DataFrame for each subpocket
+        containing a pandas DataFrame with fragments for each subpocket
     """
     # reorder DataFrame into dict of pd.DataFrames again
     df = pd.DataFrame(fragment_library, columns=list(fragment_library.keys()))
     fragment_library_dict = {}
-    subpockets = fragment_library["subpocket"].unique()
+    subpockets = fragment_library["subpocket"].unique()     # store subpockets
+    # create a DataFrame per subpocket and store the fragment library in a dict with the subpocket
+    # names as keys
     for subpocket in subpockets:
         fragment_library_dict[subpocket] = df[df.subpocket == subpocket]
         fragment_library_dict[subpocket].reset_index(inplace=True, drop=True)
-    fragment_library = fragment_library_dict
-    return fragment_library
+    return fragment_library_dict
