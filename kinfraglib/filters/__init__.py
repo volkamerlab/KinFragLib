@@ -10,4 +10,5 @@ from . import (
     brics_rules,
     drug_likeness,
     synthesizability,
+    pipeline_analysis,
 )
