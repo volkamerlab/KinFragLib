@@ -1,3 +1,4 @@
+from kinfraglib.filters import synthesizability
 from rdkit import Chem
 from rdkit.Chem.PropertyMol import PropertyMol
 from rdkit.Chem import AllChem
@@ -10,8 +11,6 @@ import copy
 import redo
 from pathlib import Path
 from ast import literal_eval
-# from . import check
-from . import building_blocks  # only needed until review-update merged
 # for plots
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
@@ -311,7 +310,7 @@ def get_pairwise_retrosynthesizability(
                 bools.append(1)
             else:
                 bools.append(0)
-    fraglib_filtered = building_blocks._add_bool_column(
+    fraglib_filtered = synthesizability._add_bool_column(
         fraglib_filtered, bools, "bool_retro"
     )
     # end of code used until review-update merged
@@ -1313,72 +1312,3 @@ def make_retro_hists(
                 subpocket_num = subpocket_num + 1
     plt.suptitle(filtername)
     plt.show()
-
-
-def check_building_blocks2(fragment_library, path_to_building_blocks):
-    """
-    Read in Enamine Building Blocks from SDFile, check if fragment molecules are a substructure
-    of building block molecules.
-    Parameters
-    ----------
-    fragment_library : dict
-        fragments organized in subpockets inculding all information
-    path_to_building_blocks : str
-        path to SDFile with resulting building blocks from DataWarrior is saved
-    Returns
-    -------
-    dict
-        Containing a pandas.DataFrame for each subpocket with all fragments and an
-        additional columns (bool_bb) defining whether the fragment is accepted (1), meaning found
-        as substructure in a building block, or rejected (0).
-    """
-    # enamine_bb = _read_bb_sdf(path_to_building_blocks)
-    fragment_library_pre_filtered_df = pd.concat(fragment_library).reset_index(
-        drop=True
-    )
-    bools_enamine = []
-    # store smiles as molecules from enamine
-    from . import building_blocks
-    bb_mols = _read_bb_sdf2(path_to_building_blocks)
-
-    for row in fragment_library_pre_filtered_df.itertuples():
-        in_enamine = False
-        frag_mol = Chem.MolFromSmiles(row.smiles)
-        for bb in bb_mols:
-            if bb.HasSubstructMatch(frag_mol):
-                in_enamine = True
-                break
-        if in_enamine:
-            bools_enamine.append(1)
-        else:
-            bools_enamine.append(0)
-
-    fragment_library_bool = building_blocks._add_bool_column(
-        fragment_library,
-        bools_enamine,
-        "bool_bb",
-    )
-
-    return fragment_library_bool
-
-
-def _read_bb_sdf2(path_to_building_blocks):
-    """
-    Read in Enamine Building Blocks from SDFile.
-
-    Parameters
-    ----------
-    path_to_building_blocks : str
-        path where SDFile with resulting building blocks from DataWarrior is saved
-
-    Returns
-    -------
-    ??
-        smiles of building blocks
-    """
-    enamine_bb = []
-    curpath = str(path_to_building_blocks)
-    suppl = Chem.SDMolSupplier(curpath)
-    for mol in suppl:
-        enamine_bb.append(mol)
-    return enamine_bb
