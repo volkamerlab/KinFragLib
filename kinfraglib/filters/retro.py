@@ -196,7 +196,7 @@ def worker_retro(working_q, output_q, retro_file):
                 )
                 output_q.put(cur_item)
         if output_q.qsize() > 100:
-            print("saving 101 fragments to output file")
+            print("saving 101 results to output file..")
             with open(str(retro_file), "a+") as f_object:
                 while True:
                     if output_q.empty() is True:
@@ -246,7 +246,7 @@ def get_pairwise_retrosynthesizability(
 
     """
     filtered_smiles = []
-    retro_file = Path(PATH_DATA_RETRO / 'retro_tmp.txt')
+    retro_file = Path(PATH_DATA_RETRO / 'retro.txt')
     if retro_file.is_file():
         retro_df = pd.read_csv(retro_file, sep="; ", header=None,
                                engine='python')
@@ -335,14 +335,14 @@ def get_pairwise_retrosynthesizability(
         for pair in not_requested:
             print(pair)
     else:
-        print("All fragments were requested.")
+        print("All fragment pairs were requested.")
     print("Done.")
     return fraglib_filtered, countfrag, mol_df, diff_df
 
 
 def get_retro_results(PATH_DATA_RETRO, valid_fragment_pairs, fragment_library):
     print("Comparing ASKCOS children with fragments..")
-    retro_file = Path(PATH_DATA_RETRO / "retro_tmp.txt")
+    retro_file = Path(PATH_DATA_RETRO / "retro.txt")
     retro_df = read_retro_file(retro_file)
 
     pairs_frags_smiles = []
