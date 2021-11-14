@@ -1,9 +1,8 @@
-from kinfraglib.filters import synthesizability
 from rdkit import Chem
 from rdkit.Chem.PropertyMol import PropertyMol
 from rdkit.Chem import AllChem
 from functools import reduce
-from . import brics_rules
+from . import brics_rules, check
 import multiprocessing as mp
 import pandas as pd
 import requests
@@ -15,6 +14,8 @@ from ast import literal_eval
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
 import statistics
+import numpy as np
+from joblib import Parallel, delayed
 
 
 def read_retro_file(path_to_retro_file):
@@ -292,28 +293,14 @@ def get_pairwise_retrosynthesizability(
     for subpocket in fraglib_filtered.keys():
         sub_vals = fraglib_filtered[subpocket]["retro_count"]
         vals.append(sub_vals)
-    # function changed in review-update
-    # need to update after merging review-update
-    # fraglib_filtered = check.accepted_rejected(
-    #     fraglib_filtered,
-    #     vals,
-    #     cutoff_value=0,
-    #     cutoff_criteria=">",
-    #     column_name="bool_retro",
-    # )
-    # until then use this code snippet
-    bools = []
-    for i in range(0, len(vals)):
-        for j in range(0, len(vals[i])):
-            val = vals[i][j]
-            if val > 0:
-                bools.append(1)
-            else:
-                bools.append(0)
-    fraglib_filtered = synthesizability._add_bool_column(
-        fraglib_filtered, bools, "bool_retro"
+
+    fraglib_filtered = check.accepted_rejected(
+        fraglib_filtered,
+        vals,
+        cutoff_value=0,
+        cutoff_criteria=">",
+        column_name="bool_retro",
     )
-    # end of code used until review-update merged
 
     print("Checking if all fragment pairs were requested..")
     retro_df = pd.read_csv(retro_file, sep="; ", header=None, engine='python')
@@ -370,7 +357,23 @@ def get_retro_results(PATH_DATA_RETRO, valid_fragment_pairs, fragment_library):
         list(zip(valid_fragment_pairs["fragment ids"], frag1, frag2, pair)),
         columns=("fragment ids", "fragment 1", "fragment 2", "pair"),
     )
-    mol_comp = compare_mols(retro_df, pairs_frags_smiles)
+
+    df_split = np.array_split(retro_df, mp.cpu_count())
+    mol_comps = Parallel(n_jobs=mp.cpu_count())(
+        delayed(compare_mols)(split, pairs_frags_smiles) for split in df_split
+    )
+    mol_comps1 = []
+    mol_comps2 = []
+    for i in range(len(mol_comps)):
+        if len(mol_comps1) == 0:
+            mol_comps1 = mol_comps[i][0]
+        else:
+            mol_comps1 = pd.concat((mol_comps1, mol_comps[i][0]), axis=0, ignore_index=True)
+        if len(mol_comps2) == 0:
+            mol_comps2 = mol_comps[i][1]
+        else:
+            mol_comps2 = pd.concat((mol_comps2, mol_comps[i][1]), axis=0, ignore_index=True)
+    mol_comp = [mol_comps1, mol_comps2]
 
     mol_df = get_mol_df(mol_comp[0])
 
