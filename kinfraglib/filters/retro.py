@@ -247,6 +247,7 @@ def get_pairwise_retrosynthesizability(
     """
     filtered_smiles = []
     retro_file = Path(PATH_DATA_RETRO / 'retro.txt')
+    # if retro.txt file exists, check which fragment pairs are already comupted
     if retro_file.is_file():
         retro_df = pd.read_csv(retro_file, sep="; ", header=None,
                                engine='python')
@@ -261,6 +262,7 @@ def get_pairwise_retrosynthesizability(
                         in_retro = True
                 if not in_retro:
                     filtered_smiles.append(smiles)
+    # if retro.txt file not exists make ASKCOS query for all fragments
     else:
         filtered_smiles = unique_smiles
     print("ASKCOS query started for %s fragments." % len(filtered_smiles))
@@ -1315,3 +1317,38 @@ def make_retro_hists(
                 subpocket_num = subpocket_num + 1
     plt.suptitle(filtername)
     plt.show()
+
+
+def save_fragment_library_to_sdfs(path_output, fragment_library_concat):
+    # copied from /notebooks/kinfraglib/3_1_fragment_library_reduced.ipynb
+    """
+    Save fragment library to file (for each subpocket sdf file).
+
+    Parameters
+    ----------
+    path_output : str or pathlib.Path
+        Path to output folder for sdf files.
+    fragment_library_concat : pandas.DataFrame
+        Fragment library data for one or multiple subpockets.
+    """
+
+    path_output = Path(path_output)
+    path_output.mkdir(parents=True, exist_ok=True)
+
+    for subpocket, fragments in fragment_library_concat.groupby('subpocket'):
+
+        with open(path_output / f'{subpocket}.sdf', 'w') as f:
+            w = Chem.SDWriter(f)
+            for mol in fragments.ROMol_original:
+                w.write(mol)
+            w.close()
+
+
+def save_filter_results(fragment_library, columns, PATH_DATA_CUSTOM):
+    fragment_library_concat = pd.concat(fragment_library)
+    filter_results_df = pd.DataFrame()
+    filter_results_df["smiles"] = fragment_library_concat["smiles"]
+    filter_results_df["subpocket"] = fragment_library_concat["subpocket"]
+    for column in columns:
+        filter_results_df[column] = fragment_library_concat[column]
+    filter_results_df.to_csv(PATH_DATA_CUSTOM / 'custom_filter_results.csv', index=False)
