@@ -1,20 +1,19 @@
-from rdkit import Chem
-from rdkit.Chem.PropertyMol import PropertyMol
-from rdkit.Chem import AllChem
-from functools import reduce
-from . import brics_rules, check
 import multiprocessing as mp
 import pandas as pd
 import requests
 import copy
 import redo
-from pathlib import Path
-from ast import literal_eval
-# for plots
-import matplotlib.pyplot as plt
-from matplotlib import gridspec
 import statistics
 import numpy as np
+import matplotlib.pyplot as plt
+from rdkit import Chem
+from rdkit.Chem.PropertyMol import PropertyMol
+from rdkit.Chem import AllChem
+from functools import reduce
+from . import brics_rules, check
+from pathlib import Path
+from ast import literal_eval
+from matplotlib import gridspec
 from joblib import Parallel, delayed
 
 
@@ -245,6 +244,8 @@ def get_pairwise_retrosynthesizability(
         fragments structures did not match each other.
 
     """
+    import warnings
+    warnings.filterwarnings("ignore", category=RuntimeWarning)
     filtered_smiles = []
     retro_file = Path(PATH_DATA_RETRO / 'retro.txt')
     # if retro.txt file exists, check which fragment pairs are already comupted
@@ -329,6 +330,9 @@ def get_pairwise_retrosynthesizability(
 
 
 def get_retro_results(PATH_DATA_RETRO, valid_fragment_pairs, fragment_library):
+    import warnings
+    warnings.filterwarnings("ignore", category=RuntimeWarning)
+
     print("Comparing ASKCOS children with fragments..")
     retro_file = Path(PATH_DATA_RETRO / "retro.txt")
     retro_df = read_retro_file(retro_file)
@@ -359,7 +363,6 @@ def get_retro_results(PATH_DATA_RETRO, valid_fragment_pairs, fragment_library):
         list(zip(valid_fragment_pairs["fragment ids"], frag1, frag2, pair)),
         columns=("fragment ids", "fragment 1", "fragment 2", "pair"),
     )
-
     df_split = np.array_split(retro_df, mp.cpu_count())
     mol_comps = Parallel(n_jobs=mp.cpu_count())(
         delayed(compare_mols)(split, pairs_frags_smiles) for split in df_split
