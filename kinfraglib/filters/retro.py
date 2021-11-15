@@ -1,3 +1,6 @@
+"""
+Contains function to check the pairwise retrosynthesizability.
+"""
 import multiprocessing as mp
 import pandas as pd
 import requests
@@ -30,11 +33,13 @@ def read_retro_file(path_to_retro_file):
     -------
     DataFrame
         Containing the requested pairs, the retrieved children and the plausibility
-
     """
+    # read in .csv file with the results of the one step retrosynthesizability
     retro_df = pd.read_csv(path_to_retro_file, sep="; ", header=None, engine='python')
+    # define column names
     retro_df.columns = ['pair', 'child 1', 'child 2', 'plausibility']
 
+    # make entries to string arrays instead of string
     retro_df["child 1"] = retro_df["child 1"].apply(lambda x: literal_eval(str(x)))
     retro_df["child 2"] = retro_df["child 2"].apply(lambda x: literal_eval(str(x)))
     retro_df["plausibility"] = retro_df["plausibility"].apply(lambda x: literal_eval(str(x)))
@@ -45,30 +50,34 @@ def read_retro_file(path_to_retro_file):
 def get_valid_fragment_pairs(fragment_library):
     """
     Gets all possible fragment pairs and validates if their bond type, BRICS environment type
-    and adjacent subpockets are matching. Then it creates the SMILES string from the combinated
+    and adjacent subpockets are matching. Then it creates the SMILES string from the combined
     pairs.
 
     Parameters
     ----------
     fragment_libray : dict
-        fragments organized in subpockets inculding all information
+        fragments organized in subpockets including all information
 
     Returns
     -------
     DataFrame
         SMILES from valid paired fragments.
-
     """
+    # get all possible valid fragment pairs
     res = get_valid_pairs(fragment_library)
+    # check if they have matching bond types and environments and adjacent subpockets
     valids = checkvalid(res, fragment_library)
+    # get bond types for each connection to create fragment pairs
     bonds = get_bonds(valids, res, fragment_library)
+    # save fragment pairs in dataframe
     pair_df = get_pairs(valids, bonds, fragment_library)
-    # pair_df_unique = []
-    pair_smiles = []
+
+    pair_smiles = []    # saving SMILES to get a unique list of all pairs SMILES
+    # go through all fragment pairs and save the SMILES string
     for pair in pair_df['pair']:
         pair_mol = Chem.MolToSmiles(mol=pair)
         pair_smiles.append(pair_mol)
-    # check if pair is already in df, if yes -> remove it.
+    # remove all duplicated SMILES
     unique_smiles = pd.DataFrame({'pair': pair_smiles})['pair'].unique()
     print("Number of unique pairs: %s" % len(unique_smiles))
     return pair_df, unique_smiles
@@ -92,15 +101,16 @@ def askcos_retro(smiles):
         containing the pair, the children building this pair and their plausibility
 
     """
+    # variables to store results from ASKCOS query
     pairs = []
     children1 = []
     children2 = []
     plausibilities = []
-    pairs.append(smiles)
+    pairs.append(smiles)    # save SMILES from pairs in pairs variable
     cur_children1 = []
     cur_children2 = []
     cur_plausibilities = []
-    HOST = "https://askcos.mit.edu/"
+    HOST = "https://askcos.mit.edu/"    # define ASKCOS host
     params = {
         "smiles": smiles,  # required
         # optional with defaults shown
@@ -117,23 +127,24 @@ def askcos_retro(smiles):
         # 'and' (price and heavy atoms constraint) or
         # 'or' (one of both constraints is relevant)
         "chemical_property_logic": "none",
-        # max heavy atom contraints if 'and' or 'or' is used in 'chemical_property_logic'
+        # max heavy atom constraints if 'and' or 'or' is used in 'chemical_property_logic'
         "max_chemprop_c": 0,
         "max_chemprop_n": 0,
         "max_chemprop_o": 0,
         "max_chemprop_h": 0,
         # want to use popular chemicals as reasonable stopping points?
         "chemical_popularity_logic": "none",
-        "min_chempop_reactants": 5,  # min frequence as popular reactant
-        "min_chempop_products": 5,  # min frequence as popular prouct
+        "min_chempop_reactants": 5,  # min frequency as popular reactant
+        "min_chempop_products": 5,  # min frequency as popular prouct
         "filter_threshold": 0.75,
         "return_first": "true",  # default is false
     }
+    # get results from api
     resp = requests.get(HOST + "/api/treebuilder/", params=params,
                         verify=False)
-
     retro = resp.json()
 
+    # go through results and save them
     if "trees" in retro:
         if (len(retro["trees"])) > 0:
             for num_tree in range(0, len(retro["trees"])):
@@ -149,6 +160,7 @@ def askcos_retro(smiles):
             cur_children1.append(None)
             cur_children2.append(None)
             cur_plausibilities.append(0)
+    # if no results retrieved save None/0
     else:
         cur_children1.append(None)
         cur_children2.append(None)
@@ -156,7 +168,7 @@ def askcos_retro(smiles):
     children1.append(cur_children1)
     children2.append(cur_children2)
     plausibilities.append(cur_plausibilities)
-
+    # save results as dataframe
     res = pd.DataFrame(
         list(zip(pairs, children1, children2, plausibilities)),
         columns=["pair", "child 1", "child 2", "plausibility"],
@@ -184,7 +196,7 @@ def worker_retro(working_q, output_q, retro_file):
             smiles = working_q.get()  # get smiles from working queue
             res = askcos_retro(smiles)
             # call askcos for one smiles
-            # then save result string to output_queue
+            # then save result string to output_q
             for i, row in res.iterrows():
                 cur_item = str(
                     str(row['pair'])
@@ -194,6 +206,7 @@ def worker_retro(working_q, output_q, retro_file):
                     + "\n"
                 )
                 output_q.put(cur_item)
+        # if queue exceeds size of 100 results, save them to the output file
         if output_q.qsize() > 100:
             print("saving 101 results to output file..")
             with open(str(retro_file), "a+") as f_object:
@@ -219,7 +232,7 @@ def get_pairwise_retrosynthesizability(
     Parameters
     ----------
     unique_smiles : list
-        containing SMILES of fragment pairs
+        containing SMILES of all unique valid fragment pairs
 
     PATH_DATA_RETRO : Path
         Path to the folder where ASKCOS query results will be stored
@@ -229,7 +242,7 @@ def get_pairwise_retrosynthesizability(
         building the pairs
 
     fragment_library : dict
-        fragments organized in subpockets inculding all information
+        fragments organized in subpockets including all information
 
     Returns
     -------
