@@ -4,11 +4,8 @@ Contains function to check the pairwise retrosynthesizability.
 import multiprocessing as mp
 import pandas as pd
 import requests
-import copy
 import redo
-import statistics
 import numpy as np
-import matplotlib.pyplot as plt
 from rdkit import Chem
 from rdkit.Chem.PropertyMol import PropertyMol
 from rdkit.Chem import AllChem
@@ -16,7 +13,6 @@ from functools import reduce
 from . import brics_rules, check
 from pathlib import Path
 from ast import literal_eval
-from matplotlib import gridspec
 from joblib import Parallel, delayed
 
 
@@ -35,9 +31,9 @@ def read_retro_file(path_to_retro_file):
         Containing the requested pairs, the retrieved children and the plausibility
     """
     # read in .csv file with the results of the one step retrosynthesizability
-    retro_df = pd.read_csv(path_to_retro_file, sep="; ", header=None, engine='python')
+    retro_df = pd.read_csv(path_to_retro_file, sep="; ", header=None, engine="python")
     # define column names
-    retro_df.columns = ['pair', 'child 1', 'child 2', 'plausibility']
+    retro_df.columns = ["pair", "child 1", "child 2", "plausibility"]
 
     # make entries to string arrays instead of string
     retro_df["child 1"] = retro_df["child 1"].apply(lambda x: literal_eval(str(x)))
@@ -74,11 +70,11 @@ def get_valid_fragment_pairs(fragment_library):
 
     pair_smiles = []    # saving SMILES to get a unique list of all pairs SMILES
     # go through all fragment pairs and save the SMILES string
-    for pair in pair_df['pair']:
-        pair_mol = Chem.MolToSmiles(mol=pair)
-        pair_smiles.append(pair_mol)
+    for pairmol in pair_df["pair"]:
+        smiles = Chem.MolToSmiles(mol=pairmol)
+        pair_smiles.append(smiles)
     # remove all duplicated SMILES
-    unique_smiles = pd.DataFrame({'pair': pair_smiles})['pair'].unique()
+    unique_smiles = pd.DataFrame({"pair": pair_smiles})["pair"].unique()
     print("Number of unique pairs: %s" % len(unique_smiles))
     return pair_df, unique_smiles
 
@@ -123,11 +119,11 @@ def askcos_retro(smiles):
         # which common probability reached until no more templates are used
         "max_cum_prob": 0.995,
         # "chemical_property_logic"
-        # molecules are buyable or not, can be 'none' (only price relevant),
-        # 'and' (price and heavy atoms constraint) or
-        # 'or' (one of both constraints is relevant)
+        # molecules are buyable or not, can be "none" (only price relevant),
+        # "and" (price and heavy atoms constraint) or
+        # "or" (one of both constraints is relevant)
         "chemical_property_logic": "none",
-        # max heavy atom constraints if 'and' or 'or' is used in 'chemical_property_logic'
+        # max heavy atom constraints if "and" or "or" is used in "chemical_property_logic"
         "max_chemprop_c": 0,
         "max_chemprop_n": 0,
         "max_chemprop_o": 0,
@@ -135,7 +131,7 @@ def askcos_retro(smiles):
         # want to use popular chemicals as reasonable stopping points?
         "chemical_popularity_logic": "none",
         "min_chempop_reactants": 5,  # min frequency as popular reactant
-        "min_chempop_products": 5,  # min frequency as popular prouct
+        "min_chempop_products": 5,  # min frequency as popular product
         "filter_threshold": 0.75,
         "return_first": "true",  # default is false
     }
@@ -191,7 +187,7 @@ def worker_retro(working_q, output_q, retro_file):
     """
     while True:
         if working_q.empty() is True:
-            break  # this is the so-called 'poison pill'
+            break  # this is the so-called "poison pill"
         else:
             smiles = working_q.get()  # get smiles from working queue
             res = askcos_retro(smiles)
@@ -199,10 +195,10 @@ def worker_retro(working_q, output_q, retro_file):
             # then save result string to output_q
             for i, row in res.iterrows():
                 cur_item = str(
-                    str(row['pair'])
-                    + "; " + str(row['child 1'])
-                    + "; " + str(row['child 2'])
-                    + "; " + str(row['plausibility'])
+                    str(row["pair"])
+                    + "; " + str(row["child 1"])
+                    + "; " + str(row["child 2"])
+                    + "; " + str(row["plausibility"])
                     + "\n"
                 )
                 output_q.put(cur_item)
@@ -249,29 +245,28 @@ def get_pairwise_retrosynthesizability(
     dict
         fragment library containing a column "retro_count"
     pandas DataFrame
-        containing for each fragment the number of retrosynthetic routes
-    pandas DataFrame
         containing the molecules of the fragments, the pair and the children
     pandas DataFrame
         containing the fragments the pairs and the children molecules where the children and the
-        fragments structures did not match each other.
+        fragment structures did not match each other.
 
     """
-    import warnings
-    warnings.filterwarnings("ignore", category=RuntimeWarning)
-    filtered_smiles = []
-    retro_file = Path(PATH_DATA_RETRO / 'retro.txt')
-    # if retro.txt file exists, check which fragment pairs are already comupted
+    filtered_smiles = []    # variable to store pairs SMILES which are not already requested
+    retro_file = Path(PATH_DATA_RETRO / "retro.txt")
+    # if retro.txt file exists, check which fragment pairs are already computed
     if retro_file.is_file():
         retro_df = pd.read_csv(retro_file, sep="; ", header=None,
-                               engine='python')
-        retro_df.columns = ['pair', 'child 1', 'child 2', 'plausibility']
+                               engine="python")
+        retro_df.columns = ["pair", "child 1", "child 2", "plausibility"]
+        # go through all unique fragment pairs
         for smiles in unique_smiles:
-            if smiles not in retro_df['pair'].values:
+            # if fragment not requested store in filtered_smiles
+            if smiles not in retro_df["pair"].values:
                 filtered_smiles.append(smiles)
+            # if it is in the file, check if it is a match or only a substructure match
             else:
                 in_retro = False
-                for smiles_retro in retro_df['pair']:
+                for smiles_retro in retro_df["pair"]:
                     if smiles == smiles_retro:
                         in_retro = True
                 if not in_retro:
@@ -280,10 +275,13 @@ def get_pairwise_retrosynthesizability(
     else:
         filtered_smiles = unique_smiles
     print("ASKCOS query started for %s fragments." % len(filtered_smiles))
-    working_q = mp.Queue()
-    output_q = mp.Queue()
+    # create queues for starting parallel ASKCOS API request
+    working_q = mp.Queue()  # stores all SMILES from fragment pairs not computed
+    output_q = mp.Queue()   # stores results from ASKCOS API
+    # save not requested fragment pairs in queue
     for f_smiles in filtered_smiles:
         working_q.put(f_smiles)
+    # start as many processes as there are cores
     processes = [
         mp.Process(
             target=worker_retro,
@@ -291,8 +289,10 @@ def get_pairwise_retrosynthesizability(
     ]
     for proc in processes:
         proc.start()
+    # end processes
     for proc in processes:
         proc.join()
+    # save last ASKCOS results
     with open(str(retro_file), "a+") as retro_object:
         while True:
             if output_q.empty():
@@ -300,16 +300,19 @@ def get_pairwise_retrosynthesizability(
             retro_object.write(output_q.get_nowait())
     retro_object.close()
     print("ASKCOS query finished.")
-    fraglib_filtered, countfrag, mol_df, diff_df = get_retro_results(
+    # compare AKSCOS resulting children with fragments building the pairs
+    fraglib_filtered, mol_df, diff_df = get_retro_results(
         PATH_DATA_RETRO,
         valid_fragment_pairs,
         fragment_library,
     )
-    vals = []
+    vals = []   # variable to store how often a fragment contributes to retrosynthetic route
     for subpocket in fraglib_filtered.keys():
         sub_vals = fraglib_filtered[subpocket]["retro_count"]
         vals.append(sub_vals)
 
+    # check for each fragment if it was at least part of one retrosynthetic route and add
+    # boolean column
     fraglib_filtered = check.accepted_rejected(
         fraglib_filtered,
         vals,
@@ -318,16 +321,17 @@ def get_pairwise_retrosynthesizability(
         column_name="bool_retro",
     )
 
+    # check if all fragment pairs are requested, if not print them and notify the user
     print("Checking if all fragment pairs were requested..")
-    retro_df = pd.read_csv(retro_file, sep="; ", header=None, engine='python')
-    retro_df.columns = ['pair', 'child 1', 'child 2', 'plausibility']
-    not_requested = []
+    retro_df = pd.read_csv(retro_file, sep="; ", header=None, engine="python")
+    retro_df.columns = ["pair", "child 1", "child 2", "plausibility"]
+    not_requested = []  # store fragment pairs if they were not requested
     for smiles in unique_smiles:
-        if smiles not in retro_df['pair'].values:
+        if smiles not in retro_df["pair"].values:
             not_requested.append(smiles)
         else:
             in_retro = False
-            for smiles_retro in retro_df['pair']:
+            for smiles_retro in retro_df["pair"]:
                 if smiles == smiles_retro:
                     in_retro = True
             if not in_retro:
@@ -339,47 +343,75 @@ def get_pairwise_retrosynthesizability(
     else:
         print("All fragment pairs were requested.")
     print("Done.")
-    return fraglib_filtered, countfrag, mol_df, diff_df
+    # return the fragment library with retro_count and bool_retro, the counts per fragment,
+    # a dataframe containing all children, pairs, fragments and a dataframe with the ASKCOS results
+    # with different children and fragments
+    return fraglib_filtered, mol_df, diff_df
 
 
 def get_retro_results(PATH_DATA_RETRO, valid_fragment_pairs, fragment_library):
-    import warnings
-    warnings.filterwarnings("ignore", category=RuntimeWarning)
+    """
+    Function comparing the ASKCOS resulting children with the fragments building the pairs.
 
+    Parameters
+    ----------
+    PATH_DATA_RETRO : Path
+        Path to the folder where ASKCOS query results are stored
+
+    valid_fragment_pairs : DataFrame
+        containing all valid fragment pairs, including their fragment ids and the fragments
+        building the pairs
+
+    fragment_library : dict
+        fragments organized in subpockets including all information
+
+    Returns
+    -------
+    dict
+        fragment library containing a column "retro_count"
+    pandas DataFrame
+        containing the molecules of the fragments, the pair and the children
+    pandas DataFrame
+        containing the fragments the pairs and the children molecules where the children and the
+        fragment structures did not match each other.
+
+    """
     print("Comparing ASKCOS children with fragments..")
+    # load results from ASKCOS from file
     retro_file = Path(PATH_DATA_RETRO / "retro.txt")
     retro_df = read_retro_file(retro_file)
 
-    pairs_frags_smiles = []
-    frag1 = []
-    frag2 = []
-    pair = []
+    pairs_frags_smiles = []     # variable to store fragment ids, fragments and pairs
+    frag1 = []      # variable to store the first fragment building the pair
+    frag2 = []      # variable to store the second fragment building the pair
+    pair = []       # variable to store the fragment pair
+    # go through the fragment IDS building the pairs and store the fragments smiles
     for fragids in valid_fragment_pairs["fragment ids"]:
         frag1.append(
-            Chem.MolToSmiles(
-                fragment_library[fragids[0].split("_")[0]]["ROMol"][
-                    int(fragids[0].split("_")[1])
-                ]
-            )
+            fragment_library[fragids[0].split("_")[0]]["smiles"][
+                int(fragids[0].split("_")[1])
+            ]
         )
         frag2.append(
-            Chem.MolToSmiles(
-                fragment_library[fragids[1].split("_")[0]]["ROMol"][
-                    int(fragids[1].split("_")[1])
-                ]
-            )
+            fragment_library[fragids[1].split("_")[0]]["smiles"][
+                int(fragids[1].split("_")[1])
+            ]
         )
-
+    # go through the fragment pairs and store the SMILES
     for pairmol in valid_fragment_pairs["pair"]:
         pair.append(Chem.MolToSmiles(pairmol))
     pairs_frags_smiles = pd.DataFrame(
         list(zip(valid_fragment_pairs["fragment ids"], frag1, frag2, pair)),
         columns=("fragment ids", "fragment 1", "fragment 2", "pair"),
     )
+    # create equal sized splits of the retro results
     df_split = np.array_split(retro_df, mp.cpu_count())
+    # start comparison of fragments and ASKCOS children parallel
     mol_comps = Parallel(n_jobs=mp.cpu_count())(
         delayed(compare_mols)(split, pairs_frags_smiles) for split in df_split
     )
+    # seperate the two resulting dataframes retrieved by each parallel process and combine the
+    # similar dataframes from the different processes
     mol_comps1 = []
     mol_comps2 = []
     for i in range(len(mol_comps)):
@@ -393,10 +425,11 @@ def get_retro_results(PATH_DATA_RETRO, valid_fragment_pairs, fragment_library):
             mol_comps2 = pd.concat((mol_comps2, mol_comps[i][1]), axis=0, ignore_index=True)
     mol_comp = [mol_comps1, mol_comps2]
 
+    # get the molecules for all entries in the dataframes
     mol_df = get_mol_df(mol_comp[0])
 
     mol_comp[1].rename(
-        columns={'diff child 1': 'child 1', 'diff child 2': 'child 2'},
+        columns={"diff child 1": "child 1", "diff child 2": "child 2"},
         inplace=True,
     )
     try:
@@ -404,9 +437,11 @@ def get_retro_results(PATH_DATA_RETRO, valid_fragment_pairs, fragment_library):
     except AttributeError:
         diff_df = []
 
-    countfrag, fraglib_filtered = retro_fragments(mol_comp[0], fragment_library)
+    # call function to count the number of retrosynthetic routes per fragment with the matching
+    # fragments and children to add the retro_count column
+    fraglib_filtered = retro_fragments(mol_comp[0], fragment_library)
 
-    return fraglib_filtered, countfrag, mol_df, diff_df
+    return fraglib_filtered, mol_df, diff_df
 
 
 def get_mol_df(res_df):
@@ -417,7 +452,8 @@ def get_mol_df(res_df):
     Parameters
     ----------
     res_df : DataFrame
-        contains fragment ids, SMILES strings of fragment, pairs and children and plausibility
+        contains fragment ids, SMILES strings of fragments, pairs and children and the plausibility
+        of the retrosynthetic route.
 
     Returns
     -------
@@ -426,15 +462,18 @@ def get_mol_df(res_df):
         paired molecules and the retrosynthetic plausibility.
 
     """
+    # variables to store the molecules
     frag1_mol = []
     frag2_mol = []
     pair_mol = []
     child1_mol = []
     child2_mol = []
+    # go through the dataframe and save the SMILES as molecules
     for i, row in res_df.iterrows():
         frag1_mol.append(Chem.MolFromSmiles(row["fragment 1"]))
         frag2_mol.append(Chem.MolFromSmiles(row["fragment 2"]))
         pair_mol.append(Chem.MolFromSmiles(row["pair"]))
+        # add child molecule if there is one or None if there is none
         if row["child 1"] is not None:
             if isinstance(row["child 1"], list):
                 child1_smiles = row["child 1"][0]
@@ -449,7 +488,7 @@ def get_mol_df(res_df):
         else:
             child1_mol.append(None)
             child2_mol.append(None)
-
+    # create molecule dataframe
     mol_df = pd.DataFrame(
         list(
             zip(
@@ -478,7 +517,7 @@ def get_mol_df(res_df):
 
 def compare_mols(para_result, pairs_frags_smiles):
     """
-    Compares the fragments and the children molecules to determine wheter this fragment pair is
+    Compares the fragments and the children molecules to determine whether this fragment pair is
     retrosynthetically feasible.
 
     Parameters
@@ -493,21 +532,25 @@ def compare_mols(para_result, pairs_frags_smiles):
     DataFrame
         fragment ids, SMILES strings of fragments, pairs and children and the plausibility
     """
-    para_res = para_result.copy(deep=True)
-    para_res.set_index("pair", inplace=True)
+    # set pairs smiles as index
+    para_result.set_index("pair", inplace=True)
+    # get SMILES list from all fragments
     smiles_list = list(pairs_frags_smiles["fragment 1"])
     smiles_list.extend(list(pairs_frags_smiles["fragment 2"]))
+    # get smiles list from all children
     children_list = []
-    for i, row in para_res.iterrows():
+    for i, row in para_result.iterrows():
         for num_children in range(len(row["child 1"])):
             children_list.append(row["child 1"][num_children])
             children_list.append(row["child 2"][num_children])
+    # add children smiles to the smiles list
     smiles_list.extend(list(children_list))
     smiles_list = set(smiles_list)  # unique list of all smiles (fragments and children)
+    # get molecules for all unique smiles (fragments and children)
     mols = get_mols(smiles_list)
     mols.set_index(
         "smiles", inplace=True
-    )  # get mol from specific smiles mols.loc['Cc1cc(N)[nH]n1']['mol']
+    )  # get mol from specific smiles mols.loc["Cc1cc(N)[nH]n1"]["mol"]
     # dataframe for result which frags are matching
     column_names = [
         "fragment ids",
@@ -527,25 +570,31 @@ def compare_mols(para_result, pairs_frags_smiles):
         "diff child 2",
         "plausibility",
     ]
+    # create new dataframe to store all results with matching children and fragments
     result_df = pd.DataFrame(columns=column_names)
+    # create new dataframe to store results with not matching children and fragments
     different_structure_df = pd.DataFrame(columns=column_names_diff)
+    # iterate through the dataframe consisting pair, fragments and children
     for i, row in pairs_frags_smiles.iterrows():
+        # store current molecules and smiles
+        # load the molecules for each fragment
         cur_pair_smiles = row["pair"]
         cur_frag1_smiles = row["fragment 1"]
         frag1_mol = mols.loc[cur_frag1_smiles]["mol"]
         cur_frag2_smiles = row["fragment 2"]
         frag2_mol = mols.loc[cur_frag2_smiles]["mol"]
         frag_ids = row["fragment ids"]
+        # check if there is a result retrieved from ASKCOS
+        # if not it was not requested (not computed pairs will be checked again later and stored)
         try:
-            cur_children1_smiles = para_res.loc[cur_pair_smiles]["child 1"]
-            cur_children2_smiles = para_res.loc[cur_pair_smiles]["child 2"]
-            cur_probs = para_res.loc[cur_pair_smiles]["plausibility"]
+            cur_children1_smiles = para_result.loc[cur_pair_smiles]["child 1"]
+            cur_children2_smiles = para_result.loc[cur_pair_smiles]["child 2"]
+            cur_probs = para_result.loc[cur_pair_smiles]["plausibility"]
         except KeyError:
-            # print("ASKCOS result for " + cur_pair_smiles + " is missing.")
             cur_children1_smiles = []
             cur_children2_smiles = []
             cur_probs = 0
-        # go through children lists and compare
+        # go through children lists and compare them with the fragments
         for num_cur_smiles in range(len(cur_children1_smiles)):
             child1_smiles = cur_children1_smiles[num_cur_smiles]
             child2_smiles = cur_children2_smiles[num_cur_smiles]
@@ -638,12 +687,11 @@ def compare_mols(para_result, pairs_frags_smiles):
                 )
 
     return [result_df, different_structure_df]
-    # return result_df
 
 
 def retro_fragments(retro_df, fragment_library):
     """
-    Counts the number of times that a fragment participates in a retrosynthesis.
+    Counts the number of times that a fragment participates in a retrosynthetic route.
 
     Parameters
     ----------
@@ -651,17 +699,16 @@ def retro_fragments(retro_df, fragment_library):
         fragment ids, fragment1, fragment2, pair, children_1 and children_2 molecules and
         plausibility
     fragment_library : dict
-        fragments organized in subpockets inculding all information
+        fragments organized in subpockets including all information
 
     Returns
     -------
     dict
-        fragments organized in subpockets inculding all information and the number of times
+        fragments organized in subpockets including all information and the number of times
         that a fragment participates in a retrosynthesis.
 
     """
-    fraglib = copy.deepcopy(fragment_library)
-    # get list of fragment ids
+    # get list of fragment ids if plausibility is not 0
     all_frags = []
     frag_ids = []
     for i, row in retro_df.iterrows():
@@ -669,14 +716,14 @@ def retro_fragments(retro_df, fragment_library):
             frag_ids.append(retro_df["fragment ids"][i][0])
             frag_ids.append(retro_df["fragment ids"][i][1])
     all_frags = pd.DataFrame(frag_ids, columns=["ids"])
-    # count number of frags
+    # count how often fragment is part of retrosynthetic route
     counts = all_frags.groupby("ids").size()
 
     # go through all subpockets and fragments and add number of
-    # contributions to retrosynth. pathways
-    for subpocket in fraglib.keys():
+    # contributions to retrosynthetic routes
+    for subpocket in fragment_library.keys():
         count_frags = []
-        for i in range(0, len(fraglib[subpocket])):
+        for i in range(0, len(fragment_library[subpocket])):
             if hasattr(counts, str(subpocket + "_" + str(i))):
                 attribute = str(subpocket + "_" + str(i))
                 num_counts = getattr(counts, attribute)
@@ -684,14 +731,31 @@ def retro_fragments(retro_df, fragment_library):
 
             else:
                 count_frags.append(0)
-        fraglib[subpocket]["retro_count"] = count_frags
+        # add number of participations in retrosynthetic routes for every fragment to the fragment
+        # library
+        fragment_library[subpocket]["retro_count"] = count_frags
 
-    return counts, fraglib
+    return fragment_library
 
 
 def get_mols(smiles_list):
-    mols = []
-    smiles = []
+    """
+    Function that creates a dataframe with the molecules to the given SMILES.
+
+    Parameters
+    ----------
+    smiles_list : list
+        containing SMILES strings
+
+    Returns
+    -------
+    pandas.DataFrame
+        containing the given SMILES and their molecules
+
+    """
+    mols = []   # variable to store the molecules
+    smiles = []     # variable to store the smiles strings
+    # go through SMILES list, compute the molecules and save them
     for smile in smiles_list:
         if smile is not None:
             mols.append(Chem.MolFromSmiles(smile))
@@ -699,8 +763,9 @@ def get_mols(smiles_list):
         else:
             mols.append(None)
             smiles.append(None)
-    df = pd.DataFrame(list(zip(mols, smiles)), columns=("mol", "smiles"))
-    return df
+    # create dataframe containing smiles and their molecule
+    smiles_mol_df = pd.DataFrame(list(zip(mols, smiles)), columns=("mol", "smiles"))
+    return smiles_mol_df
 
 
 def construct_ligand(fragment_ids, bond_ids, fragment_library):
@@ -815,17 +880,17 @@ def construct_ligand(fragment_ids, bond_ids, fragment_library):
 
 def get_bonds(valids, data, fragment_library):
     """
-    Function for getting the ccorresponding bond type to the connections of fragment pairs.
+    Function for getting the corresponding bond type to the connections of fragment pairs.
 
     Parameters
     ----------
     valids : list
-        list of lists containing fragment id pairs of mathcing pairs
+        list of lists containing fragment id pairs of matching pairs
     data : dict
         fragment library prepared for building valid pairs
 
     fragment_libray : dict
-        fragments organized in subpockets inculding all information
+        fragments organized in subpockets including all information
 
 
     Returns
@@ -908,13 +973,13 @@ def get_pairs(valids, bonds, fragment_library):
     Parameters
     ----------
     valids : list
-        list of lists containing fragment id pairs of mathcing pairs
+        list of lists containing fragment id pairs of matching pairs
 
     bonds : list
         list of lists containing fragment id pairs and corresponding bond type
 
     fragment_libray : dict
-        fragments organized in subpockets inculding all information
+        fragments organized in subpockets including all information
 
     Returns
     -------
@@ -946,7 +1011,7 @@ def get_pairs(valids, bonds, fragment_library):
     pair_df = pd.DataFrame(
         {"fragment ids": ids, "fragment 1": frags1, "fragment 2": frags2, "pair": pairs}
     )
-    pair_df = pair_df.loc[pair_df['pair'].notnull()]
+    pair_df = pair_df.loc[pair_df["pair"].notnull()]
 
     return pair_df
 
@@ -962,12 +1027,12 @@ def checkvalid(data, fragment_library):
          fragment library prepared for building valid pairs
 
     fragment_libray : dict
-        fragments organized in subpockets inculding all information
+        fragments organized in subpockets including all information
 
     Returns
     -------
     list
-        list of lists containing fragment id pairs of mathcing pairs
+        list of lists containing fragment id pairs of matching pairs
 
     """
 
@@ -979,7 +1044,7 @@ def checkvalid(data, fragment_library):
             fragment_id1 = (
                 fragment.frag_id
             )  # store fragment ID of first fragment in pair
-            # go through atom connnections and check neighbors, bond type and environment
+            # go through atom connections and check neighbors, bond type and environment
             for i in range(0, len(fragment.ports)):
                 neighbor = fragment.ports[i].neighboring_subpocket
                 bond_type = fragment.ports[i].bond_type
@@ -991,8 +1056,8 @@ def checkvalid(data, fragment_library):
                         # check environment type, subpocket, bond type
                         environment_match = brics_rules.is_brics_bond(
                             environment, frag2.ports[i].environment
-                        )  # check if BRICS environments are able to form connection
-                        # if subpocket is adjacent, bond type is eqal and environments are
+                        )  # check if BRICS environments can form connection
+                        # if subpocket is adjacent, bond type is equal and environments are
                         # matching, add as valid matching pair
                         if (
                             frag2.ports[i].neighboring_subpocket == subpocket
@@ -1016,7 +1081,7 @@ def get_valid_pairs(fragment_library):
     Parameters
     ----------
     fragment_libray : dict
-        fragments organized in subpockets inculding all information
+        fragments organized in subpockets including all information
 
     Returns
     -------
@@ -1237,104 +1302,6 @@ class Combination:
         return hash((self.frag_ids, self.bonds))
 
 
-# will be moved to filters/plots.py after merging review-update
-def make_retro_hists(
-    fragment_library, colname, filtername=None, plot_stats=True, cutoff=None
-):
-    """
-    Creates a histogram for each subpocket for defined values.
-    Parameters
-    ----------
-    fragment_library : dict
-        fragment library organized in subpockets
-    colname : str
-        Name of the column where values for creating histograms are stored
-    filtername : str
-        name of the filter used as title creating the values plottet
-    cutoff : int or float
-        cutoff value for drawing a cutoff line to the plots
-    """
-    # get even number if number of plots not even
-    num_plots = round(len(fragment_library.keys()) + 0.5)
-    plt.figure(figsize=(25, 29))
-    gs = gridspec.GridSpec(int(num_plots / 2), int(num_plots / 2))
-    keys = list(fragment_library.keys())
-    subpocket_num = 0
-    for i in range(0, 2):
-        for j in range(0, int((num_plots) / 2)):
-            if (i * 4) + j <= num_plots:
-                cur_data = fragment_library[keys[subpocket_num]][colname]
-                cur_binsize = round(max(cur_data) / 9)
-                bin_lst = list(range(0, max(cur_data) + cur_binsize, cur_binsize))
-                bin_lst.pop(0)
-                bin_lst = [-(cur_binsize), 0.1] + bin_lst
-                medians = []
-                bin_label = []
-                for x in range(0, len(bin_lst) - 1):
-                    if x == 0:
-                        bin_str = '[0]'
-                    elif x == 1:
-                        bin_str = "(%s, %s)" % (0, bin_lst[x + 1])
-                    elif x == len(bin_lst) - 1:
-                        bin_str = "[%s, %s]" % (bin_lst[x], bin_lst[x + 1])
-                    else:
-                        bin_str = "[%s, %s)" % (bin_lst[x], bin_lst[x + 1])
-                    bin_label.append(bin_str)
-                    cur_bins = [bin_lst[x], bin_lst[x + 1]]
-                    medians.append(statistics.median(cur_bins))
-                medians = [round(num) for num in medians]
-                label_pos = []
-                for label in medians:
-                    label_pos.append(label)
-                ax = plt.subplot(gs[i, j])
-                # ax.hist(
-                #     fragment_library[keys[subpocket_num]][colname], facecolor="#04D8B2",
-                #     edgecolor="#808080"
-                # )
-                N, _, patches = ax.hist(cur_data, bins=bin_lst, rwidth=0.9)
-                ax.set_xticks(label_pos)
-                ax.set_xticklabels(bin_label, rotation=90)
-                ax.set_title(keys[subpocket_num])
-                patches[0].set_facecolor("r")
-                for count, patch in zip(N, patches):
-                    ax.annotate(
-                        str(int(count)),
-                        xy=(patch.get_x() + (cur_binsize / 2) - 1, patch.get_height()),
-                        ha="center",
-                        va="bottom",
-                    )
-                if plot_stats:
-                    plt.plot(
-                        [],
-                        [],
-                        " ",
-                        label="mean: " +    # noqa: W504
-                        str(round(statistics.mean(fragment_library[keys[subpocket_num]][colname]))),     # noqa: E501
-                    )
-                    plt.plot(
-                        [],
-                        [],
-                        " ",
-                        label="min: " +     # noqa: W504
-                        str(round(min(fragment_library[keys[subpocket_num]][colname]))),
-                    )
-                    plt.plot(
-                        [],
-                        [],
-                        " ",
-                        label="max: " +  # noqa: W504
-                        str(round(max(fragment_library[keys[subpocket_num]][colname]))),
-                    )
-                    plt.legend()
-                if filtername is not None:
-                    plt.xlabel(filtername)
-                plt.ylabel("Number of fragments")
-                plt.xlabel("Number of retrosynthetic routes")
-                subpocket_num = subpocket_num + 1
-    plt.suptitle(filtername)
-    plt.show()
-
-
 def save_fragment_library_to_sdfs(path_output, fragment_library_concat):
     # copied from /notebooks/kinfraglib/3_1_fragment_library_reduced.ipynb
     """
@@ -1351,9 +1318,9 @@ def save_fragment_library_to_sdfs(path_output, fragment_library_concat):
     path_output = Path(path_output)
     path_output.mkdir(parents=True, exist_ok=True)
 
-    for subpocket, fragments in fragment_library_concat.groupby('subpocket'):
+    for subpocket, fragments in fragment_library_concat.groupby("subpocket"):
 
-        with open(path_output / f'{subpocket}.sdf', 'w') as f:
+        with open(path_output / f"{subpocket}.sdf", "w") as f:
             w = Chem.SDWriter(f)
             for mol in fragments.ROMol_original:
                 w.write(mol)
@@ -1361,10 +1328,29 @@ def save_fragment_library_to_sdfs(path_output, fragment_library_concat):
 
 
 def save_filter_results(fragment_library, columns, PATH_DATA_CUSTOM):
+    """
+    Saving the results of the filtering steps to a .csv file
+
+    Parameters
+    ----------
+    fragment_library : dict
+        fragments organized in subpockets including all information
+
+    columns : list
+        contains string defining the column names that should be stored
+
+    PATH_DATA_CUSTOM : Path
+        define where the .csv file will be stored
+    """
+    # create dataframe from fragment library
     fragment_library_concat = pd.concat(fragment_library)
+    # create dataframe to store only the results from the filtering steps
     filter_results_df = pd.DataFrame()
+    # save smiles and subpocket to identify for which exact fragment the results are
     filter_results_df["smiles"] = fragment_library_concat["smiles"]
     filter_results_df["subpocket"] = fragment_library_concat["subpocket"]
+    # save all the values from the given columns
     for column in columns:
         filter_results_df[column] = fragment_library_concat[column]
-    filter_results_df.to_csv(PATH_DATA_CUSTOM / 'custom_filter_results.csv', index=False)
+    # save the filter results as .csv file
+    filter_results_df.to_csv(PATH_DATA_CUSTOM / "custom_filter_results.csv", index=False)
