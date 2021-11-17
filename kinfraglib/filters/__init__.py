@@ -5,6 +5,8 @@ from . import (
     analysis,
     utils,
     unwanted_substructures,
+    retro,
+    brics_rules,
     drug_likeness,
     synthesizability
 )
