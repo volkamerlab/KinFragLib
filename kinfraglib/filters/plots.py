@@ -4,6 +4,8 @@ Contains plotting functionalities for different filters.
 import statistics
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
+import pandas as pd
+from rdkit.Chem import Draw
 
 
 def make_hists(
@@ -174,3 +176,72 @@ def make_retro_hists(
                 subpocket_num = subpocket_num + 1
     plt.suptitle(filtername)
     plt.show()
+
+
+def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10):
+    """
+    Creates an image of the fragments for the given subpocket
+    a) without a retrosynthetic route found if evaluate="none"
+    b) max. 10 fragments with the most retrosynthetic routes found.
+    ----------
+    fragment_library : dict
+        fragment library organized in subpockets
+
+    evaluate : str
+        "none" or "max", defining if the fragments without retrosynthetic route ("none") or
+        the fragments with the most retrosynthetic routes found ("max") will be shown
+
+    subpocket : str
+        defining the fragments from which subpocket will be shown
+
+    molsPerRow : int
+        defining how many molecules are displayed in one row. By default, molsPerRow=10
+    """
+    if evaluate == "none":
+        num_fragments = len(
+            pd.Series(
+                fragment_library[subpocket][fragment_library[subpocket]["retro_count"] == 0].ROMol
+            )
+        )
+        print("%s %s fragments with no retrosynthetic route found" % (num_fragments, subpocket))
+        img = Draw.MolsToGridImage(
+            pd.Series(
+                fragment_library[subpocket][fragment_library[subpocket]["retro_count"] == 0].ROMol
+            ),
+            molsPerRow=molsPerRow,
+            maxMols=len(
+                pd.Series(
+                    fragment_library[subpocket][
+                        fragment_library[subpocket]["retro_count"] == 0
+                    ].ROMol),
+            )
+        )
+        return img
+    elif evaluate == "max":
+        num_fragments = len(
+            pd.Series(
+                fragment_library[subpocket][
+                    fragment_library[subpocket]["retro_count"] > 0
+                ][0:10].ROMol
+            )
+        )
+        print("%s %s fragments with the most retrosynthetic routes found" % (
+            num_fragments,
+            subpocket,
+        )
+        )
+        print("legend: number of retrosynthetic routes found")
+        img = Draw.MolsToGridImage(
+            pd.Series(
+                fragment_library[subpocket][
+                    fragment_library[subpocket]["retro_count"] > 0
+                ].sort_values("retro_count", ascending=False)[0:10].ROMol
+            ),
+            molsPerRow=molsPerRow,
+            legends=list(
+                fragment_library[subpocket].sort_values(
+                    "retro_count", ascending=False, ignore_index=True
+                )[0:10]["retro_count"].astype(str)
+            ),
+        )
+        return img
