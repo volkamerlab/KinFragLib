@@ -34,7 +34,9 @@ def start_pipeline(
                 ],
                 axis=1,
             )
-            num_fragments_pains.append(num_fragments_pains.sum().rename('Total'))
+            num_fragments_pains = num_fragments_pains.append(
+                num_fragments_pains.sum().rename('Total')
+            )
 
             display(num_fragments_pains)
 
@@ -56,7 +58,9 @@ def start_pipeline(
                 ],
                 axis=1,
             )
-            num_fragments_brenk.append(num_fragments_brenk.sum().rename('Total'))
+            num_fragments_brenk = num_fragments_brenk.append(
+                num_fragments_brenk.sum().rename('Total')
+            )
             display(num_fragments_brenk)
 
     if ro3_parameters.get('ro3_filter'):
@@ -80,7 +84,7 @@ def start_pipeline(
                 ],
                 axis=1,
             )
-            num_fragments_ro3.append(num_fragments_ro3.sum().rename('Total'))
+            num_fragments_ro3 = num_fragments_ro3.append(num_fragments_ro3.sum().rename('Total'))
 
             display(num_fragments_ro3)
 
@@ -107,7 +111,7 @@ def start_pipeline(
                 ],
                 axis=1,
             )
-            num_fragments_qed.append(num_fragments_qed.sum().rename('Total'))
+            num_fragments_qed = num_fragments_qed.append(num_fragments_qed.sum().rename('Total'))
             display(num_fragments_qed)
 
         if qed_parameters.get("do_plot"):
@@ -132,7 +136,7 @@ def start_pipeline(
                 ],
                 axis=1,
             )
-            num_fragments_bb.append(num_fragments_bb.sum().rename('Total'))
+            num_fragments_bb = num_fragments_bb.append(num_fragments_bb.sum().rename('Total'))
             display(num_fragments_bb)
     if syba_parameters.get('syba_filter'):
         save_cols.append("bool_syba")
@@ -160,7 +164,7 @@ def start_pipeline(
             ],
             axis=1,
         )
-        num_fragments_syba.append(num_fragments_syba.sum().rename('Total'))
+        num_fragments_syba = num_fragments_syba.append(num_fragments_syba.sum().rename('Total'))
         display(num_fragments_syba)
     if syba_parameters.get("do_plot"):
         filters.plots.make_hists(
@@ -170,6 +174,9 @@ def start_pipeline(
             plot_stats=plot_stats_syba,
             cutoff=cutoff_syba
         )
+    nfrags = filters.analysis.count_fragments(
+        fragment_library, "pre_filtered"
+    )
     # save filter results up to this point
     filters.retro.save_filter_results(fragment_library, save_cols, PATH_DATA_CUSTOM)
     fragment_library = filters.analysis.number_of_accepted(
@@ -190,6 +197,19 @@ def start_pipeline(
             inplace=True,
         )
         fragment_library[subpocket] = fragment_library[subpocket].reset_index(drop=True)
+
+    frags_for_retro = pd.DataFrame(pd.concat(
+        [
+            nfrags,
+            filters.analysis.count_fragments(
+                fragment_library,
+                "number of fragments used for pairwise retrosynthesis",
+            )
+        ],
+        axis=1,
+    ))
+    frags_for_retro = frags_for_retro.append(frags_for_retro.sum().rename("Total"))
+    display(frags_for_retro)
 
     if retro_parameters.get('retro_filter'):
         print("Apply pairwise retrosynthesizability filter..")
