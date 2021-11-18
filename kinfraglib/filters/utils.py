@@ -20,8 +20,8 @@ def save_fragments_wo_dummy(fragment_library, PATH_DATA):
     """
     # save fragment library as a DataFrame
     fragment_library = pd.concat(fragment_library).reset_index(drop=True)
-    fragments_mols = fragment_library["ROMol"]       # save molecules of the fragments
-    path = str(str(PATH_DATA) + "/fragments_wo_dummy.sdf")      # path to save file
+    fragments_mols = fragment_library["ROMol"]  # save molecules of the fragments
+    path = str(str(PATH_DATA) + "/fragments_wo_dummy.sdf")  # path to save file
     # write molecules to file
     writer = Chem.SDWriter(path)
     for fragment_mol in fragments_mols:
@@ -45,9 +45,11 @@ def add_values(fragment_library, values, colname):
 
     """
     # iterate through subpockets
-    pocket_num = 0      # helper variable to count which subpocket index is the current index
+    pocket_num = (
+        0  # helper variable to count which subpocket index is the current index
+    )
     for subpocket in fragment_library.keys():
         # add value list with the current subpocket index to the fragment library
         fragment_library[subpocket][colname] = values[pocket_num]
-        pocket_num = pocket_num + 1     # increase helper index for next subpocket
+        pocket_num = pocket_num + 1  # increase helper index for next subpocket
     return fragment_library

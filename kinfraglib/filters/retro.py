@@ -38,7 +38,9 @@ def read_retro_file(path_to_retro_file):
     # make entries to string arrays instead of string
     retro_df["child 1"] = retro_df["child 1"].apply(lambda x: literal_eval(str(x)))
     retro_df["child 2"] = retro_df["child 2"].apply(lambda x: literal_eval(str(x)))
-    retro_df["plausibility"] = retro_df["plausibility"].apply(lambda x: literal_eval(str(x)))
+    retro_df["plausibility"] = retro_df["plausibility"].apply(
+        lambda x: literal_eval(str(x))
+    )
 
     return retro_df
 
@@ -68,7 +70,7 @@ def get_valid_fragment_pairs(fragment_library):
     # save fragment pairs in dataframe
     pair_df = get_pairs(valids, bonds, fragment_library)
 
-    pair_smiles = []    # saving SMILES to get a unique list of all pairs SMILES
+    pair_smiles = []  # saving SMILES to get a unique list of all pairs SMILES
     # go through all fragment pairs and save the SMILES string
     for pairmol in pair_df["pair"]:
         smiles = Chem.MolToSmiles(mol=pairmol)
@@ -102,11 +104,11 @@ def askcos_retro(smiles):
     children1 = []
     children2 = []
     plausibilities = []
-    pairs.append(smiles)    # save SMILES from pairs in pairs variable
+    pairs.append(smiles)  # save SMILES from pairs in pairs variable
     cur_children1 = []
     cur_children2 = []
     cur_plausibilities = []
-    HOST = "https://askcos.mit.edu/"    # define ASKCOS host
+    HOST = "https://askcos.mit.edu/"  # define ASKCOS host
     params = {
         "smiles": smiles,  # required
         # optional with defaults shown
@@ -136,8 +138,7 @@ def askcos_retro(smiles):
         "return_first": "true",  # default is false
     }
     # get results from api
-    resp = requests.get(HOST + "/api/treebuilder/", params=params,
-                        verify=False)
+    resp = requests.get(HOST + "/api/treebuilder/", params=params, verify=False)
     retro = resp.json()
 
     # go through results and save them
@@ -146,8 +147,12 @@ def askcos_retro(smiles):
             for num_tree in range(0, len(retro["trees"])):
                 if len(retro["trees"][num_tree]["children"][0]["children"]) == 2:
                     plausibility = retro["trees"][0]["children"][0]["plausibility"]
-                    child1 = retro["trees"][num_tree]["children"][0]["children"][0]["smiles"]
-                    child2 = retro["trees"][num_tree]["children"][0]["children"][1]["smiles"]
+                    child1 = retro["trees"][num_tree]["children"][0]["children"][0][
+                        "smiles"
+                    ]
+                    child2 = retro["trees"][num_tree]["children"][0]["children"][1][
+                        "smiles"
+                    ]
                     cur_children1.append(child1)
                     cur_children2.append(child2)
                     cur_plausibilities.append(plausibility)
@@ -196,9 +201,12 @@ def worker_retro(working_q, output_q, retro_file):
             for i, row in res.iterrows():
                 cur_item = str(
                     str(row["pair"])
-                    + "; " + str(row["child 1"])
-                    + "; " + str(row["child 2"])
-                    + "; " + str(row["plausibility"])
+                    + "; "
+                    + str(row["child 1"])
+                    + "; "
+                    + str(row["child 2"])
+                    + "; "
+                    + str(row["plausibility"])
                     + "\n"
                 )
                 output_q.put(cur_item)
@@ -220,6 +228,8 @@ def get_pairwise_retrosynthesizability(
     PATH_DATA_RETRO,
     valid_fragment_pairs,
     fragment_library,
+    cutoff_value=0,
+    cutoff_crit=">",
 ):
     """
     Function calling the worker function for ASKCOS query parallel, compares ASKCOS results with
@@ -240,6 +250,11 @@ def get_pairwise_retrosynthesizability(
     fragment_library : dict
         fragments organized in subpockets including all information
 
+    cutoff_value : int
+        A value defining the cutoff for accepted/rejected fragments. By default, cutoff_val=0.
+    cutoff_crit : str
+        Defining whether the number of retrosynthetic routes should be ">", "<", ">=", "<=", "=="
+        or "!=" compared to the cutoff-value. By default, cutoff_crit=">".
     Returns
     -------
     dict
@@ -251,12 +266,13 @@ def get_pairwise_retrosynthesizability(
         fragment structures did not match each other.
 
     """
-    filtered_smiles = []    # variable to store pairs SMILES which are not already requested
+    filtered_smiles = (
+        []
+    )  # variable to store pairs SMILES which are not already requested
     retro_file = Path(PATH_DATA_RETRO / "retro.txt")
     # if retro.txt file exists, check which fragment pairs are already computed
     if retro_file.is_file():
-        retro_df = pd.read_csv(retro_file, sep="; ", header=None,
-                               engine="python")
+        retro_df = pd.read_csv(retro_file, sep="; ", header=None, engine="python")
         retro_df.columns = ["pair", "child 1", "child 2", "plausibility"]
         # go through all unique fragment pairs
         for smiles in unique_smiles:
@@ -277,15 +293,14 @@ def get_pairwise_retrosynthesizability(
     print("ASKCOS query started for %s fragments." % len(filtered_smiles))
     # create queues for starting parallel ASKCOS API request
     working_q = mp.Queue()  # stores all SMILES from fragment pairs not computed
-    output_q = mp.Queue()   # stores results from ASKCOS API
+    output_q = mp.Queue()  # stores results from ASKCOS API
     # save not requested fragment pairs in queue
     for f_smiles in filtered_smiles:
         working_q.put(f_smiles)
     # start as many processes as there are cores
     processes = [
-        mp.Process(
-            target=worker_retro,
-            args=(working_q, output_q, retro_file)) for i in range(mp.cpu_count())
+        mp.Process(target=worker_retro, args=(working_q, output_q, retro_file))
+        for i in range(mp.cpu_count())
     ]
     for proc in processes:
         proc.start()
@@ -306,7 +321,9 @@ def get_pairwise_retrosynthesizability(
         valid_fragment_pairs,
         fragment_library,
     )
-    vals = []   # variable to store how often a fragment contributes to retrosynthetic route
+    vals = (
+        []
+    )  # variable to store how often a fragment contributes to retrosynthetic route
     for subpocket in fraglib_filtered.keys():
         sub_vals = fraglib_filtered[subpocket]["retro_count"]
         vals.append(sub_vals)
@@ -316,8 +333,8 @@ def get_pairwise_retrosynthesizability(
     fraglib_filtered = check.accepted_rejected(
         fraglib_filtered,
         vals,
-        cutoff_value=0,
-        cutoff_criteria=">",
+        cutoff_value=cutoff_value,
+        cutoff_criteria=cutoff_crit,
         column_name="bool_retro",
     )
 
@@ -381,10 +398,10 @@ def get_retro_results(PATH_DATA_RETRO, valid_fragment_pairs, fragment_library):
     retro_file = Path(PATH_DATA_RETRO / "retro.txt")
     retro_df = read_retro_file(retro_file)
 
-    pairs_frags_smiles = []     # variable to store fragment ids, fragments and pairs
-    frag1 = []      # variable to store the first fragment building the pair
-    frag2 = []      # variable to store the second fragment building the pair
-    pair = []       # variable to store the fragment pair
+    pairs_frags_smiles = []  # variable to store fragment ids, fragments and pairs
+    frag1 = []  # variable to store the first fragment building the pair
+    frag2 = []  # variable to store the second fragment building the pair
+    pair = []  # variable to store the fragment pair
     # go through the fragment IDS building the pairs and store the fragments smiles
     for fragids in valid_fragment_pairs["fragment ids"]:
         frag1.append(
@@ -418,11 +435,15 @@ def get_retro_results(PATH_DATA_RETRO, valid_fragment_pairs, fragment_library):
         if len(mol_comps1) == 0:
             mol_comps1 = mol_comps[i][0]
         else:
-            mol_comps1 = pd.concat((mol_comps1, mol_comps[i][0]), axis=0, ignore_index=True)
+            mol_comps1 = pd.concat(
+                (mol_comps1, mol_comps[i][0]), axis=0, ignore_index=True
+            )
         if len(mol_comps2) == 0:
             mol_comps2 = mol_comps[i][1]
         else:
-            mol_comps2 = pd.concat((mol_comps2, mol_comps[i][1]), axis=0, ignore_index=True)
+            mol_comps2 = pd.concat(
+                (mol_comps2, mol_comps[i][1]), axis=0, ignore_index=True
+            )
     mol_comp = [mol_comps1, mol_comps2]
 
     # get the molecules for all entries in the dataframes
@@ -753,8 +774,8 @@ def get_mols(smiles_list):
         containing the given SMILES and their molecules
 
     """
-    mols = []   # variable to store the molecules
-    smiles = []     # variable to store the smiles strings
+    mols = []  # variable to store the molecules
+    smiles = []  # variable to store the smiles strings
     # go through SMILES list, compute the molecules and save them
     for smile in smiles_list:
         if smile is not None:
@@ -1353,4 +1374,6 @@ def save_filter_results(fragment_library, columns, PATH_DATA_CUSTOM):
     for column in columns:
         filter_results_df[column] = fragment_library_concat[column]
     # save the filter results as .csv file
-    filter_results_df.to_csv(PATH_DATA_CUSTOM / "custom_filter_results.csv", index=False)
+    filter_results_df.to_csv(
+        PATH_DATA_CUSTOM / "custom_filter_results.csv", index=False
+    )

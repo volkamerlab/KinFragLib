@@ -9,5 +9,5 @@ from . import (
     retro,
     brics_rules,
     drug_likeness,
-    synthesizability
+    synthesizability,
 )
