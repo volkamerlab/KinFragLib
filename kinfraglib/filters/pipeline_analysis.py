@@ -166,31 +166,38 @@ def plot_fragment_descriptors(descriptors):
         plt.xlabel("Subpocket", fontsize=16)
         plt.xticks(fontsize=16)
         plt.yticks(fontsize=16)
+    return plt
 
 
-def plot_fragment_similarity(similarities_by_group, group_name):
+def plot_fragment_similarity(similarities_by_groups, group_name):
     """
     Plot fragment similarity by category, such as subpocket or kinase group.
     """
-    # copied from utils without saving img
+    # copied from kinfraglib/utils.py without saving img
 
-    plt.figure(figsize=(9, 9))
+    plt.figure(figsize=(20, 5))
+    num_plots = len(similarities_by_groups)
+    i = 0
+    for similarities_by_group in similarities_by_groups:
+        plt.subplot(1, num_plots, i + 1)
+        try:
+            sns.boxplot(
+                x=similarities_by_group.columns[1],
+                y=similarities_by_group.columns[0],
+                data=similarities_by_group,
+                palette=SUBPOCKET_COLORS,
+            )
+        except KeyError:
+            sns.boxplot(
+                x=similarities_by_group.columns[1],
+                y=similarities_by_group.columns[0],
+                data=similarities_by_group,
+                color="dodgerblue",
+            )
+        plt.ylabel("Tanimoto similarity", fontsize=18)
+        plt.xlabel(group_name, fontsize=18)
+        plt.xticks(fontsize=18)
+        plt.yticks(fontsize=18)
+        i = i + 1
 
-    try:
-        sns.boxplot(
-            x=similarities_by_group.columns[1],
-            y=similarities_by_group.columns[0],
-            data=similarities_by_group,
-            palette=SUBPOCKET_COLORS,
-        )
-    except KeyError:
-        sns.boxplot(
-            x=similarities_by_group.columns[1],
-            y=similarities_by_group.columns[0],
-            data=similarities_by_group,
-            color="dodgerblue",
-        )
-    plt.ylabel("Tanimoto similarity", fontsize=18)
-    plt.xlabel(group_name, fontsize=18)
-    plt.xticks(fontsize=18)
-    plt.yticks(fontsize=18)
+    plt.show()
