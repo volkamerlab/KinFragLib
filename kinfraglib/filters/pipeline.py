@@ -18,6 +18,27 @@ def start_pipeline(
     retro_parameters,
     general_parameters,
 ):
+    # check if number of filters to be passed is not bigger than actual number of filters applied
+    num_filters = sum(
+        [
+            pains_parameters.get("pains_filter"),
+            brenk_parameters.get("brenk_filter"),
+            ro3_parameters.get("ro3_filter"),
+            qed_parameters.get("qed_filter"),
+            bb_parameters.get("bb_filter"),
+            syba_parameters.get("syba_filter"),
+        ]
+    )
+    num_passing = general_parameters.get("num_passing")
+    if retro_parameters.get("retro_filter"):
+        if num_filters < num_passing:
+            print_str = (
+                "Only %s filters are activated before applying pairwise retrosynthesizability. \n"
+                "Setting `num_passing` to %s."
+                % (num_filters, num_filters)
+            )
+            print(print_str)
+            num_passing = num_filters
     PATH_DATA_CUSTOM = general_parameters.get("custom_path")
     save_cols = []      # variable to store filter columns that are created during filtering
     if pains_parameters.get('pains_filter'):
@@ -179,16 +200,23 @@ def start_pipeline(
     )
     # save filter results up to this point
     filters.retro.save_filter_results(fragment_library, save_cols, PATH_DATA_CUSTOM)
+    filter_cols = []
+    if pains_parameters.get("pains_filter"):
+        filter_cols.append("bool_pains")
+    if brenk_parameters.get("brenk_filter"):
+        filter_cols.append("bool_brenk")
+    if ro3_parameters.get("ro3_filter"):
+        filter_cols.append("bool_ro3")
+    if qed_parameters.get("qed_filter"):
+        filter_cols.append("bool_qed")
+    if bb_parameters.get("bb_filter"):
+        filter_cols.append("bool_bb")
+    if syba_parameters.get("syba_filter"):
+        filter_cols.append("bool_syba")
     fragment_library = filters.analysis.number_of_accepted(
-        fragment_library, columns=[
-            "bool_pains",
-            "bool_brenk",
-            "bool_ro3",
-            "bool_qed",
-            "bool_bb",
-            "bool_syba",
-        ],
-        min_accepted=6,
+        fragment_library,
+        columns=pd.Series(filter_cols),
+        min_accepted=num_passing,
     )
 
     for subpocket in fragment_library.keys():
@@ -203,7 +231,7 @@ def start_pipeline(
             nfrags,
             filters.analysis.count_fragments(
                 fragment_library,
-                "number of fragments used for pairwise retrosynthesis",
+                "number of fragments used for pairwise retrosynthesizability",
             )
         ],
         axis=1,
