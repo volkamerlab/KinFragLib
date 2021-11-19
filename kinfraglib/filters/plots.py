@@ -290,6 +290,19 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
 
 
 def create_tsne_plots(fragment_library):
+    """
+    Creates t-SNE plots comparing
+    a) pre-filtered and reduced fragment library
+    b) pre-filtered and custom filtered fragment library
+    c) pre-filtered, reduced and custom fragment library
+
+    and prints number of fragments in the subsets.
+    ----------
+    fragment_library : dict
+        fragment library organized in subpockets containing boolean columuns `bool_reduced`and
+        `bool_custom`defining if the fragments are part of the subsets
+
+    """
     fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
     fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(MACCSkeys.GenMACCSKeys)
 
@@ -303,7 +316,7 @@ def create_tsne_plots(fragment_library):
     tsne_df['reduced'] = fragment_library_concat["bool_reduced"]
     tsne_df['custom'] = fragment_library_concat["bool_custom"]
     # create column defining if fragment is
-    # *exluded in both subsets (0)
+    # *excluded in both subsets (0)
     # *excluded in reduced (1)
     # *excluded in custom (2)
     # *accepted in both subsets (3)
@@ -323,6 +336,7 @@ def create_tsne_plots(fragment_library):
     num2 = len(tsne_df[tsne_df["compare"] == 2])
     num3 = len(tsne_df[tsne_df["compare"] == 3])
 
+    # create tsne plots
     fig = plt.figure(figsize=(13, 10))
     plt.subplot(2, 2, 1)
     fig.add_subplot(2, 2, 1)
@@ -397,10 +411,20 @@ def create_tsne_plots(fragment_library):
         Number of fragments excluded in both datasets: %s
         Number of fragments excluded in the reduced dataset but included in the custom dataset: %s
         Number of fragments excluded in the custom dataset but included in the reduced dataset: %s
-        Number if fragments in both datasets: %s """ % (num_lists))
+        Number of fragments in both datasets: %s """ % (num_lists))
 
 
 def create_tsne_plots_filters(fragment_library, saved_filter_results):
+    """
+    Creates t-SNE plots with accepted (green) and rejected (red) fragments for each filtering step.
+
+    ----------
+    fragment_library : dict
+        fragment library organized in subpockets containing boolean columuns
+    saved_filter_results : dataframe
+        loaded file with saved filter results
+
+    """
     fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
     fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(MACCSkeys.GenMACCSKeys)
 
@@ -410,103 +434,68 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results):
     crds_embedded = TSNE(n_components=2, init='pca', learning_rate='auto').fit_transform(crds)
 
     tsne_df = pd.DataFrame(crds_embedded, columns=["X", "Y"])
-    # add bool column from filter steps here
-    tsne_df['pains'] = saved_filter_results["bool_pains"]
-    tsne_df['brenk'] = saved_filter_results["bool_brenk"]
-    tsne_df['ro3'] = saved_filter_results["bool_ro3"]
-    tsne_df["qed"] = saved_filter_results["bool_qed"]
-    tsne_df['bb'] = saved_filter_results["bool_bb"]
-    tsne_df['syba'] = saved_filter_results["bool_syba"]
-    tsne_df['retro'] = saved_filter_results["bool_retro"]
+    # add bool column from filter steps
+    filters = []
+    if "bool_pains" in saved_filter_results.columns:
+        tsne_df['pains'] = saved_filter_results["bool_pains"]
+        filters.append("pains")
+    if "bool_brenk" in saved_filter_results.columns:
+        tsne_df['brenk'] = saved_filter_results["bool_brenk"]
+        filters.append("brenk")
+    if "bool_ro3" in saved_filter_results.columns:
+        tsne_df['ro3'] = saved_filter_results["bool_ro3"]
+        filters.append("ro3")
+    if "bool_qed" in saved_filter_results.columns:
+        tsne_df["qed"] = saved_filter_results["bool_qed"]
+        filters.append("qed")
+    if "bool_bb" in saved_filter_results.columns:
+        tsne_df['bb'] = saved_filter_results["bool_bb"]
+        filters.append("bb")
+    if "bool_syba" in saved_filter_results.columns:
+        tsne_df['syba'] = saved_filter_results["bool_syba"]
+        filters.append("syba")
+    if "bool_retro" in saved_filter_results.columns:
+        tsne_df['retro'] = saved_filter_results["bool_retro"]
+        filters.append("retro")
 
+    # create the plots for all filters
     fig = plt.figure(figsize=(15, 15))
-    plt.subplot(4, 2, 1)
-    fig.add_subplot(4, 2, 1)
-    sns.scatterplot(
-        data=tsne_df.query("pains == 1"),
-        x="X",
-        y="Y",
-        color='green',
-        alpha=0.5,
-    ).set_title("PAINS")
-    sns.scatterplot(data=tsne_df.query("pains == 0"), x="X", y="Y", color='lightcoral')
-    plt.axis('off')
-
-    plt.subplot(4, 2, 2)
-    fig.add_subplot(4, 2, 2)
-    sns.scatterplot(
-        data=tsne_df.query("brenk == 1"),
-        x="X",
-        y="Y",
-        color='green',
-        alpha=0.5,
-    ).set_title("Brenk")
-    sns.scatterplot(data=tsne_df.query("brenk == 0"), x="X", y="Y", color='lightcoral')
-    plt.axis('off')
-
-    plt.subplot(4, 2, 3)
-    fig.add_subplot(4, 2, 3)
-    sns.scatterplot(
-        data=tsne_df.query("ro3 == 1"),
-        x="X",
-        y="Y",
-        color='green',
-        alpha=0.5,
-    ).set_title("Ro3")
-    sns.scatterplot(data=tsne_df.query("ro3 == 0"), x="X", y="Y", color='lightcoral')
-    plt.axis('off')
-
-    plt.subplot(4, 2, 4)
-    fig.add_subplot(4, 2, 4)
-    sns.scatterplot(
-        data=tsne_df.query("qed == 1"),
-        x="X",
-        y="Y",
-        color='green',
-        alpha=0.5,
-    ).set_title("QED")
-    sns.scatterplot(data=tsne_df.query("qed == 0"), x="X", y="Y", color='lightcoral')
-    plt.axis('off')
-
-    plt.subplot(4, 2, 5)
-    fig.add_subplot(4, 2, 5)
-    sns.scatterplot(
-        data=tsne_df.query("bb == 1"),
-        x="X",
-        y="Y",
-        color='green',
-        alpha=0.5,
-    ).set_title("Building Blocks")
-    sns.scatterplot(data=tsne_df.query("bb == 0"), x="X", y="Y", color='lightcoral')
-    plt.axis('off')
-
-    plt.subplot(4, 2, 6)
-    fig.add_subplot(4, 2, 6)
-    sns.scatterplot(
-        data=tsne_df.query("syba == 1"),
-        x="X",
-        y="Y",
-        color='green',
-        alpha=0.5,
-    ).set_title("SYBA")
-    sns.scatterplot(data=tsne_df.query("syba == 0"), x="X", y="Y", color='lightcoral')
-    plt.axis('off')
-
-    plt.subplot(4, 2, 7)
-    fig.add_subplot(4, 2, 7)
-    sns.scatterplot(
-        data=tsne_df.query("retro == 1"),
-        x="X",
-        y="Y",
-        color='green',
-        alpha=0.5,
-    ).set_title("Pairwise Retrosynthesizability")
-    sns.scatterplot(data=tsne_df.query("retro == 0"), x="X", y="Y", color='lightcoral', alpha=0.5)
-    plt.axis('off')
-    plt.show()
+    i = 0
+    for filter in filters:
+        i = i + 1
+        plt.subplot(4, 2, i)
+        fig.add_subplot(4, 2, i)
+        sns.scatterplot(
+            data=tsne_df.query("%s == 1" % filter),
+            x="X",
+            y="Y",
+            color='green',
+            alpha=0.5,
+        ).set_title(filter)
+        sns.scatterplot(data=tsne_df.query("%s == 0" % filter), x="X", y="Y", color='lightcoral')
+        plt.axis('off')
 
 
 def connection_frequencies(fragment_library, fragment_library_reduced, fragment_library_custom):
+    """
+    Calculates the connection frequencies between the subpockets for all three subsets and
+    creates a plot.
+
+    ----------
+    fragment_library : dict
+        pre-filtered fragment library organized in subpockets
+    fragment_library_reduced : dict
+        reduced fragment library organized in subpockets
+    fragment_library_custom : dict
+        custom filtered fragment library organized in subpockets
+
+    Returns
+    ---------
+    dataframe
+        with the connection frequencies for every existing connection between subpockets for all
+        three subsets
+
+    """
     # fragment library pre-filtered
     fragment_library_concat = pd.concat(fragment_library)
     connections_by_fragment = kfl_utils.get_connections_by_fragment(fragment_library_concat)
