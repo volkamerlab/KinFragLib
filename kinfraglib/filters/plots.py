@@ -5,7 +5,12 @@ import statistics
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
 import pandas as pd
-from rdkit.Chem import Draw
+from rdkit.Chem import Draw, MACCSkeys
+import seaborn as sns
+from sklearn.decomposition import PCA
+from sklearn.manifold import TSNE
+from kinfraglib import utils as kfl_utils
+from collections import Counter
 
 
 def make_hists(
@@ -282,3 +287,363 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
             ),
         )
         return img
+
+
+def create_tsne_plots(fragment_library):
+    fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
+    fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(MACCSkeys.GenMACCSKeys)
+
+    pca = PCA(n_components=50)
+    crds = pca.fit_transform(list(fragment_library_concat["maccs"]))
+
+    crds_embedded = TSNE(n_components=2, init='pca', learning_rate='auto').fit_transform(crds)
+
+    tsne_df = pd.DataFrame(crds_embedded, columns=["X", "Y"])
+    # add bool column from filtering steps here
+    tsne_df['reduced'] = fragment_library_concat["bool_reduced"]
+    tsne_df['custom'] = fragment_library_concat["bool_custom"]
+    # create column defining if fragment is
+    # *exluded in both subsets (0)
+    # *excluded in reduced (1)
+    # *excluded in custom (2)
+    # *accepted in both subsets (3)
+    bool_compare = []
+    for i, row in fragment_library_concat.iterrows():
+        if row["bool_reduced"] == 0 and row["bool_custom"] == 0:
+            bool_compare.append(0)
+        elif row["bool_reduced"] == 0 and row["bool_custom"] == 1:
+            bool_compare.append(1)
+        elif row["bool_reduced"] == 1 and row["bool_custom"] == 0:
+            bool_compare.append(2)
+        elif row["bool_reduced"] == 1 and row["bool_custom"] == 1:
+            bool_compare.append(3)
+    tsne_df["compare"] = bool_compare
+    num0 = len(tsne_df[tsne_df["compare"] == 0])
+    num1 = len(tsne_df[tsne_df["compare"] == 1])
+    num2 = len(tsne_df[tsne_df["compare"] == 2])
+    num3 = len(tsne_df[tsne_df["compare"] == 3])
+
+    fig = plt.figure(figsize=(13, 10))
+    plt.subplot(2, 2, 1)
+    fig.add_subplot(2, 2, 1)
+    sns.scatterplot(
+        data=tsne_df.query("reduced == 0"),
+        x="X",
+        y="Y",
+        color='lightcoral',
+        alpha=0.5
+    ).set_title("pre_filtered vs. reduced")
+    sns.scatterplot(
+        data=tsne_df.query("reduced == 1"),
+        x="X",
+        y="Y",
+        color='green',
+        alpha=0.5)
+    plt.axis('off')
+
+    plt.subplot(2, 2, 2)
+    fig.add_subplot(2, 2, 2)
+    sns.scatterplot(
+        data=tsne_df.query("custom == 0"),
+        x="X",
+        y="Y",
+        color='lightcoral',
+        alpha=0.5
+    ).set_title("pre-filtered vs. custom")
+    sns.scatterplot(
+        data=tsne_df.query("custom == 1"),
+        x="X",
+        y="Y",
+        color='green',
+        alpha=0.5
+    )
+    plt.axis('off')
+
+    plt.subplot(2, 2, 3)
+    fig.add_subplot(2, 2, 3)
+    sns.scatterplot(
+        data=tsne_df.query("compare == 0"),
+        x="X",
+        y="Y",
+        color='lightcoral',
+        alpha=0.5
+    ).set_title("pre-filtered vs. reduced vs. custom")
+    sns.scatterplot(
+        data=tsne_df.query("compare == 1"),
+        x="X",
+        y="Y",
+        color='orange',
+        alpha=0.5
+    )
+    sns.scatterplot(
+        data=tsne_df.query("compare == 2"),
+        x="X",
+        y="Y",
+        color='lightblue',
+        alpha=0.5
+    )
+    sns.scatterplot(
+        data=tsne_df.query("compare == 3"),
+        x="X",
+        y="Y",
+        color='green',
+        alpha=0.5
+    )
+
+    plt.axis('off')
+    plt.show()
+    num_lists = (len(tsne_df["compare"]), num0, num1, num2, num3)
+    print("""%s Pre-filtered fragments.
+        Number of fragments excluded in both datasets: %s
+        Number of fragments excluded in the reduced dataset but included in the custom dataset: %s
+        Number of fragments excluded in the custom dataset but included in the reduced dataset: %s
+        Number if fragments in both datasets: %s """ % (num_lists))
+
+
+def create_tsne_plots_filters(fragment_library, saved_filter_results):
+    fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
+    fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(MACCSkeys.GenMACCSKeys)
+
+    pca = PCA(n_components=50)
+    crds = pca.fit_transform(list(fragment_library_concat["maccs"]))
+
+    crds_embedded = TSNE(n_components=2, init='pca', learning_rate='auto').fit_transform(crds)
+
+    tsne_df = pd.DataFrame(crds_embedded, columns=["X", "Y"])
+    # add bool column from filter steps here
+    tsne_df['pains'] = saved_filter_results["bool_pains"]
+    tsne_df['brenk'] = saved_filter_results["bool_brenk"]
+    tsne_df['ro3'] = saved_filter_results["bool_ro3"]
+    tsne_df["qed"] = saved_filter_results["bool_qed"]
+    tsne_df['bb'] = saved_filter_results["bool_bb"]
+    tsne_df['syba'] = saved_filter_results["bool_syba"]
+    tsne_df['retro'] = saved_filter_results["bool_retro"]
+
+    fig = plt.figure(figsize=(15, 15))
+    plt.subplot(4, 2, 1)
+    fig.add_subplot(4, 2, 1)
+    sns.scatterplot(
+        data=tsne_df.query("pains == 1"),
+        x="X",
+        y="Y",
+        color='green',
+        alpha=0.5,
+    ).set_title("PAINS")
+    sns.scatterplot(data=tsne_df.query("pains == 0"), x="X", y="Y", color='lightcoral')
+    plt.axis('off')
+
+    plt.subplot(4, 2, 2)
+    fig.add_subplot(4, 2, 2)
+    sns.scatterplot(
+        data=tsne_df.query("brenk == 1"),
+        x="X",
+        y="Y",
+        color='green',
+        alpha=0.5,
+    ).set_title("Brenk")
+    sns.scatterplot(data=tsne_df.query("brenk == 0"), x="X", y="Y", color='lightcoral')
+    plt.axis('off')
+
+    plt.subplot(4, 2, 3)
+    fig.add_subplot(4, 2, 3)
+    sns.scatterplot(
+        data=tsne_df.query("ro3 == 1"),
+        x="X",
+        y="Y",
+        color='green',
+        alpha=0.5,
+    ).set_title("Ro3")
+    sns.scatterplot(data=tsne_df.query("ro3 == 0"), x="X", y="Y", color='lightcoral')
+    plt.axis('off')
+
+    plt.subplot(4, 2, 4)
+    fig.add_subplot(4, 2, 4)
+    sns.scatterplot(
+        data=tsne_df.query("qed == 1"),
+        x="X",
+        y="Y",
+        color='green',
+        alpha=0.5,
+    ).set_title("QED")
+    sns.scatterplot(data=tsne_df.query("qed == 0"), x="X", y="Y", color='lightcoral')
+    plt.axis('off')
+
+    plt.subplot(4, 2, 5)
+    fig.add_subplot(4, 2, 5)
+    sns.scatterplot(
+        data=tsne_df.query("bb == 1"),
+        x="X",
+        y="Y",
+        color='green',
+        alpha=0.5,
+    ).set_title("Building Blocks")
+    sns.scatterplot(data=tsne_df.query("bb == 0"), x="X", y="Y", color='lightcoral')
+    plt.axis('off')
+
+    plt.subplot(4, 2, 6)
+    fig.add_subplot(4, 2, 6)
+    sns.scatterplot(
+        data=tsne_df.query("syba == 1"),
+        x="X",
+        y="Y",
+        color='green',
+        alpha=0.5,
+    ).set_title("SYBA")
+    sns.scatterplot(data=tsne_df.query("syba == 0"), x="X", y="Y", color='lightcoral')
+    plt.axis('off')
+
+    plt.subplot(4, 2, 7)
+    fig.add_subplot(4, 2, 7)
+    sns.scatterplot(
+        data=tsne_df.query("retro == 1"),
+        x="X",
+        y="Y",
+        color='green',
+        alpha=0.5,
+    ).set_title("Pairwise Retrosynthesizability")
+    sns.scatterplot(data=tsne_df.query("retro == 0"), x="X", y="Y", color='lightcoral', alpha=0.5)
+    plt.axis('off')
+    plt.show()
+
+
+def connection_frequencies(fragment_library, fragment_library_reduced, fragment_library_custom):
+    # fragment library pre-filtered
+    fragment_library_concat = pd.concat(fragment_library)
+    connections_by_fragment = kfl_utils.get_connections_by_fragment(fragment_library_concat)
+    connections_by_ligand = connections_by_fragment.groupby(
+        ['kinase', 'complex_pdb', 'ligand_pdb']
+    )['connections_name'].sum()
+    connections_by_ligand_count = connections_by_ligand.apply(lambda x: Counter(x))
+    # Get connection count across ligands (count each connection per ligand only once)
+    connections_across_ligands_count = pd.Series(
+        Counter(connections_by_ligand_count.apply(list).sum())
+    )
+    connections_across_ligands_count.name = 'count_pre-filtered'
+
+    # Get connection frequency (100% = all ligands)
+    connections_across_ligands_frequency = connections_across_ligands_count.apply(
+        lambda x: round((x / connections_by_ligand_count.shape[0] * 100), 1)
+    )
+    connections_across_ligands_frequency.name = 'frequency_pre-filtered'
+
+    # Concatenate count and frequency data to DataFrame
+    connections_across_ligands = pd.concat(
+        [connections_across_ligands_count, connections_across_ligands_frequency],
+        axis=1,
+    )
+
+    # fragment library reduced
+    fragment_library_reduced_concat = pd.concat(fragment_library_reduced)
+    connections_by_fragment_reduced = kfl_utils.get_connections_by_fragment(
+        fragment_library_reduced_concat
+    )
+
+    connections_by_ligand_reduced = connections_by_fragment_reduced.groupby(
+        ['kinase', 'complex_pdb', 'ligand_pdb']
+    )['connections_name'].sum()
+    connections_by_ligand_count_reduced = connections_by_ligand_reduced.apply(lambda x: Counter(x))
+
+    # Get connection count across ligands (count each connection per ligand only once)
+    connections_across_ligands_count_reduced = pd.Series(
+        Counter(connections_by_ligand_count_reduced.apply(list).sum())
+    )
+    connections_across_ligands_count_reduced.name = 'count_reduced'
+
+    # Get connection frequency (100% = all ligands)
+    connections_across_ligands_frequency_reduced = connections_across_ligands_count_reduced.apply(
+        lambda x: round((x / connections_by_ligand_count_reduced.shape[0] * 100), 1)
+    )
+    connections_across_ligands_frequency_reduced.name = 'frequency_reduced'
+
+    # Concatenate count and frequency data to DataFrame
+    connections_across_ligands_reduced = pd.concat(
+        [connections_across_ligands_count_reduced, connections_across_ligands_frequency_reduced],
+        axis=1,
+    )
+
+    # fragment library custom filtered
+    fragment_library_custom_concat = pd.concat(fragment_library_custom)
+    connections_by_fragment_custom = kfl_utils.get_connections_by_fragment(
+        fragment_library_custom_concat
+    )
+
+    connections_by_ligand_custom = connections_by_fragment_custom.groupby(
+        ['kinase', 'complex_pdb', 'ligand_pdb']
+    )['connections_name'].sum()
+    connections_by_ligand_count_custom = connections_by_ligand_custom.apply(lambda x: Counter(x))
+
+    # Get connection count across ligands (count each connection per ligand only once)
+    connections_across_ligands_count_custom = pd.Series(
+        Counter(connections_by_ligand_count_custom.apply(list).sum())
+    )
+    connections_across_ligands_count_custom.name = 'count_custom-filtered'
+
+    # Get connection frequency (100% = all ligands)
+    connections_across_ligands_frequency_custom = connections_across_ligands_count_custom.apply(
+        lambda x: round((x / connections_by_ligand_count_custom.shape[0] * 100), 1)
+    )
+    connections_across_ligands_frequency_custom.name = 'frequency_custom_filtered'
+
+    # Concatenate count and frequency data to DataFrame
+    connections_across_ligands_custom = pd.concat(
+        [connections_across_ligands_count_custom, connections_across_ligands_frequency_custom],
+        axis=1,
+    )
+
+    frequencies = pd.concat(
+        [
+            connections_across_ligands["frequency_pre-filtered"],
+            connections_across_ligands_reduced["frequency_reduced"],
+            connections_across_ligands_custom["frequency_custom_filtered"],
+        ],
+        axis=1,
+    )
+
+    ax = frequencies.plot.bar()
+    fig = ax.get_figure()
+
+    fig.set_figheight(5)
+    fig.set_figwidth(13)
+
+    ax.set_xlabel("Subpocket")
+    ax.set_ylabel("Connection Frequency")
+    ax.set_title("Connection Frequencies of the different subsets")
+
+    fig.show()
+    res = pd.concat(
+        [
+            connections_across_ligands,
+            connections_across_ligands_reduced,
+            connections_across_ligands_custom
+        ],
+        axis=1,
+    )
+    return res
+
+
+def num_frags_development(filter_res):
+    frag_keys = filter_res.keys()
+    frag_keys.to_list()
+    bool_keys = [x for x in frag_keys if "bool" in x]
+    update_results = pd.DataFrame()
+    update_results["pre-filtered"] = filter_res.reset_index().groupby(
+        "subpocket", sort=False
+    ).size()
+    for bool_key in bool_keys:
+        filter_res = filter_res.loc[filter_res[bool_key] == 1]
+        # filter_res = filter_res[filter_res[bool_key].notnull()]
+        update_results[bool_key] = filter_res.reset_index().groupby("subpocket", sort=False).size()
+
+    ax = update_results.plot.bar()
+    fig = ax.get_figure()
+
+    fig.set_figheight(5)
+    fig.set_figwidth(13)
+
+    ax.set_xlabel("Subpocket")
+    ax.set_ylabel("Number of fragments")
+    ax.set_title("Development of the number of fragments per subpocket after each filter step")
+
+    fig.show()
+
+    return update_results

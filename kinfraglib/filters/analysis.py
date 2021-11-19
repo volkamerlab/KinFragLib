@@ -3,6 +3,9 @@ Contains functions to analyze the results from filter steps
 """
 import pandas as pd
 from . import prefilters
+from . import pipeline_analysis
+from kinfraglib import utils as kfl_utils
+from IPython.display import display
 
 
 def count_accepted_rejected(fragment_library, bool_column_name, filtername):
@@ -176,3 +179,127 @@ def accepted_num_filters(fragment_library, colnames, filtername, max_num_accepte
     # add the chosen title to the DataFrame
     counted_df = counted_df.style.set_caption(filtername)
     return counted_df
+
+
+def frag_in_subset(fragment_library_original, fragment_library_subset, colname):
+    """
+    Adding a boolean column to the fragment library if the fragments are contained in the fragment
+    library subset.
+
+    Parameters
+    ----------
+    fragment_libray : dict
+        fragments organized in subpockets including all information
+    fragment_libray : dict
+        subset of the fragments organized in subpockets including all information
+    colname : str
+        name of the boolean column that will be created
+
+    Returns
+    -------
+    dict
+        fragments organized in subpocket with boolean column if the single fragments are included
+        in the subset
+    """
+    # create dataframes from the fragment library dictionaries
+    fragment_library_concat = pd.concat(fragment_library_original).reset_index(drop=True)
+    fragment_library_reduced_concat = pd.concat(fragment_library_subset).reset_index(drop=True)
+
+    bool_reduced = []       # variable to store the boolean columns
+    # iterate through the fragment library
+    for i, row in fragment_library_concat.iterrows():
+        notfound = True
+        # iterate through the fragment library subset
+        for j, reduced_row in fragment_library_reduced_concat.iterrows():
+            # compare the smiles, if they are equal fragment is in subset
+            if row['smiles'] == reduced_row['smiles']:
+                bool_reduced.append(1)
+                notfound = False
+                break
+        if notfound:
+            bool_reduced.append(0)
+    # add the boolean column to the dataframe
+    fragment_library_concat[colname] = bool_reduced
+    # return the fragment library as dict
+    fraglib = prefilters._make_df_dict(fragment_library_concat)
+    return fraglib
+
+
+def get_descriptors(fragment_library, fragment_library_reduced, fragment_library_custom):
+    descriptors = kfl_utils.get_descriptors_by_fragments(fragment_library)
+    descriptors_median = descriptors.groupby('subpocket').median()
+    descriptors_reduced = kfl_utils.get_descriptors_by_fragments(fragment_library_reduced)
+    descriptors_reduced_median = descriptors_reduced.groupby('subpocket').median()
+    descriptors_custom = kfl_utils.get_descriptors_by_fragments(fragment_library_custom)
+    descriptors_custom_median = descriptors_custom.groupby('subpocket').median()
+
+    all_descriptors = pd.concat(
+        [
+            descriptors_median,
+            descriptors_reduced_median,
+            descriptors_custom_median,
+        ],
+        axis=1,
+        keys=["pre-filtered", "reduced", "custom"]
+    )
+    # style creates strange floats
+    all_descriptors = all_descriptors.style.set_properties(
+        **{"background-color": "lightgrey"},
+        subset=["pre-filtered", "custom"]
+    )
+    display(all_descriptors)
+    print("pre-filtered")
+    plt = pipeline_analysis.plot_fragment_descriptors(descriptors)
+    plt.show()
+    print("reduced")
+    plt_reduced = pipeline_analysis.plot_fragment_descriptors(descriptors_reduced)
+    plt_reduced.show()
+    print("custom")
+    plt_custom = pipeline_analysis.plot_fragment_descriptors(descriptors_custom)
+    plt_custom.show()
+
+
+def get_descriptors_filters(fragment_library_filter_res, bool_keys):
+    print("pre-filtered")
+    descriptors = kfl_utils.get_descriptors_by_fragments(fragment_library_filter_res)
+    descriptors_median = descriptors.groupby('subpocket').median()
+    plt = pipeline_analysis.plot_fragment_descriptors(descriptors)
+    plt.show()
+    descriptor_dfs = {"pre-filtered": descriptors_median}
+    for bool_key in bool_keys:
+        fraglib_concat = pd.concat(fragment_library_filter_res)
+        fraglib_filter = fraglib_concat[fraglib_concat[bool_key] == 1]
+        fraglib_filter = prefilters._make_df_dict(fraglib_filter)
+        descriptors = kfl_utils.get_descriptors_by_fragments(fraglib_filter)
+        descriptors_median = descriptors.groupby('subpocket').median()
+        descriptor_dfs[bool_key] = descriptors_median
+
+        print(bool_key)
+        # display(descriptors_median)
+        plt = pipeline_analysis.plot_fragment_descriptors(descriptors)
+        plt.show()
+    return(descriptor_dfs)
+
+
+def filter_res_in_fraglib(fragment_library, filter_results):
+    filter_results = filter_results.set_index(["subpocket", "smiles"])
+
+    fragment_library_concat = pd.concat(fragment_library)
+    fragment_library_concat = fragment_library_concat.set_index(["subpocket", "smiles"])
+    fraglib_filters = fragment_library_concat.merge(
+        filter_results,
+        left_on=['subpocket', 'smiles'],
+        right_on=['subpocket', 'smiles'],
+        how="outer"
+    )
+
+    frag_keys = fraglib_filters.keys()
+    frag_keys.to_list()
+    bool_keys = [x for x in frag_keys if "bool" in x]
+
+    fraglib_filters = fraglib_filters.reset_index()
+    fraglib_filters.set_index(["subpocket"])
+
+    fragment_library_filter_res = prefilters._make_df_dict(fraglib_filters)
+
+    return fragment_library_filter_res, bool_keys
