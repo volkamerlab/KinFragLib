@@ -28,15 +28,15 @@ def make_hists(
         Name of the column where values for creating the histograms are stored.
 
     filtername : str
-        name of the filter used as title creating the values plotted. By default None, meaning
-        no title will be displayed.
+        name of the filter used as title creating the values plotted. By default, filtername=None,
+        meaning no title will be displayed.
 
     plot_stats : boolean
         defining if a box with min, max and mean value will be displayed in each plot. By default
         plot_stats=True.
 
     cutoff : int or float
-        cutoff value for drawing a cutoff line to the plots. By default cutoff=None, meaning no
+        cutoff value for drawing a cutoff line to the plots. By default, cutoff=None, meaning no
         cutoff line is plotted.
     """
     # get even number if number of plots not even
@@ -479,7 +479,9 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results):
 def connection_frequencies(fragment_library, fragment_library_reduced, fragment_library_custom):
     """
     Calculates the connection frequencies between the subpockets for all three subsets and
-    creates a plot.
+    creates a barplot.
+
+    *part of the code copied from https://github.com/sonjaleo/KinFragLib/blob/master/notebooks/2_2_fragment_analysis_statistics.ipynb   # noqa: E501
 
     ----------
     fragment_library : dict
@@ -579,6 +581,7 @@ def connection_frequencies(fragment_library, fragment_library_reduced, fragment_
         axis=1,
     )
 
+    # combine connection frequencies in one dataframe
     frequencies = pd.concat(
         [
             connections_across_ligands["frequency_pre-filtered"],
@@ -588,6 +591,7 @@ def connection_frequencies(fragment_library, fragment_library_reduced, fragment_
         axis=1,
     )
 
+    # create the barplot to show the connection frequencies for each subset and each connection
     ax = frequencies.plot.bar()
     fig = ax.get_figure()
 
@@ -611,18 +615,37 @@ def connection_frequencies(fragment_library, fragment_library_reduced, fragment_
 
 
 def num_frags_development(filter_res):
+    """
+    Count the number of fragments passing each custom filter step
+
+    ----------
+    filter_res : dataframe
+        Contains the calculated values and the boolean for each filtering step if a fragment was
+        accepted or not.
+
+    Returns
+    ---------
+    dataframe
+        with the number of fragments per subpocket after each filtering step
+
+    """
+    # get the column names
     frag_keys = filter_res.keys()
     frag_keys.to_list()
+    # keep only the boolean column names (we do not need the computed values here)
     bool_keys = [x for x in frag_keys if "bool" in x]
+    # create a dataframe to store the number of fragments left after each filtering step
     update_results = pd.DataFrame()
+    # add number of fragments for the pre-filtered subset we are starting with
     update_results["pre-filtered"] = filter_res.reset_index().groupby(
         "subpocket", sort=False
     ).size()
+    # go through all boolean columns after one another and count the number of fragments passing
     for bool_key in bool_keys:
         filter_res = filter_res.loc[filter_res[bool_key] == 1]
-        # filter_res = filter_res[filter_res[bool_key].notnull()]
         update_results[bool_key] = filter_res.reset_index().groupby("subpocket", sort=False).size()
 
+    # create a bar plot showing the numbers of fragments passing
     ax = update_results.plot.bar()
     fig = ax.get_figure()
 
@@ -635,4 +658,5 @@ def num_frags_development(filter_res):
 
     fig.show()
 
+    # return dataframe with number of fragments after each filtering step.
     return update_results
