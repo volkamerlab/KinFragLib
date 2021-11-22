@@ -73,7 +73,7 @@ def get_clustered_most_common_fragments(fragment_library, subpocket):
     return most_common_fragments
 
 
-def plot_cluster_sizes(most_common_fragments, subpocket):
+def plot_cluster_sizes(most_common_fragments, subpocket, library_subset):
     # function copied from https://github.com/volkamerlab/KinFragLib/blob/master/notebooks/2_3_fragment_analysis_most_common_fragments.ipynb  # noqa: E501
     """
     Plot cluster sizes (cluster ID vs. cluster size).
@@ -83,12 +83,17 @@ def plot_cluster_sizes(most_common_fragments, subpocket):
     most_common_fragments : pandas.DataFrame
         Most common fragments (ID, SMILES, ROMol, cluster ID, fragment count).
     subpocket : str
-        Subpocket name, i.e. AP, SE, FP, GA, B1, or B2.
+        Subpocket name, i.e. AP, SE, FP, GA, B1, B2 or all.
+    library_subset : str
+        Name of the used subset for clustering
     """
 
     cluster_sizes = most_common_fragments.groupby('cluster_id').size()
     cluster_sizes.name = 'cluster_size'
-    cluster_sizes.plot(kind='bar', title=f'Cluster sizes for subpocket {subpocket}')
+    if subpocket == "all":
+        cluster_sizes.plot(kind='bar', title=f'Cluster sizes for {library_subset}')
+    else:
+        cluster_sizes.plot(kind='bar', title=f'Cluster sizes for subpocket {subpocket}')
 
 
 def draw_clusters(most_common_fragments, subpocket, output_path=None):
