@@ -5,6 +5,11 @@ from kinfraglib import filters
 import pandas as pd
 from IPython.display import display
 import warnings
+import os
+import datetime
+import pathlib
+import json     # noqa F401
+import copy     # noqa F401
 
 
 def start_pipeline(
@@ -16,7 +21,7 @@ def start_pipeline(
     bb_parameters,
     syba_parameters,
     retro_parameters,
-    general_parameters,
+    global_parameters,
 ):
     """
     Starting the custom filters' pipeline with the defined parameters
@@ -52,7 +57,7 @@ def start_pipeline(
         'cutoff_crit'(str), 'retro_path'(Path), 'do_plot'(boolean), 'show_mols'(boolean),
         'plot_stats'(boolean)
 
-    general_parameters: dict
+    global_parameters: dict
         containing the following parameters: 'show_stats'(boolean), 'custom_path'(Path),
         'num_passing'(int)
 
@@ -74,7 +79,7 @@ def start_pipeline(
             syba_parameters.get("syba_filter"),
         ]
     )
-    num_passing = general_parameters.get("num_passing")
+    num_passing = global_parameters.get("num_passing")
     if retro_parameters.get("retro_filter"):
         if num_filters < num_passing:
             print_str = (
@@ -83,8 +88,45 @@ def start_pipeline(
             )
             print(print_str)
             num_passing = num_filters
-    # define Path to custom data
-    PATH_DATA_CUSTOM = general_parameters.get("custom_path")
+    dir = os.path.join(
+        global_parameters.get("custom_path"),
+        datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'),
+    )
+
+    if not os.path.exists(dir):
+        os.makedirs(dir)
+
+    PATH_DATA_CUSTOM = pathlib.Path(dir)    # define Path to custom data
+
+    print(
+        "Your custom kinfraglib, the chosen parameters log file and the filtering results will be stored in " + str(PATH_DATA_CUSTOM)    # noqa E501
+    )
+    # save chosen parameters in created timestamp dir to save log file and created library
+    param_list = [
+        "global_parameters",
+        "pains_parameters",
+        "brenk_parameters",
+        "ro3_parameters",
+        "qed_parameters",
+        "bb_parameters",
+        "syba_parameters",
+        "retro_parameters",
+    ]
+
+    for curdict in param_list:
+        cur_dict = eval("copy.deepcopy(" + curdict + ")")
+        for key in eval(curdict + ".keys()"):
+            if eval("isinstance(cur_dict[\"" + key + "\"], pathlib.Path)"):
+                new_path = {key: str(cur_dict[key])}  # noqa F841
+                cur_dict.update(new_path)
+                cur_dict[key] = str(cur_dict[key])
+        with open(PATH_DATA_CUSTOM / "custom_filtering_parameters.log", 'a+') as fp:
+            fp.write(curdict + ": ")
+
+        eval("json.dump(cur_dict, open(\"" + str(PATH_DATA_CUSTOM) + "/custom_filtering_parameters.log\", \"a+\"))")     # noqa E501
+        with open(PATH_DATA_CUSTOM / "custom_filtering_parameters.log", 'a+') as fp:
+            fp.write("\n")
+
     save_cols = []  # variable to store filter columns that are created during filtering
 
     # if pains_filter is activated, apply pains filter with the given parameters
@@ -95,7 +137,7 @@ def start_pipeline(
             fragment_library
         )
         # if user wants to see statistics, plot number of fragments accepted/rejected
-        if general_parameters.get("show_stats"):
+        if global_parameters.get("show_stats"):
             num_fragments_pains = pd.concat(
                 [
                     filters.analysis.count_fragments(fragment_library, "pre_filtered"),
@@ -120,7 +162,7 @@ def start_pipeline(
         )
 
         # if user wants to see statistics, plot number of fragments accepted/rejected
-        if general_parameters.get("show_stats"):
+        if global_parameters.get("show_stats"):
             num_fragments_brenk = pd.concat(
                 [
                     filters.analysis.count_fragments(fragment_library, "pre_filtered"),
@@ -148,7 +190,7 @@ def start_pipeline(
         )
 
         # if user wants to see statistics, plot number of fragments accepted/rejected
-        if general_parameters.get("show_stats"):
+        if global_parameters.get("show_stats"):
             num_fragments_ro3 = pd.concat(
                 [
                     filters.analysis.count_fragments(fragment_library, "pre_filtered"),
@@ -180,7 +222,7 @@ def start_pipeline(
         )
 
         # if user wants to see statistics, plot number of fragments accepted/rejected
-        if general_parameters.get("show_stats"):
+        if global_parameters.get("show_stats"):
             num_fragments_qed = pd.concat(
                 [
                     filters.analysis.count_fragments(fragment_library, "pre_filtered"),
@@ -214,7 +256,7 @@ def start_pipeline(
         )
 
         # if user wants to see statistics, plot number of fragments accepted/rejected
-        if general_parameters.get("show_stats"):
+        if global_parameters.get("show_stats"):
             num_fragments_bb = pd.concat(
                 [
                     filters.analysis.count_fragments(fragment_library, "pre_filtered"),
@@ -246,7 +288,7 @@ def start_pipeline(
         )
 
         # if user wants to see statistics, plot number of fragments accepted/rejected
-        if general_parameters.get("show_stats"):
+        if global_parameters.get("show_stats"):
             num_fragments_syba = pd.concat(
                 [
                     filters.analysis.count_fragments(fragment_library, "pre_filtered"),
@@ -398,7 +440,7 @@ def start_pipeline(
         )
 
     # save the filtered fragment library
-    print("Save custom filtered fragment library..")
+    print("Save custom filtered fragment library to %s" % str(PATH_DATA_CUSTOM))
     for subpocket in fragment_library.keys():
         fragment_library[subpocket].drop(
             fragment_library[subpocket]
