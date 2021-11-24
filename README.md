@@ -22,6 +22,7 @@ This repository holds the following resources:
 1. Fragment library data and a link to the combinatorial library data.
 2. *Quick start* notebook explaining how to load and use the fragment library.  
 3. Notebooks 
+
     3.1. Notebooks covering the full analyses regarding the fragment and combinatorial libraries as described in 
           the corresponding paper.  
     3.2. Notebooks providing a custom filtering framework to reduce the fragment library size.
