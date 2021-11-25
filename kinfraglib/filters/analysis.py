@@ -262,14 +262,20 @@ def get_descriptors(fragment_library, fragment_library_reduced, fragment_library
     ).set_precision(precision=2)
 
     display(all_descriptors)
-    print("pre-filtered")
+
+    print("\033[1m fragment library pre-filtered \033[0m")
     plt = pipeline_analysis.plot_fragment_descriptors(descriptors)
+    # plt.title("fragment library pre-filtered")
     plt.show()
-    print("reduced")
+
+    print("\033[1m fragment  library reduced \033[0m")
     plt_reduced = pipeline_analysis.plot_fragment_descriptors(descriptors_reduced)
+    # plt.title("fragment library reduced")
     plt_reduced.show()
-    print("custom")
+
+    print("\033[1m fragment library custom \033[0m")
     plt_custom = pipeline_analysis.plot_fragment_descriptors(descriptors_custom)
+    # plt.title("fragment library custom")
     plt_custom.show()
 
 
@@ -292,7 +298,7 @@ def get_descriptors_filters(fragment_library_filter_res, bool_keys):
 
     """
     # first calculate the descriptors from the pre-filtered library and plot them
-    print("pre-filtered")
+    print("\033[1m pre-filtered \033[0m")
     descriptors = kfl_utils.get_descriptors_by_fragments(fragment_library_filter_res)
     descriptors_median = descriptors.groupby('subpocket').median()
     plt = pipeline_analysis.plot_fragment_descriptors(descriptors)
@@ -308,7 +314,7 @@ def get_descriptors_filters(fragment_library_filter_res, bool_keys):
         descriptors_median = descriptors.groupby('subpocket').median()
         descriptor_dfs[bool_key] = descriptors_median   # add the descriptors to the descriptor df
 
-        print(bool_key)
+        print("\033[1m " + bool_key + " \033[0m")
         plt = pipeline_analysis.plot_fragment_descriptors(descriptors)
         plt.show()
     # return the descriptors dataframe
