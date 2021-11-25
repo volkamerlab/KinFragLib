@@ -20,8 +20,8 @@ SUBPOCKET_COLORS = {
 }
 
 
-def get_clustered_most_common_fragments(fragment_library, subpocket):
-    # function copied from https://github.com/volkamerlab/KinFragLib/blob/master/notebooks/2_3_fragment_analysis_most_common_fragments.ipynb  # noqa: E501
+def get_clustered_most_common_fragments(fragment_library):
+    # function copied from https://github.com/volkamerlab/KinFragLib/blob/master/notebooks/2_3_fragment_analysis_most_common_fragments.ipynb and adapted  # noqa: E501
     """
     Get top X (50 per default) most common fragments (if multiple fragments have the same count
     but some make it into the top X and some not, include the latter also).
@@ -32,8 +32,6 @@ def get_clustered_most_common_fragments(fragment_library, subpocket):
     fragment_library : dict of pandas.DataFrame
         Fragment details (values), i.e. SMILES, kinase groups, and fragment RDKit molecules,
         for each subpocket (key).
-    subpocket : str
-        Subpocket name, i.e. AP, SE, FP, GA, B1, or B2.
 
     Returns
     -------
@@ -41,26 +39,24 @@ def get_clustered_most_common_fragments(fragment_library, subpocket):
         Most common fragments (ID, SMILES, ROMol, cluster ID, fragment count).
     """
 
-    # Get top X most common fragments
-    if subpocket == "all":
-        most_common_fragments = kfl_utils.get_most_common_fragments(
-            pd.concat(fragment_library),
-            top_x=50,
-        )
-    else:
-        most_common_fragments = kfl_utils.get_most_common_fragments(
-            fragment_library[subpocket],
-            top_x=50,
-        )
+    # # Get top X most common fragments
+
+    fragment_library = pd.concat(fragment_library)
+    most_common_fragments = kfl_utils.get_most_common_fragments(
+        fragment_library,
+        top_x=len(fragment_library["ROMol"]),
+    )
 
     # Cluster fingerprints
-    clusters = kfl_utils.cluster_molecules(most_common_fragments.ROMol, cutoff=0.6)
+    clusters = kfl_utils.cluster_molecules(fragment_library["ROMol"], cutoff=0.6)
 
     # Link fragments to cluster ID
     most_common_fragments = most_common_fragments.merge(
         clusters,
         on='molecule_id'
     )
+
+    # most_common_fragments = pd.concat([fragment_library, clusters], axis=1, how="inner")
 
     most_common_fragments.sort_values(
         ['cluster_id', 'fragment_count'],
@@ -91,12 +87,12 @@ def plot_cluster_sizes(most_common_fragments, subpocket, library_subset):
     cluster_sizes = most_common_fragments.groupby('cluster_id').size()
     cluster_sizes.name = 'cluster_size'
     if subpocket == "all":
-        cluster_sizes.plot(kind='bar', title=f'Cluster sizes for {library_subset}')
+        cluster_sizes.plot(kind='line', title=f'Cluster sizes for {library_subset}')
     else:
         cluster_sizes.plot(kind='bar', title=f'Cluster sizes for subpocket {subpocket}')
 
 
-def draw_clusters(most_common_fragments, subpocket, output_path=None):
+def draw_clusters(most_common_fragments):
     # function copied from https://github.com/volkamerlab/KinFragLib/blob/master/notebooks/2_3_fragment_analysis_most_common_fragments.ipynb  # noqa: E501
     """
     Draw fragments sorted by descending cluster size and fragment count.
@@ -105,17 +101,13 @@ def draw_clusters(most_common_fragments, subpocket, output_path=None):
     ----------
     most_common_fragments : pandas.DataFrame
         Most common fragments (ID, SMILES, ROMol, cluster ID, fragment count).
-    subpocket : str
-        Subpocket name, i.e. AP, SE, FP, GA, B1, or B2.
-    output_path : pathlib.Path
-        Path to output folder.
 
     Returns
     -------
     PIL.PngImagePlugin.PngImageFile
         Image of fragments sorted by descending cluster size.
     """
-
+    most_common_fragments = most_common_fragments.sort_values("fragment_count", ascending=False)
     img = Draw.MolsToGridImage(
         list(most_common_fragments.ROMol),
         legends=[
@@ -131,20 +123,6 @@ def draw_clusters(most_common_fragments, subpocket, output_path=None):
 
     print('Legend: cluster ID | fragment count')
 
-    if output_path is not None:
-
-        # Get SVG data
-        molsvg = img.data
-
-        # Set font size
-        molsvg = molsvg.replace('12px', '24px')
-
-        # Save altered SVG data to file
-        with open(
-            Path(output_path) / f'clustered_most_common_fragments_{subpocket.lower()}.svg',
-            'w',
-        ) as f:
-            f.write(molsvg)
 
     return img
 
