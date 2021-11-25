@@ -611,6 +611,9 @@ def connection_frequencies(fragment_library, fragment_library_reduced, fragment_
         ],
         axis=1,
     )
+
+    res = res.fillna(0)
+    res["count_custom-filtered"] = res["count_custom-filtered"].astype(int)
     return res
 
 

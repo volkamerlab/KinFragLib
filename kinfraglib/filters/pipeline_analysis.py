@@ -3,7 +3,6 @@ Contains functions for analysing the libraries (prefiltered vs. reduced vs. cust
 """
 from kinfraglib import utils as kfl_utils
 from rdkit.Chem import Draw
-from pathlib import Path
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
@@ -123,7 +122,6 @@ def draw_clusters(most_common_fragments):
 
     print('Legend: cluster ID | fragment count')
 
-
     return img
 
 
@@ -152,11 +150,11 @@ def plot_fragment_descriptors(descriptors):
     return plt
 
 
-def plot_fragment_similarity(similarities_by_groups, group_name):
+def plot_fragment_similarity(similarities_by_groups, library_names, group_name):
     """
     Plot fragment similarity by category, such as subpocket or kinase group.
     """
-    # copied from kinfraglib/utils.py without saving img
+    # copied from kinfraglib/utils.py and modified
 
     plt.figure(figsize=(20, 5))
     num_plots = len(similarities_by_groups)
@@ -179,6 +177,7 @@ def plot_fragment_similarity(similarities_by_groups, group_name):
             )
         plt.ylabel("Tanimoto similarity", fontsize=18)
         plt.xlabel(group_name, fontsize=18)
+        plt.title(library_names[i])
         plt.xticks(fontsize=18)
         plt.yticks(fontsize=18)
         i = i + 1

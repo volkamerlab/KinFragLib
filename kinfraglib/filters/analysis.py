@@ -258,8 +258,9 @@ def get_descriptors(fragment_library, fragment_library_reduced, fragment_library
     # style creates strange floats
     all_descriptors = all_descriptors.style.set_properties(
         **{"background-color": "lightgrey"},
-        subset=["pre-filtered", "custom"]
-    )
+        subset=["pre-filtered", "custom"],
+    ).set_precision(precision=2)
+
     display(all_descriptors)
     print("pre-filtered")
     plt = pipeline_analysis.plot_fragment_descriptors(descriptors)
