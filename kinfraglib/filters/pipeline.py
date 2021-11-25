@@ -35,10 +35,11 @@ def start_pipeline(
         containing the following parameters: 'pains_filter' (boolean)
 
     brenk_parameters : dict
-        containing the following parameters: 'brenk_filter'(boolean), 'substructure_file'(Path)
+        containing the following parameters: 'brenk_filter'(boolean),
+        'substructure_file_path'(Path)
 
     ro3_parameters : dict
-        containing the following parameters: 'ro3_filter'(boolean), 'min_fulfilled'(int),
+        containing the following parameters: 'ro3_filter'(boolean), 'num_fulfilled'(int),
         `cutoff_crit`(str)
 
     qed_parameters : dict
@@ -156,7 +157,7 @@ def start_pipeline(
     if brenk_parameters.get("brenk_filter"):
         save_cols.append("bool_brenk")
         print("Apply Brenk filter..")
-        DATA_BRENK = brenk_parameters.get("substructure_file")
+        DATA_BRENK = brenk_parameters.get("substructure_file_path")
         fragment_library, brenk_structs = filters.unwanted_substructures.get_brenk(
             fragment_library, DATA_BRENK
         )
@@ -181,11 +182,11 @@ def start_pipeline(
     if ro3_parameters.get("ro3_filter"):
         save_cols.append("bool_ro3")
         print("Apply Ro3 filter..")
-        min_fulfilled_ro3 = ro3_parameters.get("min_fulfilled")
+        num_fulfilled_ro3 = ro3_parameters.get("num_fulfilled")
         cutoff_crit_ro3 = ro3_parameters.get("cutoff_crit")
         fragment_library = filters.drug_likeness.get_ro3_frags(
             fragment_library,
-            min_fulfilled=min_fulfilled_ro3,
+            min_fulfilled=num_fulfilled_ro3,
             cutoff_crit=cutoff_crit_ro3,
         )
 
@@ -429,6 +430,7 @@ def start_pipeline(
         retro_results_df["retro_count"] = fragment_library_concat["retro_count"]
         retro_results_df["bool_retro"] = fragment_library_concat["bool_retro"]
         retro_results_df.set_index(["subpocket", "smiles"])
+
         all_results_df = saved_filter_results.merge(
             retro_results_df,
             left_on=["subpocket", "smiles"],
