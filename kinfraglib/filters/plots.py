@@ -337,7 +337,7 @@ def create_tsne_plots(fragment_library):
     num3 = len(tsne_df[tsne_df["compare"] == 3])
 
     # create tsne plots
-    fig = plt.figure(figsize=(13, 10))
+    fig = plt.figure(figsize=(17, 9))
     plt.subplot(2, 2, 1)
     fig.add_subplot(2, 2, 1)
     sns.scatterplot(
@@ -345,14 +345,17 @@ def create_tsne_plots(fragment_library):
         x="X",
         y="Y",
         color='lightcoral',
-        alpha=0.5
+        alpha=0.5,
+        label="excluded"
     ).set_title("pre_filtered vs. reduced")
     sns.scatterplot(
         data=tsne_df.query("reduced == 1"),
         x="X",
         y="Y",
         color='green',
-        alpha=0.5)
+        alpha=0.5,
+        label="included"
+    )
     plt.axis('off')
 
     plt.subplot(2, 2, 2)
@@ -362,14 +365,16 @@ def create_tsne_plots(fragment_library):
         x="X",
         y="Y",
         color='lightcoral',
-        alpha=0.5
+        alpha=0.5,
+        label="excluded"
     ).set_title("pre-filtered vs. custom")
     sns.scatterplot(
         data=tsne_df.query("custom == 1"),
         x="X",
         y="Y",
         color='green',
-        alpha=0.5
+        alpha=0.5,
+        label="included"
     )
     plt.axis('off')
 
@@ -380,30 +385,34 @@ def create_tsne_plots(fragment_library):
         x="X",
         y="Y",
         color='lightcoral',
-        alpha=0.5
+        alpha=0.5,
+        label="excluded in both subsets"
     ).set_title("pre-filtered vs. reduced vs. custom")
     sns.scatterplot(
         data=tsne_df.query("compare == 1"),
         x="X",
         y="Y",
         color='orange',
-        alpha=0.5
+        alpha=0.5,
+        label="excluded in reduced subset"
     )
     sns.scatterplot(
         data=tsne_df.query("compare == 2"),
         x="X",
         y="Y",
         color='lightblue',
-        alpha=0.5
+        alpha=0.5,
+        label="excluded in custom subset"
     )
     sns.scatterplot(
         data=tsne_df.query("compare == 3"),
         x="X",
         y="Y",
         color='green',
-        alpha=0.5
+        alpha=0.5,
+        label="accepted in both subsets"
     )
-
+    plt.legend(loc='upper right', bbox_to_anchor=(1.425, 1), ncol=1)
     plt.axis('off')
     plt.show()
     num_lists = (len(tsne_df["compare"]), num0, num1, num2, num3)
@@ -471,8 +480,15 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results):
             y="Y",
             color='green',
             alpha=0.5,
+            label="accepted",
         ).set_title(filter)
-        sns.scatterplot(data=tsne_df.query("%s == 0" % filter), x="X", y="Y", color='lightcoral')
+        sns.scatterplot(
+            data=tsne_df.query("%s == 0" % filter),
+            x="X",
+            y="Y",
+            color='lightcoral',
+            label="rejected",
+        )
         plt.axis('off')
 
 
@@ -663,3 +679,108 @@ def num_frags_development(filter_res):
 
     # return dataframe with number of fragments after each filtering step.
     return update_results
+
+
+SUBPOCKET_COLORS = {
+    "AP": "purple",
+    "FP": "forestgreen",
+    "SE": "c",
+    "GA": "tab:orange",
+    "B1": "tab:blue",
+    "B2": "darkslateblue",
+    "X": "grey",
+}
+
+
+def draw_clusters(clustered_fragments):
+    # function copied from https://github.com/volkamerlab/KinFragLib/blob/master/notebooks/2_3_fragment_analysis_most_common_fragments.ipynb  # noqa: E501
+    """
+    Draw fragments sorted by descending cluster size and fragment count.
+
+    Parameters
+    ----------
+    most_common_fragments : pandas.DataFrame
+        Most common fragments (ID, SMILES, ROMol, cluster ID, fragment count).
+
+    Returns
+    -------
+    PIL.PngImagePlugin.PngImageFile
+        Image of fragments sorted by descending cluster size.
+    """
+    clustered_fragments = clustered_fragments.sort_values("fragment_count", ascending=False)
+    img = Draw.MolsToGridImage(
+        list(clustered_fragments.ROMol),
+        legends=[
+            f'{row.cluster_id} | {row.fragment_count}'
+            for index, row
+            in clustered_fragments.iterrows()
+        ],
+        molsPerRow=7,
+        maxMols=100,
+        subImgSize=(170, 170),
+        useSVG=True
+    )
+
+    print('Legend: cluster ID | fragment count')
+
+    return img
+
+
+def plot_fragment_descriptors(descriptors):
+    """
+    Plot fragment descriptors.
+    """
+    # copied from utils without saving img
+
+    plt.figure(figsize=(25, 6))
+
+    for i, descriptor_name in enumerate(descriptors.columns[3:]):
+
+        plt.subplot(1, 4, i + 1)
+        sns.boxplot(
+            x="subpocket",
+            y=descriptor_name,
+            data=descriptors,
+            palette=SUBPOCKET_COLORS,
+            medianprops={"linewidth": 3, "linestyle": "-"},
+        )
+        plt.ylabel(descriptor_name, fontsize=16)
+        plt.xlabel("Subpocket", fontsize=16)
+        plt.xticks(fontsize=16)
+        plt.yticks(fontsize=16)
+    return plt
+
+
+def plot_fragment_similarity(similarities_by_groups, library_names, group_name):
+    """
+    Plot fragment similarity by category, such as subpocket or kinase group.
+    """
+    # copied from kinfraglib/utils.py and modified
+
+    plt.figure(figsize=(20, 5))
+    num_plots = len(similarities_by_groups)
+    i = 0
+    for similarities_by_group in similarities_by_groups:
+        plt.subplot(1, num_plots, i + 1)
+        try:
+            sns.boxplot(
+                x=similarities_by_group.columns[1],
+                y=similarities_by_group.columns[0],
+                data=similarities_by_group,
+                palette=SUBPOCKET_COLORS,
+            )
+        except KeyError:
+            sns.boxplot(
+                x=similarities_by_group.columns[1],
+                y=similarities_by_group.columns[0],
+                data=similarities_by_group,
+                color="dodgerblue",
+            )
+        plt.ylabel("Tanimoto similarity", fontsize=18)
+        plt.xlabel(group_name, fontsize=18)
+        plt.title(library_names[i])
+        plt.xticks(fontsize=18)
+        plt.yticks(fontsize=18)
+        i = i + 1
+
+    plt.show()

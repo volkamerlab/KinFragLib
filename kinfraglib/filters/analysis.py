@@ -3,7 +3,7 @@ Contains functions to analyze the results from filter steps
 """
 import pandas as pd
 from . import prefilters
-from . import pipeline_analysis
+from . import plots
 from kinfraglib import utils as kfl_utils
 from IPython.display import display
 
@@ -264,17 +264,17 @@ def get_descriptors(fragment_library, fragment_library_reduced, fragment_library
     display(all_descriptors)
 
     print("\033[47;1m fragment library pre-filtered \033[0m")
-    plt = pipeline_analysis.plot_fragment_descriptors(descriptors)
+    plt = plots.plot_fragment_descriptors(descriptors)
     # plt.title("fragment library pre-filtered")
     plt.show()
 
     print("\033[47;1m fragment  library reduced \033[0m")
-    plt_reduced = pipeline_analysis.plot_fragment_descriptors(descriptors_reduced)
+    plt_reduced = plots.plot_fragment_descriptors(descriptors_reduced)
     # plt.title("fragment library reduced")
     plt_reduced.show()
 
     print("\033[47;1m fragment library custom \033[0m")
-    plt_custom = pipeline_analysis.plot_fragment_descriptors(descriptors_custom)
+    plt_custom = plots.plot_fragment_descriptors(descriptors_custom)
     # plt.title("fragment library custom")
     plt_custom.show()
 
@@ -301,7 +301,7 @@ def get_descriptors_filters(fragment_library_filter_res, bool_keys):
     print("\033[47;1m pre-filtered \033[0m")
     descriptors = kfl_utils.get_descriptors_by_fragments(fragment_library_filter_res)
     descriptors_median = descriptors.groupby('subpocket').median()
-    plt = pipeline_analysis.plot_fragment_descriptors(descriptors)
+    plt = plots.plot_fragment_descriptors(descriptors)
     plt.show()
     descriptor_dfs = {"pre-filtered": descriptors_median}   # add descriptors to a dataframe
     # iterate through the filters boolean columns, calculate the descriptor for passing fragments
@@ -315,7 +315,7 @@ def get_descriptors_filters(fragment_library_filter_res, bool_keys):
         descriptor_dfs[bool_key] = descriptors_median   # add the descriptors to the descriptor df
 
         print("\033[47;1m " + bool_key + " \033[0m")
-        plt = pipeline_analysis.plot_fragment_descriptors(descriptors)
+        plt = plots.plot_fragment_descriptors(descriptors)
         plt.show()
     # return the descriptors dataframe
     return(descriptor_dfs)
@@ -366,3 +366,60 @@ def filter_res_in_fraglib(fragment_library, filter_results):
 
     # return fragment library dict with the filtering results and the boolean keys
     return fragment_library_filter_res, bool_keys
+
+
+def cluster_fragment_library(fragment_library):
+    # function copied from https://github.com/volkamerlab/KinFragLib/blob/master/notebooks/2_3_fragment_analysis_most_common_fragments.ipynb and adapted  # noqa: E501
+    """
+    Get most common fragments from the complete library and clusters the fragments.
+    Add column in which subpocket(s) the fragment occurs.
+
+    Parameters
+    ----------
+    fragment_library : dict of pandas.DataFrame
+        Fragment details (values), i.e. SMILES, kinase groups, and fragment RDKit molecules,
+        for each subpocket (key).
+
+    Returns
+    -------
+    pandas.DataFrame
+        Clustered fragments (ID, SMILES, ROMol, cluster ID, fragment count, subpockets).
+    """
+
+    # Get most common fragments
+
+    fragment_library_concat = pd.concat(fragment_library)
+    most_common_fragments = kfl_utils.get_most_common_fragments(
+        fragment_library_concat,
+        top_x=len(fragment_library_concat["ROMol"]),
+    )
+
+    # Cluster fingerprints
+    clusters = kfl_utils.cluster_molecules(fragment_library_concat["ROMol"], cutoff=0.6)
+
+    # Link fragments to cluster ID
+    clustered_fragments = most_common_fragments.merge(
+        clusters,
+        on='molecule_id'
+    )
+
+    clustered_fragments.sort_values(
+        ['cluster_id', 'fragment_count'],
+        ascending=[True, False],
+        inplace=True
+    )
+
+    clustered_fragments.reset_index(inplace=True, drop=True)
+
+    # get information in which subpockets the fragments occur.
+    subpockets = []
+    for smiles in clustered_fragments["smiles"]:
+        subpocket_lst = []
+        for subpocket in fragment_library.keys():
+            if not fragment_library[subpocket][fragment_library[subpocket]["smiles"] == smiles].empty:  # noqa E501
+                subpocket_lst.append(subpocket)
+        subpockets.append(subpocket_lst)
+
+    clustered_fragments["subpockets"] = subpockets
+
+    return clustered_fragments
