@@ -64,5 +64,5 @@ jobs:
           cd KinFragLib
           # Run tests
           PYTEST_ARGS="--nbval-lax --current-env --nbval-cell-timeout=900"
-          pytest $PYTEST_ARGS notebooks/custom_kinfraglib/ --ignore /notebooks/custom_kinfraglib/2_1_custom_filters_pipeline.ipynb
+          pytest $PYTEST_ARGS notebooks/custom_kinfraglib/ --ignore notebooks/custom_kinfraglib/2_1_custom_filters_pipeline.ipynb
 
