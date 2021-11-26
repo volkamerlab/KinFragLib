@@ -98,13 +98,17 @@ def get_brenk(fragment_library, DATA):
     # save fragment library as DataFrame
     fragment_library_df = pd.concat(fragment_library).reset_index(drop=True)
 
-    matches = []        # variable to store the matches (fragment and unwanted substructure found)
-    clean = []          # variable to store the fragment indices without unwanted substructures
-    rejected = []       # variable to store the fragment indices with unwanted substructures
-    brenk_bool = []     # variable to store a bool for each fragment if unwanted substr. was found
+    matches = (
+        []
+    )  # variable to store the matches (fragment and unwanted substructure found)
+    clean = []  # variable to store the fragment indices without unwanted substructures
+    rejected = []  # variable to store the fragment indices with unwanted substructures
+    brenk_bool = (
+        []
+    )  # variable to store a bool for each fragment if unwanted substr. was found
     # iterate through rows of the fragment library Dataframe
     for index, row in fragment_library_df.iterrows():
-        molecule = row.ROMol        # save molecule of fragment
+        molecule = row.ROMol  # save molecule of fragment
         match = False
         # iterate through unwanted substructure molecules
         for _, substructure in substructures.iterrows():
@@ -119,11 +123,11 @@ def get_brenk(fragment_library, DATA):
                         "substructure_name": substructure["name"],
                     }
                 )
-                match = True        # set match to true
-        if not match:       # fragment has no unwanted substructure
+                match = True  # set match to true
+        if not match:  # fragment has no unwanted substructure
             clean.append(index)
             brenk_bool.append(1)
-        else:       # unwanted substructure was found in fragment
+        else:  # unwanted substructure was found in fragment
             brenk_bool.append(0)
             rejected.append(index)
     # add unwanted substructures found to DataFrame

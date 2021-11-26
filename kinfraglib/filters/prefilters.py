@@ -151,7 +151,7 @@ def _make_df_dict(fragment_library):
     # reorder DataFrame into dict of pd.DataFrames again
     df = pd.DataFrame(fragment_library, columns=list(fragment_library.keys()))
     fragment_library_dict = {}
-    subpockets = fragment_library["subpocket"].unique()     # store subpockets
+    subpockets = fragment_library["subpocket"].unique()  # store subpockets
     # create a DataFrame per subpocket and store the fragment library in a dict with the subpocket
     # names as keys
     for subpocket in subpockets:

@@ -48,41 +48,54 @@ def make_hists(
             if (i * 4) + j < num_plots:
                 ax = plt.subplot(gs[i, j])
                 ax.hist(
-                    fragment_library[keys[subpocket_num]][colname], facecolor="#04D8B2",
-                    edgecolor="#808080"
+                    fragment_library[keys[subpocket_num]][colname],
+                    facecolor="#04D8B2",
+                    edgecolor="#808080",
                 )
                 ax.set_title(keys[((i * 4) + j)])
-                if plot_stats:      # add statistics box (max, min, mean value per subpocket)
+                if (
+                    plot_stats
+                ):  # add statistics box (max, min, mean value per subpocket)
                     plt.plot(
                         [],
                         [],
                         " ",
-                        label="mean: " +    # noqa: W504
-                        str(round(statistics.mean(fragment_library[keys[subpocket_num]][colname]))),     # noqa: E501
+                        label="mean: "
+                        + str(  # noqa: W504
+                            round(
+                                statistics.mean(
+                                    fragment_library[keys[subpocket_num]][colname]
+                                )
+                            )
+                        ),  # noqa: E501
                     )
                     plt.plot(
                         [],
                         [],
                         " ",
-                        label="min: " +     # noqa: W504
-                        str(round(min(fragment_library[keys[subpocket_num]][colname]))),
+                        label="min: "
+                        + str(  # noqa: W504
+                            round(min(fragment_library[keys[subpocket_num]][colname]))
+                        ),
                     )
                     plt.plot(
                         [],
                         [],
                         " ",
-                        label="max: " +  # noqa: W504
-                        str(round(max(fragment_library[keys[subpocket_num]][colname]))),
+                        label="max: "
+                        + str(  # noqa: W504
+                            round(max(fragment_library[keys[subpocket_num]][colname]))
+                        ),
                     )
                     plt.legend()
-                if cutoff is not None:      # if a cutoff is given draw a red line
+                if cutoff is not None:  # if a cutoff is given draw a red line
                     plt.axvline(x=cutoff, color="r", linestyle="-")
                 if filtername is not None:
                     plt.xlabel(filtername)
-                plt.ylabel("Number of fragments")       # set yaxis label
-                subpocket_num = subpocket_num + 1       # go to next subpocket
-    plt.suptitle(filtername)        # set filtername as title over the plots
-    plt.show()      # show the plots, needed when called in function other not in notebook
+                plt.ylabel("Number of fragments")  # set yaxis label
+                subpocket_num = subpocket_num + 1  # go to next subpocket
+    plt.suptitle(filtername)  # set filtername as title over the plots
+    plt.show()  # show the plots, needed when called in function other not in notebook
 
 
 def make_retro_hists(
@@ -119,7 +132,7 @@ def make_retro_hists(
                 bin_label = []
                 for x in range(0, len(bin_lst) - 1):
                     if x == 0:
-                        bin_str = '[0]'
+                        bin_str = "[0]"
                     elif x == 1:
                         bin_str = "(%s, %s)" % (0, bin_lst[x + 1])
                     elif x == len(bin_lst) - 1:
@@ -151,22 +164,32 @@ def make_retro_hists(
                         [],
                         [],
                         " ",
-                        label="mean: " +    # noqa: W504
-                        str(round(statistics.mean(fragment_library[keys[subpocket_num]][colname]))),     # noqa: E501
+                        label="mean: "
+                        + str(  # noqa: W504
+                            round(
+                                statistics.mean(
+                                    fragment_library[keys[subpocket_num]][colname]
+                                )
+                            )
+                        ),  # noqa: E501
                     )
                     plt.plot(
                         [],
                         [],
                         " ",
-                        label="min: " +     # noqa: W504
-                        str(round(min(fragment_library[keys[subpocket_num]][colname]))),
+                        label="min: "
+                        + str(  # noqa: W504
+                            round(min(fragment_library[keys[subpocket_num]][colname]))
+                        ),
                     )
                     plt.plot(
                         [],
                         [],
                         " ",
-                        label="max: " +  # noqa: W504
-                        str(round(max(fragment_library[keys[subpocket_num]][colname]))),
+                        label="max: "
+                        + str(  # noqa: W504
+                            round(max(fragment_library[keys[subpocket_num]][colname]))
+                        ),
                     )
                     plt.legend()
                 if filtername is not None:
@@ -200,21 +223,29 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
     if evaluate == "none":
         num_fragments = len(
             pd.Series(
-                fragment_library[subpocket][fragment_library[subpocket]["retro_count"] == 0].ROMol
+                fragment_library[subpocket][
+                    fragment_library[subpocket]["retro_count"] == 0
+                ].ROMol
             )
         )
-        print("%s %s fragments with no retrosynthetic route found" % (num_fragments, subpocket))
+        print(
+            "%s %s fragments with no retrosynthetic route found"
+            % (num_fragments, subpocket)
+        )
         img = Draw.MolsToGridImage(
             pd.Series(
-                fragment_library[subpocket][fragment_library[subpocket]["retro_count"] == 0].ROMol
+                fragment_library[subpocket][
+                    fragment_library[subpocket]["retro_count"] == 0
+                ].ROMol
             ),
             molsPerRow=molsPerRow,
             maxMols=len(
                 pd.Series(
                     fragment_library[subpocket][
                         fragment_library[subpocket]["retro_count"] == 0
-                    ].ROMol),
-            )
+                    ].ROMol
+                ),
+            ),
         )
         return img
     elif evaluate == "max":
@@ -225,23 +256,29 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
                 ][0:10].ROMol
             )
         )
-        print("%s %s fragments with the most retrosynthetic routes found" % (
-            num_fragments,
-            subpocket,
-        )
+        print(
+            "%s %s fragments with the most retrosynthetic routes found"
+            % (
+                num_fragments,
+                subpocket,
+            )
         )
         print("legend: number of retrosynthetic routes found")
         img = Draw.MolsToGridImage(
             pd.Series(
                 fragment_library[subpocket][
                     fragment_library[subpocket]["retro_count"] > 0
-                ].sort_values("retro_count", ascending=False)[0:10].ROMol
+                ]
+                .sort_values("retro_count", ascending=False)[0:10]
+                .ROMol
             ),
             molsPerRow=molsPerRow,
             legends=list(
-                fragment_library[subpocket].sort_values(
-                    "retro_count", ascending=False, ignore_index=True
-                )[0:10]["retro_count"].astype(str)
+                fragment_library[subpocket]
+                .sort_values("retro_count", ascending=False, ignore_index=True)[0:10][
+                    "retro_count"
+                ]
+                .astype(str)
             ),
         )
         return img
