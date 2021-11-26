@@ -20,15 +20,9 @@ jobs:
       matrix:
         cfg:
           - os: ubuntu-latest
-            python-version: "3.6"
+            python-version: "3.7"
           - os: ubuntu-latest
-            python-version: "3.8"
-          #- os: ubuntu-latest
-          #  python-version: "3.9"
-          #- os: macos-latest
-          #  python-version: "3.6"
-          #- os: windows-latest
-          #  python-version: "3.6"
+            python-version: "3.9"
 
     steps:
       - uses: actions/checkout@v2
