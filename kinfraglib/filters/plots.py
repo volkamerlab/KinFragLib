@@ -337,9 +337,8 @@ def create_tsne_plots(fragment_library):
     num3 = len(tsne_df[tsne_df["compare"] == 3])
 
     # create tsne plots
-    fig = plt.figure(figsize=(17, 9))
+    plt.figure(figsize=(18, 10))
     plt.subplot(2, 2, 1)
-    fig.add_subplot(2, 2, 1)
     sns.scatterplot(
         data=tsne_df.query("reduced == 0"),
         x="X",
@@ -356,10 +355,8 @@ def create_tsne_plots(fragment_library):
         alpha=0.5,
         label="included"
     )
-    plt.axis('off')
 
     plt.subplot(2, 2, 2)
-    fig.add_subplot(2, 2, 2)
     sns.scatterplot(
         data=tsne_df.query("custom == 0"),
         x="X",
@@ -376,10 +373,8 @@ def create_tsne_plots(fragment_library):
         alpha=0.5,
         label="included"
     )
-    plt.axis('off')
 
     plt.subplot(2, 2, 3)
-    fig.add_subplot(2, 2, 3)
     sns.scatterplot(
         data=tsne_df.query("compare == 0"),
         x="X",
@@ -410,10 +405,10 @@ def create_tsne_plots(fragment_library):
         y="Y",
         color='green',
         alpha=0.5,
-        label="accepted in both subsets"
+        label="included in both subsets"
     )
     plt.legend(loc='upper right', bbox_to_anchor=(1.425, 1), ncol=1)
-    plt.axis('off')
+
     plt.show()
     num_lists = (len(tsne_df["compare"]), num0, num1, num2, num3)
     print("""%s Pre-filtered fragments.
@@ -421,6 +416,8 @@ def create_tsne_plots(fragment_library):
         Number of fragments excluded in the reduced dataset but included in the custom dataset: %s
         Number of fragments excluded in the custom dataset but included in the reduced dataset: %s
         Number of fragments in both datasets: %s """ % (num_lists))
+    tsne_df['smiles'] = fragment_library_concat["smiles"]
+    return tsne_df
 
 
 def create_tsne_plots_filters(fragment_library, saved_filter_results):
@@ -467,13 +464,14 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results):
         tsne_df['retro'] = saved_filter_results["bool_retro"]
         filters.append("retro")
 
+    tsne_df["smiles"] = saved_filter_results["smiles"]
+
     # create the plots for all filters
-    fig = plt.figure(figsize=(15, 15))
+    plt.figure(figsize=(15, 15))
     i = 0
     for filter in filters:
         i = i + 1
         plt.subplot(4, 2, i)
-        fig.add_subplot(4, 2, i)
         sns.scatterplot(
             data=tsne_df.query("%s == 1" % filter),
             x="X",
@@ -489,7 +487,7 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results):
             color='lightcoral',
             label="rejected",
         )
-        plt.axis('off')
+    return tsne_df
 
 
 def connection_frequencies(fragment_library, fragment_library_reduced, fragment_library_custom):
@@ -729,6 +727,15 @@ def draw_clusters(clustered_fragments):
 def plot_fragment_descriptors(descriptors):
     """
     Plot fragment descriptors.
+
+    Parameters
+    ----------
+    descriptors : dataframe
+        descriptors for each fragment
+
+    Returns
+    ---------
+        Plot of the descriptors, colored by subpocket.
     """
     # copied from utils without saving img
 
@@ -754,6 +761,17 @@ def plot_fragment_descriptors(descriptors):
 def plot_fragment_similarity(similarities_by_groups, library_names, group_name):
     """
     Plot fragment similarity by category, such as subpocket or kinase group.
+
+    Parameters
+    ----------
+    similiarities_by_groups : dataframe
+        fragment similarity per subpocket/kinase group
+
+    similiarities_by_groups : list
+        containing strings with library names used as titles
+
+    group_name : str
+        the group that is plotted
     """
     # copied from kinfraglib/utils.py and modified
 
