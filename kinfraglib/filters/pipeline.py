@@ -395,7 +395,9 @@ def start_pipeline(
                 ],
                 axis=1,
             )
-            num_fragments_retro.append(num_fragments_retro.sum().rename("Total"))
+            num_fragments_retro = num_fragments_retro.append(
+                num_fragments_retro.sum().rename("Total")
+            )
             display(num_fragments_retro)
 
         if retro_parameters.get("do_plot"):
@@ -450,6 +452,8 @@ def start_pipeline(
             .index,
             inplace=True,
         )
+    # remove fragments not passing the retro-filter
+    fragment_library_concat = fragment_library_concat[fragment_library_concat["bool_retro"] == 1]
     filters.retro.save_fragment_library_to_sdfs(
         PATH_DATA_CUSTOM,
         fragment_library_concat,
