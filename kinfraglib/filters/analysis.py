@@ -263,19 +263,16 @@ def get_descriptors(fragment_library, fragment_library_reduced, fragment_library
 
     display(all_descriptors)
 
-    print("\033[47;1m fragment library pre-filtered \033[0m")
+    print("\033[47;1m pre-filtered fragment library \033[0m")
     plt = plots.plot_fragment_descriptors(descriptors)
-    # plt.title("fragment library pre-filtered")
     plt.show()
 
-    print("\033[47;1m fragment  library reduced \033[0m")
+    print("\033[47;1m reduced fragment \033[0m")
     plt_reduced = plots.plot_fragment_descriptors(descriptors_reduced)
-    # plt.title("fragment library reduced")
     plt_reduced.show()
 
-    print("\033[47;1m fragment library custom \033[0m")
+    print("\033[47;1m custom filtered fragment library \033[0m")
     plt_custom = plots.plot_fragment_descriptors(descriptors_custom)
-    # plt.title("fragment library custom")
     plt_custom.show()
 
 
@@ -421,5 +418,7 @@ def cluster_fragment_library(fragment_library):
         subpockets.append(subpocket_lst)
 
     clustered_fragments["subpockets"] = subpockets
+
+    clustered_fragments = clustered_fragments.rename(columns={"fragment_count": "subpocket_count"})
 
     return clustered_fragments

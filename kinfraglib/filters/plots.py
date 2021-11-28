@@ -317,9 +317,9 @@ def create_tsne_plots(fragment_library):
     tsne_df['custom'] = fragment_library_concat["bool_custom"]
     # create column defining if fragment is
     # *excluded in both subsets (0)
-    # *excluded in reduced (1)
-    # *excluded in custom (2)
-    # *accepted in both subsets (3)
+    # *included in custom (1)
+    # *included in reduced (2)
+    # *included in both subsets (3)
     bool_compare = []
     for i, row in fragment_library_concat.iterrows():
         if row["bool_reduced"] == 0 and row["bool_custom"] == 0:
@@ -389,7 +389,7 @@ def create_tsne_plots(fragment_library):
         y="Y",
         color='orange',
         alpha=0.5,
-        label="excluded in reduced subset"
+        label="included in custom subset"
     )
     sns.scatterplot(
         data=tsne_df.query("compare == 2"),
@@ -397,7 +397,7 @@ def create_tsne_plots(fragment_library):
         y="Y",
         color='lightblue',
         alpha=0.5,
-        label="excluded in custom subset"
+        label="included in reduced subset"
     )
     sns.scatterplot(
         data=tsne_df.query("compare == 3"),
@@ -413,8 +413,8 @@ def create_tsne_plots(fragment_library):
     num_lists = (len(tsne_df["compare"]), num0, num1, num2, num3)
     print("""%s Pre-filtered fragments.
         Number of fragments excluded in both datasets: %s
-        Number of fragments excluded in the reduced dataset but included in the custom dataset: %s
-        Number of fragments excluded in the custom dataset but included in the reduced dataset: %s
+        Number of fragments included in the custom dataset and excluded in the reduced dataset: %s
+        Number of fragments included in the reduced dataset and excluded in the custom dataset: %s
         Number of fragments in both datasets: %s """ % (num_lists))
     tsne_df['smiles'] = fragment_library_concat["smiles"]
     return tsne_df
@@ -705,11 +705,11 @@ def draw_clusters(clustered_fragments):
     PIL.PngImagePlugin.PngImageFile
         Image of fragments sorted by descending cluster size.
     """
-    clustered_fragments = clustered_fragments.sort_values("fragment_count", ascending=False)
+    clustered_fragments = clustered_fragments.sort_values("subpocket_count", ascending=False)
     img = Draw.MolsToGridImage(
         list(clustered_fragments.ROMol),
         legends=[
-            f'{row.cluster_id} | {row.fragment_count}'
+            f'{row.cluster_id} | {row.subpocket_count}'
             for index, row
             in clustered_fragments.iterrows()
         ],
@@ -719,7 +719,7 @@ def draw_clusters(clustered_fragments):
         useSVG=True
     )
 
-    print('Legend: cluster ID | fragment count')
+    print('Legend: cluster ID | subpocket count')
 
     return img
 
