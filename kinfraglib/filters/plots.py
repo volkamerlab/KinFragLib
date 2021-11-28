@@ -724,7 +724,7 @@ def draw_clusters(clustered_fragments):
     return img
 
 
-def plot_fragment_descriptors(descriptors):
+def plot_fragment_descriptors(descriptors, ylims):
     """
     Plot fragment descriptors.
 
@@ -744,17 +744,19 @@ def plot_fragment_descriptors(descriptors):
     for i, descriptor_name in enumerate(descriptors.columns[3:]):
 
         plt.subplot(1, 4, i + 1)
-        sns.boxplot(
+        ax = sns.boxplot(
             x="subpocket",
             y=descriptor_name,
             data=descriptors,
             palette=SUBPOCKET_COLORS,
             medianprops={"linewidth": 3, "linestyle": "-"},
         )
+        ax.set_ylim((ylims[i][0], ylims[i][1]))
         plt.ylabel(descriptor_name, fontsize=16)
         plt.xlabel("Subpocket", fontsize=16)
         plt.xticks(fontsize=16)
         plt.yticks(fontsize=16)
+
     return plt
 
 

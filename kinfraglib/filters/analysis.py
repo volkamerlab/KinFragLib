@@ -6,6 +6,8 @@ from . import prefilters
 from . import plots
 from kinfraglib import utils as kfl_utils
 from IPython.display import display
+import seaborn as sns
+import matplotlib.pyplot as pylt
 
 
 def count_accepted_rejected(fragment_library, bool_column_name, filtername):
@@ -263,16 +265,30 @@ def get_descriptors(fragment_library, fragment_library_reduced, fragment_library
 
     display(all_descriptors)
 
+    fig, ax = pylt.subplots(nrows=1, ncols=1)
+    # get y axis limits
+    ylims = pd.DataFrame()
+    for i, descriptor_name in enumerate(descriptors.columns[3:]):
+
+        ax = sns.boxplot(
+            x="subpocket",
+            y=descriptor_name,
+            data=descriptors,
+            medianprops={"linewidth": 3, "linestyle": "-"},
+        )
+        ylims[i] = ax.get_ylim()
+    pylt.close(fig)     # avoid plotting because we only generated this to get the ylim values
+
     print("\033[47;1m pre-filtered fragment library \033[0m")
-    plt = plots.plot_fragment_descriptors(descriptors)
+    plt = plots.plot_fragment_descriptors(descriptors, ylims)
     plt.show()
 
     print("\033[47;1m reduced fragment \033[0m")
-    plt_reduced = plots.plot_fragment_descriptors(descriptors_reduced)
+    plt_reduced = plots.plot_fragment_descriptors(descriptors_reduced, ylims)
     plt_reduced.show()
 
     print("\033[47;1m custom filtered fragment library \033[0m")
-    plt_custom = plots.plot_fragment_descriptors(descriptors_custom)
+    plt_custom = plots.plot_fragment_descriptors(descriptors_custom, ylims)
     plt_custom.show()
 
 
@@ -298,7 +314,22 @@ def get_descriptors_filters(fragment_library_filter_res, bool_keys):
     print("\033[47;1m pre-filtered \033[0m")
     descriptors = kfl_utils.get_descriptors_by_fragments(fragment_library_filter_res)
     descriptors_median = descriptors.groupby('subpocket').median()
-    plt = plots.plot_fragment_descriptors(descriptors)
+
+    fig, ax = pylt.subplots(nrows=1, ncols=1)
+    # get y axis limits
+    ylims = pd.DataFrame()
+    for i, descriptor_name in enumerate(descriptors.columns[3:]):
+        ax = sns.boxplot(
+            x="subpocket",
+            y=descriptor_name,
+            data=descriptors,
+            medianprops={"linewidth": 3, "linestyle": "-"},
+        )
+
+        ylims[i] = ax.get_ylim()
+    pylt.close(fig)    # avoid plotting because we only generated this to get the ylim values
+
+    plt = plots.plot_fragment_descriptors(descriptors, ylims)
     plt.show()
     descriptor_dfs = {"pre-filtered": descriptors_median}   # add descriptors to a dataframe
     # iterate through the filters boolean columns, calculate the descriptor for passing fragments
@@ -312,7 +343,7 @@ def get_descriptors_filters(fragment_library_filter_res, bool_keys):
         descriptor_dfs[bool_key] = descriptors_median   # add the descriptors to the descriptor df
 
         print("\033[47;1m " + bool_key + " \033[0m")
-        plt = plots.plot_fragment_descriptors(descriptors)
+        plt = plots.plot_fragment_descriptors(descriptors, ylims)
         plt.show()
     # return the descriptors dataframe
     return(descriptor_dfs)
