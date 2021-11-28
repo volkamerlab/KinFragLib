@@ -283,7 +283,7 @@ def get_descriptors(fragment_library, fragment_library_reduced, fragment_library
     plt = plots.plot_fragment_descriptors(descriptors, ylims)
     plt.show()
 
-    print("\033[47;1m reduced fragment \033[0m")
+    print("\033[47;1m reduced fragment library \033[0m")
     plt_reduced = plots.plot_fragment_descriptors(descriptors_reduced, ylims)
     plt_reduced.show()
 
@@ -311,7 +311,7 @@ def get_descriptors_filters(fragment_library_filter_res, bool_keys):
 
     """
     # first calculate the descriptors from the pre-filtered library and plot them
-    print("\033[47;1m pre-filtered \033[0m")
+    print("\033[47;1m pre-filtered fragment library \033[0m")
     descriptors = kfl_utils.get_descriptors_by_fragments(fragment_library_filter_res)
     descriptors_median = descriptors.groupby('subpocket').median()
 
@@ -342,7 +342,7 @@ def get_descriptors_filters(fragment_library_filter_res, bool_keys):
         descriptors_median = descriptors.groupby('subpocket').median()
         descriptor_dfs[bool_key] = descriptors_median   # add the descriptors to the descriptor df
 
-        print("\033[47;1m " + bool_key + " \033[0m")
+        print("\033[47;1m " + bool_key.replace("bool_", "") + " filtered \033[0m")
         plt = plots.plot_fragment_descriptors(descriptors, ylims)
         plt.show()
     # return the descriptors dataframe
@@ -382,9 +382,7 @@ def filter_res_in_fraglib(fragment_library, filter_results):
     )
 
     # get the list of boolean values, defining if a fragment is passing a specific filter or not
-    frag_keys = fraglib_filters.keys()
-    frag_keys.to_list()
-    bool_keys = [x for x in frag_keys if "bool" in x]
+    bool_keys = [x for x in filter_results.keys().to_list() if "bool" in x]
 
     # set index to subpocket again and crate dict
     fraglib_filters = fraglib_filters.reset_index()

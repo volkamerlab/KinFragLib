@@ -663,10 +663,10 @@ def num_frags_development(filter_res):
         update_results[bool_key] = filter_res.reset_index().groupby("subpocket", sort=False).size()
 
     # create a bar plot showing the numbers of fragments passing
-    ax = update_results.plot.bar()
+    ax = update_results.plot.bar(width=0.9)
     fig = ax.get_figure()
 
-    fig.set_figheight(5)
+    fig.set_figheight(7)
     fig.set_figwidth(13)
 
     ax.set_xlabel("Subpocket")
