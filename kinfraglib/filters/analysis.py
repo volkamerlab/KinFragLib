@@ -421,7 +421,7 @@ def cluster_fragment_library(fragment_library):
     )
 
     # Cluster fingerprints
-    clusters = kfl_utils.cluster_molecules(fragment_library_concat["ROMol"], cutoff=0.6)
+    clusters = kfl_utils.cluster_molecules(most_common_fragments["ROMol"], cutoff=0.6)
 
     # Link fragments to cluster ID
     clustered_fragments = most_common_fragments.merge(
@@ -449,5 +449,12 @@ def cluster_fragment_library(fragment_library):
     clustered_fragments["subpockets"] = subpockets
 
     clustered_fragments = clustered_fragments.rename(columns={"fragment_count": "subpocket_count"})
+
+    # sort clustered fragments by cluster and subpocket count
+    clustered_fragments.sort_values(
+        by=['cluster_id', "subpocket_count"],
+        ascending=[True, True],
+        inplace=True,
+    )
 
     return clustered_fragments

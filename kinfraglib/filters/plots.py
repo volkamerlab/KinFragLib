@@ -690,7 +690,7 @@ SUBPOCKET_COLORS = {
 }
 
 
-def draw_clusters(clustered_fragments):
+def draw_clusters(clustered_fragments, show_subpockets=False):
     # function copied from https://github.com/volkamerlab/KinFragLib/blob/master/notebooks/2_3_fragment_analysis_most_common_fragments.ipynb  # noqa: E501
     """
     Draw fragments sorted by descending cluster size and fragment count.
@@ -699,27 +699,40 @@ def draw_clusters(clustered_fragments):
     ----------
     most_common_fragments : pandas.DataFrame
         Most common fragments (ID, SMILES, ROMol, cluster ID, fragment count).
+    show_subpockets : boolean
+        If show_subpockets=True the subpockets that contain this fragment are shown. By default,
+        show_subpockets=False.
 
     Returns
     -------
     PIL.PngImagePlugin.PngImageFile
         Image of fragments sorted by descending cluster size.
     """
-    clustered_fragments = clustered_fragments.sort_values("subpocket_count", ascending=False)
-    img = Draw.MolsToGridImage(
-        list(clustered_fragments.ROMol),
-        legends=[
+    # clustered_fragments = clustered_fragments.sort_values("subpocket_count", ascending=False)
+    if show_subpockets:
+        legend = [
+            f'{row.cluster_id} | {row.subpocket_count} |  {row.subpockets}'
+            for index, row
+            in clustered_fragments.iterrows()
+        ]
+    else:
+        legend = [
             f'{row.cluster_id} | {row.subpocket_count}'
             for index, row
             in clustered_fragments.iterrows()
-        ],
+        ]
+    img = Draw.MolsToGridImage(
+        list(clustered_fragments.ROMol),
+        legends=legend,
         molsPerRow=7,
         maxMols=100,
         subImgSize=(170, 170),
         useSVG=True
     )
-
-    print('Legend: cluster ID | subpocket count')
+    if show_subpockets:
+        print('Legend: cluster ID | subpocket count | subpockets')
+    else:
+        print('Legend: cluster ID | subpocket count')
 
     return img
 
