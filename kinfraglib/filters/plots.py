@@ -5,6 +5,7 @@ import statistics
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
 import pandas as pd
+from rdkit import Chem
 from rdkit.Chem import Draw, MACCSkeys
 import seaborn as sns
 from sklearn.decomposition import PCA
@@ -817,3 +818,113 @@ def plot_fragment_similarity(similarities_by_groups, library_names, group_name):
         i = i + 1
 
     plt.show()
+
+
+def most_common_in_subset(
+    fragment_library,
+    clustered_fragments_subset,
+    subpocket,
+    top_x=50,
+    num_subpockets=6,
+):
+    """
+    Find the top_x most common fragments for the specified subpocket in the original,
+    not deduplicated, fragment library and compare them with the clustered fragment library subset,
+    getting the number of occurrences in the original fragment library, the cluster id from the
+    clustered fragment library subset and the number of subpockets where
+    the fragment is found in the subset.
+    Draw fragments sorted by descending cluster size and subpocket count.
+
+    Parameters
+    ----------
+    fragment_library : dict
+        Deduplicated fragment library organized in subpockets.
+    clustered_fragments_subset : pandas DataFrame
+        Clustered fragments from a subset of the fragment_library
+    subpocket : str
+        Subpocket for which the top_x fragments are calculated.
+    top_x : int
+        Number of fragments with the highest occurrence that should be used for comparison.
+        By default, top_x=50.
+    num_subpockets : int
+        Number of subpockets a fragment should at most be found in. Can be an integer value
+        between 1 and 6.
+        By default, num_subpockets=6.
+
+    Returns
+    -------
+    PIL.PngImagePlugin.PngImageFile
+        Image of fragments sorted by descending cluster size and subpocket count.
+
+    """
+
+    # if no fragments found that are in <=num_subpockets take one subpocket more (e.g. if no
+    # fragment in 1 subpocket found take fragments in 2 subpockets)
+    for i in range(num_subpockets, 7, 1):
+        subset = clustered_fragments_subset[clustered_fragments_subset["subpocket_count"] <= i]
+        subset = subset[subset["subpockets"].astype(str).str.contains(subpocket)]
+        if subset.empty:
+            i = i + 1
+        else:
+            break
+    # get the 50 most common fragments from the original fragment library which is
+    # not deduplicted...
+    most_common_frags = kfl_utils.get_most_common_fragments(
+        fragment_library[subpocket],
+        top_x=top_x,
+    )
+    # sort the most common fragments by the number of occourences of each fragment
+    most_common_frags.sort_values(by=['fragment_count'], ascending=False, inplace=True)
+
+    # compare the most common fragments from the original fragment library with the subset and keep
+    # the ones that are in both
+    most_common_in_subset = []
+    cluster_ids = []
+    fragment_counts = []
+    most_common_subset_df = pd.DataFrame()
+    subpocket_counts = []
+    legend_lst = []
+    for _, row_common in most_common_frags.iterrows():
+        for _, row_subset in subset.iterrows():
+            if Chem.MolFromSmiles(
+                row_common["smiles"]).HasSubstructMatch(Chem.MolFromSmiles(
+                    row_subset["smiles"]
+                )
+            ) and Chem.MolFromSmiles(
+                row_subset["smiles"]
+            ).HasSubstructMatch(
+                Chem.MolFromSmiles(
+                    row_common["smiles"]
+                )
+            ):
+                most_common_in_subset.append(row_subset["smiles"])
+                fragment_counts.append(row_common["fragment_count"])
+                cluster_ids.append(row_subset["cluster_id"])
+                subpocket_counts.append(row_subset["subpocket_count"])
+
+    most_common_subset_df["smiles"] = most_common_in_subset
+    most_common_subset_df["cluster_id"] = cluster_ids
+    most_common_subset_df["fragment_count"] = fragment_counts
+    most_common_subset_df["subpocket_count"] = subpocket_counts
+
+    # if there are fragments found in both subsets
+    if not most_common_subset_df.empty:
+        # sort the fragments by clster_id ascending and fragment_count descending
+        most_common_subset_df.sort_values(
+            by=['cluster_id', "fragment_count"], ascending=[True, False], inplace=True
+        )
+        # create the legend list with cluster_id, fragment_count and subpocket_count
+        for _, row in most_common_subset_df.iterrows():
+            legend_lst.append(
+                f'{row["cluster_id"]} | {row["fragment_count"]} | {row["subpocket_count"]}'
+            )
+        # draw molecules
+        print(f'Legend: subset cluster ID | fragment count inside %s in complete fragment library | fragment subpocket count in subset' %subpocket)     # noqa E501
+        img = Draw.MolsToGridImage(
+            [Chem.MolFromSmiles(smiles) for smiles in most_common_subset_df["smiles"]],
+            legends=legend_lst,
+            molsPerRow=10,
+        )
+        return img
+    else:
+        print("No fragment was found in both subsets")
