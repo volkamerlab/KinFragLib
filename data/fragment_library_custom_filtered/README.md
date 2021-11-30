@@ -2,7 +2,7 @@
 
 The (full) fragment library resulting from the KinFragLib fragmentation procedure comprises 7486 fragments, which are the basis for exploring the subpocket-based chemical space of ligands co-crystallized with kinases (see `data/fragment_library/`).
 
-To reduce the fragment library size and enable the recombination avoiding the recombinatorial explosion we offer the possibility to filter the fragment library by customizable filtering steps, namely:
+To reduce the fragment library size and enable the recombination avoiding combinatorial explosion and to increase the chance of synthesizability of the newly created molecules, the fragment library can now be filtered by customizable filtering steps, namely:
 
 1. Pre-filtering (Remove pool X, deduplicate, remove unfragmented fragments, remove fragments only connecting to pool X and fragments in Pool X) \[not optional\]
 2. Filter for unwanted substructures (PAINS and Brenk et al.) \[optional\]
