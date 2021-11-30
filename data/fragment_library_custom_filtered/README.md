@@ -4,7 +4,7 @@ The (full) fragment library resulting from the KinFragLib fragmentation procedur
 
 To reduce the fragment library size and enable the recombination avoiding combinatorial explosion and to increase the chance of synthesizability of the newly created molecules, the fragment library can now be filtered by customizable filtering steps, namely:
 
-1. Pre-filtering (Remove pool X, deduplicate, remove unfragmented fragments, remove fragments only connecting to pool X and fragments in pool X) \[not optional\]
+1. Pre-filtering (Remove pool X, deduplicate, remove unfragmented fragments, remove fragments only connecting to pool X and fragments in pool X) \[mandatory\]
 2. Filter for unwanted substructures (PAINS and Brenk et al.) \[optional\]
 3. Filter for drug likeness (Ro3 and QED) \[optional\]
 4. Filter for synthesizability (Buyable building blocks and SYBA) \[optional\]
