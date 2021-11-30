@@ -8,4 +8,4 @@ Overview on data content.
 - `combinatorial_library/`: Combinatorial library based on the reduced fragment library.
 - `external/`: Data from external resources.
 - `filters`: Data used for custom filters.
-- `fragment_library_custom_filtered`: Custom filtered fragment library: Pre-filtered (removed unfragmented ligands, ligands only connecting to pool X, fragments in pool X, duplicates), and filtered for unwanted substructures (PAINS and Brenk), drug-likeness (Ro3 and QED), synthesizability (buyable building blocks and SYBA) and pairwise retrosynthesizability (using ASKCOS).
+- `fragment_library_custom_filtered`: Custom filtered fragment library: Pre-filtered (remove pool X,  deduplicate per subpocket, remove unfragmented ligands, remove all fragments that connect only to pool X), and filtered for unwanted substructures (PAINS and Brenk), drug-likeness (Ro3 and QED), synthesizability (buyable building blocks and SYBA) and pairwise retrosynthesizability (using ASKCOS).
