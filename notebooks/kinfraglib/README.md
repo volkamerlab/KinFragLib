@@ -1,4 +1,4 @@
-# Notebooks
+# KinFragLib notebooks
 
 Overview on notebook content.
 
