@@ -19,4 +19,4 @@ substructures of the children, then they pass this filter.
 This notebook compares all the filtering steps explained before and gives the possibility to easily (de-)activate
 single filtering steps and modify the parameters.
 ### `2_2_custom_filters_analysis.ipynb`
-This notebook is analyzing the filtered fragment library and comparing it with the pre-filtered and the reduced set.
+This notebook is analyzing the custom filtered fragment library and comparing it with the pre-filtered and the reduced fragment set from the previous study.
