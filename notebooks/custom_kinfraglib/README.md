@@ -11,7 +11,7 @@ This notebook is filtering the fragments for synthesizability using a buyable bu
 filter and the SYnthetic Bayesian Accessibility (SYBA).
 ### `1_4_custom_filters_pairwise_retrosynthesizability.ipynb`
 This notebook is building fragment pairs using only those fragments that passed all custom filtering step.
-Afterwards, it will start a request using the ASKCOS API to check if a one step retrosynthetic route for this pair can be found.
+Next, it requests retrosynthesis information using the ASKCOS API to check if a one-step retrosynthetic route for this pair can be found.
 Finally, it will compare the children retrieved from ASKCOS with the fragments building the pair. If the fragments are
 substructures of the children, then they pass this filter.
 ## 2. Custom filtering pipeline
