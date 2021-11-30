@@ -25,7 +25,7 @@ This repository holds the following resources:
 
     3.1. Notebooks covering the full analyses regarding the fragment and combinatorial libraries as described in 
           the corresponding paper.  
-    3.2. Notebooks providing a custom filtering framework to reduce the fragment library size.
+    3.2. WIP: Notebooks providing a custom filtering framework to reduce the fragment library size.
     
 Please find detailed description of files in `data/` and `notebooks/` in the folders' `README` files.
 
