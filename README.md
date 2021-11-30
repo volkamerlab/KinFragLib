@@ -50,7 +50,7 @@ Following this approach, a fragment library is created with respective subpocket
 an in-depth analysis of the chemical space of known kinase inhibitors, and can be used to enumerate recombined 
 fragments in order to generate novel potential inhibitors.
 
-Custom KinFragLib provides a pipeline to custom filter KinFragLib utilizing unwanted substructures (PAINS and Brenk et al.), drug-likeness (Rule of Three and QED), synthesizability (buyable building blocks and SYBA) and pairwise retrosynthesizability. Each filter can be (de-)activated and the parameters can be modified by the user to create a custom filtered library. 
+WIP: Custom KinFragLib provides a pipeline to filter the fragments in KinFragLib checking for unwanted substructures (PAINS and Brenk et al.), lead-/drug-likeness (Rule of Three and QED), synthesizability (similarity to buyable building blocks and SYBA) and pairwise retrosynthesizability. Each filter can be (de-)activated and the parameters can be modified by the user to create a customized filtered fragment library. 
 
 ## Quick start
 
