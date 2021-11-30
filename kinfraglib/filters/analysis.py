@@ -3,6 +3,11 @@ Contains functions to analyze the results from filter steps
 """
 import pandas as pd
 from . import prefilters
+from . import plots
+from kinfraglib import utils as kfl_utils
+from IPython.display import display
+import seaborn as sns
+import matplotlib.pyplot as pylt
 
 
 def count_accepted_rejected(fragment_library, bool_column_name, filtername):
@@ -22,7 +27,7 @@ def count_accepted_rejected(fragment_library, bool_column_name, filtername):
     Returns
     -------
     pandas.DataFrame
-        number of accepted and number of rected fragments per subpocket
+        number of accepted and number of rejected fragments per subpocket
     """
     # concatenate fragment library and group fragments by the bool column
     fraglib_df = (
@@ -118,7 +123,7 @@ def number_of_accepted(fragment_library, columns, min_accepted=1, name="bool"):
 
 def accepted_num_filters(fragment_library, colnames, filtername, max_num_accepted=1):
     """
-    Function to count how many fragments are accepted by max_num_accepted or less filters.
+    Function to count how many fragments are accepted by max_num_accepted or fewer filters.
 
     Parameters
     ----------
@@ -129,7 +134,7 @@ def accepted_num_filters(fragment_library, colnames, filtername, max_num_accepte
     filtername : str
         summarized filter name/ name of the resulting DataFrame
     max_num_accepted : int
-        maximum of accepted filters. By default max_num_accepted = 1
+        maximum of accepted filters. By default, max_num_accepted = 1
 
     Returns
     -------
@@ -176,3 +181,280 @@ def accepted_num_filters(fragment_library, colnames, filtername, max_num_accepte
     # add the chosen title to the DataFrame
     counted_df = counted_df.style.set_caption(filtername)
     return counted_df
+
+
+def frag_in_subset(fragment_library_original, fragment_library_subset, colname):
+    """
+    Adding a boolean column to the fragment library if the fragments are contained in the fragment
+    library subset.
+
+    Parameters
+    ----------
+    fragment_libray : dict
+        fragments organized in subpockets including all information
+    fragment_libray : dict
+        subset of the fragments organized in subpockets including all information
+    colname : str
+        name of the boolean column that will be created
+
+    Returns
+    -------
+    dict
+        fragments organized in subpocket with boolean column if the single fragments are included
+        in the subset
+    """
+    # create dataframes from the fragment library dictionaries
+    fragment_library_concat = pd.concat(fragment_library_original).reset_index(drop=True)
+    fragment_library_reduced_concat = pd.concat(fragment_library_subset).reset_index(drop=True)
+
+    bool_reduced = []       # variable to store the boolean columns
+    # iterate through the fragment library
+    for i, row in fragment_library_concat.iterrows():
+        notfound = True
+        # iterate through the fragment library subset
+        for j, reduced_row in fragment_library_reduced_concat.iterrows():
+            # compare the smiles, if they are equal fragment is in subset
+            if row['smiles'] == reduced_row['smiles']:
+                bool_reduced.append(1)
+                notfound = False
+                break
+        if notfound:
+            bool_reduced.append(0)
+    # add the boolean column to the dataframe
+    fragment_library_concat[colname] = bool_reduced
+    # return the fragment library as dict
+    fraglib = prefilters._make_df_dict(fragment_library_concat)
+    return fraglib
+
+
+def get_descriptors(fragment_library, fragment_library_reduced, fragment_library_custom):
+    """
+    Get #HBA #HBD, LogP and #Heavy Atoms for each fragment set and create a bar plot.
+
+    Parameters
+    ----------
+    fragment_library : dict
+        pre-filtered fragment library organized in subpockets
+    fragment_library_reduced : dict
+        reduced fragment library organized in subpockets
+    fragment_library_custom : dict
+        custom filtered fragment library organized in subpockets
+
+    """
+    descriptors = kfl_utils.get_descriptors_by_fragments(fragment_library)
+    descriptors_median = descriptors.groupby('subpocket').median()
+    descriptors_reduced = kfl_utils.get_descriptors_by_fragments(fragment_library_reduced)
+    descriptors_reduced_median = descriptors_reduced.groupby('subpocket').median()
+    descriptors_custom = kfl_utils.get_descriptors_by_fragments(fragment_library_custom)
+    descriptors_custom_median = descriptors_custom.groupby('subpocket').median()
+
+    all_descriptors = pd.concat(
+        [
+            descriptors_median,
+            descriptors_reduced_median,
+            descriptors_custom_median,
+        ],
+        axis=1,
+        keys=["pre-filtered", "reduced", "custom"]
+    )
+    # style creates strange floats
+    all_descriptors = all_descriptors.style.set_properties(
+        **{"background-color": "lightgrey"},
+        subset=["pre-filtered", "custom"],
+    ).set_precision(precision=2)
+
+    display(all_descriptors)
+
+    fig, ax = pylt.subplots(nrows=1, ncols=1)
+    # get y axis limits
+    ylims = pd.DataFrame()
+    for i, descriptor_name in enumerate(descriptors.columns[3:]):
+
+        ax = sns.boxplot(
+            x="subpocket",
+            y=descriptor_name,
+            data=descriptors,
+            medianprops={"linewidth": 3, "linestyle": "-"},
+        )
+        ylims[i] = ax.get_ylim()
+    pylt.close(fig)     # avoid plotting because we only generated this to get the ylim values
+
+    print("\033[47;1m pre-filtered fragment library \033[0m")
+    plt = plots.plot_fragment_descriptors(descriptors, ylims)
+    plt.show()
+
+    print("\033[47;1m reduced fragment library \033[0m")
+    plt_reduced = plots.plot_fragment_descriptors(descriptors_reduced, ylims)
+    plt_reduced.show()
+
+    print("\033[47;1m custom filtered fragment library \033[0m")
+    plt_custom = plots.plot_fragment_descriptors(descriptors_custom, ylims)
+    plt_custom.show()
+
+
+def get_descriptors_filters(fragment_library_filter_res, bool_keys):
+    """
+    Get #HBA #HBD, LogP and #Heavy Atoms for all fragments passing a filter step.
+
+    Parameters
+    ----------
+    fragment_library_filter_res : dict
+        pre-filtered fragment library organized in subpockets containing the filtering results
+    bool_keys : list
+        of strings containing the names of the boolean columns defining if a fragment passed a
+        filter or not
+
+    Returns
+    ----------
+    DataFrame
+        containing the descriptors for each filtered set
+
+    """
+    # first calculate the descriptors from the pre-filtered library and plot them
+    print("\033[47;1m pre-filtered fragment library \033[0m")
+    descriptors = kfl_utils.get_descriptors_by_fragments(fragment_library_filter_res)
+    descriptors_median = descriptors.groupby('subpocket').median()
+
+    fig, ax = pylt.subplots(nrows=1, ncols=1)
+    # get y axis limits
+    ylims = pd.DataFrame()
+    for i, descriptor_name in enumerate(descriptors.columns[3:]):
+        ax = sns.boxplot(
+            x="subpocket",
+            y=descriptor_name,
+            data=descriptors,
+            medianprops={"linewidth": 3, "linestyle": "-"},
+        )
+
+        ylims[i] = ax.get_ylim()
+    pylt.close(fig)    # avoid plotting because we only generated this to get the ylim values
+
+    plt = plots.plot_fragment_descriptors(descriptors, ylims)
+    plt.show()
+    descriptor_dfs = {"pre-filtered": descriptors_median}   # add descriptors to a dataframe
+    # iterate through the filters boolean columns, calculate the descriptor for passing fragments
+    # and create the plots
+    for bool_key in bool_keys:
+        fraglib_concat = pd.concat(fragment_library_filter_res)
+        fraglib_filter = fraglib_concat[fraglib_concat[bool_key] == 1]
+        fraglib_filter = prefilters._make_df_dict(fraglib_filter)
+        descriptors = kfl_utils.get_descriptors_by_fragments(fraglib_filter)
+        descriptors_median = descriptors.groupby('subpocket').median()
+        descriptor_dfs[bool_key] = descriptors_median   # add the descriptors to the descriptor df
+
+        print("\033[47;1m " + bool_key.replace("bool_", "") + " filtered \033[0m")
+        plt = plots.plot_fragment_descriptors(descriptors, ylims)
+        plt.show()
+    # return the descriptors dataframe
+    return(descriptor_dfs)
+
+
+def filter_res_in_fraglib(fragment_library, filter_results):
+    """
+    Add the filtering results to the fragment library.
+
+    Parameters
+    ----------
+    fragment_library : dict
+        pre-filtered fragment library organized in subpockets containing the filtering results
+    filter_results : DataFrame
+        containing the fragments SMILES, the subpocket and the filtering results
+
+    Returns
+    ----------
+    dict
+        pre-filtered fragment library organized in subpockets containing the filtering results
+    list
+        of strings with the boolean column names for the filters
+
+    """
+    # set subpocket and smiles as index to add the filter results to the correct fragment
+    filter_results = filter_results.set_index(["subpocket", "smiles"])
+
+    fragment_library_concat = pd.concat(fragment_library)
+    fragment_library_concat = fragment_library_concat.set_index(["subpocket", "smiles"])
+    # merge the 2 dataframes
+    fraglib_filters = fragment_library_concat.merge(
+        filter_results,
+        left_on=['subpocket', 'smiles'],
+        right_on=['subpocket', 'smiles'],
+        how="outer"
+    )
+
+    # get the list of boolean values, defining if a fragment is passing a specific filter or not
+    bool_keys = [x for x in filter_results.keys().to_list() if "bool" in x]
+
+    # set index to subpocket again and crate dict
+    fraglib_filters = fraglib_filters.reset_index()
+    fraglib_filters.set_index(["subpocket"])
+
+    fragment_library_filter_res = prefilters._make_df_dict(fraglib_filters)
+
+    # return fragment library dict with the filtering results and the boolean keys
+    return fragment_library_filter_res, bool_keys
+
+
+def cluster_fragment_library(fragment_library):
+    # function copied from https://github.com/volkamerlab/KinFragLib/blob/master/notebooks/2_3_fragment_analysis_most_common_fragments.ipynb and adapted  # noqa: E501
+    """
+    Get most common fragments from the complete library and clusters the fragments.
+    Add column in which subpocket(s) the fragment occurs.
+
+    Parameters
+    ----------
+    fragment_library : dict of pandas.DataFrame
+        Fragment details (values), i.e. SMILES, kinase groups, and fragment RDKit molecules,
+        for each subpocket (key).
+
+    Returns
+    -------
+    pandas.DataFrame
+        Clustered fragments (ID, SMILES, ROMol, cluster ID, fragment count, subpockets).
+    """
+
+    # Get most common fragments
+
+    fragment_library_concat = pd.concat(fragment_library)
+    most_common_fragments = kfl_utils.get_most_common_fragments(
+        fragment_library_concat,
+        top_x=len(fragment_library_concat["ROMol"]),
+    )
+
+    # Cluster fingerprints
+    clusters = kfl_utils.cluster_molecules(most_common_fragments["ROMol"], cutoff=0.6)
+
+    # Link fragments to cluster ID
+    clustered_fragments = most_common_fragments.merge(
+        clusters,
+        on='molecule_id'
+    )
+
+    clustered_fragments.sort_values(
+        ['cluster_id', 'fragment_count'],
+        ascending=[True, False],
+        inplace=True
+    )
+
+    clustered_fragments.reset_index(inplace=True, drop=True)
+
+    # get information in which subpockets the fragments occur.
+    subpockets = []
+    for smiles in clustered_fragments["smiles"]:
+        subpocket_lst = []
+        for subpocket in fragment_library.keys():
+            if not fragment_library[subpocket][fragment_library[subpocket]["smiles"] == smiles].empty:  # noqa E501
+                subpocket_lst.append(subpocket)
+        subpockets.append(subpocket_lst)
+
+    clustered_fragments["subpockets"] = subpockets
+
+    clustered_fragments = clustered_fragments.rename(columns={"fragment_count": "subpocket_count"})
+
+    # sort clustered fragments by cluster and subpocket count
+    clustered_fragments.sort_values(
+        by=['cluster_id', "subpocket_count"],
+        ascending=[True, True],
+        inplace=True,
+    )
+
+    return clustered_fragments
