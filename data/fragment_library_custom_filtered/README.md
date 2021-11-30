@@ -8,7 +8,7 @@ To reduce the fragment library size and enable the recombination avoiding the re
 2. Filter for unwanted substructures (PAINS and Brenk et al.) \[optional\]
 3. Filter for drug likeness (Ro3 and QED) \[optional\]
 4. Filter for synthesizability (Buyable building blocks and SYBA) \[optional\]
-5. filter for pairwise retrosynthesizability (using ASKCOS) \[optional\]
+5. Filter for pairwise retrosynthesizability (using ASKCOS) \[optional\]
 
 - `custom_filter_results.csv`: file containing the filtering results from the analysis applied, including the fragments SMILES and the fragments subpocket as indices and the values and boolean columns for each fragment (from the pre-filtered library) retrieved by the filtering steps.
 
