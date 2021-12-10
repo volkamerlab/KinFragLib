@@ -468,7 +468,7 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results):
     tsne_df["smiles"] = saved_filter_results["smiles"]
 
     # create the plots for all filters
-    plt.figure(figsize=(15, 15))
+    plt.figure(figsize=(15, 21))
     i = 0
     for filter in filters:
         i = i + 1
