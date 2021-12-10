@@ -35,6 +35,7 @@ def check_building_blocks(fragment_library, path_to_building_blocks):
     bools_enamine = []
     # store Enamine Building Blocks from DatWarrioir SDF file
     bb_mols = _read_bb_sdf(path_to_building_blocks)
+    print("Number of building blocks: %s" % len(bb_mols))
 
     # go through fragment library and Enamine Building Blocks and check if the fragments are
     # substructures of any Enamine Building Block loaded.
