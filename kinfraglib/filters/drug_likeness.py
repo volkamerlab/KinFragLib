@@ -22,11 +22,11 @@ def get_ro3_frags(fragment_library, min_fulfilled=6, cutoff_crit=">="):
     fragment_library : dict
         fragments organized in subpockets including all information
     min_fulfilled : int
-        defining the minimum number of Rule of Three Criteria that need to be fulfilled to be
+        defining the number of Rule of Three Criteria that need to be fulfilled to be
         accepted. By default min_fulfilled=6.
     cutoff_crit : str
-        Cutoff criterium, defining if the number of fulfilled parameters is ">", "<", "==", ">="
-        or "<=" than min_fulfilled. By default cutoff_crit=">=".
+        Cutoff criterium, defining if the number of fulfilled parameters is ">" or ">="
+        than min_fulfilled. By default cutoff_crit=">=".
 
     Returns
     -------
