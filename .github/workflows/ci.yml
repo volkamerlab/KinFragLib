@@ -33,13 +33,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # More info on options: https://github.com/conda-incubator/setup-miniconda
       - uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: ${{ matrix.cfg.python-version }}
-          activate-environment: kinfraglib
-          channel-priority: true
+          mamba-version: "*"
           environment-file: environment.yml
+          channels: conda-forge,defaults
+          activate-environment: kinfraglib
+          auto-update-conda: false
           auto-activate-base: false
+          show-channel-urls: true
 
       - name: Additional info about the build
         shell: bash
