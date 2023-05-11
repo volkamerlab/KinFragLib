@@ -23,4 +23,4 @@ Step 1 is necessary to focus on fragments tailored for the recombination, wherea
 - `N_REPRESENTED_FRAGMENTS` = 10
 - `INCLUDE_SINGLETONS` = True
 
-Please refer to the notebook `notebooks/3_1_fragment_library_reduced.ipynb` to check how the data was generated and/or use it as a starting point for customized protocols.
+Please refer to the notebook `notebooks/kinfraglib/3_1_fragment_library_reduced.ipynb` to check how the data was generated and/or use it as a starting point for customized protocols.
