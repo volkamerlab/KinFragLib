@@ -13,14 +13,14 @@ dependencies:
   - jupyterlab
   - matplotlib
   - numpy
-  - pandas>=2.1.0    
+  - pandas=2.0    
   - rdkit=2023.03
   - scikit-learn
   - seaborn
   - opencadd
   ## CI tests
-  # Workaround for https://github.com/computationalmodelling/nbval/issues/153
-  - pytest 5.*
+  # Workaround for https://github.com/computationalmodelling/nbval/issues/153 -> SOLVED? TODO
+  - pytest # 5.*
   - pytest-xdist
   - nbval
   - shyaml

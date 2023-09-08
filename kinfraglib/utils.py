@@ -495,7 +495,7 @@ def draw_fragmented_ligand(
         mols = fragmented_ligand.ROMol.tolist()
 
     img = Draw.MolsToGridImage(
-        mols, legends=fragmented_ligand.subpocket.tolist(), molsPerRow=mols_per_row
+        mols, legends=fragmented_ligand.subpocket.tolist(), molsPerRow=mols_per_row, returnPNG=False  # to prevent image save error: https://stackoverflow.com/questions/65470233/attributeerror-image-object-has-no-attribute-save
     )
 
     return img
@@ -530,7 +530,7 @@ def draw_fragments_from_recombined_ligand(fragment_ids, fragment_library):
         fragments.append(fragment.ROMol_dummy)
         subpockets.append(subpocket)
 
-    img = Draw.MolsToGridImage(mols=fragments, legends=subpockets, molsPerRow=6)
+    img = Draw.MolsToGridImage(mols=fragments, legends=subpockets, molsPerRow=6, returnPNG=False) # to prevent image save error: https://stackoverflow.com/questions/65470233/attributeerror-image-object-has-no-attribute-save
 
     return img
 
@@ -557,7 +557,7 @@ def _get_descriptors_from_mol(mol):
     size = mol.GetNumHeavyAtoms()
 
     return pd.Series(
-        [smiles, mol, hbd, hba, logp, size], index="smiles mol hbd hba logp size".split()
+        [smiles, mol, hbd, hba, logp, size], index="smiles mol hbd hba logp size".split()  # TODO why smiles
     )
 
 
@@ -613,6 +613,7 @@ def get_descriptors_by_fragments(fragment_library):
     descriptors = pd.concat(descriptors).reset_index()
 
     descriptors.drop("level_1", axis=1, inplace=True)
+
     descriptors.rename(
         columns={
             "level_0": "subpocket",
@@ -1032,7 +1033,7 @@ def draw_fragments(fragments, mols_per_row=10, max_mols=50):
             if x.alt == " "
             else f"{x.complex_pdb}|{x.chain}|{x.alt}:{x.ligand_pdb}",
             axis=1,
-        ).to_list(),
+        ).to_list(), returnPNG=False  # to prevent image save error: https://stackoverflow.com/questions/65470233/attributeerror-image-object-has-no-attribute-save
     )
 
     return image
@@ -1128,7 +1129,7 @@ def draw_ligands_from_pdb_ids(
         legends.append(f'{structure["complex_pdb"]}:{structure["ligand_pdb"]}')
 
     image = Draw.MolsToGridImage(
-        mols, subImgSize=sub_img_size, legends=legends, molsPerRow=mols_per_row, maxMols=max_mols
+        mols, subImgSize=sub_img_size, legends=legends, molsPerRow=mols_per_row, maxMols=max_mols, returnPNG=False  # to prevent image save error: https://stackoverflow.com/questions/65470233/attributeerror-image-object-has-no-attribute-save
     )
 
     return image

@@ -64,7 +64,7 @@ fragments in order to generate novel potential inhibitors.
     # Create environment
     conda env create -f environment.yml
     # When using a MacBook with an M1 chip you may need instead:
-    CONDA_SUBDIR=osx-64 conda env create -f devtools/conda-envs/environment.yml
+    CONDA_SUBDIR=osx-64 conda env create -f environment.yml
 
     # Activate environment
     conda activate kinfraglib
