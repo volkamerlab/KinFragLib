@@ -14,7 +14,7 @@ dependencies:
   - matplotlib
   - numpy
   - pandas=2.0    
-  - rdkit=2023.03
+  - rdkit=2021.09
   - scikit-learn
   - seaborn
   - opencadd
