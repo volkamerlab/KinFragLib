@@ -495,7 +495,7 @@ def draw_fragmented_ligand(
         mols = fragmented_ligand.ROMol.tolist()
 
     img = Draw.MolsToGridImage(
-        mols, legends=fragmented_ligand.subpocket.tolist(), molsPerRow=mols_per_row, returnPNG=False  # to prevent image save error: https://stackoverflow.com/questions/65470233/attributeerror-image-object-has-no-attribute-save
+        mols, legends=fragmented_ligand.subpocket.tolist(), molsPerRow=mols_per_row , returnPNG=False  # to prevent image save error: https://stackoverflow.com/questions/65470233/attributeerror-image-object-has-no-attribute-save
     )
 
     return img
