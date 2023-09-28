@@ -1,8 +1,8 @@
 # Reduced fragment library
 
-The (full) fragment library resulting from the KinFragLib fragmentation procedure comprises of 7486 fragments, which are the basis for exploring the subpocket-based chemical space of ligands co-crystallized with kinases (see `data/fragment_library/`).
+The (full) fragment library resulting from the KinFragLib fragmentation procedure comprises of 9304 fragments, which are the basis for exploring the subpocket-based chemical space of ligands co-crystallized with kinases (see `data/fragment_library/`).
 
-In order to demonstrate how this library can be used for recombining ligands, we offer here a reduced fragment library (624 fragments) based on the following filters:
+In order to demonstrate how this library can be used for recombining ligands, we offer here a reduced fragment library (721 fragments) based on the following filters:
 
 1. Remove all fragments that are not useful in a recombination. Check `data/fragment_library_filtered/`.
 2. Select a diverse set of fragments (per subpocket) for recombination to (i) save computational cost and (ii) avoid recombination of highly similar fragments.
