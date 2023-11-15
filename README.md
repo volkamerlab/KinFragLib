@@ -99,7 +99,7 @@ This resource is licensed under the [MIT](https://opensource.org/licenses/MIT) l
 
 ## Citation
 
-Sydow, D., Schmiel, P., Mortier, J., and Volkamer, A. KinFragLib: Exploring the Kinase Inhibitor Space Using Subpocket-Focused Fragmentation and Recombination. J. Chem. Inf. Model. 2020. https://pubs.acs.org/doi/abs/10.1021/acs.jcim.0c00839
+[Sydow, D., Schmiel, P., Mortier, J., and Volkamer, A. KinFragLib: Exploring the Kinase Inhibitor Space Using Subpocket-Focused Fragmentation and Recombination. J. Chem. Inf. Model. 2020. https://pubs.acs.org/doi/abs/10.1021/acs.jcim.0c00839](CITATION.bib)
 
 ```bib
 @article{doi:10.1021/acs.jcim.0c00839,
