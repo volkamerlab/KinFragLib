@@ -48,6 +48,7 @@ def add_values(fragment_library, values, colname):
     pocket_num = (
         0  # helper variable to count which subpocket index is the current index
     )
+    values = [val for val in values if len(val)] # colums that are not empty
     for subpocket in fragment_library.keys():
         # add value list with the current subpocket index to the fragment library
         fragment_library[subpocket][colname] = values[pocket_num]
