@@ -177,7 +177,7 @@ def accepted_num_filters(fragment_library, colnames, filtername, max_num_accepte
     # make numbers int not float (nicer to read)
     counted_df = counted_df.astype(int)
     # add a total number row at the end
-    counted_df = counted_df.append(counted_df.sum().rename("Total"))
+    counted_df = pd.concat([counted_df, counted_df.sum().rename("Total").to_frame().T])
     # add the chosen title to the DataFrame
     counted_df = counted_df.style.set_caption(filtername)
     return counted_df
