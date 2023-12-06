@@ -251,7 +251,7 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
                         fragment_library[subpocket]["retro_count"] == 0
                     ].ROMol
                 ),
-            ),
+            ), returnPNG=False
         )
         return img
     elif evaluate == "max":
@@ -285,7 +285,7 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
                     "retro_count"
                 ]
                 .astype(str)
-            ),
+            ), returnPNG=False
         )
         return img
 
