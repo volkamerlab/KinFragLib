@@ -965,7 +965,7 @@ def plot_fragment_similarity(similarities_by_group, group_name):
             data=similarities_by_group,
             palette=SUBPOCKET_COLORS,
         )
-    except KeyError:
+    except ValueError:
         ax = sns.boxplot(
             x=similarities_by_group.columns[1],
             y=similarities_by_group.columns[0],
@@ -1023,7 +1023,6 @@ def draw_fragments(fragments, mols_per_row=10, max_mols=50):
     PIL.PngImagePlugin.PngImageFile
         Image of fragments.
     """
-
     image = Draw.MolsToGridImage(
         fragments.ROMol,
         molsPerRow=mols_per_row,
