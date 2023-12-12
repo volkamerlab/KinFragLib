@@ -148,10 +148,9 @@ def start_pipeline(
                 ],
                 axis=1,
             )
-            num_fragments_pains = num_fragments_pains.append(
-                num_fragments_pains.sum().rename("Total")
+            num_fragments_pains = pd.concat(
+                [num_fragments_pains, num_fragments_pains.sum().rename("Total").to_frame().T]
             )
-
             display(num_fragments_pains)
     # if brenk_filter is activated, apply brenk filter with the given parameters
     if brenk_parameters.get("brenk_filter"):
@@ -173,8 +172,8 @@ def start_pipeline(
                 ],
                 axis=1,
             )
-            num_fragments_brenk = num_fragments_brenk.append(
-                num_fragments_brenk.sum().rename("Total")
+            num_fragments_brenk = pd.concat(
+                [num_fragments_brenk, num_fragments_brenk.sum().rename("Total").to_frame().T]
             )
             display(num_fragments_brenk)
 
@@ -201,10 +200,9 @@ def start_pipeline(
                 ],
                 axis=1,
             )
-            num_fragments_ro3 = num_fragments_ro3.append(
-                num_fragments_ro3.sum().rename("Total")
+            num_fragments_ro3 = pd.concat(
+                [num_fragments_ro3, num_fragments_ro3.sum().rename("Total").to_frame().T]
             )
-
             display(num_fragments_ro3)
 
     # if qed_filter is activated, apply qed filter with the given parameters
@@ -233,8 +231,8 @@ def start_pipeline(
                 ],
                 axis=1,
             )
-            num_fragments_qed = num_fragments_qed.append(
-                num_fragments_qed.sum().rename("Total")
+            num_fragments_qed = pd.concat(
+                [num_fragments_qed, num_fragments_qed.sum().rename("Total").to_frame().T]
             )
             display(num_fragments_qed)
 
@@ -267,8 +265,8 @@ def start_pipeline(
                 ],
                 axis=1,
             )
-            num_fragments_bb = num_fragments_bb.append(
-                num_fragments_bb.sum().rename("Total")
+            num_fragments_bb = pd.concat(
+                [num_fragments_bb, num_fragments_bb.sum().rename("Total").to_frame().T]
             )
             display(num_fragments_bb)
 
@@ -299,8 +297,8 @@ def start_pipeline(
                 ],
                 axis=1,
             )
-            num_fragments_syba = num_fragments_syba.append(
-                num_fragments_syba.sum().rename("Total")
+            num_fragments_syba = pd.concat(
+                [num_fragments_syba, num_fragments_syba.sum().rename("Total").to_frame().T]
             )
             display(num_fragments_syba)
         if syba_parameters.get("do_plot"):
@@ -358,7 +356,9 @@ def start_pipeline(
             axis=1,
         )
     )
-    frags_for_retro = frags_for_retro.append(frags_for_retro.sum().rename("Total"))
+    frags_for_retro = pd.concat(
+        [frags_for_retro, frags_for_retro.sum().rename("Total").to_frame().T]
+    )
     display(frags_for_retro)
 
     if retro_parameters.get("retro_filter"):
@@ -411,14 +411,14 @@ def start_pipeline(
                     subpocket=subpocket,
                     molsPerRow=10,
                 )
-                plt1.show()
+                display(plt1)
                 plt2 = filters.plots.retro_routes_fragments(
                     fragment_library,
                     evaluate="max",
                     subpocket=subpocket,
                     molsPerRow=10,
                 )
-                plt2.show()
+                display(plt2)
 
         # load results from filtering steps and add the pairwise retrosynthesizability results
         saved_filter_results = pd.read_csv(
