@@ -280,7 +280,7 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP GA
 
 >  <atom.prop.environment>  (4) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 5 5 na na
+14 14 14 14 14 14 16 14 14 14 14 14 14 14 14 14 14 14 14 14 5 5 na na
 
 $$$$
 6zgc_chainA
@@ -353,7 +353,7 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP GA
 
 >  <atom.prop.environment>  (5) 
-14 14 14 14 14 14 5 5 14 14 14 14 14 14 14 na na na
+16 16 16 16 16 14 5 5 16 16 16 16 16 16 16 na na na
 
 $$$$
 6gin_altB_chainB
@@ -423,7 +423,7 @@ B
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE GA
 
 >  <atom.prop.environment>  (6) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+9 9 9 9 9 9 9 16 9 9 9 9 9 9 9 na na
 
 $$$$
 4eoi_altB_chainC
@@ -564,7 +564,68 @@ C
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE
 
 >  <atom.prop.environment>  (8) 
-14 14 14 14 14 14 14 14 14 14 14 14 6 6 na na
+14 16 16 16 16 16 16 16 16 16 16 16 1 1 na na
+
+$$$$
+2exm_chainA
+     RDKit          3D
+
+ 13 14  0  0  0  0  0  0  0  0999 V2000
+   -0.1714   17.0938   42.0663 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2707   18.4229   41.7310 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9067   18.9521   40.5875 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1455   19.4478   42.6479 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6171   20.5959   42.1232 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6071   21.5199   42.5310 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1093   20.2154   40.9156 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6323   20.9015   40.2659 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.4634   19.1598   43.9172 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.9020   17.9339   44.1209 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.4113   17.7201   45.0490 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7545   16.9738   43.2676 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0621   15.9293   41.2316 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0
+  1 12  1  0
+  2  3  1  0
+  2  4  1  0
+  3  7  2  0
+  4  5  1  0
+  4  9  2  0
+  5  6  1  0
+  5  7  1  0
+  7  8  1  0
+  9 10  1  0
+ 10 11  1  0
+ 10 12  2  0
+ 13  1  1  0
+V   13 *
+M  END
+>  <kinase>  (9) 
+CDK2
+
+>  <family>  (9) 
+CDK
+
+>  <group>  (9) 
+CMGC
+
+>  <complex_pdb>  (9) 
+2exm
+
+>  <ligand_pdb>  (9) 
+ZIP
+
+>  <alt>  (9) 
+ 
+
+>  <chain>  (9) 
+A
+
+>  <atom.prop.subpocket>  (9) 
+AP AP AP AP AP AP AP AP AP AP AP AP FP
+
+>  <atom.prop.environment>  (9) 
+14 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$
 5and_chainA
@@ -604,87 +665,20 @@ $$$$
   1 15  1  0
 V   15 *
 M  END
->  <kinase>  (9) 
+>  <kinase>  (10) 
 CDK2
 
->  <family>  (9) 
+>  <family>  (10) 
 CDK
 
->  <group>  (9) 
+>  <group>  (10) 
 CMGC
 
->  <complex_pdb>  (9) 
+>  <complex_pdb>  (10) 
 5and
 
->  <ligand_pdb>  (9) 
-5JE
-
->  <alt>  (9) 
- 
-
->  <chain>  (9) 
-A
-
->  <atom.prop.subpocket>  (9) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE
-
->  <atom.prop.environment>  (9) 
-14 14 14 14 14 14 14 14 14 14 14 14 14 14 na
-
-$$$$
-4bdc_chainA
-     RDKit          3D
-
- 16 17  0  0  0  0  0  0  0  0999 V2000
-   -0.5903   20.5357   44.0002 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.0854   17.1458   45.2977 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.9248   19.0272   42.1608 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.1471   18.5197   45.1856 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.7116   19.0947   45.9046 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.4717   19.1759   44.1296 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.0340   21.0821   42.9689 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.0471   22.1488   42.8209 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.7903   20.3400   42.0676 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.2875   20.8561   41.2596 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.2724   18.4186   43.2040 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.3059   17.0128   43.3399 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.8644   16.4192   42.6313 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.3621   16.3988   44.3600 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.3323   15.3226   44.4448 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.7587   16.4557   46.4452 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  6  2  0
-  1  7  1  0
-  2  4  2  0
-  2 14  1  0
-  3  9  1  0
-  3 11  2  0
-  4  5  1  0
-  4  6  1  0
-  6 11  1  0
-  7  8  1  0
-  7  9  2  0
-  9 10  1  0
- 11 12  1  0
- 12 13  1  0
- 12 14  2  0
- 14 15  1  0
- 16  2  1  0
-V   16 *
-M  END
->  <kinase>  (10) 
-CHK2
-
->  <family>  (10) 
-RAD53
-
->  <group>  (10) 
-CAMK
-
->  <complex_pdb>  (10) 
-4bdc
-
 >  <ligand_pdb>  (10) 
-ODH
+5JE
 
 >  <alt>  (10) 
  
@@ -693,10 +687,10 @@ ODH
 A
 
 >  <atom.prop.subpocket>  (10) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE
 
 >  <atom.prop.environment>  (10) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
+14 14 14 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$
 4otr_chainA
@@ -761,7 +755,7 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
 
 >  <atom.prop.environment>  (11) 
-16 16 16 16 16 16 16 16 8 8 8 8 16 na na
+16 16 16 16 16 16 16 9 8 8 8 8 16 na na
 
 $$$$
 7akg_altB_chainA
@@ -977,7 +971,7 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE GA
 
 >  <atom.prop.environment>  (14) 
-16 16 16 16 16 16 16 16 16 16 16 5 5 na na na
+14 14 14 14 14 16 14 14 14 14 14 5 5 na na na
 
 $$$$
 3q4t_altA_chainB
@@ -1108,6 +1102,130 @@ AP AP AP AP AP AP AP AP AP AP AP AP FP GA
 14 14 14 14 14 14 14 14 14 14 14 14 na na
 
 $$$$
+5opr_chainA
+     RDKit          3D
+
+ 13 13  0  0  0  0  0  0  0  0999 V2000
+   -0.5136   19.9896   44.0527 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5280   20.9683   42.2923 N   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0336   20.9274   41.4189 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2909   21.8628   42.6971 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.4499   18.5231   42.4402 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0047   17.4377   43.1577 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1913   16.4326   42.8147 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7241   17.6583   44.3377 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.9589   18.9432   44.7652 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.5057   19.1120   45.6811 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1663   19.8188   42.9234 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1124   18.2669   41.1440 *   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.2428   16.5309   45.1550 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  9  2  0
+  1 11  1  0
+  2  3  1  0
+  2  4  1  0
+  2 11  1  0
+  5  6  1  0
+  5 11  2  0
+  6  7  1  0
+  6  8  2  0
+  8  9  1  0
+  9 10  1  0
+ 12  5  1  0
+  8 13  1  0
+V   12 *
+V   13 *
+M  END
+>  <kinase>  (17) 
+CHK1
+
+>  <family>  (17) 
+CAMKL
+
+>  <group>  (17) 
+CAMK
+
+>  <complex_pdb>  (17) 
+5opr
+
+>  <ligand_pdb>  (17) 
+A3E
+
+>  <alt>  (17) 
+ 
+
+>  <chain>  (17) 
+A
+
+>  <atom.prop.subpocket>  (17) 
+AP AP AP AP AP AP AP AP AP AP AP FP SE
+
+>  <atom.prop.environment>  (17) 
+14 5 5 5 16 14 14 16 14 14 14 na na
+
+$$$$
+2xp2_chainA
+     RDKit          3D
+
+ 14 14  0  0  0  0  0  0  0  0999 V2000
+    2.0105   19.3121   41.9085 O   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0289   19.2884   42.9114 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6512   18.1321   43.6864 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1343   17.1845   43.4991 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.3393   20.5087   43.2274 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6605   21.6797   42.5137 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1875   22.5465   42.7262 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3639   21.6528   41.7894 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.6147   20.6204   44.1856 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.9511   19.5082   44.9010 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.7110   19.6040   45.6624 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.3561   18.2232   44.7014 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5454   18.1459   41.1925 *   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7553   17.0013   45.5192 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  2  3  2  0
+  2  5  1  0
+  3  4  1  0
+  3 12  1  0
+  5  6  1  0
+  5  9  2  0
+  6  7  1  0
+  6  8  1  0
+  9 10  1  0
+ 10 11  1  0
+ 10 12  2  0
+ 13  1  1  0
+ 12 14  1  0
+V   13 *
+V   14 *
+M  END
+>  <kinase>  (18) 
+ALK
+
+>  <family>  (18) 
+ALK
+
+>  <group>  (18) 
+TK
+
+>  <complex_pdb>  (18) 
+2xp2
+
+>  <ligand_pdb>  (18) 
+VGH
+
+>  <alt>  (18) 
+ 
+
+>  <chain>  (18) 
+A
+
+>  <atom.prop.subpocket>  (18) 
+AP AP AP AP AP AP AP AP AP AP AP AP FP SE
+
+>  <atom.prop.environment>  (18) 
+3 16 16 16 14 5 5 5 16 16 16 16 na na
+
+$$$$
 5he1_altA_chainA
      RDKit          3D
 
@@ -1145,31 +1263,31 @@ $$$$
  15  1  1  0
 V   15 *
 M  END
->  <kinase>  (17) 
+>  <kinase>  (19) 
 BARK1
 
->  <family>  (17) 
+>  <family>  (19) 
 GRK
 
->  <group>  (17) 
+>  <group>  (19) 
 AGC
 
->  <complex_pdb>  (17) 
+>  <complex_pdb>  (19) 
 5he1
 
->  <ligand_pdb>  (17) 
+>  <ligand_pdb>  (19) 
 ZS2
 
->  <alt>  (17) 
+>  <alt>  (19) 
 A
 
->  <chain>  (17) 
+>  <chain>  (19) 
 A
 
->  <atom.prop.subpocket>  (17) 
+>  <atom.prop.subpocket>  (19) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (17) 
+>  <atom.prop.environment>  (19) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -1215,32 +1333,32 @@ $$$$
 V   16 *
 V   17 *
 M  END
->  <kinase>  (18) 
+>  <kinase>  (20) 
 AurA
 
->  <family>  (18) 
+>  <family>  (20) 
 Aur
 
->  <group>  (18) 
+>  <group>  (20) 
 Other
 
->  <complex_pdb>  (18) 
+>  <complex_pdb>  (20) 
 3lau
 
->  <ligand_pdb>  (18) 
+>  <ligand_pdb>  (20) 
 OFI
 
->  <alt>  (18) 
+>  <alt>  (20) 
  
 
->  <chain>  (18) 
+>  <chain>  (20) 
 A
 
->  <atom.prop.subpocket>  (18) 
+>  <atom.prop.subpocket>  (20) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE GA
 
->  <atom.prop.environment>  (18) 
-16 16 16 16 16 16 16 16 16 16 5 5 16 16 16 na na
+>  <atom.prop.environment>  (20) 
+14 14 14 14 14 14 14 14 14 14 5 5 14 14 16 na na
 
 $$$$
 4dce_chainA
@@ -1274,31 +1392,31 @@ $$$$
 V   11 *
 V   12 *
 M  END
->  <kinase>  (19) 
+>  <kinase>  (21) 
 ALK
 
->  <family>  (19) 
+>  <family>  (21) 
 ALK
 
->  <group>  (19) 
+>  <group>  (21) 
 TK
 
->  <complex_pdb>  (19) 
+>  <complex_pdb>  (21) 
 4dce
 
->  <ligand_pdb>  (19) 
+>  <ligand_pdb>  (21) 
 0JF
 
->  <alt>  (19) 
+>  <alt>  (21) 
  
 
->  <chain>  (19) 
+>  <chain>  (21) 
 A
 
->  <atom.prop.subpocket>  (19) 
+>  <atom.prop.subpocket>  (21) 
 AP AP AP AP AP AP AP AP AP AP FP SE
 
->  <atom.prop.environment>  (19) 
+>  <atom.prop.environment>  (21) 
 5 5 14 14 14 14 14 14 14 14 na na
 
 $$$$
@@ -1333,31 +1451,31 @@ $$$$
 V   11 *
 V   12 *
 M  END
->  <kinase>  (20) 
+>  <kinase>  (22) 
 EGFR
 
->  <family>  (20) 
+>  <family>  (22) 
 EGFR
 
->  <group>  (20) 
+>  <group>  (22) 
 TK
 
->  <complex_pdb>  (20) 
+>  <complex_pdb>  (22) 
 7vre
 
->  <ligand_pdb>  (20) 
+>  <ligand_pdb>  (22) 
 7VH
 
->  <alt>  (20) 
+>  <alt>  (22) 
  
 
->  <chain>  (20) 
+>  <chain>  (22) 
 A
 
->  <atom.prop.subpocket>  (20) 
+>  <atom.prop.subpocket>  (22) 
 AP AP AP AP AP AP AP AP AP AP SE FP
 
->  <atom.prop.environment>  (20) 
+>  <atom.prop.environment>  (22) 
 14 14 14 14 14 14 5 5 14 14 na na
 
 $$$$
@@ -1400,31 +1518,31 @@ $$$$
  16  1  2  0
 V   16 *
 M  END
->  <kinase>  (21) 
+>  <kinase>  (23) 
 CDK5
 
->  <family>  (21) 
+>  <family>  (23) 
 CDK
 
->  <group>  (21) 
+>  <group>  (23) 
 CMGC
 
->  <complex_pdb>  (21) 
+>  <complex_pdb>  (23) 
 1unh
 
->  <ligand_pdb>  (21) 
+>  <ligand_pdb>  (23) 
 IXM
 
->  <alt>  (21) 
+>  <alt>  (23) 
  
 
->  <chain>  (21) 
+>  <chain>  (23) 
 A
 
->  <atom.prop.subpocket>  (21) 
+>  <atom.prop.subpocket>  (23) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE
 
->  <atom.prop.environment>  (21) 
+>  <atom.prop.environment>  (23) 
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 na
 
 $$$$
@@ -1475,31 +1593,31 @@ $$$$
  18 20  1  0
 V   20 *
 M  END
->  <kinase>  (22) 
+>  <kinase>  (24) 
 CDK2
 
->  <family>  (22) 
+>  <family>  (24) 
 CDK
 
->  <group>  (22) 
+>  <group>  (24) 
 CMGC
 
->  <complex_pdb>  (22) 
+>  <complex_pdb>  (24) 
 1ke5
 
->  <ligand_pdb>  (22) 
+>  <ligand_pdb>  (24) 
 LS1
 
->  <alt>  (22) 
+>  <alt>  (24) 
  
 
->  <chain>  (22) 
+>  <chain>  (24) 
 A
 
->  <atom.prop.subpocket>  (22) 
+>  <atom.prop.subpocket>  (24) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE
 
->  <atom.prop.environment>  (22) 
+>  <atom.prop.environment>  (24) 
 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 na
 
 $$$$
@@ -1552,32 +1670,32 @@ $$$$
 V   19 *
 V   20 *
 M  END
->  <kinase>  (23) 
+>  <kinase>  (25) 
 CHK1
 
->  <family>  (23) 
+>  <family>  (25) 
 CAMKL
 
->  <group>  (23) 
+>  <group>  (25) 
 CAMK
 
->  <complex_pdb>  (23) 
+>  <complex_pdb>  (25) 
 4fsn
 
->  <ligand_pdb>  (23) 
+>  <ligand_pdb>  (25) 
 A58
 
->  <alt>  (23) 
+>  <alt>  (25) 
 A
 
->  <chain>  (23) 
+>  <chain>  (25) 
 A
 
->  <atom.prop.subpocket>  (23) 
+>  <atom.prop.subpocket>  (25) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE GA
 
->  <atom.prop.environment>  (23) 
-14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na na
+>  <atom.prop.environment>  (25) 
+16 16 16 16 16 16 16 16 16 16 16 16 16 16 14 16 16 16 na na
 
 $$$$
 2b52_chainA
@@ -1627,32 +1745,32 @@ $$$$
 V   18 *
 V   19 *
 M  END
->  <kinase>  (24) 
+>  <kinase>  (26) 
 CDK2
 
->  <family>  (24) 
+>  <family>  (26) 
 CDK
 
->  <group>  (24) 
+>  <group>  (26) 
 CMGC
 
->  <complex_pdb>  (24) 
+>  <complex_pdb>  (26) 
 2b52
 
->  <ligand_pdb>  (24) 
+>  <ligand_pdb>  (26) 
 D42
 
->  <alt>  (24) 
+>  <alt>  (26) 
  
 
->  <chain>  (24) 
+>  <chain>  (26) 
 A
 
->  <atom.prop.subpocket>  (24) 
+>  <atom.prop.subpocket>  (26) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE
 
->  <atom.prop.environment>  (24) 
-14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na na
+>  <atom.prop.environment>  (26) 
+16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 14 16 na na
 
 $$$$
 3krw_chainA
@@ -1687,31 +1805,31 @@ $$$$
  13  1  1  0
 V   13 *
 M  END
->  <kinase>  (25) 
+>  <kinase>  (27) 
 BARK1
 
->  <family>  (25) 
+>  <family>  (27) 
 GRK
 
->  <group>  (25) 
+>  <group>  (27) 
 AGC
 
->  <complex_pdb>  (25) 
+>  <complex_pdb>  (27) 
 3krw
 
->  <ligand_pdb>  (25) 
+>  <ligand_pdb>  (27) 
 BA1
 
->  <alt>  (25) 
+>  <alt>  (27) 
  
 
->  <chain>  (25) 
+>  <chain>  (27) 
 A
 
->  <atom.prop.subpocket>  (25) 
+>  <atom.prop.subpocket>  (27) 
 AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (25) 
+>  <atom.prop.environment>  (27) 
 16 16 16 16 16 16 3 3 16 16 16 16 na
 
 $$$$
@@ -1752,31 +1870,31 @@ $$$$
  15  1  1  0
 V   15 *
 M  END
->  <kinase>  (26) 
+>  <kinase>  (28) 
 AurC
 
->  <family>  (26) 
+>  <family>  (28) 
 Aur
 
->  <group>  (26) 
+>  <group>  (28) 
 Other
 
->  <complex_pdb>  (26) 
+>  <complex_pdb>  (28) 
 6gr8
 
->  <ligand_pdb>  (26) 
+>  <ligand_pdb>  (28) 
 F8Z
 
->  <alt>  (26) 
+>  <alt>  (28) 
 A
 
->  <chain>  (26) 
+>  <chain>  (28) 
 A
 
->  <atom.prop.subpocket>  (26) 
+>  <atom.prop.subpocket>  (28) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (26) 
+>  <atom.prop.environment>  (28) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -1809,31 +1927,31 @@ $$$$
 V   10 *
 V   11 *
 M  END
->  <kinase>  (27) 
+>  <kinase>  (29) 
 AurA
 
->  <family>  (27) 
+>  <family>  (29) 
 Aur
 
->  <group>  (27) 
+>  <group>  (29) 
 Other
 
->  <complex_pdb>  (27) 
+>  <complex_pdb>  (29) 
 4j8m
 
->  <ligand_pdb>  (27) 
+>  <ligand_pdb>  (29) 
 CJ5
 
->  <alt>  (27) 
+>  <alt>  (29) 
  
 
->  <chain>  (27) 
+>  <chain>  (29) 
 A
 
->  <atom.prop.subpocket>  (27) 
+>  <atom.prop.subpocket>  (29) 
 AP AP AP AP AP AP AP AP AP SE GA
 
->  <atom.prop.environment>  (27) 
+>  <atom.prop.environment>  (29) 
 5 5 14 14 14 14 14 14 14 na na
 
 $$$$
@@ -1871,144 +1989,20 @@ $$$$
  14  1  1  0
 V   14 *
 M  END
->  <kinase>  (28) 
+>  <kinase>  (30) 
 ABL1
 
->  <family>  (28) 
-Abl
-
->  <group>  (28) 
-TK
-
->  <complex_pdb>  (28) 
-2f4j
-
->  <ligand_pdb>  (28) 
-VX6
-
->  <alt>  (28) 
- 
-
->  <chain>  (28) 
-A
-
->  <atom.prop.subpocket>  (28) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP SE
-
->  <atom.prop.environment>  (28) 
-5 5 14 14 14 14 14 14 14 8 8 8 8 na
-
-$$$$
-5opr_chainA
-     RDKit          3D
-
- 13 13  0  0  0  0  0  0  0  0999 V2000
-   -0.5136   19.9896   44.0527 N   0  0  0  0  0  0  0  0  0  0  0  0
-    0.5280   20.9683   42.2923 N   0  0  0  0  0  0  0  0  0  0  0  0
-    1.0336   20.9274   41.4189 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.2909   21.8628   42.6971 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.4499   18.5231   42.4402 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.0047   17.4377   43.1577 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1913   16.4326   42.8147 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.7241   17.6583   44.3377 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.9589   18.9432   44.7652 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.5057   19.1120   45.6811 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1663   19.8188   42.9234 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.1124   18.2669   41.1440 *   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.2428   16.5309   45.1550 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  9  2  0
-  1 11  1  0
-  2  3  1  0
-  2  4  1  0
-  2 11  1  0
-  5  6  1  0
-  5 11  2  0
-  6  7  1  0
-  6  8  2  0
-  8  9  1  0
-  9 10  1  0
- 12  5  1  0
-  8 13  1  0
-V   12 *
-V   13 *
-M  END
->  <kinase>  (29) 
-CHK1
-
->  <family>  (29) 
-CAMKL
-
->  <group>  (29) 
-CAMK
-
->  <complex_pdb>  (29) 
-5opr
-
->  <ligand_pdb>  (29) 
-A3E
-
->  <alt>  (29) 
- 
-
->  <chain>  (29) 
-A
-
->  <atom.prop.subpocket>  (29) 
-AP AP AP AP AP AP AP AP AP AP AP FP SE
-
->  <atom.prop.environment>  (29) 
-16 5 5 5 16 16 16 16 16 16 16 na na
-
-$$$$
-2xp2_chainA
-     RDKit          3D
-
- 14 14  0  0  0  0  0  0  0  0999 V2000
-    2.0105   19.3121   41.9085 O   0  0  0  0  0  0  0  0  0  0  0  0
-    1.0289   19.2884   42.9114 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.6512   18.1321   43.6864 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.1343   17.1845   43.4991 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.3393   20.5087   43.2274 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.6605   21.6797   42.5137 N   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1875   22.5465   42.7262 H   0  0  0  0  0  0  0  0  0  0  0  0
-    1.3639   21.6528   41.7894 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.6147   20.6204   44.1856 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.9511   19.5082   44.9010 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.7110   19.6040   45.6624 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.3561   18.2232   44.7014 C   0  0  0  0  0  0  0  0  0  0  0  0
-    2.5454   18.1459   41.1925 *   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.7553   17.0013   45.5192 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  1  0
-  2  3  2  0
-  2  5  1  0
-  3  4  1  0
-  3 12  1  0
-  5  6  1  0
-  5  9  2  0
-  6  7  1  0
-  6  8  1  0
-  9 10  1  0
- 10 11  1  0
- 10 12  2  0
- 13  1  1  0
- 12 14  1  0
-V   13 *
-V   14 *
-M  END
->  <kinase>  (30) 
-ALK
-
 >  <family>  (30) 
-ALK
+Abl
 
 >  <group>  (30) 
 TK
 
 >  <complex_pdb>  (30) 
-2xp2
+2f4j
 
 >  <ligand_pdb>  (30) 
-VGH
+VX6
 
 >  <alt>  (30) 
  
@@ -2017,146 +2011,140 @@ VGH
 A
 
 >  <atom.prop.subpocket>  (30) 
-AP AP AP AP AP AP AP AP AP AP AP AP FP SE
+AP AP AP AP AP AP AP AP AP AP AP AP AP SE
 
 >  <atom.prop.environment>  (30) 
-3 16 16 16 16 5 5 5 16 16 16 16 na na
+5 5 14 14 14 14 14 14 14 8 8 8 8 na
 
 $$$$
-2ycs_altB_chainA
+4au8_altB_chainB
      RDKit          3D
 
- 18 19  0  0  0  0  0  0  0  0999 V2000
-    0.9540   19.6598   42.1602 O   0  0  0  0  0  0  0  0  0  0  0  0
-    0.6138   18.4679   42.1110 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.1944   17.9843   43.2973 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.9726   18.7442   44.1435 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.0962   19.8161   44.0971 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.5540   17.9193   45.0404 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.1780   18.2140   45.7779 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.1810   16.6484   44.8088 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.5165   15.4707   45.4775 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.1811   15.4966   46.3283 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.9895   14.2715   45.0398 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.2353   13.3489   45.5447 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.1370   14.2680   43.9388 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.2756   13.3311   43.5948 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1991   15.4522   43.2652 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.8582   15.4260   42.4101 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.3248   16.6563   43.7104 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.8977   17.7013   41.0291 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  2  0
-  2  3  1  0
-  3  4  2  0
-  3 17  1  0
-  4  5  1  0
-  4  6  1  0
-  6  7  1  0
-  6  8  1  0
-  8  9  1  0
-  8 17  2  0
+ 14 15  0  0  0  0  0  0  0  0999 V2000
+    2.0554   20.7050   39.3376 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4616   21.6810   39.1167 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2620   19.6469   38.4471 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8375   19.8125   37.5484 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7372   18.3836   38.7020 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8921   17.5785   37.9990 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0073   18.1638   39.8757 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8136   19.2118   40.7927 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3396   20.5083   40.4892 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1721   21.3314   41.1680 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1188   18.8069   41.8770 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.2542   17.5609   41.9411 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2766   16.6845   40.5273 S   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.0739   16.9341   43.0102 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  2  0
+  1  9  1  0
+  3  4  1  0
+  3  5  1  0
+  5  6  1  0
+  5  7  2  0
+  7  8  1  0
+  7 13  1  0
+  8  9  2  0
+  8 11  1  0
   9 10  1  0
-  9 11  2  0
- 11 12  1  0
- 11 13  1  0
- 13 14  1  0
- 13 15  2  0
- 15 16  1  0
- 15 17  1  0
- 18  2  1  0
-V   18 *
+ 11 12  2  0
+ 12 13  1  0
+ 12 14  1  0
+V   14 *
 M  END
 >  <kinase>  (31) 
-CHK2
+CDK5
 
 >  <family>  (31) 
-RAD53
+CDK
 
 >  <group>  (31) 
-CAMK
+CMGC
 
 >  <complex_pdb>  (31) 
-2ycs
+4au8
 
 >  <ligand_pdb>  (31) 
-NXP
+Z3R
 
 >  <alt>  (31) 
 B
 
 >  <chain>  (31) 
-A
+B
 
 >  <atom.prop.subpocket>  (31) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
+AP AP AP AP AP AP AP AP AP AP AP AP AP SE
 
 >  <atom.prop.environment>  (31) 
-6 6 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
+14 14 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$
-2wtj_altB_chainA
+8p05_chainA
      RDKit          3D
 
- 15 15  0  0  0  0  0  0  0  0999 V2000
-    0.5603   18.2985   41.2359 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.0312   19.1967   40.6132 O   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.0754   18.5322   42.6259 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.4812   17.4116   43.3878 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.3232   16.4118   43.0114 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.0960   17.6105   44.6475 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.2924   18.9701   45.1522 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.7603   19.1200   46.1140 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.8775   20.0867   44.3972 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.2649   19.8943   43.1418 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1871   21.0527   42.3952 N   0  0  0  0  0  0  0  0  0  0  0  0
-    0.0610   21.9796   42.7761 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.6279   20.9324   41.4945 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.5034   16.9388   40.6883 *   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.5454   16.5342   45.4239 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  2  0
+ 16 17  0  0  0  0  0  0  0  0999 V2000
+    2.2980   19.3573   39.6467 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6280   20.2432   39.1245 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4906   19.6136   40.8424 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0035   18.5704   41.6381 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2611   17.5470   41.4082 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1890   18.8564   42.7225 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.5415   17.7563   43.8539 S   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.1415   19.1270   44.7402 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.7175   19.0043   45.6455 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.8668   20.3053   44.2660 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.1080   20.1781   43.0903 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.3969   21.2214   42.3172 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1910   22.2469   42.5861 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1672   20.9324   41.1979 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5271   21.7450   40.5842 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6956   18.1927   39.0929 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
   1  3  1  0
   3  4  2  0
-  3 10  1  0
+  3 14  1  0
   4  5  1  0
   4  6  1  0
-  6  7  2  0
+  6  7  1  0
+  6 11  2  0
   7  8  1  0
-  7  9  1  0
-  9 10  2  0
+  8  9  1  0
+  8 10  2  0
  10 11  1  0
  11 12  1  0
- 11 13  1  0
- 14  1  1  0
-  6 15  1  0
-V   14 *
-V   15 *
+ 12 13  1  0
+ 12 14  2  0
+ 14 15  1  0
+ 16  1  2  0
+V   16 *
 M  END
 >  <kinase>  (32) 
-CHK2
+CK2a1
 
 >  <family>  (32) 
-RAD53
+CK2
 
 >  <group>  (32) 
-CAMK
+CMGC
 
 >  <complex_pdb>  (32) 
-2wtj
+8p05
 
 >  <ligand_pdb>  (32) 
-WTJ
+WAK
 
 >  <alt>  (32) 
-B
+ 
 
 >  <chain>  (32) 
 A
 
 >  <atom.prop.subpocket>  (32) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
 >  <atom.prop.environment>  (32) 
-6 6 16 16 16 16 16 16 16 16 5 5 5 na na
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 na
 
 $$$$
 3nrm_chainA
@@ -2291,137 +2279,7 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
 
 >  <atom.prop.environment>  (34) 
-8 8 8 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
-
-$$$$
-4au8_altB_chainB
-     RDKit          3D
-
- 14 15  0  0  0  0  0  0  0  0999 V2000
-    2.0554   20.7050   39.3376 C   0  0  0  0  0  0  0  0  0  0  0  0
-    2.4616   21.6810   39.1167 H   0  0  0  0  0  0  0  0  0  0  0  0
-    2.2620   19.6469   38.4471 C   0  0  0  0  0  0  0  0  0  0  0  0
-    2.8375   19.8125   37.5484 H   0  0  0  0  0  0  0  0  0  0  0  0
-    1.7372   18.3836   38.7020 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.8921   17.5785   37.9990 H   0  0  0  0  0  0  0  0  0  0  0  0
-    1.0073   18.1638   39.8757 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.8136   19.2118   40.7927 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.3396   20.5083   40.4892 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.1721   21.3314   41.1680 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1188   18.8069   41.8770 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.2542   17.5609   41.9411 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.2766   16.6845   40.5273 S   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.0739   16.9341   43.0102 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  1  0
-  1  3  2  0
-  1  9  1  0
-  3  4  1  0
-  3  5  1  0
-  5  6  1  0
-  5  7  2  0
-  7  8  1  0
-  7 13  1  0
-  8  9  2  0
-  8 11  1  0
-  9 10  1  0
- 11 12  2  0
- 12 13  1  0
- 12 14  1  0
-V   14 *
-M  END
->  <kinase>  (35) 
-CDK5
-
->  <family>  (35) 
-CDK
-
->  <group>  (35) 
-CMGC
-
->  <complex_pdb>  (35) 
-4au8
-
->  <ligand_pdb>  (35) 
-Z3R
-
->  <alt>  (35) 
-B
-
->  <chain>  (35) 
-B
-
->  <atom.prop.subpocket>  (35) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP SE
-
->  <atom.prop.environment>  (35) 
-14 14 14 14 14 14 14 14 14 14 14 14 14 na
-
-$$$$
-8p05_chainA
-     RDKit          3D
-
- 16 17  0  0  0  0  0  0  0  0999 V2000
-    2.2980   19.3573   39.6467 C   0  0  0  0  0  0  0  0  0  0  0  0
-    2.6280   20.2432   39.1245 H   0  0  0  0  0  0  0  0  0  0  0  0
-    1.4906   19.6136   40.8424 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.0035   18.5704   41.6381 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.2611   17.5470   41.4082 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1890   18.8564   42.7225 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.5415   17.7563   43.8539 S   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.1415   19.1270   44.7402 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.7175   19.0043   45.6455 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.8668   20.3053   44.2660 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.1080   20.1781   43.0903 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.3969   21.2214   42.3172 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1910   22.2469   42.5861 H   0  0  0  0  0  0  0  0  0  0  0  0
-    1.1672   20.9324   41.1979 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.5271   21.7450   40.5842 H   0  0  0  0  0  0  0  0  0  0  0  0
-    2.6956   18.1927   39.0929 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  1  0
-  1  3  1  0
-  3  4  2  0
-  3 14  1  0
-  4  5  1  0
-  4  6  1  0
-  6  7  1  0
-  6 11  2  0
-  7  8  1  0
-  8  9  1  0
-  8 10  2  0
- 10 11  1  0
- 11 12  1  0
- 12 13  1  0
- 12 14  2  0
- 14 15  1  0
- 16  1  2  0
-V   16 *
-M  END
->  <kinase>  (36) 
-CK2a1
-
->  <family>  (36) 
-CK2
-
->  <group>  (36) 
-CMGC
-
->  <complex_pdb>  (36) 
-8p05
-
->  <ligand_pdb>  (36) 
-WAK
-
->  <alt>  (36) 
- 
-
->  <chain>  (36) 
-A
-
->  <atom.prop.subpocket>  (36) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
-
->  <atom.prop.environment>  (36) 
-7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 na
+4 4 4 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 4d2v_altB_chainC
@@ -2471,32 +2329,32 @@ $$$$
 V   19 *
 V   20 *
 M  END
->  <kinase>  (37) 
+>  <kinase>  (35) 
 MELK
 
->  <family>  (37) 
+>  <family>  (35) 
 CAMKL
 
->  <group>  (37) 
+>  <group>  (35) 
 CAMK
 
->  <complex_pdb>  (37) 
+>  <complex_pdb>  (35) 
 4d2v
 
->  <ligand_pdb>  (37) 
+>  <ligand_pdb>  (35) 
 45R
 
->  <alt>  (37) 
+>  <alt>  (35) 
 B
 
->  <chain>  (37) 
+>  <chain>  (35) 
 C
 
->  <atom.prop.subpocket>  (37) 
+>  <atom.prop.subpocket>  (35) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE GA
 
->  <atom.prop.environment>  (37) 
-3 3 3 3 3 16 16 16 16 16 16 16 16 16 6 6 5 5 na na
+>  <atom.prop.environment>  (35) 
+3 3 3 3 3 16 16 16 16 16 16 16 16 16 1 1 5 5 na na
 
 $$$$
 4foc_chainA
@@ -2537,32 +2395,32 @@ $$$$
  16  1  1  0
 V   16 *
 M  END
->  <kinase>  (38) 
+>  <kinase>  (36) 
 ALK
 
->  <family>  (38) 
+>  <family>  (36) 
 ALK
 
->  <group>  (38) 
+>  <group>  (36) 
 TK
 
->  <complex_pdb>  (38) 
+>  <complex_pdb>  (36) 
 4foc
 
->  <ligand_pdb>  (38) 
+>  <ligand_pdb>  (36) 
 0UU
 
->  <alt>  (38) 
+>  <alt>  (36) 
  
 
->  <chain>  (38) 
+>  <chain>  (36) 
 A
 
->  <atom.prop.subpocket>  (38) 
+>  <atom.prop.subpocket>  (36) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE
 
->  <atom.prop.environment>  (38) 
-5 5 6 6 16 16 16 16 16 16 16 16 16 16 16 na
+>  <atom.prop.environment>  (36) 
+5 5 1 1 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 5ih8_chainA
@@ -2611,32 +2469,32 @@ $$$$
 V   18 *
 V   19 *
 M  END
->  <kinase>  (39) 
+>  <kinase>  (37) 
 MELK
 
->  <family>  (39) 
+>  <family>  (37) 
 CAMKL
 
->  <group>  (39) 
+>  <group>  (37) 
 CAMK
 
->  <complex_pdb>  (39) 
+>  <complex_pdb>  (37) 
 5ih8
 
->  <ligand_pdb>  (39) 
+>  <ligand_pdb>  (37) 
 6BJ
 
->  <alt>  (39) 
+>  <alt>  (37) 
  
 
->  <chain>  (39) 
+>  <chain>  (37) 
 A
 
->  <atom.prop.subpocket>  (39) 
+>  <atom.prop.subpocket>  (37) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE GA
 
->  <atom.prop.environment>  (39) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+>  <atom.prop.environment>  (37) 
+16 9 9 9 9 16 16 16 16 16 16 16 9 9 16 16 16 na na
 
 $$$$
 8e80_chainA
@@ -2694,32 +2552,177 @@ $$$$
 V   22 *
 V   23 *
 M  END
->  <kinase>  (40) 
+>  <kinase>  (38) 
 CHK1
 
->  <family>  (40) 
+>  <family>  (38) 
 CAMKL
 
->  <group>  (40) 
+>  <group>  (38) 
 CAMK
 
->  <complex_pdb>  (40) 
+>  <complex_pdb>  (38) 
 8e80
 
->  <ligand_pdb>  (40) 
+>  <ligand_pdb>  (38) 
 UUF
 
->  <alt>  (40) 
+>  <alt>  (38) 
  
+
+>  <chain>  (38) 
+A
+
+>  <atom.prop.subpocket>  (38) 
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
+
+>  <atom.prop.environment>  (38) 
+14 9 9 9 14 14 14 14 14 14 9 9 9 9 14 9 9 9 9 9 16 na na
+
+$$$$
+2ycs_altB_chainA
+     RDKit          3D
+
+ 18 19  0  0  0  0  0  0  0  0999 V2000
+    0.9540   19.6598   42.1602 O   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6138   18.4679   42.1110 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.1944   17.9843   43.2973 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.9726   18.7442   44.1435 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.0962   19.8161   44.0971 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.5540   17.9193   45.0404 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.1780   18.2140   45.7779 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.1810   16.6484   44.8088 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.5165   15.4707   45.4775 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.1811   15.4966   46.3283 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.9895   14.2715   45.0398 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.2353   13.3489   45.5447 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.1370   14.2680   43.9388 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2756   13.3311   43.5948 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1991   15.4522   43.2652 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8582   15.4260   42.4101 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.3248   16.6563   43.7104 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8977   17.7013   41.0291 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0
+  2  3  1  0
+  3  4  2  0
+  3 17  1  0
+  4  5  1  0
+  4  6  1  0
+  6  7  1  0
+  6  8  1  0
+  8  9  1  0
+  8 17  2  0
+  9 10  1  0
+  9 11  2  0
+ 11 12  1  0
+ 11 13  1  0
+ 13 14  1  0
+ 13 15  2  0
+ 15 16  1  0
+ 15 17  1  0
+ 18  2  1  0
+V   18 *
+M  END
+>  <kinase>  (39) 
+CHK2
+
+>  <family>  (39) 
+RAD53
+
+>  <group>  (39) 
+CAMK
+
+>  <complex_pdb>  (39) 
+2ycs
+
+>  <ligand_pdb>  (39) 
+NXP
+
+>  <alt>  (39) 
+B
+
+>  <chain>  (39) 
+A
+
+>  <atom.prop.subpocket>  (39) 
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
+
+>  <atom.prop.environment>  (39) 
+1 1 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
+
+$$$$
+6ft8_altA_chainA
+     RDKit          3D
+
+ 19 21  0  0  0  0  0  0  0  0999 V2000
+    0.7259   16.9742   41.5332 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.3874   15.6161   41.9498 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.2228   15.7381   43.1778 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.6069   14.9136   43.7602 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2666   21.4539   42.6342 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2859   17.8250   42.5645 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.4090   19.2072   42.4145 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0893   20.3097   43.2608 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.6500   20.2408   44.3581 O   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9544   21.2403   41.3746 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3621   21.9707   40.6915 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9537   19.7427   41.2647 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2959   17.5265   40.3779 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6461   16.8797   39.5871 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4111   18.9046   40.2488 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8557   19.3276   39.3601 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.2740   17.0572   43.5573 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.6595   17.4055   44.4234 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6295   14.2973   41.2965 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  6  2  0
+  1 13  1  0
+  2  3  2  0
+  3  4  1  0
+  3 17  1  0
+  5  8  1  0
+  5 10  2  0
+  6  7  1  0
+  6 17  1  0
+  7  8  1  0
+  7 12  2  0
+  8  9  2  0
+ 10 11  1  0
+ 10 12  1  0
+ 12 15  1  0
+ 13 14  1  0
+ 13 15  2  0
+ 15 16  1  0
+ 17 18  1  0
+  2 19  1  0
+V   19 *
+M  END
+>  <kinase>  (40) 
+CLK1
+
+>  <family>  (40) 
+CLK
+
+>  <group>  (40) 
+CMGC
+
+>  <complex_pdb>  (40) 
+6ft8
+
+>  <ligand_pdb>  (40) 
+E6T
+
+>  <alt>  (40) 
+A
 
 >  <chain>  (40) 
 A
 
 >  <atom.prop.subpocket>  (40) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
 >  <atom.prop.environment>  (40) 
-14 16 16 16 14 14 14 14 14 14 16 16 16 16 14 16 16 16 16 16 16 na na
+16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 2xj1_altB_chainA
@@ -2799,7 +2802,61 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP GA
 
 >  <atom.prop.environment>  (41) 
-14 14 14 14 14 14 14 14 16 16 16 16 16 16 16 16 16 16 16 16 na na
+14 14 14 14 14 14 14 14 16 7 7 7 7 7 7 7 7 7 7 7 na na
+
+$$$$
+5ew9_altA_chainA
+     RDKit          3D
+
+ 10 10  0  0  0  0  0  0  0  0999 V2000
+    0.2051   20.6578   43.3844 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.3506   21.6398   42.9591 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7527   19.1300   44.6367 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.8042   20.3843   44.2746 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5132   18.1710   43.9433 S   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0153   19.5957   43.0735 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8475   19.6364   42.3863 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.6968   18.5642   45.5546 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.4299   19.1573   45.9165 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.6512   17.1984   45.9835 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  4  1  0
+  1  6  2  0
+  3  4  2  0
+  3  5  1  0
+  3  8  1  0
+  5  6  1  0
+  6  7  1  0
+  8  9  1  0
+ 10  8  1  0
+V   10 *
+M  END
+>  <kinase>  (42) 
+AurA
+
+>  <family>  (42) 
+Aur
+
+>  <group>  (42) 
+Other
+
+>  <complex_pdb>  (42) 
+5ew9
+
+>  <ligand_pdb>  (42) 
+5VC
+
+>  <alt>  (42) 
+A
+
+>  <chain>  (42) 
+A
+
+>  <atom.prop.subpocket>  (42) 
+AP AP AP AP AP AP AP AP AP SE
+
+>  <atom.prop.environment>  (42) 
+14 14 14 14 14 14 14 5 5 na
 
 $$$$
 1u4d_chainB
@@ -2849,31 +2906,31 @@ $$$$
  19 20  2  0
 V   20 *
 M  END
->  <kinase>  (42) 
+>  <kinase>  (43) 
 ACK
 
->  <family>  (42) 
+>  <family>  (43) 
 Ack
 
->  <group>  (42) 
+>  <group>  (43) 
 TK
 
->  <complex_pdb>  (42) 
+>  <complex_pdb>  (43) 
 1u4d
 
->  <ligand_pdb>  (42) 
+>  <ligand_pdb>  (43) 
 DBQ
 
->  <alt>  (42) 
+>  <alt>  (43) 
  
 
->  <chain>  (42) 
+>  <chain>  (43) 
 B
 
->  <atom.prop.subpocket>  (42) 
+>  <atom.prop.subpocket>  (43) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (42) 
+>  <atom.prop.environment>  (43) 
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 na
 
 $$$$
@@ -2913,86 +2970,32 @@ $$$$
 V   13 *
 V   14 *
 M  END
->  <kinase>  (43) 
+>  <kinase>  (44) 
 CLK1
 
->  <family>  (43) 
+>  <family>  (44) 
 CLK
 
->  <group>  (43) 
+>  <group>  (44) 
 CMGC
 
->  <complex_pdb>  (43) 
+>  <complex_pdb>  (44) 
 6i5k
 
->  <ligand_pdb>  (43) 
-H3H
-
->  <alt>  (43) 
-A
-
->  <chain>  (43) 
-C
-
->  <atom.prop.subpocket>  (43) 
-AP AP AP AP AP AP AP AP AP AP AP AP GA SE
-
->  <atom.prop.environment>  (43) 
-16 16 16 16 16 16 16 16 16 16 16 16 na na
-
-$$$$
-5ew9_altA_chainA
-     RDKit          3D
-
- 10 10  0  0  0  0  0  0  0  0999 V2000
-    0.2051   20.6578   43.3844 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.3506   21.6398   42.9591 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.7527   19.1300   44.6367 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.8042   20.3843   44.2746 N   0  0  0  0  0  0  0  0  0  0  0  0
-    0.5132   18.1710   43.9433 S   0  0  0  0  0  0  0  0  0  0  0  0
-    1.0153   19.5957   43.0735 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.8475   19.6364   42.3863 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.6968   18.5642   45.5546 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.4299   19.1573   45.9165 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.6512   17.1984   45.9835 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  1  0
-  1  4  1  0
-  1  6  2  0
-  3  4  2  0
-  3  5  1  0
-  3  8  1  0
-  5  6  1  0
-  6  7  1  0
-  8  9  1  0
- 10  8  1  0
-V   10 *
-M  END
->  <kinase>  (44) 
-AurA
-
->  <family>  (44) 
-Aur
-
->  <group>  (44) 
-Other
-
->  <complex_pdb>  (44) 
-5ew9
-
 >  <ligand_pdb>  (44) 
-5VC
+H3H
 
 >  <alt>  (44) 
 A
 
 >  <chain>  (44) 
-A
+C
 
 >  <atom.prop.subpocket>  (44) 
-AP AP AP AP AP AP AP AP AP SE
+AP AP AP AP AP AP AP AP AP AP AP AP GA SE
 
 >  <atom.prop.environment>  (44) 
-14 14 14 14 14 14 14 5 5 na
+14 16 14 14 14 14 14 14 14 14 14 14 na na
 
 $$$$
 5uuu_altB_chainA
@@ -3051,6 +3054,75 @@ AP AP AP AP AP AP AP AP AP AP FP
 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
+5f94_altB_chainA
+     RDKit          3D
+
+ 17 17  0  0  0  0  0  0  0  0999 V2000
+    1.0876   19.8420   40.9331 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6055   18.8429   41.7685 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7626   17.8000   41.5361 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0898   19.2278   42.9204 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.3003   20.5101   43.2539 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1716   21.4497   42.4244 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.0009   22.4854   42.6784 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8609   21.1709   41.2678 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2184   21.9682   40.6331 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8232   19.5127   39.6769 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.6805   18.3267   43.8184 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.1213   18.7397   44.6278 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0992   20.3873   38.8622 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7372   16.9816   43.7431 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.1680   16.3204   42.8773 O   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1457   18.2121   39.5070 *   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.6020   16.3283   44.8023 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0
+  1  8  1  0
+  1 10  1  0
+  2  3  1  0
+  2  4  1  0
+  4  5  2  0
+  4 11  1  0
+  5  6  1  0
+  6  7  1  0
+  6  8  2  0
+  8  9  1  0
+ 10 13  2  0
+ 11 12  1  0
+ 11 14  1  0
+ 14 15  2  0
+ 10 16  1  0
+ 14 17  1  0
+V   16 *
+V   17 *
+M  END
+>  <kinase>  (46) 
+GSK3B
+
+>  <family>  (46) 
+GSK
+
+>  <group>  (46) 
+CMGC
+
+>  <complex_pdb>  (46) 
+5f94
+
+>  <ligand_pdb>  (46) 
+3UO
+
+>  <alt>  (46) 
+B
+
+>  <chain>  (46) 
+A
+
+>  <atom.prop.subpocket>  (46) 
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE
+
+>  <atom.prop.environment>  (46) 
+16 14 14 14 14 14 14 14 14 1 5 5 1 1 1 na na
+
+$$$$
 4ot5_chainA
      RDKit          3D
 
@@ -3091,97 +3163,32 @@ $$$$
 V   15 *
 V   16 *
 M  END
->  <kinase>  (46) 
+>  <kinase>  (47) 
 BTK
 
->  <family>  (46) 
+>  <family>  (47) 
 Tec
 
->  <group>  (46) 
+>  <group>  (47) 
 TK
 
->  <complex_pdb>  (46) 
+>  <complex_pdb>  (47) 
 4ot5
 
->  <ligand_pdb>  (46) 
+>  <ligand_pdb>  (47) 
 481
 
->  <alt>  (46) 
- 
-
->  <chain>  (46) 
-A
-
->  <atom.prop.subpocket>  (46) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
-
->  <atom.prop.environment>  (46) 
-14 14 14 14 14 14 14 14 14 14 14 14 5 5 na na
-
-$$$$
-7aj5_altB_chainA
-     RDKit          3D
-
- 15 16  0  0  0  0  0  0  0  0999 V2000
-    0.0023   20.1957   44.1701 O   0  0  0  0  0  0  0  0  0  0  0  0
-    1.7579   19.8328   40.4741 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.5121   21.1408   40.9941 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.8096   21.9929   40.4010 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.9100   21.3710   42.2236 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.7345   22.3656   42.6062 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.5529   20.2369   42.9197 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.1373   18.8582   44.4821 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.5667   18.4972   45.4050 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.3171   18.0653   43.5168 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.3490   16.9858   43.5259 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.7590   18.9352   42.4554 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.3889   18.7330   41.2361 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.5899   17.7319   40.8841 H   0  0  0  0  0  0  0  0  0  0  0  0
-    2.3481   19.6438   39.1086 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  7  1  0
-  1  8  1  0
-  2  3  2  0
-  2 13  1  0
-  3  4  1  0
-  3  5  1  0
-  5  6  1  0
-  5  7  2  0
-  7 12  1  0
-  8  9  1  0
-  8 10  2  0
- 10 11  1  0
- 10 12  1  0
- 12 13  2  0
- 13 14  1  0
- 15  2  1  0
-V   15 *
-M  END
->  <kinase>  (47) 
-DYRK1A
-
->  <family>  (47) 
-DYRK
-
->  <group>  (47) 
-CMGC
-
->  <complex_pdb>  (47) 
-7aj5
-
->  <ligand_pdb>  (47) 
-RHW
-
 >  <alt>  (47) 
-B
+ 
 
 >  <chain>  (47) 
 A
 
 >  <atom.prop.subpocket>  (47) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
 
 >  <atom.prop.environment>  (47) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
+14 14 14 14 14 14 14 14 14 14 14 14 5 5 na na
 
 $$$$
 4hgt_chainA
@@ -3254,7 +3261,72 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
 
 >  <atom.prop.environment>  (48) 
-3 3 3 3 16 16 16 16 8 8 8 16 16 16 16 3 3 na na
+3 3 3 3 16 16 16 14 4 4 4 16 16 16 16 3 3 na na
+
+$$$$
+7aj5_altB_chainA
+     RDKit          3D
+
+ 15 16  0  0  0  0  0  0  0  0999 V2000
+    0.0023   20.1957   44.1701 O   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7579   19.8328   40.4741 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5121   21.1408   40.9941 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8096   21.9929   40.4010 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9100   21.3710   42.2236 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7345   22.3656   42.6062 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5529   20.2369   42.9197 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.1373   18.8582   44.4821 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.5667   18.4972   45.4050 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.3171   18.0653   43.5168 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.3490   16.9858   43.5259 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7590   18.9352   42.4554 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3889   18.7330   41.2361 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5899   17.7319   40.8841 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3481   19.6438   39.1086 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  7  1  0
+  1  8  1  0
+  2  3  2  0
+  2 13  1  0
+  3  4  1  0
+  3  5  1  0
+  5  6  1  0
+  5  7  2  0
+  7 12  1  0
+  8  9  1  0
+  8 10  2  0
+ 10 11  1  0
+ 10 12  1  0
+ 12 13  2  0
+ 13 14  1  0
+ 15  2  1  0
+V   15 *
+M  END
+>  <kinase>  (49) 
+DYRK1A
+
+>  <family>  (49) 
+DYRK
+
+>  <group>  (49) 
+CMGC
+
+>  <complex_pdb>  (49) 
+7aj5
+
+>  <ligand_pdb>  (49) 
+RHW
+
+>  <alt>  (49) 
+B
+
+>  <chain>  (49) 
+A
+
+>  <atom.prop.subpocket>  (49) 
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
+
+>  <atom.prop.environment>  (49) 
+16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 7ajw_altB_chainA
@@ -3311,97 +3383,32 @@ $$$$
 V   22 *
 V   23 *
 M  END
->  <kinase>  (49) 
+>  <kinase>  (50) 
 DYRK1A
 
->  <family>  (49) 
+>  <family>  (50) 
 DYRK
 
->  <group>  (49) 
+>  <group>  (50) 
 CMGC
 
->  <complex_pdb>  (49) 
+>  <complex_pdb>  (50) 
 7ajw
 
->  <ligand_pdb>  (49) 
+>  <ligand_pdb>  (50) 
 RKQ
 
->  <alt>  (49) 
-B
-
->  <chain>  (49) 
-A
-
->  <atom.prop.subpocket>  (49) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP GA
-
->  <atom.prop.environment>  (49) 
-8 8 8 8 14 14 14 14 14 14 14 14 14 14 14 8 8 8 8 8 8 na na
-
-$$$$
-7mck_chainA
-     RDKit          3D
-
- 15 15  0  0  0  0  0  0  0  0999 V2000
-    0.4306   20.9875   41.8343 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.0539   21.5372   42.6277 H   0  0  0  0  0  0  0  0  0  0  0  0
-    1.5483   20.9113   39.7236 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.9713   21.4039   38.8606 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.0325   17.5133   42.9369 N   0  0  0  0  0  0  0  0  0  0  0  0
-    0.6613   17.1865   42.2172 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.0507   18.8550   43.0535 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.6059   19.4372   43.9805 O   0  0  0  0  0  0  0  0  0  0  0  0
-    0.5502   19.6050   41.8968 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.1284   18.8780   40.9251 N   0  0  0  0  0  0  0  0  0  0  0  0
-    1.5959   19.5276   39.8467 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.9469   21.6428   40.7314 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.8810   22.7183   40.6577 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.6217   16.4950   43.6632 *   0  0  0  0  0  0  0  0  0  0  0  0
-    2.2413   18.6827   38.8103 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  1  0
-  1  9  2  0
-  1 12  1  0
-  3  4  1  0
-  3 11  1  0
-  3 12  2  0
-  5  6  1  0
-  5  7  1  0
-  7  8  2  0
-  7  9  1  0
-  9 10  1  0
- 10 11  2  0
- 12 13  1  0
- 14  5  1  0
- 11 15  1  0
-V   14 *
-V   15 *
-M  END
->  <kinase>  (50) 
-CHK1
-
->  <family>  (50) 
-CAMKL
-
->  <group>  (50) 
-CAMK
-
->  <complex_pdb>  (50) 
-7mck
-
->  <ligand_pdb>  (50) 
-YXD
-
 >  <alt>  (50) 
- 
+B
 
 >  <chain>  (50) 
 A
 
 >  <atom.prop.subpocket>  (50) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP GA
 
 >  <atom.prop.environment>  (50) 
-14 14 14 14 5 5 6 6 14 14 14 14 14 na na
+8 8 8 8 9 14 9 9 9 9 9 9 9 14 9 8 4 4 4 4 4 na na
 
 $$$$
 5op2_altA_chainA
@@ -3465,7 +3472,7 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE
 
 >  <atom.prop.environment>  (51) 
-6 5 5 6 16 16 16 16 16 16 16 16 16 16 na
+1 5 5 1 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 4ewh_chainB
@@ -3540,7 +3547,72 @@ B
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE FP
 
 >  <atom.prop.environment>  (52) 
-16 16 16 16 16 16 16 16 16 16 16 5 5 8 8 8 na na na
+14 14 14 14 14 14 14 14 14 16 14 5 5 4 4 4 na na na
+
+$$$$
+7mck_chainA
+     RDKit          3D
+
+ 15 15  0  0  0  0  0  0  0  0999 V2000
+    0.4306   20.9875   41.8343 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0539   21.5372   42.6277 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5483   20.9113   39.7236 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9713   21.4039   38.8606 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.0325   17.5133   42.9369 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6613   17.1865   42.2172 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0507   18.8550   43.0535 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.6059   19.4372   43.9805 O   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5502   19.6050   41.8968 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1284   18.8780   40.9251 N   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5959   19.5276   39.8467 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9469   21.6428   40.7314 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8810   22.7183   40.6577 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.6217   16.4950   43.6632 *   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2413   18.6827   38.8103 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  9  2  0
+  1 12  1  0
+  3  4  1  0
+  3 11  1  0
+  3 12  2  0
+  5  6  1  0
+  5  7  1  0
+  7  8  2  0
+  7  9  1  0
+  9 10  1  0
+ 10 11  2  0
+ 12 13  1  0
+ 14  5  1  0
+ 11 15  1  0
+V   14 *
+V   15 *
+M  END
+>  <kinase>  (53) 
+CHK1
+
+>  <family>  (53) 
+CAMKL
+
+>  <group>  (53) 
+CAMK
+
+>  <complex_pdb>  (53) 
+7mck
+
+>  <ligand_pdb>  (53) 
+YXD
+
+>  <alt>  (53) 
+ 
+
+>  <chain>  (53) 
+A
+
+>  <atom.prop.subpocket>  (53) 
+AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
+
+>  <atom.prop.environment>  (53) 
+14 14 14 14 5 5 1 1 14 14 14 14 14 na na
 
 $$$$
 3psb_chainA
@@ -3579,32 +3651,32 @@ $$$$
 V   13 *
 V   14 *
 M  END
->  <kinase>  (53) 
+>  <kinase>  (54) 
 BRAF
 
->  <family>  (53) 
+>  <family>  (54) 
 RAF
 
->  <group>  (53) 
+>  <group>  (54) 
 TKL
 
->  <complex_pdb>  (53) 
+>  <complex_pdb>  (54) 
 3psb
 
->  <ligand_pdb>  (53) 
+>  <ligand_pdb>  (54) 
 SM6
 
->  <alt>  (53) 
+>  <alt>  (54) 
  
 
->  <chain>  (53) 
+>  <chain>  (54) 
 A
 
->  <atom.prop.subpocket>  (53) 
+>  <atom.prop.subpocket>  (54) 
 AP AP AP AP AP AP AP AP AP AP AP AP GA FP
 
->  <atom.prop.environment>  (53) 
-14 14 14 14 14 14 14 14 14 14 14 14 na na
+>  <atom.prop.environment>  (54) 
+16 16 16 16 14 16 16 16 16 16 16 16 na na
 
 $$$$
 3qrt_altB_chainA
@@ -3667,32 +3739,32 @@ $$$$
 V   25 *
 V   26 *
 M  END
->  <kinase>  (54) 
+>  <kinase>  (55) 
 CDK2
 
->  <family>  (54) 
+>  <family>  (55) 
 CDK
 
->  <group>  (54) 
+>  <group>  (55) 
 CMGC
 
->  <complex_pdb>  (54) 
+>  <complex_pdb>  (55) 
 3qrt
 
->  <ligand_pdb>  (54) 
+>  <ligand_pdb>  (55) 
 X14
 
->  <alt>  (54) 
+>  <alt>  (55) 
 B
 
->  <chain>  (54) 
+>  <chain>  (55) 
 A
 
->  <atom.prop.subpocket>  (54) 
+>  <atom.prop.subpocket>  (55) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE
 
->  <atom.prop.environment>  (54) 
-15 15 15 5 5 15 15 15 15 15 15 15 15 15 15 15 15 15 15 6 8 8 8 6 na na
+>  <atom.prop.environment>  (55) 
+14 14 14 5 5 14 14 14 14 14 14 14 14 14 15 14 14 14 14 1 4 4 4 1 na na
 
 $$$$
 7u31_altA_chainA
@@ -3746,32 +3818,32 @@ $$$$
  22  1  1  0
 V   22 *
 M  END
->  <kinase>  (55) 
+>  <kinase>  (56) 
 GSK3B
 
->  <family>  (55) 
+>  <family>  (56) 
 GSK
 
->  <group>  (55) 
+>  <group>  (56) 
 CMGC
 
->  <complex_pdb>  (55) 
+>  <complex_pdb>  (56) 
 7u31
 
->  <ligand_pdb>  (55) 
+>  <ligand_pdb>  (56) 
 L7I
 
->  <alt>  (55) 
+>  <alt>  (56) 
 A
 
->  <chain>  (55) 
+>  <chain>  (56) 
 A
 
->  <atom.prop.subpocket>  (55) 
+>  <atom.prop.subpocket>  (56) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (55) 
-16 16 16 5 5 5 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
+>  <atom.prop.environment>  (56) 
+14 14 14 5 5 5 14 14 14 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 6no8_chainA
@@ -3825,32 +3897,32 @@ $$$$
  13 22  1  0
 V   22 *
 M  END
->  <kinase>  (56) 
+>  <kinase>  (57) 
 PIM1
 
->  <family>  (56) 
+>  <family>  (57) 
 PIM
 
->  <group>  (56) 
+>  <group>  (57) 
 CAMK
 
->  <complex_pdb>  (56) 
+>  <complex_pdb>  (57) 
 6no8
 
->  <ligand_pdb>  (56) 
+>  <ligand_pdb>  (57) 
 KUY
 
->  <alt>  (56) 
+>  <alt>  (57) 
  
 
->  <chain>  (56) 
+>  <chain>  (57) 
 A
 
->  <atom.prop.subpocket>  (56) 
+>  <atom.prop.subpocket>  (57) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
 
->  <atom.prop.environment>  (56) 
-14 14 14 16 16 16 16 16 16 16 16 16 6 16 16 14 5 5 5 6 14 na
+>  <atom.prop.environment>  (57) 
+14 14 14 16 16 16 16 16 16 16 16 16 1 16 16 14 5 5 5 1 14 na
 
 $$$$
 5a4e_altA_chainB
@@ -3896,32 +3968,32 @@ $$$$
  18  1  1  0
 V   18 *
 M  END
->  <kinase>  (57) 
+>  <kinase>  (58) 
 DYRK1A
 
->  <family>  (57) 
+>  <family>  (58) 
 DYRK
 
->  <group>  (57) 
+>  <group>  (58) 
 CMGC
 
->  <complex_pdb>  (57) 
+>  <complex_pdb>  (58) 
 5a4e
 
->  <ligand_pdb>  (57) 
+>  <ligand_pdb>  (58) 
 7QQ
 
->  <alt>  (57) 
+>  <alt>  (58) 
 A
 
->  <chain>  (57) 
+>  <chain>  (58) 
 B
 
->  <atom.prop.subpocket>  (57) 
+>  <atom.prop.subpocket>  (58) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (57) 
-14 14 14 14 14 14 14 14 14 14 14 14 3 3 3 3 3 na
+>  <atom.prop.environment>  (58) 
+14 16 16 16 16 16 16 16 16 16 16 16 3 3 3 3 3 na
 
 $$$$
 3a2c_chainL
@@ -3991,32 +4063,32 @@ $$$$
 V   28 *
 V   29 *
 M  END
->  <kinase>  (58) 
+>  <kinase>  (59) 
 MAPKAPK2
 
->  <family>  (58) 
+>  <family>  (59) 
 MAPKAPK
 
->  <group>  (58) 
+>  <group>  (59) 
 CAMK
 
->  <complex_pdb>  (58) 
+>  <complex_pdb>  (59) 
 3a2c
 
->  <ligand_pdb>  (58) 
+>  <ligand_pdb>  (59) 
 PDY
 
->  <alt>  (58) 
+>  <alt>  (59) 
  
 
->  <chain>  (58) 
+>  <chain>  (59) 
 L
 
->  <atom.prop.subpocket>  (58) 
+>  <atom.prop.subpocket>  (59) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP X-AP FP
 
->  <atom.prop.environment>  (58) 
-16 16 8 8 8 8 16 16 16 16 16 16 16 16 16 5 5 16 16 16 16 16 16 16 16 16 16 na na
+>  <atom.prop.environment>  (59) 
+14 16 8 8 8 8 14 14 14 14 14 14 14 14 14 5 5 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
 8gmd_chainA
@@ -4059,32 +4131,32 @@ $$$$
 V   15 *
 V   16 *
 M  END
->  <kinase>  (59) 
+>  <kinase>  (60) 
 AAK1
 
->  <family>  (59) 
+>  <family>  (60) 
 NAK
 
->  <group>  (59) 
+>  <group>  (60) 
 Other
 
->  <complex_pdb>  (59) 
+>  <complex_pdb>  (60) 
 8gmd
 
->  <ligand_pdb>  (59) 
+>  <ligand_pdb>  (60) 
 ZRR
 
->  <alt>  (59) 
+>  <alt>  (60) 
  
 
->  <chain>  (59) 
+>  <chain>  (60) 
 A
 
->  <atom.prop.subpocket>  (59) 
+>  <atom.prop.subpocket>  (60) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA FP
 
->  <atom.prop.environment>  (59) 
-16 16 16 16 16 16 16 16 16 16 16 16 5 5 na na
+>  <atom.prop.environment>  (60) 
+14 14 14 14 14 14 14 16 14 14 14 14 5 5 na na
 
 $$$$
 2jdo_chainA
@@ -4134,31 +4206,31 @@ $$$$
  20  1  1  0
 V   20 *
 M  END
->  <kinase>  (60) 
+>  <kinase>  (61) 
 AKT2
 
->  <family>  (60) 
+>  <family>  (61) 
 Akt
 
->  <group>  (60) 
+>  <group>  (61) 
 AGC
 
->  <complex_pdb>  (60) 
+>  <complex_pdb>  (61) 
 2jdo
 
->  <ligand_pdb>  (60) 
+>  <ligand_pdb>  (61) 
 I5S
 
->  <alt>  (60) 
+>  <alt>  (61) 
  
 
->  <chain>  (60) 
+>  <chain>  (61) 
 A
 
->  <atom.prop.subpocket>  (60) 
+>  <atom.prop.subpocket>  (61) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (60) 
+>  <atom.prop.environment>  (61) 
 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 na
 
 $$$$
@@ -4202,31 +4274,31 @@ $$$$
  17  1  1  0
 V   17 *
 M  END
->  <kinase>  (61) 
+>  <kinase>  (62) 
 PIM1
 
->  <family>  (61) 
+>  <family>  (62) 
 PIM
 
->  <group>  (61) 
+>  <group>  (62) 
 CAMK
 
->  <complex_pdb>  (61) 
+>  <complex_pdb>  (62) 
 2c3i
 
->  <ligand_pdb>  (61) 
+>  <ligand_pdb>  (62) 
 IYZ
 
->  <alt>  (61) 
+>  <alt>  (62) 
 A
 
->  <chain>  (61) 
+>  <chain>  (62) 
 B
 
->  <atom.prop.subpocket>  (61) 
+>  <atom.prop.subpocket>  (62) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (61) 
+>  <atom.prop.environment>  (62) 
 16 16 16 16 16 16 16 16 16 16 6 6 6 6 6 6 na
 
 $$$$
@@ -4262,31 +4334,31 @@ $$$$
  13  1  1  0
 V   13 *
 M  END
->  <kinase>  (62) 
+>  <kinase>  (63) 
 ROCK1
 
->  <family>  (62) 
+>  <family>  (63) 
 DMPK
 
->  <group>  (62) 
+>  <group>  (63) 
 AGC
 
->  <complex_pdb>  (62) 
+>  <complex_pdb>  (63) 
 5wng
 
->  <ligand_pdb>  (62) 
+>  <ligand_pdb>  (63) 
 B4Y
 
->  <alt>  (62) 
+>  <alt>  (63) 
  
 
->  <chain>  (62) 
+>  <chain>  (63) 
 D
 
->  <atom.prop.subpocket>  (62) 
+>  <atom.prop.subpocket>  (63) 
 AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (62) 
+>  <atom.prop.environment>  (63) 
 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -4314,31 +4386,31 @@ $$$$
   9  1  1  0
 V    9 *
 M  END
->  <kinase>  (63) 
+>  <kinase>  (64) 
 AKT2
 
->  <family>  (63) 
+>  <family>  (64) 
 Akt
 
->  <group>  (63) 
+>  <group>  (64) 
 AGC
 
->  <complex_pdb>  (63) 
+>  <complex_pdb>  (64) 
 2uw9
 
->  <ligand_pdb>  (63) 
+>  <ligand_pdb>  (64) 
 GVP
 
->  <alt>  (63) 
+>  <alt>  (64) 
  
 
->  <chain>  (63) 
+>  <chain>  (64) 
 A
 
->  <atom.prop.subpocket>  (63) 
+>  <atom.prop.subpocket>  (64) 
 AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (63) 
+>  <atom.prop.environment>  (64) 
 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -4383,32 +4455,32 @@ V   14 *
 V   15 *
 V   16 *
 M  END
->  <kinase>  (64) 
+>  <kinase>  (65) 
 LCK
 
->  <family>  (64) 
+>  <family>  (65) 
 Src
 
->  <group>  (64) 
+>  <group>  (65) 
 TK
 
->  <complex_pdb>  (64) 
+>  <complex_pdb>  (65) 
 2of2
 
->  <ligand_pdb>  (64) 
+>  <ligand_pdb>  (65) 
 547
 
->  <alt>  (64) 
+>  <alt>  (65) 
  
 
->  <chain>  (64) 
+>  <chain>  (65) 
 A
 
->  <atom.prop.subpocket>  (64) 
+>  <atom.prop.subpocket>  (65) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE FP
 
->  <atom.prop.environment>  (64) 
-16 16 16 16 16 16 16 16 16 16 16 5 5 na na na
+>  <atom.prop.environment>  (65) 
+16 16 16 16 16 16 16 16 16 14 16 5 5 na na na
 
 $$$$
 5m4f_altB_chainA
@@ -4454,32 +4526,32 @@ $$$$
   3 18  1  0
 V   18 *
 M  END
->  <kinase>  (65) 
+>  <kinase>  (66) 
 CK2a1
 
->  <family>  (65) 
+>  <family>  (66) 
 CK2
 
->  <group>  (65) 
+>  <group>  (66) 
 CMGC
 
->  <complex_pdb>  (65) 
+>  <complex_pdb>  (66) 
 5m4f
 
->  <ligand_pdb>  (65) 
+>  <ligand_pdb>  (66) 
 7FC
 
->  <alt>  (65) 
+>  <alt>  (66) 
 B
 
->  <chain>  (65) 
+>  <chain>  (66) 
 A
 
->  <atom.prop.subpocket>  (65) 
+>  <atom.prop.subpocket>  (66) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
 
->  <atom.prop.environment>  (65) 
-14 14 14 14 14 14 3 3 14 14 14 14 14 14 14 14 14 na
+>  <atom.prop.environment>  (66) 
+16 16 14 16 16 16 3 3 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 3pa4_altB_chainA
@@ -4526,117 +4598,108 @@ $$$$
 V   17 *
 V   18 *
 M  END
->  <kinase>  (66) 
+>  <kinase>  (67) 
 CHK1
 
->  <family>  (66) 
-CAMKL
-
->  <group>  (66) 
-CAMK
-
->  <complex_pdb>  (66) 
-3pa4
-
->  <ligand_pdb>  (66) 
-C72
-
->  <alt>  (66) 
-B
-
->  <chain>  (66) 
-A
-
->  <atom.prop.subpocket>  (66) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE
-
->  <atom.prop.environment>  (66) 
-14 14 14 14 14 14 14 14 14 14 14 6 5 5 5 6 na na
-
-$$$$
-4ty1_chainA
-     RDKit          3D
-
- 24 26  0  0  0  0  0  0  0  0999 V2000
-    1.9162   19.0580   39.9871 C   0  0  0  0  0  0  0  0  0  0  0  0
-    2.0007   20.4640   40.0451 C   0  0  0  0  0  0  0  0  0  0  0  0
-    2.5076   21.0053   39.2599 H   0  0  0  0  0  0  0  0  0  0  0  0
-    1.4351   21.1554   41.1074 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.4888   22.2333   41.1464 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.7829   20.4299   42.1460 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1553   20.8891   43.2875 N   0  0  0  0  0  0  0  0  0  0  0  0
-    0.0756   21.8564   43.5667 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.3385   19.8209   43.9748 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.8977   19.8791   44.8969 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.0101   18.6345   43.3026 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.4126   17.3478   43.6869 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.2052   17.1475   44.7878 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.6497   15.8958   45.1292 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.2389   15.7513   46.0227 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.3320   14.8068   44.3077 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.6784   13.8117   44.5445 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.5488   15.0483   43.1659 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.1239   16.3041   42.8831 N   0  0  0  0  0  0  0  0  0  0  0  0
-    0.6960   19.0457   42.1140 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.2874   18.3419   41.0155 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.2491   17.2632   40.9796 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.0975   13.9557   42.2160 *   0  0  0  0  0  0  0  0  0  0  0  0
-    2.5119   18.3875   38.9157 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  2  0
-  1 21  1  0
-  2  3  1  0
-  2  4  1  0
-  4  5  1  0
-  4  6  2  0
-  6  7  1  0
-  6 20  1  0
-  7  8  1  0
-  7  9  1  0
-  9 10  1  0
-  9 11  2  0
- 11 12  1  0
- 11 20  1  0
- 12 13  2  0
- 12 19  1  0
- 13 14  1  0
- 14 15  1  0
- 14 16  2  0
- 16 17  1  0
- 16 18  1  0
- 18 19  2  0
- 20 21  2  0
- 21 22  1  0
- 18 23  1  0
- 24  1  1  0
-V   23 *
-V   24 *
-M  END
->  <kinase>  (67) 
-PIM1
-
 >  <family>  (67) 
-PIM
+CAMKL
 
 >  <group>  (67) 
 CAMK
 
 >  <complex_pdb>  (67) 
-4ty1
+3pa4
 
 >  <ligand_pdb>  (67) 
-38W
+C72
 
 >  <alt>  (67) 
- 
+B
 
 >  <chain>  (67) 
 A
 
 >  <atom.prop.subpocket>  (67) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP FP
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE
 
 >  <atom.prop.environment>  (67) 
-16 16 16 16 16 16 16 16 16 16 16 14 14 14 14 14 14 14 14 16 16 16 na na
+14 14 14 14 14 14 16 14 14 14 14 1 5 5 5 1 na na
+
+$$$$
+4r1v_altB_chainA
+     RDKit          3D
+
+ 20 21  0  0  0  0  0  0  0  0999 V2000
+    1.2782   20.3523   40.4568 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4495   20.7948   39.4866 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4508   18.5095   41.9540 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7543   17.4934   42.1588 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6447   21.0927   41.4450 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.3434   22.1099   41.2428 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8264   19.2488   42.9464 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.3987   20.5421   42.6754 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.1247   21.1104   43.4301 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7407   17.2432   44.3463 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.6275   18.6681   46.2905 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.1421   19.2187   47.0640 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2860   16.6117   45.4732 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.4640   15.5543   45.6025 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6924   19.0569   40.6979 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.4859   18.5974   44.2054 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.3923   17.3081   46.4377 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.2003   19.3075   45.1530 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7927   16.6069   47.5394 *   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3620   18.2436   39.6017 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  5  2  0
+  1 15  1  0
+  3  4  1  0
+  3  7  1  0
+  3 15  2  0
+  5  6  1  0
+  5  8  1  0
+  7  8  2  0
+  7 16  1  0
+  8  9  1  0
+ 10 13  2  0
+ 10 16  1  0
+ 11 12  1  0
+ 11 17  2  0
+ 11 18  1  0
+ 13 14  1  0
+ 13 17  1  0
+ 16 18  2  0
+ 19 17  1  0
+ 20 15  1  0
+V   19 *
+V   20 *
+M  END
+>  <kinase>  (68) 
+MET
+
+>  <family>  (68) 
+Met
+
+>  <group>  (68) 
+TK
+
+>  <complex_pdb>  (68) 
+4r1v
+
+>  <ligand_pdb>  (68) 
+3E8
+
+>  <alt>  (68) 
+B
+
+>  <chain>  (68) 
+A
+
+>  <atom.prop.subpocket>  (68) 
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
+
+>  <atom.prop.environment>  (68) 
+16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 14 16 16 na na
 
 $$$$
 4rx5_altB_chainA
@@ -4668,32 +4731,32 @@ $$$$
 V   10 *
 V   11 *
 M  END
->  <kinase>  (68) 
+>  <kinase>  (69) 
 BTK
 
->  <family>  (68) 
+>  <family>  (69) 
 Tec
 
->  <group>  (68) 
+>  <group>  (69) 
 TK
 
->  <complex_pdb>  (68) 
+>  <complex_pdb>  (69) 
 4rx5
 
->  <ligand_pdb>  (68) 
+>  <ligand_pdb>  (69) 
 3YO
 
->  <alt>  (68) 
+>  <alt>  (69) 
 B
 
->  <chain>  (68) 
+>  <chain>  (69) 
 A
 
->  <atom.prop.subpocket>  (68) 
+>  <atom.prop.subpocket>  (69) 
 AP AP AP AP AP AP AP AP AP SE FP
 
->  <atom.prop.environment>  (68) 
-14 14 14 14 14 14 14 14 14 na na
+>  <atom.prop.environment>  (69) 
+14 16 16 16 16 16 16 16 16 na na
 
 $$$$
 3rtp_chainA
@@ -4727,32 +4790,103 @@ $$$$
 V   11 *
 V   12 *
 M  END
->  <kinase>  (69) 
+>  <kinase>  (70) 
 JNK3
 
->  <family>  (69) 
+>  <family>  (70) 
 MAPK
 
->  <group>  (69) 
+>  <group>  (70) 
 CMGC
 
->  <complex_pdb>  (69) 
+>  <complex_pdb>  (70) 
 3rtp
 
->  <ligand_pdb>  (69) 
+>  <ligand_pdb>  (70) 
 34I
 
->  <alt>  (69) 
+>  <alt>  (70) 
  
 
->  <chain>  (69) 
+>  <chain>  (70) 
 A
 
->  <atom.prop.subpocket>  (69) 
+>  <atom.prop.subpocket>  (70) 
 AP AP AP AP AP AP AP AP AP AP SE FP
 
->  <atom.prop.environment>  (69) 
-5 5 16 16 16 16 16 16 16 16 na na
+>  <atom.prop.environment>  (70) 
+5 5 14 14 14 14 14 16 14 14 na na
+
+$$$$
+4e26_chainB
+     RDKit          3D
+
+ 18 19  0  0  0  0  0  0  0  0999 V2000
+   -0.0605   16.7760   43.5519 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.3857   15.9232   42.5578 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1929   16.4058   41.5340 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5394   15.7385   40.7587 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5535   17.7477   41.5091 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1044   18.6040   42.5064 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4583   19.9462   42.4901 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0853   20.3391   41.7034 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9928   20.7750   43.5017 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2539   21.8229   43.5095 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1877   20.2463   44.5054 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.1754   20.8886   45.2941 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2975   18.1192   43.5301 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.1411   18.9484   44.5026 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.8518   16.2992   44.5529 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.1202   16.9518   45.2037 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5951   18.3748   40.1884 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+    0.0036   14.4932   42.5841 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0
+  1 13  1  0
+  1 15  1  0
+  2  3  1  0
+  3  4  1  0
+  3  5  2  0
+  5  6  1  0
+  5 17  1  0
+  6  7  1  0
+  6 13  2  0
+  7  8  1  0
+  7  9  2  0
+  9 10  1  0
+  9 11  1  0
+ 11 12  1  0
+ 11 14  2  0
+ 13 14  1  0
+ 15 16  1  0
+  2 18  1  0
+V   18 *
+M  END
+>  <kinase>  (71) 
+BRAF
+
+>  <family>  (71) 
+RAF
+
+>  <group>  (71) 
+TKL
+
+>  <complex_pdb>  (71) 
+4e26
+
+>  <ligand_pdb>  (71) 
+734
+
+>  <alt>  (71) 
+ 
+
+>  <chain>  (71) 
+B
+
+>  <atom.prop.subpocket>  (71) 
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
+
+>  <atom.prop.environment>  (71) 
+16 16 16 16 16 16 16 16 16 16 16 16 16 16 3 3 16 na
 
 $$$$
 7s26_chainA
@@ -4819,31 +4953,31 @@ $$$$
  28 14  1  0
 V   28 *
 M  END
->  <kinase>  (70) 
+>  <kinase>  (72) 
 ROCK1
 
->  <family>  (70) 
+>  <family>  (72) 
 DMPK
 
->  <group>  (70) 
+>  <group>  (72) 
 AGC
 
->  <complex_pdb>  (70) 
+>  <complex_pdb>  (72) 
 7s26
 
->  <ligand_pdb>  (70) 
+>  <ligand_pdb>  (72) 
 86K
 
->  <alt>  (70) 
+>  <alt>  (72) 
  
 
->  <chain>  (70) 
+>  <chain>  (72) 
 A
 
->  <atom.prop.subpocket>  (70) 
+>  <atom.prop.subpocket>  (72) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (70) 
+>  <atom.prop.environment>  (72) 
 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 na
 
 $$$$
@@ -4889,32 +5023,32 @@ $$$$
 V   16 *
 V   17 *
 M  END
->  <kinase>  (71) 
+>  <kinase>  (73) 
 DYRK1A
 
->  <family>  (71) 
+>  <family>  (73) 
 DYRK
 
->  <group>  (71) 
+>  <group>  (73) 
 CMGC
 
->  <complex_pdb>  (71) 
+>  <complex_pdb>  (73) 
 6eij
 
->  <ligand_pdb>  (71) 
+>  <ligand_pdb>  (73) 
 B5Z
 
->  <alt>  (71) 
+>  <alt>  (73) 
  
 
->  <chain>  (71) 
+>  <chain>  (73) 
 B
 
->  <atom.prop.subpocket>  (71) 
+>  <atom.prop.subpocket>  (73) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE GA
 
->  <atom.prop.environment>  (71) 
-6 6 5 5 14 14 14 14 14 14 14 14 14 14 14 na na
+>  <atom.prop.environment>  (73) 
+1 1 5 5 14 14 14 14 14 14 14 14 14 14 14 na na
 
 $$$$
 3v5j_chainA
@@ -4948,31 +5082,31 @@ $$$$
  12  1  1  0
 V   12 *
 M  END
->  <kinase>  (72) 
+>  <kinase>  (74) 
 ITK
 
->  <family>  (72) 
+>  <family>  (74) 
 Tec
 
->  <group>  (72) 
+>  <group>  (74) 
 TK
 
->  <complex_pdb>  (72) 
+>  <complex_pdb>  (74) 
 3v5j
 
->  <ligand_pdb>  (72) 
+>  <ligand_pdb>  (74) 
 0F2
 
->  <alt>  (72) 
+>  <alt>  (74) 
  
 
->  <chain>  (72) 
+>  <chain>  (74) 
 A
 
->  <atom.prop.subpocket>  (72) 
+>  <atom.prop.subpocket>  (74) 
 AP AP AP AP AP AP AP AP AP AP AP SE
 
->  <atom.prop.environment>  (72) 
+>  <atom.prop.environment>  (74) 
 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$
@@ -5014,32 +5148,32 @@ $$$$
  14 16  1  0
 V   16 *
 M  END
->  <kinase>  (73) 
+>  <kinase>  (75) 
 SRPK1
 
->  <family>  (73) 
+>  <family>  (75) 
 SRPK
 
->  <group>  (73) 
+>  <group>  (75) 
 CMGC
 
->  <complex_pdb>  (73) 
+>  <complex_pdb>  (75) 
 5mxx
 
->  <ligand_pdb>  (73) 
+>  <ligand_pdb>  (75) 
 W4A
 
->  <alt>  (73) 
+>  <alt>  (75) 
 B
 
->  <chain>  (73) 
+>  <chain>  (75) 
 A
 
->  <atom.prop.subpocket>  (73) 
+>  <atom.prop.subpocket>  (75) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE
 
->  <atom.prop.environment>  (73) 
-8 8 8 8 14 14 6 6 14 14 14 14 14 5 5 na
+>  <atom.prop.environment>  (75) 
+8 8 8 8 14 14 1 1 14 14 14 14 14 5 5 na
 
 $$$$
 4k18_chainA
@@ -5076,109 +5210,32 @@ $$$$
  14  1  1  0
 V   14 *
 M  END
->  <kinase>  (74) 
+>  <kinase>  (76) 
 PIM1
 
->  <family>  (74) 
+>  <family>  (76) 
 PIM
 
->  <group>  (74) 
+>  <group>  (76) 
 CAMK
 
->  <complex_pdb>  (74) 
+>  <complex_pdb>  (76) 
 4k18
 
->  <ligand_pdb>  (74) 
+>  <ligand_pdb>  (76) 
 1OB
 
->  <alt>  (74) 
+>  <alt>  (76) 
  
 
->  <chain>  (74) 
+>  <chain>  (76) 
 A
 
->  <atom.prop.subpocket>  (74) 
+>  <atom.prop.subpocket>  (76) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (74) 
+>  <atom.prop.environment>  (76) 
 5 5 16 16 16 16 16 16 16 16 16 16 16 na
-
-$$$$
-4j1r_chainB
-     RDKit          3D
-
- 21 22  0  0  0  0  0  0  0  0999 V2000
-    1.3924   21.9920   39.1911 O   0  0  0  0  0  0  0  0  0  0  0  0
-    1.1621   20.8669   39.7992 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.9152   20.9588   41.1085 N   0  0  0  0  0  0  0  0  0  0  0  0
-    0.9095   21.8665   41.5515 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.6631   19.8096   41.8795 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.2948   19.8187   43.0617 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.0164   18.6500   43.8168 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.2986   18.7110   44.8575 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.0594   17.4199   43.1520 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.1719   16.5032   43.6740 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.4297   17.3901   41.8330 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.5207   16.4289   41.3491 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.6917   18.5186   41.0927 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.1173   18.4819   39.8076 N   0  0  0  0  0  0  0  0  0  0  0  0
-    1.1256   17.5987   39.3177 H   0  0  0  0  0  0  0  0  0  0  0  0
-    1.5735   19.7089   39.0972 C   0  0  2  0  0  0  0  0  0  0  0  0
-    1.2285   19.7885   38.0663 H   0  0  0  0  0  0  0  0  0  0  0  0
-    3.1039   19.5795   39.3697 C   0  0  0  0  0  0  0  0  0  0  0  0
-    3.2717   19.4714   40.4413 H   0  0  0  0  0  0  0  0  0  0  0  0
-    3.6112   20.4752   39.0111 H   0  0  0  0  0  0  0  0  0  0  0  0
-    3.6726   18.3368   38.6324 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  2  0
-  2  3  1  0
-  2 16  1  0
-  3  4  1  0
-  3  5  1  0
-  5  6  1  0
-  5 13  2  0
-  6  7  2  0
-  7  8  1  0
-  7  9  1  0
-  9 10  1  0
-  9 11  2  0
- 11 12  1  0
- 11 13  1  0
- 13 14  1  0
- 14 15  1  0
- 14 16  1  0
- 16 17  1  6
- 16 18  1  0
- 18 19  1  0
- 18 20  1  0
- 18 21  1  0
-V   21 *
-M  END
->  <kinase>  (75) 
-GSK3B
-
->  <family>  (75) 
-GSK
-
->  <group>  (75) 
-CMGC
-
->  <complex_pdb>  (75) 
-4j1r
-
->  <ligand_pdb>  (75) 
-I5R
-
->  <alt>  (75) 
- 
-
->  <chain>  (75) 
-B
-
->  <atom.prop.subpocket>  (75) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
-
->  <atom.prop.environment>  (75) 
-13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 8 8 8 na
 
 $$$$
 4y8d_altB_chainB
@@ -5215,32 +5272,32 @@ $$$$
 V   12 *
 V   13 *
 M  END
->  <kinase>  (76) 
+>  <kinase>  (77) 
 GAK
 
->  <family>  (76) 
+>  <family>  (77) 
 NAK
 
->  <group>  (76) 
+>  <group>  (77) 
 Other
 
->  <complex_pdb>  (76) 
+>  <complex_pdb>  (77) 
 4y8d
 
->  <ligand_pdb>  (76) 
+>  <ligand_pdb>  (77) 
 49J
 
->  <alt>  (76) 
+>  <alt>  (77) 
 B
 
->  <chain>  (76) 
+>  <chain>  (77) 
 B
 
->  <atom.prop.subpocket>  (76) 
+>  <atom.prop.subpocket>  (77) 
 AP AP AP AP AP AP AP AP AP AP AP GA SE
 
->  <atom.prop.environment>  (76) 
-16 16 16 16 16 16 16 16 16 16 16 na na
+>  <atom.prop.environment>  (77) 
+14 14 14 14 14 14 14 14 14 14 16 na na
 
 $$$$
 4qye_chainA
@@ -5270,31 +5327,31 @@ $$$$
 V    9 *
 V   10 *
 M  END
->  <kinase>  (77) 
+>  <kinase>  (78) 
 CHK1
 
->  <family>  (77) 
+>  <family>  (78) 
 CAMKL
 
->  <group>  (77) 
+>  <group>  (78) 
 CAMK
 
->  <complex_pdb>  (77) 
+>  <complex_pdb>  (78) 
 4qye
 
->  <ligand_pdb>  (77) 
+>  <ligand_pdb>  (78) 
 3DL
 
->  <alt>  (77) 
+>  <alt>  (78) 
  
 
->  <chain>  (77) 
+>  <chain>  (78) 
 A
 
->  <atom.prop.subpocket>  (77) 
+>  <atom.prop.subpocket>  (78) 
 AP AP AP AP AP AP AP AP GA SE
 
->  <atom.prop.environment>  (77) 
+>  <atom.prop.environment>  (78) 
 14 14 14 14 14 14 14 14 na na
 
 $$$$
@@ -5331,32 +5388,32 @@ $$$$
 V   12 *
 V   13 *
 M  END
->  <kinase>  (78) 
+>  <kinase>  (79) 
 AurA
 
->  <family>  (78) 
+>  <family>  (79) 
 Aur
 
->  <group>  (78) 
+>  <group>  (79) 
 Other
 
->  <complex_pdb>  (78) 
+>  <complex_pdb>  (79) 
 2w1e
 
->  <ligand_pdb>  (78) 
+>  <ligand_pdb>  (79) 
 L0E
 
->  <alt>  (78) 
+>  <alt>  (79) 
  
 
->  <chain>  (78) 
+>  <chain>  (79) 
 A
 
->  <atom.prop.subpocket>  (78) 
+>  <atom.prop.subpocket>  (79) 
 AP AP AP AP AP AP AP AP AP AP AP FP SE
 
->  <atom.prop.environment>  (78) 
-1 1 5 5 14 14 14 14 14 14 14 na na
+>  <atom.prop.environment>  (79) 
+1 1 5 5 16 16 16 16 16 16 14 na na
 
 $$$$
 5n87_chainA
@@ -5416,32 +5473,32 @@ $$$$
 V   23 *
 V   24 *
 M  END
->  <kinase>  (79) 
+>  <kinase>  (80) 
 TTK
 
->  <family>  (79) 
+>  <family>  (80) 
 TTK
 
->  <group>  (79) 
+>  <group>  (80) 
 Other
 
->  <complex_pdb>  (79) 
+>  <complex_pdb>  (80) 
 5n87
 
->  <ligand_pdb>  (79) 
+>  <ligand_pdb>  (80) 
 N66
 
->  <alt>  (79) 
+>  <alt>  (80) 
  
 
->  <chain>  (79) 
+>  <chain>  (80) 
 A
 
->  <atom.prop.subpocket>  (79) 
+>  <atom.prop.subpocket>  (80) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
 
->  <atom.prop.environment>  (79) 
-5 5 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+>  <atom.prop.environment>  (80) 
+5 5 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 16 na na
 
 $$$$
 5kvt_altA_chainA
@@ -5492,32 +5549,32 @@ $$$$
 V   19 *
 V   20 *
 M  END
->  <kinase>  (80) 
+>  <kinase>  (81) 
 TRKA
 
->  <family>  (80) 
+>  <family>  (81) 
 Trk
 
->  <group>  (80) 
+>  <group>  (81) 
 TK
 
->  <complex_pdb>  (80) 
+>  <complex_pdb>  (81) 
 5kvt
 
->  <ligand_pdb>  (80) 
+>  <ligand_pdb>  (81) 
 YMX
 
->  <alt>  (80) 
+>  <alt>  (81) 
 A
 
->  <chain>  (80) 
+>  <chain>  (81) 
 A
 
->  <atom.prop.subpocket>  (80) 
+>  <atom.prop.subpocket>  (81) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
 
->  <atom.prop.environment>  (80) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 8 8 8 na na
+>  <atom.prop.environment>  (81) 
+6 6 6 6 6 6 6 6 6 6 6 6 6 6 16 8 8 8 na na
 
 $$$$
 4ra4_chainA
@@ -5583,32 +5640,32 @@ $$$$
 V   26 *
 V   27 *
 M  END
->  <kinase>  (81) 
+>  <kinase>  (82) 
 PKCa
 
->  <family>  (81) 
+>  <family>  (82) 
 PKC
 
->  <group>  (81) 
+>  <group>  (82) 
 AGC
 
->  <complex_pdb>  (81) 
+>  <complex_pdb>  (82) 
 4ra4
 
->  <ligand_pdb>  (81) 
+>  <ligand_pdb>  (82) 
 3KZ
 
->  <alt>  (81) 
+>  <alt>  (82) 
  
 
->  <chain>  (81) 
+>  <chain>  (82) 
 A
 
->  <atom.prop.subpocket>  (81) 
+>  <atom.prop.subpocket>  (82) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP FP
 
->  <atom.prop.environment>  (81) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 8 8 8 8 16 16 16 16 16 16 na na
+>  <atom.prop.environment>  (82) 
+13 13 13 13 16 16 13 13 13 13 13 13 13 13 13 8 8 8 8 13 13 13 13 13 13 na na
 
 $$$$
 4yti_altA_chainA
@@ -5667,32 +5724,32 @@ $$$$
   1 25  1  0
 V   25 *
 M  END
->  <kinase>  (82) 
+>  <kinase>  (83) 
 JAK2
 
->  <family>  (82) 
+>  <family>  (83) 
 JakA
 
->  <group>  (82) 
+>  <group>  (83) 
 TK
 
->  <complex_pdb>  (82) 
+>  <complex_pdb>  (83) 
 4yti
 
->  <ligand_pdb>  (82) 
+>  <ligand_pdb>  (83) 
 VJK
 
->  <alt>  (82) 
+>  <alt>  (83) 
 A
 
->  <chain>  (82) 
+>  <chain>  (83) 
 A
 
->  <atom.prop.subpocket>  (82) 
+>  <atom.prop.subpocket>  (83) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (82) 
-7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 na
+>  <atom.prop.environment>  (83) 
+14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 7 7 7 7 7 7 7 7 na
 
 $$$$
 2ydi_altB_chainA
@@ -5732,32 +5789,32 @@ $$$$
 V   14 *
 V   15 *
 M  END
->  <kinase>  (83) 
+>  <kinase>  (84) 
 CHK1
 
->  <family>  (83) 
+>  <family>  (84) 
 CAMKL
 
->  <group>  (83) 
+>  <group>  (84) 
 CAMK
 
->  <complex_pdb>  (83) 
+>  <complex_pdb>  (84) 
 2ydi
 
->  <ligand_pdb>  (83) 
+>  <ligand_pdb>  (84) 
 YDI
 
->  <alt>  (83) 
+>  <alt>  (84) 
 B
 
->  <chain>  (83) 
+>  <chain>  (84) 
 A
 
->  <atom.prop.subpocket>  (83) 
+>  <atom.prop.subpocket>  (84) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE
 
->  <atom.prop.environment>  (83) 
-14 14 14 14 14 14 5 5 1 5 5 5 1 na na
+>  <atom.prop.environment>  (84) 
+14 14 16 14 14 14 5 5 1 5 5 5 1 na na
 
 $$$$
 2wmt_altA_chainA
@@ -5792,31 +5849,31 @@ $$$$
  12 13  2  0
 V   13 *
 M  END
->  <kinase>  (84) 
+>  <kinase>  (85) 
 CHK1
 
->  <family>  (84) 
+>  <family>  (85) 
 CAMKL
 
->  <group>  (84) 
+>  <group>  (85) 
 CAMK
 
->  <complex_pdb>  (84) 
+>  <complex_pdb>  (85) 
 2wmt
 
->  <ligand_pdb>  (84) 
+>  <ligand_pdb>  (85) 
 ZYT
 
->  <alt>  (84) 
+>  <alt>  (85) 
 A
 
->  <chain>  (84) 
+>  <chain>  (85) 
 A
 
->  <atom.prop.subpocket>  (84) 
+>  <atom.prop.subpocket>  (85) 
 AP AP AP AP AP AP AP AP AP AP AP AP SE
 
->  <atom.prop.environment>  (84) 
+>  <atom.prop.environment>  (85) 
 7 7 7 7 7 7 7 7 7 7 7 7 na
 
 $$$$
@@ -5864,32 +5921,32 @@ $$$$
 V   17 *
 V   18 *
 M  END
->  <kinase>  (85) 
+>  <kinase>  (86) 
 MET
 
->  <family>  (85) 
+>  <family>  (86) 
 Met
 
->  <group>  (85) 
+>  <group>  (86) 
 TK
 
->  <complex_pdb>  (85) 
+>  <complex_pdb>  (86) 
 4gg7
 
->  <ligand_pdb>  (85) 
+>  <ligand_pdb>  (86) 
 0J8
 
->  <alt>  (85) 
+>  <alt>  (86) 
 B
 
->  <chain>  (85) 
+>  <chain>  (86) 
 A
 
->  <atom.prop.subpocket>  (85) 
+>  <atom.prop.subpocket>  (86) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE
 
->  <atom.prop.environment>  (85) 
-16 16 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na na
+>  <atom.prop.environment>  (86) 
+14 14 14 14 14 16 14 14 14 14 14 14 8 8 8 8 na na
 
 $$$$
 2cgv_chainA
@@ -5938,103 +5995,32 @@ $$$$
 M  CHG  2  17  -1  18   1
 V   19 *
 M  END
->  <kinase>  (86) 
+>  <kinase>  (87) 
 CHK1
 
->  <family>  (86) 
+>  <family>  (87) 
 CAMKL
 
->  <group>  (86) 
+>  <group>  (87) 
 CAMK
 
->  <complex_pdb>  (86) 
+>  <complex_pdb>  (87) 
 2cgv
 
->  <ligand_pdb>  (86) 
-3B3
-
->  <alt>  (86) 
- 
-
->  <chain>  (86) 
-A
-
->  <atom.prop.subpocket>  (86) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
-
->  <atom.prop.environment>  (86) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
-
-$$$$
-4e26_chainB
-     RDKit          3D
-
- 18 19  0  0  0  0  0  0  0  0999 V2000
-   -0.0605   16.7760   43.5519 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.3857   15.9232   42.5578 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.1929   16.4058   41.5340 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.5394   15.7385   40.7587 H   0  0  0  0  0  0  0  0  0  0  0  0
-    1.5535   17.7477   41.5091 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.1044   18.6040   42.5064 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.4583   19.9462   42.4901 C   0  0  0  0  0  0  0  0  0  0  0  0
-    2.0853   20.3391   41.7034 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.9928   20.7750   43.5017 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.2539   21.8229   43.5095 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1877   20.2463   44.5054 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.1754   20.8886   45.2941 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.2975   18.1192   43.5301 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.1411   18.9484   44.5026 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.8518   16.2992   44.5529 O   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.1202   16.9518   45.2037 H   0  0  0  0  0  0  0  0  0  0  0  0
-    2.5951   18.3748   40.1884 Cl  0  0  0  0  0  0  0  0  0  0  0  0
-    0.0036   14.4932   42.5841 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  2  0
-  1 13  1  0
-  1 15  1  0
-  2  3  1  0
-  3  4  1  0
-  3  5  2  0
-  5  6  1  0
-  5 17  1  0
-  6  7  1  0
-  6 13  2  0
-  7  8  1  0
-  7  9  2  0
-  9 10  1  0
-  9 11  1  0
- 11 12  1  0
- 11 14  2  0
- 13 14  1  0
- 15 16  1  0
-  2 18  1  0
-V   18 *
-M  END
->  <kinase>  (87) 
-BRAF
-
->  <family>  (87) 
-RAF
-
->  <group>  (87) 
-TKL
-
->  <complex_pdb>  (87) 
-4e26
-
 >  <ligand_pdb>  (87) 
-734
+3B3
 
 >  <alt>  (87) 
  
 
 >  <chain>  (87) 
-B
+A
 
 >  <atom.prop.subpocket>  (87) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
 >  <atom.prop.environment>  (87) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 3 3 16 na
+16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 3f66_altA_chainA
@@ -6108,7 +6094,99 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
 
 >  <atom.prop.environment>  (88) 
-16 16 16 16 16 16 16 16 8 8 8 8 16 16 16 16 16 na na
+16 14 14 14 16 14 14 14 8 8 8 8 14 14 14 14 14 na na
+
+$$$$
+8qel_chainB
+     RDKit          3D
+
+ 28 30  0  0  0  0  0  0  0  0999 V2000
+   -0.3393   20.6883   42.0609 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.6427   21.6273   42.2764 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.5752   19.6135   42.8471 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.0194   18.4220   42.1472 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.4980   14.7358   44.8858 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0714   17.1201   42.5186 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.4397   16.4589   41.8344 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.1081   19.6356   43.9507 O   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7098   19.1818   38.7832 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7699   21.1427   39.8586 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5707   22.2042   39.8652 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4273   20.5527   38.7915 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7272   21.1611   37.9512 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.4530   16.9465   44.6147 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.6371   17.9258   44.7797 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.3723   20.3396   40.9202 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6369   18.9530   40.9401 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3262   18.3854   39.8662 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5627   17.3316   39.8725 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.6845   16.4173   43.6027 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7197   15.0504   43.7904 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.9138   15.9087   45.3448 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.5518   16.0213   46.2089 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0638   13.9716   42.9923 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.3056   13.0011   43.4256 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0165   14.1161   43.0047 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.4238   14.0103   41.9641 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4269   18.5704   37.6042 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1 16  1  0
+  3  4  1  0
+  3  8  2  0
+  4  6  2  0
+  4 17  1  0
+  5 21  1  0
+  5 22  2  0
+  6  7  1  0
+  6 20  1  0
+  9 12  1  0
+  9 18  2  0
+ 10 11  1  0
+ 10 12  2  0
+ 10 16  1  0
+ 12 13  1  0
+ 14 15  1  0
+ 14 20  1  0
+ 14 22  1  0
+ 16 17  2  0
+ 17 18  1  0
+ 18 19  1  0
+ 20 21  2  0
+ 21 24  1  0
+ 22 23  1  0
+ 24 25  1  0
+ 24 26  1  0
+ 24 27  1  0
+  9 28  1  0
+V   28 *
+M  END
+>  <kinase>  (89) 
+PKR
+
+>  <family>  (89) 
+PEK
+
+>  <group>  (89) 
+Other
+
+>  <complex_pdb>  (89) 
+8qel
+
+>  <ligand_pdb>  (89) 
+UH3
+
+>  <alt>  (89) 
+ 
+
+>  <chain>  (89) 
+B
+
+>  <atom.prop.subpocket>  (89) 
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
+
+>  <atom.prop.environment>  (89) 
+16 16 16 7 7 7 7 16 16 16 16 16 16 7 7 16 16 16 16 7 14 7 7 8 8 8 8 na
 
 $$$$
 6qj7_altA_chainA
@@ -6161,31 +6239,31 @@ $$$$
  22  1  1  0
 V   22 *
 M  END
->  <kinase>  (89) 
+>  <kinase>  (90) 
 PKACa
 
->  <family>  (89) 
+>  <family>  (90) 
 PKA
 
->  <group>  (89) 
+>  <group>  (90) 
 AGC
 
->  <complex_pdb>  (89) 
+>  <complex_pdb>  (90) 
 6qj7
 
->  <ligand_pdb>  (89) 
+>  <ligand_pdb>  (90) 
 J4B
 
->  <alt>  (89) 
+>  <alt>  (90) 
 A
 
->  <chain>  (89) 
+>  <chain>  (90) 
 A
 
->  <atom.prop.subpocket>  (89) 
+>  <atom.prop.subpocket>  (90) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (89) 
+>  <atom.prop.environment>  (90) 
 16 16 16 16 16 16 16 16 8 8 8 8 8 8 8 8 8 8 8 3 3 na
 
 $$$$
@@ -6244,31 +6322,31 @@ $$$$
 V   22 *
 V   23 *
 M  END
->  <kinase>  (90) 
+>  <kinase>  (91) 
 PIM1
 
->  <family>  (90) 
+>  <family>  (91) 
 PIM
 
->  <group>  (90) 
+>  <group>  (91) 
 CAMK
 
->  <complex_pdb>  (90) 
+>  <complex_pdb>  (91) 
 5dia
 
->  <ligand_pdb>  (90) 
+>  <ligand_pdb>  (91) 
 5E6
 
->  <alt>  (90) 
+>  <alt>  (91) 
  
 
->  <chain>  (90) 
+>  <chain>  (91) 
 A
 
->  <atom.prop.subpocket>  (90) 
+>  <atom.prop.subpocket>  (91) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP FP
 
->  <atom.prop.environment>  (90) 
+>  <atom.prop.environment>  (91) 
 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na na
 
 $$$$
@@ -6325,106 +6403,102 @@ $$$$
  23 15  1  0
 V   23 *
 M  END
->  <kinase>  (91) 
+>  <kinase>  (92) 
 PAK4
 
->  <family>  (91) 
+>  <family>  (92) 
 STE20
 
->  <group>  (91) 
+>  <group>  (92) 
 STE
 
->  <complex_pdb>  (91) 
+>  <complex_pdb>  (92) 
 8ahg
 
->  <ligand_pdb>  (91) 
+>  <ligand_pdb>  (92) 
 M4I
 
->  <alt>  (91) 
-B
-
->  <chain>  (91) 
-A
-
->  <atom.prop.subpocket>  (91) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
-
->  <atom.prop.environment>  (91) 
-14 14 14 14 14 14 14 14 8 8 8 8 8 8 14 14 14 8 8 8 8 14 na
-
-$$$$
-5hln_chainA
-     RDKit          3D
-
- 20 20  0  0  0  0  0  0  0  0999 V2000
-   -0.2329   18.8390   43.6295 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1445   20.6741   42.1907 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.0031   21.7275   41.9990 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.8408   19.9126   41.2825 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.0016   18.5571   41.5725 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.5520   17.9256   40.8909 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.4543   18.0068   42.7425 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.5632   16.9533   42.9541 H   0  0  0  0  0  0  0  0  0  0  0  0
-    1.3280   20.5008   40.2383 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.3371   16.5145   44.4427 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -3.2661   16.9103   44.8533 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.2869   16.7374   43.3769 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.1276   17.0842   45.1782 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.2556   16.4696   44.9546 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.3225   17.0620   46.2504 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.8571   18.4447   44.7788 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.1580   19.1745   45.4089 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.3624   20.1375   43.3081 N   0  0  0  0  0  0  0  0  0  0  0  0
-    1.7685   21.0552   39.3097 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.2309   15.1072   44.6780 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  7  2  0
-  1 16  1  0
-  1 18  1  0
-  2  3  1  0
-  2  4  1  0
-  2 18  2  0
-  4  5  2  0
-  4  9  1  0
-  5  6  1  0
-  5  7  1  0
-  7  8  1  0
-  9 19  3  0
- 10 11  1  0
- 10 12  1  0
- 10 13  1  0
- 13 14  1  0
- 13 15  1  0
- 13 16  1  0
- 16 17  1  0
- 20 10  1  0
-V   20 *
-M  END
->  <kinase>  (92) 
-GSK3B
-
->  <family>  (92) 
-GSK
-
->  <group>  (92) 
-CMGC
-
->  <complex_pdb>  (92) 
-5hln
-
->  <ligand_pdb>  (92) 
-65C
-
 >  <alt>  (92) 
- 
+B
 
 >  <chain>  (92) 
 A
 
 >  <atom.prop.subpocket>  (92) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
 >  <atom.prop.environment>  (92) 
-14 14 14 14 14 14 14 14 14 4 4 4 4 4 4 5 5 14 14 na
+16 16 16 16 16 16 16 14 8 8 8 8 8 8 16 16 16 8 8 8 8 16 na
+
+$$$$
+2r3k_altB_chainA
+     RDKit          3D
+
+ 17 18  0  0  0  0  0  0  0  0999 V2000
+    0.7350   19.6229   41.2153 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2664   18.3336   41.2827 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.6685   18.3109   42.2744 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.8012   19.5712   42.8445 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.0533   20.3562   42.1932 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1996   21.4079   42.3907 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6011   17.1617   40.5239 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3408   17.1980   39.7379 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0470   16.0011   40.8293 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.0290   16.0005   41.8814 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.5404   15.0799   42.1208 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.3406   17.1588   42.6037 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.2773   17.2360   43.6132 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.2859   18.0254   44.2433 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0218   20.2439   40.0586 Br  0  0  0  0  0  0  0  0  0  0  0  0
+   -3.2556   16.1635   43.7597 *   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2462   14.7391   40.0947 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0
+  1  5  1  0
+  1 15  1  0
+  2  3  1  0
+  2  7  1  0
+  3  4  1  0
+  3 12  1  0
+  4  5  2  0
+  5  6  1  0
+  7  8  1  0
+  7  9  2  0
+  9 10  1  0
+ 10 11  1  0
+ 10 12  2  0
+ 12 13  1  0
+ 13 14  1  0
+ 13 16  1  0
+  9 17  1  0
+V   16 *
+V   17 *
+M  END
+>  <kinase>  (93) 
+CDK2
+
+>  <family>  (93) 
+CDK
+
+>  <group>  (93) 
+CMGC
+
+>  <complex_pdb>  (93) 
+2r3k
+
+>  <ligand_pdb>  (93) 
+SCQ
+
+>  <alt>  (93) 
+B
+
+>  <chain>  (93) 
+A
+
+>  <atom.prop.subpocket>  (93) 
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
+
+>  <atom.prop.environment>  (93) 
+14 14 14 14 14 14 14 14 16 14 14 14 5 5 14 na na
 
 $$$$
 3we4_chainA
@@ -6465,32 +6539,32 @@ $$$$
   1 16  1  0
 V   16 *
 M  END
->  <kinase>  (93) 
+>  <kinase>  (94) 
 p70S6K
 
->  <family>  (93) 
+>  <family>  (94) 
 RSK
 
->  <group>  (93) 
+>  <group>  (94) 
 AGC
 
->  <complex_pdb>  (93) 
+>  <complex_pdb>  (94) 
 3we4
 
->  <ligand_pdb>  (93) 
+>  <ligand_pdb>  (94) 
 5FI
 
->  <alt>  (93) 
+>  <alt>  (94) 
  
 
->  <chain>  (93) 
+>  <chain>  (94) 
 A
 
->  <atom.prop.subpocket>  (93) 
+>  <atom.prop.subpocket>  (94) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (93) 
-16 16 16 16 16 16 8 8 8 8 8 8 8 16 16 na
+>  <atom.prop.environment>  (94) 
+14 16 14 14 14 14 8 8 8 8 8 8 8 14 14 na
 
 $$$$
 8djc_altB_chainA
@@ -6553,32 +6627,32 @@ $$$$
  18 26  1  0
 V   26 *
 M  END
->  <kinase>  (94) 
+>  <kinase>  (95) 
 GSK3B
 
->  <family>  (94) 
+>  <family>  (95) 
 GSK
 
->  <group>  (94) 
+>  <group>  (95) 
 CMGC
 
->  <complex_pdb>  (94) 
+>  <complex_pdb>  (95) 
 8djc
 
->  <ligand_pdb>  (94) 
+>  <ligand_pdb>  (95) 
 UAU
 
->  <alt>  (94) 
+>  <alt>  (95) 
 B
 
->  <chain>  (94) 
+>  <chain>  (95) 
 A
 
->  <atom.prop.subpocket>  (94) 
+>  <atom.prop.subpocket>  (95) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (94) 
-16 16 16 16 16 16 16 16 16 14 14 14 14 14 14 14 14 6 14 14 14 14 16 16 6 na
+>  <atom.prop.environment>  (95) 
+16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 1 16 14 16 16 16 16 1 na
 
 $$$$
 3rcd_chainC
@@ -6633,102 +6707,32 @@ $$$$
 V   21 *
 V   22 *
 M  END
->  <kinase>  (95) 
+>  <kinase>  (96) 
 ErbB2
 
->  <family>  (95) 
+>  <family>  (96) 
 EGFR
 
->  <group>  (95) 
+>  <group>  (96) 
 TK
 
->  <complex_pdb>  (95) 
+>  <complex_pdb>  (96) 
 3rcd
 
->  <ligand_pdb>  (95) 
+>  <ligand_pdb>  (96) 
 03P
 
->  <alt>  (95) 
+>  <alt>  (96) 
  
 
->  <chain>  (95) 
+>  <chain>  (96) 
 C
 
->  <atom.prop.subpocket>  (95) 
+>  <atom.prop.subpocket>  (96) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP GA
 
->  <atom.prop.environment>  (95) 
-9 9 9 9 9 8 8 8 8 8 8 5 5 9 9 9 9 9 9 9 na na
-
-$$$$
-2r3k_altB_chainA
-     RDKit          3D
-
- 17 18  0  0  0  0  0  0  0  0999 V2000
-    0.7350   19.6229   41.2153 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.2664   18.3336   41.2827 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.6685   18.3109   42.2744 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.8012   19.5712   42.8445 N   0  0  0  0  0  0  0  0  0  0  0  0
-    0.0533   20.3562   42.1932 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1996   21.4079   42.3907 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.6011   17.1617   40.5239 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.3408   17.1980   39.7379 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.0470   16.0011   40.8293 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.0290   16.0005   41.8814 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.5404   15.0799   42.1208 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.3406   17.1588   42.6037 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.2773   17.2360   43.6132 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.2859   18.0254   44.2433 H   0  0  0  0  0  0  0  0  0  0  0  0
-    2.0218   20.2439   40.0586 Br  0  0  0  0  0  0  0  0  0  0  0  0
-   -3.2556   16.1635   43.7597 *   0  0  0  0  0  0  0  0  0  0  0  0
-    0.2462   14.7391   40.0947 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  2  0
-  1  5  1  0
-  1 15  1  0
-  2  3  1  0
-  2  7  1  0
-  3  4  1  0
-  3 12  1  0
-  4  5  2  0
-  5  6  1  0
-  7  8  1  0
-  7  9  2  0
-  9 10  1  0
- 10 11  1  0
- 10 12  2  0
- 12 13  1  0
- 13 14  1  0
- 13 16  1  0
-  9 17  1  0
-V   16 *
-V   17 *
-M  END
->  <kinase>  (96) 
-CDK2
-
->  <family>  (96) 
-CDK
-
->  <group>  (96) 
-CMGC
-
->  <complex_pdb>  (96) 
-2r3k
-
->  <ligand_pdb>  (96) 
-SCQ
-
->  <alt>  (96) 
-B
-
->  <chain>  (96) 
-A
-
->  <atom.prop.subpocket>  (96) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
-
 >  <atom.prop.environment>  (96) 
-16 16 16 16 16 16 16 16 16 16 16 16 5 5 16 na na
+14 14 14 14 14 8 4 4 4 4 4 5 5 14 14 14 14 14 14 9 na na
 
 $$$$
 4otq_chainA
@@ -6797,7 +6801,7 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
 
 >  <atom.prop.environment>  (97) 
-16 16 16 16 16 16 16 16 16 8 8 8 8 5 5 na na
+16 16 16 16 16 16 16 9 16 8 8 8 8 5 5 na na
 
 $$$$
 4mk0_altB_chainA
@@ -6865,71 +6869,72 @@ AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
-3ig7_chainA
+4l53_altA_chainA
      RDKit          3D
 
- 16 16  0  0  0  0  0  0  0  0999 V2000
-    0.5769   19.5804   41.7679 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.0433   18.3898   42.1045 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1414   17.4069   41.6966 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.9618   18.7498   43.0916 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.9032   17.9471   43.7132 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.5014   18.4154   44.3788 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.1399   16.5921   43.5507 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -3.3324   16.0750   44.3465 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -3.9682   15.4773   43.6934 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -3.9011   16.9212   44.7320 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.5198   15.7569   42.8766 O   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.9229   20.1189   43.2785 N   0  0  0  0  0  0  0  0  0  0  0  0
-    0.0200   20.5904   42.4778 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.3040   21.6297   42.4018 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.8684   15.2300   45.4914 *   0  0  0  0  0  0  0  0  0  0  0  0
-    1.6543   19.6821   40.8021 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  1  0
-  1 13  1  0
+ 16 17  0  0  0  0  0  0  0  0999 V2000
+   -1.0041   17.3953   44.7778 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.1534   18.6751   45.3341 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.6283   18.7641   46.3000 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7399   19.7771   44.7315 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.1681   19.7623   43.5505 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2587   20.9541   42.9550 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7024   20.9347   42.0479 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1231   21.8339   43.4321 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.0172   18.5523   42.8964 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5536   18.2958   41.7099 O   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5411   16.9988   41.4106 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0157   16.3186   42.4579 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.2249   14.5949   42.5189 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+   -0.3837   17.3266   43.4786 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0430   16.5211   40.1010 *   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.5663   16.2479   45.5611 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0
+  1 14  1  0
   2  3  1  0
-  2  4  2  0
-  4  5  1  0
-  4 12  1  0
+  2  4  1  0
+  4  5  2  0
   5  6  1  0
-  5  7  1  0
-  7  8  1  0
-  7 11  2  0
-  8  9  1  0
-  8 10  1  0
- 12 13  2  0
- 13 14  1  0
-  8 15  1  0
+  5  9  1  0
+  6  7  1  0
+  6  8  1  0
+  9 10  1  0
+  9 14  2  0
+ 10 11  1  0
+ 11 12  2  0
+ 12 13  1  0
+ 12 14  1  0
+ 11 15  1  0
  16  1  1  0
 V   15 *
 V   16 *
 M  END
 >  <kinase>  (99) 
-CDK2
+TAK1
 
 >  <family>  (99) 
-CDK
+MLK
 
 >  <group>  (99) 
-CMGC
+TKL
 
 >  <complex_pdb>  (99) 
-3ig7
+4l53
 
 >  <ligand_pdb>  (99) 
-EFP
+1UO
 
 >  <alt>  (99) 
- 
+A
 
 >  <chain>  (99) 
 A
 
 >  <atom.prop.subpocket>  (99) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE GA
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE
 
 >  <atom.prop.environment>  (99) 
-9 9 9 9 5 5 8 8 8 8 8 9 9 9 na na
+16 14 14 14 14 5 5 5 14 14 14 14 14 14 na na
 
 $$$$
 3cqe_altA_chainA
@@ -7012,75 +7017,7 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE GA
 
 >  <atom.prop.environment>  (100) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 8 8 8 8 16 16 na na
-
-$$$$
-4l53_altA_chainA
-     RDKit          3D
-
- 16 17  0  0  0  0  0  0  0  0999 V2000
-   -1.0041   17.3953   44.7778 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.1534   18.6751   45.3341 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.6283   18.7641   46.3000 H   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.7399   19.7771   44.7315 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.1681   19.7623   43.5505 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.2587   20.9541   42.9550 N   0  0  0  0  0  0  0  0  0  0  0  0
-    0.7024   20.9347   42.0479 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.1231   21.8339   43.4321 H   0  0  0  0  0  0  0  0  0  0  0  0
-    0.0172   18.5523   42.8964 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.5536   18.2958   41.7099 O   0  0  0  0  0  0  0  0  0  0  0  0
-    0.5411   16.9988   41.4106 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.0157   16.3186   42.4579 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.2249   14.5949   42.5189 Cl  0  0  0  0  0  0  0  0  0  0  0  0
-   -0.3837   17.3266   43.4786 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.0430   16.5211   40.1010 *   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.5663   16.2479   45.5611 *   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  2  0
-  1 14  1  0
-  2  3  1  0
-  2  4  1  0
-  4  5  2  0
-  5  6  1  0
-  5  9  1  0
-  6  7  1  0
-  6  8  1  0
-  9 10  1  0
-  9 14  2  0
- 10 11  1  0
- 11 12  2  0
- 12 13  1  0
- 12 14  1  0
- 11 15  1  0
- 16  1  1  0
-V   15 *
-V   16 *
-M  END
->  <kinase>  (101) 
-TAK1
-
->  <family>  (101) 
-MLK
-
->  <group>  (101) 
-TKL
-
->  <complex_pdb>  (101) 
-4l53
-
->  <ligand_pdb>  (101) 
-1UO
-
->  <alt>  (101) 
-A
-
->  <chain>  (101) 
-A
-
->  <atom.prop.subpocket>  (101) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE
-
->  <atom.prop.environment>  (101) 
-16 16 16 16 16 5 5 5 16 16 16 16 16 16 na na
+14 14 16 14 14 14 14 14 14 14 14 14 14 14 9 8 8 8 8 14 14 na na
 
 $$$$
 4l6q_chainB
@@ -7121,32 +7058,32 @@ $$$$
  16  1  1  0
 V   16 *
 M  END
->  <kinase>  (102) 
+>  <kinase>  (101) 
 ROCK2
 
->  <family>  (102) 
+>  <family>  (101) 
 DMPK
 
->  <group>  (102) 
+>  <group>  (101) 
 AGC
 
->  <complex_pdb>  (102) 
+>  <complex_pdb>  (101) 
 4l6q
 
->  <ligand_pdb>  (102) 
+>  <ligand_pdb>  (101) 
 1WU
 
->  <alt>  (102) 
+>  <alt>  (101) 
  
 
->  <chain>  (102) 
+>  <chain>  (101) 
 B
 
->  <atom.prop.subpocket>  (102) 
+>  <atom.prop.subpocket>  (101) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (102) 
-16 16 16 16 16 16 16 16 8 8 8 3 3 16 16 na
+>  <atom.prop.environment>  (101) 
+16 16 16 16 16 16 16 16 4 4 4 3 3 16 16 na
 
 $$$$
 6ilz_chainG
@@ -7207,32 +7144,32 @@ $$$$
 V   24 *
 V   25 *
 M  END
->  <kinase>  (103) 
+>  <kinase>  (102) 
 PKCi
 
->  <family>  (103) 
+>  <family>  (102) 
 PKC
 
->  <group>  (103) 
+>  <group>  (102) 
 AGC
 
->  <complex_pdb>  (103) 
+>  <complex_pdb>  (102) 
 6ilz
 
->  <ligand_pdb>  (103) 
+>  <ligand_pdb>  (102) 
 AFU
 
->  <alt>  (103) 
+>  <alt>  (102) 
  
 
->  <chain>  (103) 
+>  <chain>  (102) 
 G
 
->  <atom.prop.subpocket>  (103) 
+>  <atom.prop.subpocket>  (102) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA FP
 
->  <atom.prop.environment>  (103) 
-6 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 5 5 5 6 na na
+>  <atom.prop.environment>  (102) 
+1 16 14 14 14 16 14 14 16 16 16 16 16 16 16 16 16 16 14 5 5 5 1 na na
 
 $$$$
 7ksj_chainA
@@ -7283,32 +7220,32 @@ $$$$
 V   19 *
 V   20 *
 M  END
->  <kinase>  (104) 
+>  <kinase>  (103) 
 JNK3
 
->  <family>  (104) 
+>  <family>  (103) 
 MAPK
 
->  <group>  (104) 
+>  <group>  (103) 
 CMGC
 
->  <complex_pdb>  (104) 
+>  <complex_pdb>  (103) 
 7ksj
 
->  <ligand_pdb>  (104) 
+>  <ligand_pdb>  (103) 
 X3Y
 
->  <alt>  (104) 
+>  <alt>  (103) 
  
 
->  <chain>  (104) 
+>  <chain>  (103) 
 A
 
->  <atom.prop.subpocket>  (104) 
+>  <atom.prop.subpocket>  (103) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA SE
 
->  <atom.prop.environment>  (104) 
-16 1 16 16 9 5 5 9 9 9 9 9 16 16 16 9 1 16 na na
+>  <atom.prop.environment>  (103) 
+16 1 14 14 16 5 5 16 16 16 16 16 14 14 14 9 1 14 na na
 
 $$$$
 4xs2_chainC
@@ -7339,32 +7276,32 @@ V    8 *
 V    9 *
 V   10 *
 M  END
->  <kinase>  (105) 
+>  <kinase>  (104) 
 IRAK4
 
->  <family>  (105) 
+>  <family>  (104) 
 IRAK
 
->  <group>  (105) 
+>  <group>  (104) 
 TKL
 
->  <complex_pdb>  (105) 
+>  <complex_pdb>  (104) 
 4xs2
 
->  <ligand_pdb>  (105) 
+>  <ligand_pdb>  (104) 
 42P
 
->  <alt>  (105) 
+>  <alt>  (104) 
  
 
->  <chain>  (105) 
+>  <chain>  (104) 
 C
 
->  <atom.prop.subpocket>  (105) 
+>  <atom.prop.subpocket>  (104) 
 AP AP AP AP AP AP AP FP SE GA
 
->  <atom.prop.environment>  (105) 
-16 16 16 16 16 16 16 na na na
+>  <atom.prop.environment>  (104) 
+14 14 14 14 14 16 14 na na na
 
 $$$$
 4hgl_chainA
@@ -7402,32 +7339,32 @@ $$$$
 V   13 *
 V   14 *
 M  END
->  <kinase>  (106) 
+>  <kinase>  (105) 
 CK1g3
 
->  <family>  (106) 
+>  <family>  (105) 
 CK1
 
->  <group>  (106) 
+>  <group>  (105) 
 CK1
 
->  <complex_pdb>  (106) 
+>  <complex_pdb>  (105) 
 4hgl
 
->  <ligand_pdb>  (106) 
+>  <ligand_pdb>  (105) 
 0YO
 
->  <alt>  (106) 
+>  <alt>  (105) 
  
 
->  <chain>  (106) 
+>  <chain>  (105) 
 A
 
->  <atom.prop.subpocket>  (106) 
+>  <atom.prop.subpocket>  (105) 
 AP AP AP AP AP AP AP AP AP AP AP AP FP SE
 
->  <atom.prop.environment>  (106) 
-14 14 14 14 3 3 3 3 14 14 14 3 na na
+>  <atom.prop.environment>  (105) 
+14 16 16 16 3 3 3 3 14 16 16 3 na na
 
 $$$$
 4hyi_altA_chainA
@@ -7480,31 +7417,31 @@ $$$$
  21  1  1  0
 V   21 *
 M  END
->  <kinase>  (107) 
+>  <kinase>  (106) 
 CHK1
 
->  <family>  (107) 
+>  <family>  (106) 
 CAMKL
 
->  <group>  (107) 
+>  <group>  (106) 
 CAMK
 
->  <complex_pdb>  (107) 
+>  <complex_pdb>  (106) 
 4hyi
 
->  <ligand_pdb>  (107) 
+>  <ligand_pdb>  (106) 
 1AO
 
->  <alt>  (107) 
+>  <alt>  (106) 
 A
 
->  <chain>  (107) 
+>  <chain>  (106) 
 A
 
->  <atom.prop.subpocket>  (107) 
+>  <atom.prop.subpocket>  (106) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
 
->  <atom.prop.environment>  (107) 
+>  <atom.prop.environment>  (106) 
 14 14 14 14 14 14 9 9 9 9 9 9 9 9 9 9 9 9 9 9 na
 
 $$$$
@@ -7537,32 +7474,32 @@ $$$$
 V   10 *
 V   11 *
 M  END
->  <kinase>  (108) 
+>  <kinase>  (107) 
 p38a
 
->  <family>  (108) 
+>  <family>  (107) 
 MAPK
 
->  <group>  (108) 
+>  <group>  (107) 
 CMGC
 
->  <complex_pdb>  (108) 
+>  <complex_pdb>  (107) 
 3roc
 
->  <ligand_pdb>  (108) 
+>  <ligand_pdb>  (107) 
 29A
 
->  <alt>  (108) 
+>  <alt>  (107) 
  
 
->  <chain>  (108) 
+>  <chain>  (107) 
 A
 
->  <atom.prop.subpocket>  (108) 
+>  <atom.prop.subpocket>  (107) 
 AP AP AP AP AP AP AP AP AP GA SE
 
->  <atom.prop.environment>  (108) 
-9 9 9 9 9 9 9 9 9 na na
+>  <atom.prop.environment>  (107) 
+14 14 14 9 14 14 14 14 14 na na
 
 $$$$
 3hll_altB_chainA
@@ -7602,32 +7539,32 @@ $$$$
 V   14 *
 V   15 *
 M  END
->  <kinase>  (109) 
+>  <kinase>  (108) 
 p38a
 
->  <family>  (109) 
+>  <family>  (108) 
 MAPK
 
->  <group>  (109) 
+>  <group>  (108) 
 CMGC
 
->  <complex_pdb>  (109) 
+>  <complex_pdb>  (108) 
 3hll
 
->  <ligand_pdb>  (109) 
+>  <ligand_pdb>  (108) 
 I45
 
->  <alt>  (109) 
+>  <alt>  (108) 
 B
 
->  <chain>  (109) 
+>  <chain>  (108) 
 A
 
->  <atom.prop.subpocket>  (109) 
+>  <atom.prop.subpocket>  (108) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP GA SE
 
->  <atom.prop.environment>  (109) 
-9 9 9 9 9 9 9 9 9 8 8 8 8 na na
+>  <atom.prop.environment>  (108) 
+16 16 16 9 14 16 16 16 16 8 8 8 8 na na
 
 $$$$
 5v24_altB_chainA
@@ -7661,32 +7598,32 @@ $$$$
 V   11 *
 V   12 *
 M  END
->  <kinase>  (110) 
+>  <kinase>  (109) 
 MAP3K5
 
->  <family>  (110) 
+>  <family>  (109) 
 STE11
 
->  <group>  (110) 
+>  <group>  (109) 
 STE
 
->  <complex_pdb>  (110) 
+>  <complex_pdb>  (109) 
 5v24
 
->  <ligand_pdb>  (110) 
+>  <ligand_pdb>  (109) 
 8V7
 
->  <alt>  (110) 
+>  <alt>  (109) 
 B
 
->  <chain>  (110) 
+>  <chain>  (109) 
 A
 
->  <atom.prop.subpocket>  (110) 
+>  <atom.prop.subpocket>  (109) 
 AP AP AP AP AP AP AP AP AP AP SE FP
 
->  <atom.prop.environment>  (110) 
-14 14 14 14 14 14 6 6 5 5 na na
+>  <atom.prop.environment>  (109) 
+14 14 14 14 14 14 1 1 5 5 na na
 
 $$$$
 5hlp_altB_chainB
@@ -7761,32 +7698,32 @@ $$$$
  32  6  1  0
 V   32 *
 M  END
->  <kinase>  (111) 
+>  <kinase>  (110) 
 GSK3B
 
->  <family>  (111) 
+>  <family>  (110) 
 GSK
 
->  <group>  (111) 
+>  <group>  (110) 
 CMGC
 
->  <complex_pdb>  (111) 
+>  <complex_pdb>  (110) 
 5hlp
 
->  <ligand_pdb>  (111) 
+>  <ligand_pdb>  (110) 
 65A
 
->  <alt>  (111) 
+>  <alt>  (110) 
 B
 
->  <chain>  (111) 
+>  <chain>  (110) 
 B
 
->  <atom.prop.subpocket>  (111) 
+>  <atom.prop.subpocket>  (110) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (111) 
-16 8 8 8 8 16 8 8 8 8 16 16 16 16 16 16 16 16 16 16 16 8 8 8 8 16 16 16 16 16 16 na
+>  <atom.prop.environment>  (110) 
+14 8 8 8 8 16 8 8 8 8 15 14 14 14 14 14 14 14 14 14 14 8 8 8 8 14 14 14 14 14 14 na
 
 $$$$
 3pxk_chainB
@@ -7820,31 +7757,31 @@ $$$$
  11 12  1  0
 V   12 *
 M  END
->  <kinase>  (112) 
+>  <kinase>  (111) 
 FAK
 
->  <family>  (112) 
+>  <family>  (111) 
 FAK
 
->  <group>  (112) 
+>  <group>  (111) 
 TK
 
->  <complex_pdb>  (112) 
+>  <complex_pdb>  (111) 
 3pxk
 
->  <ligand_pdb>  (112) 
+>  <ligand_pdb>  (111) 
 PXK
 
->  <alt>  (112) 
+>  <alt>  (111) 
  
 
->  <chain>  (112) 
+>  <chain>  (111) 
 B
 
->  <atom.prop.subpocket>  (112) 
+>  <atom.prop.subpocket>  (111) 
 AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (112) 
+>  <atom.prop.environment>  (111) 
 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -7910,32 +7847,32 @@ $$$$
  27 18  1  0
 V   27 *
 M  END
->  <kinase>  (113) 
+>  <kinase>  (112) 
 Erk2
 
->  <family>  (113) 
+>  <family>  (112) 
 MAPK
 
->  <group>  (113) 
+>  <group>  (112) 
 CMGC
 
->  <complex_pdb>  (113) 
+>  <complex_pdb>  (112) 
 5bue
 
->  <ligand_pdb>  (113) 
+>  <ligand_pdb>  (112) 
 4V8
 
->  <alt>  (113) 
+>  <alt>  (112) 
  
 
->  <chain>  (113) 
+>  <chain>  (112) 
 A
 
->  <atom.prop.subpocket>  (113) 
+>  <atom.prop.subpocket>  (112) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
 
->  <atom.prop.environment>  (113) 
-14 14 16 16 16 16 16 16 16 16 14 14 14 14 14 14 14 14 14 14 14 14 14 14 16 16 na
+>  <atom.prop.environment>  (112) 
+14 5 16 16 16 16 16 16 16 16 5 5 5 5 5 5 5 5 5 5 5 5 5 5 16 16 na
 
 $$$$
 5aut_chainA
@@ -7988,31 +7925,31 @@ $$$$
 M  CHG  1  18  -1
 V   21 *
 M  END
->  <kinase>  (114) 
+>  <kinase>  (113) 
 DAPK1
 
->  <family>  (114) 
+>  <family>  (113) 
 DAPK
 
->  <group>  (114) 
+>  <group>  (113) 
 CAMK
 
->  <complex_pdb>  (114) 
+>  <complex_pdb>  (113) 
 5aut
 
->  <ligand_pdb>  (114) 
+>  <ligand_pdb>  (113) 
 2AN
 
->  <alt>  (114) 
+>  <alt>  (113) 
  
 
->  <chain>  (114) 
+>  <chain>  (113) 
 A
 
->  <atom.prop.subpocket>  (114) 
+>  <atom.prop.subpocket>  (113) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (114) 
+>  <atom.prop.environment>  (113) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -8059,32 +7996,32 @@ $$$$
 V   17 *
 V   18 *
 M  END
->  <kinase>  (115) 
+>  <kinase>  (114) 
 CaMKK2
 
->  <family>  (115) 
+>  <family>  (114) 
 CAMKK
 
->  <group>  (115) 
+>  <group>  (114) 
 Other
 
->  <complex_pdb>  (115) 
+>  <complex_pdb>  (114) 
 5yvc
 
->  <ligand_pdb>  (115) 
+>  <ligand_pdb>  (114) 
 SU6
 
->  <alt>  (115) 
+>  <alt>  (114) 
  
 
->  <chain>  (115) 
+>  <chain>  (114) 
 A
 
->  <atom.prop.subpocket>  (115) 
+>  <atom.prop.subpocket>  (114) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE GA
 
->  <atom.prop.environment>  (115) 
-16 16 16 16 8 8 8 8 16 8 8 8 8 16 16 16 na na
+>  <atom.prop.environment>  (114) 
+7 7 16 14 8 8 8 8 16 8 8 8 8 7 7 7 na na
 
 $$$$
 6qy7_altA_chainA
@@ -8132,32 +8069,32 @@ $$$$
  10 19  1  0
 V   19 *
 M  END
->  <kinase>  (116) 
+>  <kinase>  (115) 
 CK2a1
 
->  <family>  (116) 
+>  <family>  (115) 
 CK2
 
->  <group>  (116) 
+>  <group>  (115) 
 CMGC
 
->  <complex_pdb>  (116) 
+>  <complex_pdb>  (115) 
 6qy7
 
->  <ligand_pdb>  (116) 
+>  <ligand_pdb>  (115) 
 041
 
->  <alt>  (116) 
+>  <alt>  (115) 
 A
 
->  <chain>  (116) 
+>  <chain>  (115) 
 A
 
->  <atom.prop.subpocket>  (116) 
+>  <atom.prop.subpocket>  (115) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
 
->  <atom.prop.environment>  (116) 
-14 14 14 14 14 14 14 14 14 14 14 3 3 14 14 14 14 14 na
+>  <atom.prop.environment>  (115) 
+16 16 16 16 16 16 16 16 16 14 16 3 3 16 16 16 16 16 na
 
 $$$$
 4kbk_altB_chainA
@@ -8218,32 +8155,32 @@ $$$$
 M  CHG  1  22   1
 V   25 *
 M  END
->  <kinase>  (117) 
+>  <kinase>  (116) 
 CK1d
 
->  <family>  (117) 
+>  <family>  (116) 
 CK1
 
->  <group>  (117) 
+>  <group>  (116) 
 CK1
 
->  <complex_pdb>  (117) 
+>  <complex_pdb>  (116) 
 4kbk
 
->  <ligand_pdb>  (117) 
+>  <ligand_pdb>  (116) 
 1QG
 
->  <alt>  (117) 
+>  <alt>  (116) 
 B
 
->  <chain>  (117) 
+>  <chain>  (116) 
 A
 
->  <atom.prop.subpocket>  (117) 
+>  <atom.prop.subpocket>  (116) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (117) 
-16 16 16 13 13 13 13 13 13 13 13 16 16 16 16 16 16 13 13 13 13 13 13 13 na
+>  <atom.prop.environment>  (116) 
+14 14 14 13 13 13 13 13 13 13 13 16 14 14 14 14 14 13 13 13 13 13 13 13 na
 
 $$$$
 2cgu_chainA
@@ -8303,31 +8240,31 @@ $$$$
 V   23 *
 V   24 *
 M  END
->  <kinase>  (118) 
+>  <kinase>  (117) 
 CHK1
 
->  <family>  (118) 
+>  <family>  (117) 
 CAMKL
 
->  <group>  (118) 
+>  <group>  (117) 
 CAMK
 
->  <complex_pdb>  (118) 
+>  <complex_pdb>  (117) 
 2cgu
 
->  <ligand_pdb>  (118) 
+>  <ligand_pdb>  (117) 
 3A3
 
->  <alt>  (118) 
+>  <alt>  (117) 
  
 
->  <chain>  (118) 
+>  <chain>  (117) 
 A
 
->  <atom.prop.subpocket>  (118) 
+>  <atom.prop.subpocket>  (117) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
 
->  <atom.prop.environment>  (118) 
+>  <atom.prop.environment>  (117) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
@@ -8380,31 +8317,31 @@ $$$$
  20 21  1  0
 V   21 *
 M  END
->  <kinase>  (119) 
+>  <kinase>  (118) 
 AKT1
 
->  <family>  (119) 
+>  <family>  (118) 
 Akt
 
->  <group>  (119) 
+>  <group>  (118) 
 AGC
 
->  <complex_pdb>  (119) 
+>  <complex_pdb>  (118) 
 6ccy
 
->  <ligand_pdb>  (119) 
+>  <ligand_pdb>  (118) 
 EX4
 
->  <alt>  (119) 
+>  <alt>  (118) 
 A
 
->  <chain>  (119) 
+>  <chain>  (118) 
 A
 
->  <atom.prop.subpocket>  (119) 
+>  <atom.prop.subpocket>  (118) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (119) 
+>  <atom.prop.environment>  (118) 
 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$
@@ -8454,32 +8391,32 @@ $$$$
 V   18 *
 V   19 *
 M  END
->  <kinase>  (120) 
+>  <kinase>  (119) 
 TBK1
 
->  <family>  (120) 
+>  <family>  (119) 
 IKK
 
->  <group>  (120) 
+>  <group>  (119) 
 Other
 
->  <complex_pdb>  (120) 
+>  <complex_pdb>  (119) 
 6rsu
 
->  <ligand_pdb>  (120) 
+>  <ligand_pdb>  (119) 
 KJB
 
->  <alt>  (120) 
+>  <alt>  (119) 
  
 
->  <chain>  (120) 
+>  <chain>  (119) 
 A
 
->  <atom.prop.subpocket>  (120) 
+>  <atom.prop.subpocket>  (119) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE GA
 
->  <atom.prop.environment>  (120) 
-16 16 16 16 16 16 16 16 16 16 16 5 5 16 16 16 16 na na
+>  <atom.prop.environment>  (119) 
+13 13 13 13 13 13 16 13 13 13 13 5 5 13 13 13 13 na na
 
 $$$$
 4wot_chainA
@@ -8514,31 +8451,31 @@ $$$$
  11 13  1  0
 V   13 *
 M  END
->  <kinase>  (121) 
+>  <kinase>  (120) 
 ROCK2
 
->  <family>  (121) 
+>  <family>  (120) 
 DMPK
 
->  <group>  (121) 
+>  <group>  (120) 
 AGC
 
->  <complex_pdb>  (121) 
+>  <complex_pdb>  (120) 
 4wot
 
->  <ligand_pdb>  (121) 
+>  <ligand_pdb>  (120) 
 3SG
 
->  <alt>  (121) 
+>  <alt>  (120) 
  
 
->  <chain>  (121) 
+>  <chain>  (120) 
 A
 
->  <atom.prop.subpocket>  (121) 
+>  <atom.prop.subpocket>  (120) 
 AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (121) 
+>  <atom.prop.environment>  (120) 
 16 16 16 16 16 16 16 16 16 16 5 5 na
 
 $$$$
@@ -8574,31 +8511,31 @@ $$$$
  13 12  1  0
 V   13 *
 M  END
->  <kinase>  (122) 
+>  <kinase>  (121) 
 PIM1
 
->  <family>  (122) 
+>  <family>  (121) 
 PIM
 
->  <group>  (122) 
+>  <group>  (121) 
 CAMK
 
->  <complex_pdb>  (122) 
+>  <complex_pdb>  (121) 
 5n50
 
->  <ligand_pdb>  (122) 
+>  <ligand_pdb>  (121) 
 8MN
 
->  <alt>  (122) 
+>  <alt>  (121) 
 A
 
->  <chain>  (122) 
+>  <chain>  (121) 
 A
 
->  <atom.prop.subpocket>  (122) 
+>  <atom.prop.subpocket>  (121) 
 AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (122) 
+>  <atom.prop.environment>  (121) 
 16 16 16 16 16 16 16 16 16 16 16 11 na
 
 $$$$
@@ -8634,32 +8571,32 @@ $$$$
  13  6  1  0
 V   13 *
 M  END
->  <kinase>  (123) 
+>  <kinase>  (122) 
 MAP3K5
 
->  <family>  (123) 
+>  <family>  (122) 
 STE11
 
->  <group>  (123) 
+>  <group>  (122) 
 STE
 
->  <complex_pdb>  (123) 
+>  <complex_pdb>  (122) 
 5v19
 
->  <ligand_pdb>  (123) 
+>  <ligand_pdb>  (122) 
 8V4
 
->  <alt>  (123) 
+>  <alt>  (122) 
  
 
->  <chain>  (123) 
+>  <chain>  (122) 
 B
 
->  <atom.prop.subpocket>  (123) 
+>  <atom.prop.subpocket>  (122) 
 AP AP AP AP AP AP AP AP AP AP AP AP SE
 
->  <atom.prop.environment>  (123) 
-6 16 16 16 16 5 5 6 16 16 16 16 na
+>  <atom.prop.environment>  (122) 
+1 16 16 16 16 5 5 1 16 16 16 16 na
 
 $$$$
 4c61_chainB
@@ -8696,32 +8633,32 @@ $$$$
  14  1  1  0
 V   14 *
 M  END
->  <kinase>  (124) 
+>  <kinase>  (123) 
 JAK2
 
->  <family>  (124) 
+>  <family>  (123) 
 JakA
 
->  <group>  (124) 
+>  <group>  (123) 
 TK
 
->  <complex_pdb>  (124) 
+>  <complex_pdb>  (123) 
 4c61
 
->  <ligand_pdb>  (124) 
+>  <ligand_pdb>  (123) 
 LMM
 
->  <alt>  (124) 
+>  <alt>  (123) 
  
 
->  <chain>  (124) 
+>  <chain>  (123) 
 B
 
->  <atom.prop.subpocket>  (124) 
+>  <atom.prop.subpocket>  (123) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP SE
 
->  <atom.prop.environment>  (124) 
-5 5 9 9 9 9 9 8 8 8 8 9 9 na
+>  <atom.prop.environment>  (123) 
+5 5 14 14 14 14 9 8 8 8 8 14 14 na
 
 $$$$
 4k6z_chainA
@@ -8764,31 +8701,31 @@ $$$$
 V   15 *
 V   16 *
 M  END
->  <kinase>  (125) 
+>  <kinase>  (124) 
 JAK1
 
->  <family>  (125) 
+>  <family>  (124) 
 JakA
 
->  <group>  (125) 
+>  <group>  (124) 
 TK
 
->  <complex_pdb>  (125) 
+>  <complex_pdb>  (124) 
 4k6z
 
->  <ligand_pdb>  (125) 
+>  <ligand_pdb>  (124) 
 1Q3
 
->  <alt>  (125) 
+>  <alt>  (124) 
  
 
->  <chain>  (125) 
+>  <chain>  (124) 
 A
 
->  <atom.prop.subpocket>  (125) 
+>  <atom.prop.subpocket>  (124) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP SE
 
->  <atom.prop.environment>  (125) 
+>  <atom.prop.environment>  (124) 
 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na na
 
 $$$$
@@ -8823,32 +8760,32 @@ $$$$
 V   11 *
 V   12 *
 M  END
->  <kinase>  (126) 
+>  <kinase>  (125) 
 IRAK4
 
->  <family>  (126) 
+>  <family>  (125) 
 IRAK
 
->  <group>  (126) 
+>  <group>  (125) 
 TKL
 
->  <complex_pdb>  (126) 
+>  <complex_pdb>  (125) 
 6egd
 
->  <ligand_pdb>  (126) 
+>  <ligand_pdb>  (125) 
 J87
 
->  <alt>  (126) 
+>  <alt>  (125) 
 B
 
->  <chain>  (126) 
+>  <chain>  (125) 
 D
 
->  <atom.prop.subpocket>  (126) 
+>  <atom.prop.subpocket>  (125) 
 AP AP AP AP AP AP AP AP AP AP SE FP
 
->  <atom.prop.environment>  (126) 
-14 5 5 6 14 14 14 14 14 6 na na
+>  <atom.prop.environment>  (125) 
+14 5 5 1 14 14 14 14 14 1 na na
 
 $$$$
 4afj_altA_chainB
@@ -8888,32 +8825,32 @@ $$$$
 V   14 *
 V   15 *
 M  END
->  <kinase>  (127) 
+>  <kinase>  (126) 
 GSK3B
 
->  <family>  (127) 
+>  <family>  (126) 
 GSK
 
->  <group>  (127) 
+>  <group>  (126) 
 CMGC
 
->  <complex_pdb>  (127) 
+>  <complex_pdb>  (126) 
 4afj
 
->  <ligand_pdb>  (127) 
+>  <ligand_pdb>  (126) 
 SJJ
 
->  <alt>  (127) 
+>  <alt>  (126) 
 A
 
->  <chain>  (127) 
+>  <chain>  (126) 
 B
 
->  <atom.prop.subpocket>  (127) 
+>  <atom.prop.subpocket>  (126) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP SE FP
 
->  <atom.prop.environment>  (127) 
-14 14 14 14 6 8 8 8 14 5 5 6 14 na na
+>  <atom.prop.environment>  (126) 
+14 14 14 14 1 4 4 4 14 5 5 1 14 na na
 
 $$$$
 5m4c_altA_chainA
@@ -8952,32 +8889,32 @@ $$$$
 V   13 *
 V   14 *
 M  END
->  <kinase>  (128) 
+>  <kinase>  (127) 
 CK2a1
 
->  <family>  (128) 
+>  <family>  (127) 
 CK2
 
->  <group>  (128) 
+>  <group>  (127) 
 CMGC
 
->  <complex_pdb>  (128) 
+>  <complex_pdb>  (127) 
 5m4c
 
->  <ligand_pdb>  (128) 
+>  <ligand_pdb>  (127) 
 7EY
 
->  <alt>  (128) 
+>  <alt>  (127) 
 A
 
->  <chain>  (128) 
+>  <chain>  (127) 
 A
 
->  <atom.prop.subpocket>  (128) 
+>  <atom.prop.subpocket>  (127) 
 AP AP AP AP AP AP AP AP AP AP AP AP GA FP
 
->  <atom.prop.environment>  (128) 
-16 16 16 16 16 11 16 16 16 16 16 16 na na
+>  <atom.prop.environment>  (127) 
+14 14 14 14 14 11 14 14 14 14 14 16 na na
 
 $$$$
 4fsy_altB_chainA
@@ -9040,31 +8977,31 @@ $$$$
  26  1  1  0
 V   26 *
 M  END
->  <kinase>  (129) 
+>  <kinase>  (128) 
 CHK1
 
->  <family>  (129) 
+>  <family>  (128) 
 CAMKL
 
->  <group>  (129) 
+>  <group>  (128) 
 CAMK
 
->  <complex_pdb>  (129) 
+>  <complex_pdb>  (128) 
 4fsy
 
->  <ligand_pdb>  (129) 
+>  <ligand_pdb>  (128) 
 HK7
 
->  <alt>  (129) 
+>  <alt>  (128) 
 B
 
->  <chain>  (129) 
+>  <chain>  (128) 
 A
 
->  <atom.prop.subpocket>  (129) 
+>  <atom.prop.subpocket>  (128) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (129) 
+>  <atom.prop.environment>  (128) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -9115,31 +9052,31 @@ $$$$
  19 20  2  0
 V   20 *
 M  END
->  <kinase>  (130) 
+>  <kinase>  (129) 
 CHK1
 
->  <family>  (130) 
+>  <family>  (129) 
 CAMKL
 
->  <group>  (130) 
+>  <group>  (129) 
 CAMK
 
->  <complex_pdb>  (130) 
+>  <complex_pdb>  (129) 
 1zlt
 
->  <ligand_pdb>  (130) 
+>  <ligand_pdb>  (129) 
 HYM
 
->  <alt>  (130) 
+>  <alt>  (129) 
  
 
->  <chain>  (130) 
+>  <chain>  (129) 
 A
 
->  <atom.prop.subpocket>  (130) 
+>  <atom.prop.subpocket>  (129) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (130) 
+>  <atom.prop.environment>  (129) 
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 na
 
 $$$$
@@ -9178,32 +9115,32 @@ $$$$
 V   13 *
 V   14 *
 M  END
->  <kinase>  (131) 
+>  <kinase>  (130) 
 BTK
 
->  <family>  (131) 
+>  <family>  (130) 
 Tec
 
->  <group>  (131) 
+>  <group>  (130) 
 TK
 
->  <complex_pdb>  (131) 
+>  <complex_pdb>  (130) 
 4otf
 
->  <ligand_pdb>  (131) 
+>  <ligand_pdb>  (130) 
 2VL
 
->  <alt>  (131) 
+>  <alt>  (130) 
 A
 
->  <chain>  (131) 
+>  <chain>  (130) 
 A
 
->  <atom.prop.subpocket>  (131) 
+>  <atom.prop.subpocket>  (130) 
 AP AP AP AP AP AP AP AP AP AP AP AP SE FP
 
->  <atom.prop.environment>  (131) 
-14 14 14 14 14 14 14 14 8 8 8 8 na na
+>  <atom.prop.environment>  (130) 
+14 14 14 9 14 14 14 14 8 8 8 8 na na
 
 $$$$
 5xyx_altB_chainA
@@ -9243,31 +9180,31 @@ $$$$
  14 15  1  0
 V   15 *
 M  END
->  <kinase>  (132) 
+>  <kinase>  (131) 
 p38a
 
->  <family>  (132) 
+>  <family>  (131) 
 MAPK
 
->  <group>  (132) 
+>  <group>  (131) 
 CMGC
 
->  <complex_pdb>  (132) 
+>  <complex_pdb>  (131) 
 5xyx
 
->  <ligand_pdb>  (132) 
+>  <ligand_pdb>  (131) 
 FTZ
 
->  <alt>  (132) 
+>  <alt>  (131) 
 B
 
->  <chain>  (132) 
+>  <chain>  (131) 
 A
 
->  <atom.prop.subpocket>  (132) 
+>  <atom.prop.subpocket>  (131) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
 
->  <atom.prop.environment>  (132) 
+>  <atom.prop.environment>  (131) 
 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$
@@ -9334,32 +9271,32 @@ M  RAD  1  10   3
 V   25 *
 V   26 *
 M  END
->  <kinase>  (133) 
+>  <kinase>  (132) 
 p38a
 
->  <family>  (133) 
+>  <family>  (132) 
 MAPK
 
->  <group>  (133) 
+>  <group>  (132) 
 CMGC
 
->  <complex_pdb>  (133) 
+>  <complex_pdb>  (132) 
 3mw1
 
->  <ligand_pdb>  (133) 
+>  <ligand_pdb>  (132) 
 MIH
 
->  <alt>  (133) 
+>  <alt>  (132) 
  
 
->  <chain>  (133) 
+>  <chain>  (132) 
 A
 
->  <atom.prop.subpocket>  (133) 
+>  <atom.prop.subpocket>  (132) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP GA
 
->  <atom.prop.environment>  (133) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+>  <atom.prop.environment>  (132) 
+16 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na na
 
 $$$$
 3hub_chainA
@@ -9420,32 +9357,32 @@ M  CHG  1  22   1
 V   24 *
 V   25 *
 M  END
->  <kinase>  (134) 
+>  <kinase>  (133) 
 p38a
 
->  <family>  (134) 
+>  <family>  (133) 
 MAPK
 
->  <group>  (134) 
+>  <group>  (133) 
 CMGC
 
->  <complex_pdb>  (134) 
+>  <complex_pdb>  (133) 
 3hub
 
->  <ligand_pdb>  (134) 
+>  <ligand_pdb>  (133) 
 469
 
->  <alt>  (134) 
+>  <alt>  (133) 
  
 
->  <chain>  (134) 
+>  <chain>  (133) 
 A
 
->  <atom.prop.subpocket>  (134) 
+>  <atom.prop.subpocket>  (133) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA SE
 
->  <atom.prop.environment>  (134) 
-6 6 13 13 13 13 13 13 8 8 8 8 13 13 13 13 13 8 8 8 8 13 13 na na
+>  <atom.prop.environment>  (133) 
+1 1 5 13 5 5 5 5 8 8 8 8 5 5 5 13 5 8 8 8 8 5 5 na na
 
 $$$$
 3fmk_chainA
@@ -9468,31 +9405,31 @@ $$$$
   7  1  1  0
 V    7 *
 M  END
->  <kinase>  (135) 
+>  <kinase>  (134) 
 p38a
 
->  <family>  (135) 
+>  <family>  (134) 
 MAPK
 
->  <group>  (135) 
+>  <group>  (134) 
 CMGC
 
->  <complex_pdb>  (135) 
+>  <complex_pdb>  (134) 
 3fmk
 
->  <ligand_pdb>  (135) 
+>  <ligand_pdb>  (134) 
 FMK
 
->  <alt>  (135) 
+>  <alt>  (134) 
  
 
->  <chain>  (135) 
+>  <chain>  (134) 
 A
 
->  <atom.prop.subpocket>  (135) 
+>  <atom.prop.subpocket>  (134) 
 AP AP AP AP AP AP SE
 
->  <atom.prop.environment>  (135) 
+>  <atom.prop.environment>  (134) 
 9 9 9 9 9 9 na
 
 $$$$
@@ -9549,31 +9486,31 @@ $$$$
  22 23  1  0
 V   23 *
 M  END
->  <kinase>  (136) 
+>  <kinase>  (135) 
 p38a
 
->  <family>  (136) 
+>  <family>  (135) 
 MAPK
 
->  <group>  (136) 
+>  <group>  (135) 
 CMGC
 
->  <complex_pdb>  (136) 
+>  <complex_pdb>  (135) 
 3e92
 
->  <ligand_pdb>  (136) 
+>  <ligand_pdb>  (135) 
 G6A
 
->  <alt>  (136) 
+>  <alt>  (135) 
  
 
->  <chain>  (136) 
+>  <chain>  (135) 
 A
 
->  <atom.prop.subpocket>  (136) 
+>  <atom.prop.subpocket>  (135) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
 
->  <atom.prop.environment>  (136) 
+>  <atom.prop.environment>  (135) 
 8 8 8 8 14 14 14 14 14 16 16 16 16 16 16 16 16 8 8 8 8 16 na
 
 $$$$
@@ -9625,32 +9562,32 @@ $$$$
 V   19 *
 V   20 *
 M  END
->  <kinase>  (137) 
+>  <kinase>  (136) 
 p38a
 
->  <family>  (137) 
+>  <family>  (136) 
 MAPK
 
->  <group>  (137) 
+>  <group>  (136) 
 CMGC
 
->  <complex_pdb>  (137) 
+>  <complex_pdb>  (136) 
 2qd9
 
->  <ligand_pdb>  (137) 
+>  <ligand_pdb>  (136) 
 LGF
 
->  <alt>  (137) 
+>  <alt>  (136) 
  
 
->  <chain>  (137) 
+>  <chain>  (136) 
 A
 
->  <atom.prop.subpocket>  (137) 
+>  <atom.prop.subpocket>  (136) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE GA
 
->  <atom.prop.environment>  (137) 
-6 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 6 na na
+>  <atom.prop.environment>  (136) 
+1 14 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 1 na na
 
 $$$$
 8edh_chainA
@@ -9698,32 +9635,32 @@ $$$$
 V   18 *
 V   19 *
 M  END
->  <kinase>  (138) 
+>  <kinase>  (137) 
 Wnk3
 
->  <family>  (138) 
+>  <family>  (137) 
 WNK
 
->  <group>  (138) 
+>  <group>  (137) 
 Other
 
->  <complex_pdb>  (138) 
+>  <complex_pdb>  (137) 
 8edh
 
->  <ligand_pdb>  (138) 
+>  <ligand_pdb>  (137) 
 WGK
 
->  <alt>  (138) 
+>  <alt>  (137) 
  
 
->  <chain>  (138) 
+>  <chain>  (137) 
 A
 
->  <atom.prop.subpocket>  (138) 
+>  <atom.prop.subpocket>  (137) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE GA
 
->  <atom.prop.environment>  (138) 
-15 15 15 15 15 15 6 6 15 15 15 15 15 15 15 15 15 na na
+>  <atom.prop.environment>  (137) 
+5 5 5 5 5 5 1 1 15 5 5 5 5 5 5 5 5 na na
 
 $$$$
 5i8a_altA_chainA
@@ -9790,32 +9727,32 @@ $$$$
  28 26  1  0
 V   28 *
 M  END
->  <kinase>  (139) 
+>  <kinase>  (138) 
 TRKA
 
->  <family>  (139) 
+>  <family>  (138) 
 Trk
 
->  <group>  (139) 
+>  <group>  (138) 
 TK
 
->  <complex_pdb>  (139) 
+>  <complex_pdb>  (138) 
 5i8a
 
->  <ligand_pdb>  (139) 
+>  <ligand_pdb>  (138) 
 69C
 
->  <alt>  (139) 
+>  <alt>  (138) 
 A
 
->  <chain>  (139) 
+>  <chain>  (138) 
 A
 
->  <atom.prop.subpocket>  (139) 
+>  <atom.prop.subpocket>  (138) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (139) 
-11 14 14 14 14 14 14 11 11 11 11 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na
+>  <atom.prop.environment>  (138) 
+11 14 14 14 14 14 14 11 11 11 11 14 14 14 14 14 14 14 14 14 14 14 14 14 14 13 14 na
 
 $$$$
 7jnt_altB_chainC
@@ -9872,31 +9809,31 @@ $$$$
  19 23  1  0
 V   23 *
 M  END
->  <kinase>  (140) 
+>  <kinase>  (139) 
 ROCK2
 
->  <family>  (140) 
+>  <family>  (139) 
 DMPK
 
->  <group>  (140) 
+>  <group>  (139) 
 AGC
 
->  <complex_pdb>  (140) 
+>  <complex_pdb>  (139) 
 7jnt
 
->  <ligand_pdb>  (140) 
+>  <ligand_pdb>  (139) 
 VFA
 
->  <alt>  (140) 
+>  <alt>  (139) 
 B
 
->  <chain>  (140) 
+>  <chain>  (139) 
 C
 
->  <atom.prop.subpocket>  (140) 
+>  <atom.prop.subpocket>  (139) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (140) 
+>  <atom.prop.environment>  (139) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -9963,20 +9900,101 @@ $$$$
 M  CHG  1  22   1
 V   27 *
 M  END
->  <kinase>  (141) 
+>  <kinase>  (140) 
 PKCt
 
->  <family>  (141) 
+>  <family>  (140) 
 PKC
+
+>  <group>  (140) 
+AGC
+
+>  <complex_pdb>  (140) 
+2jed
+
+>  <ligand_pdb>  (140) 
+LG8
+
+>  <alt>  (140) 
+ 
+
+>  <chain>  (140) 
+A
+
+>  <atom.prop.subpocket>  (140) 
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
+
+>  <atom.prop.environment>  (140) 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 na
+
+$$$$
+8fe5_chainA
+     RDKit          3D
+
+ 23 24  0  0  0  0  0  0  0  0999 V2000
+   -0.1505   21.4631   43.1037 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.2673   22.5358   43.0589 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7838   15.4455   40.6388 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6565   14.5974   39.9660 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7517   15.3737   41.1349 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6232   15.4014   41.7555 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6902   14.4588   42.2988 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.3462   15.4678   41.2615 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0787   18.1706   41.8354 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2579   17.8531   40.4383 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9680   18.6341   39.7511 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.4598   19.3544   42.5995 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.2810   19.3289   43.7692 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.5309   18.4494   44.3441 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2405   21.1374   40.9771 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1323   22.2191   40.8970 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8125   20.6630   40.0940 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2978   20.8825   41.0500 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7457   16.6974   39.8430 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5429   20.6656   42.1693 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.6481   20.6425   44.0743 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7845   16.8145   42.9688 S   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5988   16.9842   38.6961 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1 20  1  0
+  1 21  2  0
+  3  4  1  0
+  3  5  1  0
+  3  6  1  0
+  3 19  1  0
+  6  7  1  0
+  6  8  1  0
+  6 22  1  0
+  9 10  2  0
+  9 12  1  0
+  9 22  1  0
+ 10 11  1  0
+ 10 19  1  0
+ 12 13  2  0
+ 12 20  1  0
+ 13 14  1  0
+ 13 21  1  0
+ 15 16  1  0
+ 15 17  1  0
+ 15 18  1  0
+ 15 20  1  0
+ 23 19  1  0
+V   23 *
+M  END
+>  <kinase>  (141) 
+PKACa
+
+>  <family>  (141) 
+PKA
 
 >  <group>  (141) 
 AGC
 
 >  <complex_pdb>  (141) 
-2jed
+8fe5
 
 >  <ligand_pdb>  (141) 
-LG8
+XTT
 
 >  <alt>  (141) 
  
@@ -9985,10 +10003,10 @@ LG8
 A
 
 >  <atom.prop.subpocket>  (141) 
-AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
 >  <atom.prop.environment>  (141) 
-7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 na
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 8 8 8 8 5 9 5 5 na
 
 $$$$
 6ykd_altB_chainA
@@ -10133,7 +10151,7 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
 >  <atom.prop.environment>  (143) 
-14 14 8 8 8 8 14 14 8 8 8 8 14 14 14 na
+16 16 8 8 8 8 16 16 8 8 8 8 16 14 16 na
 
 $$$$
 4bzn_chainA
@@ -10264,7 +10282,7 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE
 
 >  <atom.prop.environment>  (145) 
-8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 3 3 na
+16 16 16 16 16 16 16 16 16 16 16 8 16 16 16 16 16 16 16 3 3 na
 
 $$$$
 4gfm_altA_chainA
@@ -10539,7 +10557,7 @@ A
 AP AP AP AP AP AP AP AP AP AP AP SE FP
 
 >  <atom.prop.environment>  (149) 
-7 7 7 7 7 7 7 7 7 7 7 na na
+5 5 5 7 5 5 5 5 5 5 5 na na
 
 $$$$
 7sqm_altB_chainA
@@ -10809,7 +10827,7 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA SE
 
 >  <atom.prop.environment>  (153) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 6 6 na na
+16 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 1 1 na na
 
 $$$$
 7dhh_chainA
@@ -10946,7 +10964,7 @@ A
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
 >  <atom.prop.environment>  (154) 
-15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 3 3 3 3 3 3 3 3 8 8 8 15 15 15 3 3 3 3 na
+15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 3 3 3 3 3 3 3 3 4 4 4 15 15 15 3 3 3 3 na
 
 $$$$
 5yva_chainA
@@ -11035,6 +11053,74 @@ AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
+8bub_chainB
+     RDKit          3D
+
+ 17 17  0  0  0  0  0  0  0  0999 V2000
+   -0.0641   19.2365   43.3175 C   0  0  2  0  0  0  0  0  0  0  0  0
+   -0.7936   19.3222   42.5122 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2430   20.5087   41.6899 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5673   21.2208   42.6014 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6116   22.2997   42.6167 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.5202   17.1249   44.4345 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9955   20.9655   40.4734 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4222   20.1013   39.9644 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7957   21.6419   40.7739 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3148   21.4850   39.7989 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.1914   20.5167   43.5249 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7579   20.9339   44.2496 H   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.9032   18.3274   43.9368 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.8774   18.5788   44.0252 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6241   16.7115   44.4221 O   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1356   18.8419   42.1445 S   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.6578   16.3238   45.0603 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  6
+  1 11  1  0
+  1 13  1  0
+  1 16  1  0
+  3  4  2  0
+  3  7  1  0
+  3 16  1  0
+  4  5  1  0
+  4 11  1  0
+  6 13  1  0
+  6 15  2  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+ 11 12  1  0
+ 13 14  1  0
+  6 17  1  0
+V   17 *
+M  END
+>  <kinase>  (156) 
+CRK7
+
+>  <family>  (156) 
+CDK
+
+>  <group>  (156) 
+CMGC
+
+>  <complex_pdb>  (156) 
+8bub
+
+>  <ligand_pdb>  (156) 
+RNU
+
+>  <alt>  (156) 
+ 
+
+>  <chain>  (156) 
+B
+
+>  <atom.prop.subpocket>  (156) 
+AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP SE
+
+>  <atom.prop.environment>  (156) 
+13 13 13 13 13 1 13 13 13 13 13 13 5 5 1 13 na
+
+$$$$
 3e3b_chainX
      RDKit          3D
 
@@ -11079,32 +11165,32 @@ $$$$
 V   17 *
 V   18 *
 M  END
->  <kinase>  (156) 
+>  <kinase>  (157) 
 CK2a2
 
->  <family>  (156) 
+>  <family>  (157) 
 CK2
 
->  <group>  (156) 
+>  <group>  (157) 
 CMGC
 
->  <complex_pdb>  (156) 
+>  <complex_pdb>  (157) 
 3e3b
 
->  <ligand_pdb>  (156) 
+>  <ligand_pdb>  (157) 
 CCK
 
->  <alt>  (156) 
+>  <alt>  (157) 
  
 
->  <chain>  (156) 
+>  <chain>  (157) 
 X
 
->  <atom.prop.subpocket>  (156) 
+>  <atom.prop.subpocket>  (157) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA FP
 
->  <atom.prop.environment>  (156) 
-14 14 14 14 14 14 14 14 9 9 9 9 9 9 9 9 na na
+>  <atom.prop.environment>  (157) 
+14 14 14 14 14 14 14 14 9 16 16 16 16 16 16 16 na na
 
 $$$$
 3axw_chainA
@@ -11131,31 +11217,31 @@ $$$$
   9  1  1  0
 V    9 *
 M  END
->  <kinase>  (157) 
+>  <kinase>  (158) 
 CK2a1
 
->  <family>  (157) 
+>  <family>  (158) 
 CK2
 
->  <group>  (157) 
+>  <group>  (158) 
 CMGC
 
->  <complex_pdb>  (157) 
+>  <complex_pdb>  (158) 
 3axw
 
->  <ligand_pdb>  (157) 
+>  <ligand_pdb>  (158) 
 TID
 
->  <alt>  (157) 
+>  <alt>  (158) 
  
 
->  <chain>  (157) 
+>  <chain>  (158) 
 A
 
->  <atom.prop.subpocket>  (157) 
+>  <atom.prop.subpocket>  (158) 
 AP AP AP AP AP AP AP AP GA
 
->  <atom.prop.environment>  (157) 
+>  <atom.prop.environment>  (158) 
 14 14 14 14 14 5 5 5 na
 
 $$$$
@@ -11198,32 +11284,32 @@ $$$$
  16  7  1  0
 V   16 *
 M  END
->  <kinase>  (158) 
+>  <kinase>  (159) 
 CDK8
 
->  <family>  (158) 
+>  <family>  (159) 
 CDK
 
->  <group>  (158) 
+>  <group>  (159) 
 CMGC
 
->  <complex_pdb>  (158) 
+>  <complex_pdb>  (159) 
 5icp
 
->  <ligand_pdb>  (158) 
+>  <ligand_pdb>  (159) 
 69Z
 
->  <alt>  (158) 
+>  <alt>  (159) 
 A
 
->  <chain>  (158) 
+>  <chain>  (159) 
 A
 
->  <atom.prop.subpocket>  (158) 
+>  <atom.prop.subpocket>  (159) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (158) 
-14 14 8 8 8 8 6 6 14 14 14 14 14 14 14 na
+>  <atom.prop.environment>  (159) 
+14 14 8 8 8 8 1 1 14 14 14 14 14 14 14 na
 
 $$$$
 7b7s_altA_chainA
@@ -11293,31 +11379,31 @@ $$$$
  29  1  1  0
 V   29 *
 M  END
->  <kinase>  (159) 
+>  <kinase>  (160) 
 CDK2
 
->  <family>  (159) 
+>  <family>  (160) 
 CDK
 
->  <group>  (159) 
+>  <group>  (160) 
 CMGC
 
->  <complex_pdb>  (159) 
+>  <complex_pdb>  (160) 
 7b7s
 
->  <ligand_pdb>  (159) 
+>  <ligand_pdb>  (160) 
 T1T
 
->  <alt>  (159) 
+>  <alt>  (160) 
 A
 
->  <chain>  (159) 
+>  <chain>  (160) 
 A
 
->  <atom.prop.subpocket>  (159) 
+>  <atom.prop.subpocket>  (160) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (159) 
+>  <atom.prop.environment>  (160) 
 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$
@@ -11353,31 +11439,31 @@ $$$$
  13 11  1  0
 V   13 *
 M  END
->  <kinase>  (160) 
+>  <kinase>  (161) 
 CDK2
 
->  <family>  (160) 
+>  <family>  (161) 
 CDK
 
->  <group>  (160) 
+>  <group>  (161) 
 CMGC
 
->  <complex_pdb>  (160) 
+>  <complex_pdb>  (161) 
 6q4i
 
->  <ligand_pdb>  (160) 
+>  <ligand_pdb>  (161) 
 HGK
 
->  <alt>  (160) 
+>  <alt>  (161) 
 A
 
->  <chain>  (160) 
+>  <chain>  (161) 
 A
 
->  <atom.prop.subpocket>  (160) 
+>  <atom.prop.subpocket>  (161) 
 AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (160) 
+>  <atom.prop.environment>  (161) 
 3 3 3 3 3 3 3 3 3 3 3 3 na
 
 $$$$
@@ -11440,31 +11526,31 @@ $$$$
 M  CHG  1  13  -1
 V   25 *
 M  END
->  <kinase>  (161) 
+>  <kinase>  (162) 
 CDK2
 
->  <family>  (161) 
+>  <family>  (162) 
 CDK
 
->  <group>  (161) 
+>  <group>  (162) 
 CMGC
 
->  <complex_pdb>  (161) 
+>  <complex_pdb>  (162) 
 4d1z
 
->  <ligand_pdb>  (161) 
+>  <ligand_pdb>  (162) 
 WG8
 
->  <alt>  (161) 
+>  <alt>  (162) 
  
 
->  <chain>  (161) 
+>  <chain>  (162) 
 A
 
->  <atom.prop.subpocket>  (161) 
+>  <atom.prop.subpocket>  (162) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP GA
 
->  <atom.prop.environment>  (161) 
+>  <atom.prop.environment>  (162) 
 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 na
 
 $$$$
@@ -11517,31 +11603,31 @@ $$$$
   7 21  1  0
 V   21 *
 M  END
->  <kinase>  (162) 
+>  <kinase>  (163) 
 AKT1
 
->  <family>  (162) 
+>  <family>  (163) 
 Akt
 
->  <group>  (162) 
+>  <group>  (163) 
 AGC
 
->  <complex_pdb>  (162) 
+>  <complex_pdb>  (163) 
 4ekl
 
->  <ligand_pdb>  (162) 
+>  <ligand_pdb>  (163) 
 0RF
 
->  <alt>  (162) 
+>  <alt>  (163) 
  
 
->  <chain>  (162) 
+>  <chain>  (163) 
 A
 
->  <atom.prop.subpocket>  (162) 
+>  <atom.prop.subpocket>  (163) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (162) 
+>  <atom.prop.environment>  (163) 
 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$
@@ -11588,31 +11674,31 @@ $$$$
   7 18  1  0
 V   18 *
 M  END
->  <kinase>  (163) 
+>  <kinase>  (164) 
 AKT1
 
->  <family>  (163) 
+>  <family>  (164) 
 Akt
 
->  <group>  (163) 
+>  <group>  (164) 
 AGC
 
->  <complex_pdb>  (163) 
+>  <complex_pdb>  (164) 
 3ow4
 
->  <ligand_pdb>  (163) 
+>  <ligand_pdb>  (164) 
 SMY
 
->  <alt>  (163) 
+>  <alt>  (164) 
  
 
->  <chain>  (163) 
+>  <chain>  (164) 
 B
 
->  <atom.prop.subpocket>  (163) 
+>  <atom.prop.subpocket>  (164) 
 AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP AP FP
 
->  <atom.prop.environment>  (163) 
+>  <atom.prop.environment>  (164) 
 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$

@@ -962,8 +962,10 @@ def plot_fragment_similarity(similarities_by_group, group_name):
         ax = sns.boxplot(
             x=similarities_by_group.columns[1],
             y=similarities_by_group.columns[0],
+            hue=similarities_by_group.columns[1],
             data=similarities_by_group,
             palette=SUBPOCKET_COLORS,
+            legend=False
         )
     except ValueError:
         ax = sns.boxplot(
@@ -993,9 +995,11 @@ def plot_fragment_descriptors(descriptors):
         sns.boxplot(
             x="subpocket",
             y=descriptor_name,
+            hue="subpocket",  
             data=descriptors,
             palette=SUBPOCKET_COLORS,
             medianprops={"linewidth": 3, "linestyle": "-"},
+            legend=False  
         )
         plt.ylabel(descriptor_name, fontsize=16)
         plt.xlabel("Subpocket", fontsize=16)

@@ -295,7 +295,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (5) 
-16 16 16 16 16 16 16 16 16 8 8 8 8 na
+14 14 14 14 14 14 16 14 14 8 8 8 8 na
 
 $$$$
 5dls_chainA
@@ -678,7 +678,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA X-B2
 
 >  <atom.prop.environment>  (10) 
-4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 16 16 16 16 16 16 16 16 16 16 na na
+4 1 1 1 1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
 4fv2_altB_chainA
@@ -753,7 +753,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (11) 
-8 8 8 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
+4 4 4 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 5bue_chainA
@@ -886,7 +886,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (13) 
-4 4 4 4 4 4 4 4 4 8 8 8 8 4 4 4 4 5 5 8 na
+4 4 4 4 4 4 4 4 4 1 8 1 1 4 4 4 4 5 5 1 na
 
 $$$$
 6g9h_altB_chainA
@@ -967,7 +967,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (14) 
-5 5 5 5 8 8 8 8 4 4 4 4 5 8 4 4 4 4 4 4 4 4 4 na
+5 5 5 5 1 8 1 1 4 4 4 4 5 1 4 4 4 4 4 4 4 4 4 na
 
 $$$$
 6g9k_altB_chainA
@@ -1053,7 +1053,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (15) 
-8 8 8 8 8 5 5 8 8 8 8 16 16 16 16 16 16 3 3 8 16 16 16 16 16 na
+4 4 4 4 4 5 5 1 8 1 1 16 16 16 16 16 16 3 3 1 16 16 16 16 16 na
 
 $$$$
 6g9m_altB_chainA
@@ -1123,7 +1123,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA GA
 
 >  <atom.prop.environment>  (16) 
-8 8 8 8 8 8 8 8 8 5 5 8 8 8 8 8 na na
+4 4 4 4 4 4 4 4 4 5 5 1 8 1 1 1 na na
 
 $$$$
 6ge0_altA_chainA
@@ -1215,7 +1215,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (17) 
-3 3 3 3 16 16 16 16 16 16 16 16 8 8 8 8 8 8 8 8 3 16 16 8 8 5 5 8 na
+3 3 3 3 16 16 16 16 16 16 16 16 4 4 4 4 1 8 1 1 3 16 16 4 4 5 5 1 na
 
 $$$$
 6opi_chainA
@@ -1311,7 +1311,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA X-B2
 
 >  <atom.prop.environment>  (18) 
-4 4 4 4 4 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+4 1 1 1 1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 16 5 5 5 5 na na
 
 $$$$
 7nqq_altA_chainA
@@ -1406,7 +1406,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (19) 
-4 4 4 4 4 4 4 4 8 8 3 3 4 4 5 8 4 4 4 4 4 4 4 8 8 4 4 4 5 na
+4 4 4 4 4 4 4 4 1 8 3 3 4 4 5 1 4 4 4 4 4 4 4 1 1 4 4 4 5 na
 
 $$$$
 7nqw_altB_chainA
@@ -1499,7 +1499,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (20) 
-8 8 5 5 5 5 5 8 5 5 5 5 5 5 8 8 5 5 5 5 5 5 5 5 5 5 5 5 na
+8 1 5 5 5 5 5 1 5 5 5 5 5 5 1 1 5 5 5 5 5 5 5 5 5 5 5 5 na
 
 $$$$
 7nr3_altB_chainA
@@ -1592,7 +1592,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (21) 
-8 8 5 5 5 5 5 8 5 5 5 5 5 5 8 8 5 5 5 5 5 5 5 5 5 5 5 5 na
+8 1 5 5 5 5 5 1 5 5 5 5 5 5 1 1 5 5 5 5 5 5 5 5 5 5 5 5 na
 
 $$$$
 5zv2_chainA
@@ -1721,7 +1721,7 @@ B
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (23) 
-9 9 9 9 9 8 8 8 8 9 9 9 9 9 9 9 9 9 na
+14 9 14 14 14 8 8 8 8 14 14 14 14 14 14 14 14 14 na
 
 $$$$
 3f5p_chainA
@@ -1779,7 +1779,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (24) 
-14 14 14 14 14 14 14 8 8 8 8 na
+14 9 9 9 9 9 9 8 8 8 8 na
 
 $$$$
 6w39_altA_chainB
@@ -2087,7 +2087,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (29) 
-8 8 8 16 16 16 16 16 16 16 16 16 5 5 16 8 8 8 8 na
+4 4 4 16 16 16 16 16 16 16 16 16 5 5 16 8 8 8 8 na
 
 $$$$
 7xlp_chainA
@@ -2249,7 +2249,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (31) 
-5 5 5 5 5 5 8 8 8 16 16 16 16 16 5 5 5 5 5 5 16 16 16 16 16 5 5 5 5 5 5 5 na
+5 5 5 5 5 5 4 4 4 16 16 16 16 16 5 5 5 5 5 5 16 16 16 16 16 5 5 5 5 5 5 5 na
 
 $$$$
 7avx_chainA
@@ -2336,7 +2336,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (32) 
-9 9 9 16 16 16 16 16 16 16 9 9 9 8 8 8 8 8 8 8 8 16 16 16 16 na
+14 16 16 16 16 16 16 16 16 16 16 9 9 8 8 8 8 8 8 8 8 16 16 16 16 na
 
 $$$$
 7avy_chainA
@@ -2510,7 +2510,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B1
 
 >  <atom.prop.environment>  (35) 
-16 16 16 8 8 8 8 16 8 8 8 8 16 16 na
+9 9 9 8 8 8 8 14 8 8 8 8 9 16 na
 
 $$$$
 7olv_chainA
@@ -2576,7 +2576,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B1
 
 >  <atom.prop.environment>  (36) 
-16 16 8 8 8 8 8 8 8 8 16 16 16 16 16 na
+9 14 8 8 8 8 8 8 8 8 9 9 9 9 16 na
 
 $$$$
 7olx_chainA
@@ -2646,7 +2646,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B1
 
 >  <atom.prop.environment>  (37) 
-16 8 8 8 8 8 8 8 8 16 16 8 8 8 8 16 16 na
+9 8 8 8 8 8 8 8 8 14 9 8 8 8 8 14 16 na
 
 $$$$
 3u6i_chainA
@@ -2703,7 +2703,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B1
 
 >  <atom.prop.environment>  (38) 
-8 8 8 8 8 8 8 8 8 3 3 na
+8 4 4 4 4 4 4 4 4 3 3 na
 
 $$$$
 7b33_chainA
@@ -2816,7 +2816,7 @@ B
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (40) 
-14 14 3 3 3 3 3 14 14 14 14 14 8 8 8 8 14 na
+14 16 3 3 3 3 3 16 16 16 16 14 8 8 8 8 16 na
 
 $$$$
 7mon_chainB
@@ -3010,7 +3010,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA B1
 
 >  <atom.prop.environment>  (43) 
-9 9 8 8 8 9 9 9 9 9 9 9 9 na na
+9 16 8 8 8 16 16 16 16 16 16 16 16 na na
 
 $$$$
 5n9s_chainA
@@ -3084,7 +3084,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (44) 
-16 16 16 16 16 16 16 16 16 16 16 8 8 8 8 8 8 8 8 na
+16 16 16 16 16 16 16 16 16 16 16 8 1 1 1 1 1 1 1 na
 
 $$$$
 3nyx_altA_chainA
@@ -3656,7 +3656,7 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (54) 
-16 16 16 16 5 5 5 5 5 5 5 5 5 5 5 5 5 5 16 16 16 16 16 na
+16 14 14 14 5 5 5 5 5 5 5 5 5 5 5 5 5 5 14 14 14 14 14 na
 
 $$$$
 5eko_chainA
@@ -3735,6 +3735,6 @@ A
 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 B2 GA
 
 >  <atom.prop.environment>  (55) 
-16 16 16 16 16 16 16 16 16 16 9 9 9 9 9 9 9 8 8 8 8 na
+16 16 16 16 16 16 16 16 16 16 9 14 14 14 14 14 14 8 8 8 8 na
 
 $$$$
