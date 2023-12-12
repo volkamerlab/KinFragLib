@@ -44,7 +44,7 @@ A
 GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 3 6 3 3 3 3 na
+1 3 1 3 3 3 3 na
 
 $$$$
 8gmd_chainA
@@ -164,7 +164,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA FP
 
 >  <atom.prop.environment>  (1) 
-5 5 6 6 15 15 15 15 15 15 15 15 na
+5 5 1 1 15 15 15 15 15 15 15 15 na
 
 $$$$
 2gqg_altB_chainA
@@ -235,6 +235,66 @@ GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 16 16 16 16 16 8 8 8 8 5 5 16 16 16 16 16 na
 
 $$$$
+8ssn_chainA
+     RDKit          3D
+
+ 13 13  0  0  0  0  0  0  0  0999 V2000
+    1.9125   18.6068   40.1490 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8720   19.5826   40.6895 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8229   19.8655   41.7307 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8608   20.1530   39.8485 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5600   20.8723   40.2486 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9322   19.7802   38.4848 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9863   18.8041   37.9500 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.0425   18.5134   36.9114 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9928   18.2360   38.7913 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2955   17.5162   38.3888 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8674   20.3129   37.6994 O   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3006   20.9192   36.5575 R   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9060   18.0155   40.9690 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0
+  1  9  1  0
+  2  3  1  0
+  2  4  1  0
+  4  5  1  0
+  4  6  2  0
+  6  7  1  0
+  6 11  1  0
+  7  8  1  0
+  7  9  2  0
+  9 10  1  0
+ 12 11  1  0
+  1 13  1  0
+M  ISO  2  12  25  13  42
+M  END
+>  <kinase>  (1) 
+ABL1
+
+>  <family>  (1) 
+Abl
+
+>  <group>  (1) 
+TK
+
+>  <complex_pdb>  (1) 
+8ssn
+
+>  <ligand_pdb>  (1) 
+SKI
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+A
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA GA B1 AP
+
+>  <atom.prop.environment>  (1) 
+16 16 16 16 16 16 16 16 16 16 3 na na
+
+$$$$
 2xyn_altA_chainA
      RDKit          3D
 
@@ -292,7 +352,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA FP
 
 >  <atom.prop.environment>  (1) 
-5 5 6 6 15 15 15 15 15 15 15 15 na
+5 5 1 1 15 15 15 15 15 15 15 15 na
 
 $$$$
 3eqp_chainB
@@ -370,7 +430,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 8 8 8 8 16 16 16 16 16 16 16 8 8 8 8 na
+1 1 5 5 16 16 8 8 8 8 16 16 16 16 16 16 16 8 8 8 8 na
 
 $$$$
 3eqr_chainA
@@ -659,7 +719,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 8 8 8 8 8 8 8 14 14 14 14 14 14 14 14 14 14 3 3 14 14 14 14 na na
+4 9 4 4 4 4 14 8 8 8 8 8 8 8 4 4 4 4 4 4 4 4 4 4 3 3 4 16 4 4 na na
 
 $$$$
 3e88_chainB
@@ -758,7 +818,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 8 8 8 8 8 8 8 3 3 14 14 14 14 14 14 14 14 14 14 14 14 14 na na
+14 4 4 4 4 4 4 4 8 8 8 8 8 8 8 3 3 4 4 4 4 4 4 4 4 4 14 9 4 4 na na
 
 $$$$
 3e8d_altB_chainB
@@ -857,7 +917,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 8 8 8 8 8 8 8 14 14 14 14 14 3 3 14 14 14 14 14 14 14 14 14 14 14 na na
+4 4 14 4 4 8 8 8 8 8 8 8 4 4 4 4 4 3 3 4 4 4 4 4 4 4 14 4 4 9 na na
 
 $$$$
 2xba_chainA
@@ -906,7 +966,7 @@ A
 GA GA GA GA GA GA AP FP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 3 3 na na
+1 1 4 1 3 3 na na
 
 $$$$
 4dce_chainA
@@ -957,7 +1017,7 @@ A
 GA GA GA GA GA GA GA FP B1
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 8 8 8 na na
+1 1 5 5 4 4 4 na na
 
 $$$$
 4fnz_chainA
@@ -1002,7 +1062,7 @@ A
 GA GA GA GA B1 FP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 na na
+1 1 5 5 na na
 
 $$$$
 4joa_altA_chainA
@@ -1060,7 +1120,7 @@ A
 GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 16 16 16 16 16 16 16 na na
+8 8 8 9 9 9 9 9 9 16 na na
 
 $$$$
 5iui_altA_chainA
@@ -1789,7 +1849,7 @@ D
 GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 5 5 5 6 na
+1 5 5 5 1 na
 
 $$$$
 6tn8_altB_chainA
@@ -1888,7 +1948,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 5 5 5 5 3 3 3 3 16 5 5 5 5 3 16 16 8 8 8 3 5 5 3 3 3 3 na
+16 16 16 16 16 5 5 5 5 3 3 3 3 16 5 5 5 5 3 16 16 4 4 4 3 5 5 3 3 3 3 na
 
 $$$$
 6zgc_chainA
@@ -2191,7 +2251,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 16 16 16 16 16 16 16 16 16 16 na na
+4 4 4 8 4 4 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
 3myg_chainA
@@ -2487,7 +2547,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 16 16 16 16 16 16 16 16 16 16 na na
+4 4 4 8 4 4 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
 4jbp_chainA
@@ -2708,7 +2768,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 3 na na
+16 16 16 16 16 16 16 16 16 16 14 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 3 na na
 
 $$$$
 6gr9_altA_chainA
@@ -3318,7 +3378,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP FP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 14 14 14 14 14 na na
+16 16 16 16 16 16 16 16 16 16 16 16 14 na na
 
 $$$$
 3psb_chainA
@@ -3538,7 +3598,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
 >  <atom.prop.environment>  (1) 
-6 16 6 16 16 16 16 16 16 16 16 16 5 5 na na
+1 16 1 16 16 16 16 16 16 16 16 16 5 5 na na
 
 $$$$
 3tv4_chainB
@@ -3604,7 +3664,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
 >  <atom.prop.environment>  (1) 
-6 6 16 16 16 16 16 16 16 16 16 16 5 5 na na
+1 1 16 16 16 16 16 16 16 16 16 16 5 5 na na
 
 $$$$
 3tv6_chainA
@@ -3670,7 +3730,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
 >  <atom.prop.environment>  (1) 
-6 16 6 16 16 16 16 16 16 16 16 16 5 5 na na
+1 16 1 16 16 16 16 16 16 16 16 16 5 5 na na
 
 $$$$
 4cqe_chainB
@@ -4110,7 +4170,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-5 5 6 16 6 16 16 16 16 16 16 16 16 16 5 5 na na
+5 5 1 16 1 16 16 16 16 16 16 16 16 16 5 5 na na
 
 $$$$
 4mnf_altA_chainA
@@ -4623,7 +4683,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP FP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 5 5 16 5 5 5 5 na na
+12 12 16 12 12 16 12 12 12 12 12 5 5 12 5 5 5 5 na na
 
 $$$$
 5csw_chainB
@@ -5768,7 +5828,7 @@ D
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 6 6 5 5 na na
+16 16 16 16 16 16 16 16 16 16 1 1 5 5 na na
 
 $$$$
 5fbo_altA_chainA
@@ -5834,7 +5894,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 6 6 5 5 na na
+16 16 16 16 16 16 16 16 16 16 1 1 5 5 na na
 
 $$$$
 5p9i_altA_chainA
@@ -6200,7 +6260,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 6 5 5 6 na na
+16 16 16 16 16 16 16 16 16 16 1 5 5 1 na na
 
 $$$$
 6x3o_altA_chainB
@@ -6274,7 +6334,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 3 3 3 3 3 6 6 5 5 na na
+16 16 16 16 16 16 16 16 16 3 3 3 3 3 1 1 5 5 na na
 
 $$$$
 6x3p_altA_chainA
@@ -6340,7 +6400,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA FP B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 6 6 5 5 na na na
+16 16 16 16 16 16 16 16 16 1 1 5 5 na na na
 
 $$$$
 7l5o_altB_chainA
@@ -6762,7 +6822,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 8 8 8 16 16 16 5 5 6 6 16 16 na na
+16 16 16 16 16 4 4 4 16 16 16 5 5 1 1 16 16 na na
 
 $$$$
 8fln_altB_chainA
@@ -6834,7 +6894,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 8 8 8 16 16 16 5 5 6 6 16 16 na na
+16 16 16 16 16 4 4 4 16 16 16 5 5 1 1 16 16 na na
 
 $$$$
 8flv_altA_chainA
@@ -6963,7 +7023,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 FP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 14 14 14 14 14 8 8 8 na na
+9 9 9 14 9 9 9 9 9 9 9 9 9 8 8 8 na na
 
 $$$$
 6gu3_chainA
@@ -7021,7 +7081,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 8 8 8 8 14 14 na na
+14 9 9 9 8 8 8 8 14 9 na na
 
 $$$$
 6gu7_chainA
@@ -7079,7 +7139,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 8 8 8 8 14 14 na na
+14 9 9 9 8 8 8 8 14 9 na na
 
 $$$$
 1di8_chainA
@@ -7903,7 +7963,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 3 14 14 6 6 5 5 5 na na
+14 16 16 16 3 14 16 1 1 5 5 5 na na
 
 $$$$
 2iw6_chainA
@@ -8252,7 +8312,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 8 8 8 8 14 14 14 14 na na
+9 14 8 8 8 8 9 9 9 14 na na
 
 $$$$
 2w05_altB_chainA
@@ -8310,7 +8370,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 8 8 8 8 na na
+14 9 14 9 9 9 8 8 8 8 na na
 
 $$$$
 2w06_chainA
@@ -8420,7 +8480,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 8 8 8 8 14 14 14 14 na na
+9 14 8 8 8 8 9 9 9 14 na na
 
 $$$$
 2wip_chainC
@@ -10143,7 +10203,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 8 8 8 8 14 14 na na
+14 9 9 9 8 8 8 8 14 9 na na
 
 $$$$
 6guh_altA_chainA
@@ -10201,7 +10261,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 8 8 8 8 14 14 na na
+14 9 9 9 8 8 8 8 14 9 na na
 
 $$$$
 6gva_altB_chainA
@@ -10707,7 +10767,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP B2 B1
 
 >  <atom.prop.environment>  (1) 
-7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 6 7 6 na na na
+16 14 14 14 14 14 14 14 14 14 14 14 14 7 14 1 14 1 na na na
 
 $$$$
 8h6t_chainA
@@ -10842,7 +10902,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 8 8 8 8 16 16 16 na na
+9 9 9 9 16 9 9 9 14 8 8 8 8 9 9 9 na na
 
 $$$$
 1unl_chainA
@@ -11000,7 +11060,7 @@ A
 GA GA GA GA GA GA GA AP FP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 3 3 na na
+4 4 4 4 4 3 3 na na
 
 $$$$
 7vds_altB_chainA
@@ -11051,7 +11111,7 @@ A
 GA GA GA GA GA GA GA AP FP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 3 3 na na
+4 4 4 4 4 3 3 na na
 
 $$$$
 1xo2_chainB
@@ -11267,7 +11327,7 @@ A
 GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 na na
+16 14 14 14 14 14 14 na na
 
 $$$$
 3nux_chainA
@@ -11319,7 +11379,7 @@ A
 GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 na na
+14 14 14 14 16 14 14 na na
 
 $$$$
 5l2i_chainA
@@ -11423,7 +11483,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 5 5 5 5 5 5 5 5 5 6 na
+1 5 5 5 5 5 5 5 5 5 1 na
 
 $$$$
 7b5o_altA_chainJ
@@ -11638,7 +11698,7 @@ A
 GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 6 5 5 5 5 6 na
+5 5 1 5 5 5 5 1 na
 
 $$$$
 5i5z_chainA
@@ -11689,7 +11749,7 @@ A
 GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 5 6 5 5 6 na
+5 5 5 5 1 5 5 1 na
 
 $$$$
 5xqx_chainA
@@ -11743,7 +11803,7 @@ A
 GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 na na
+14 14 14 16 14 14 14 14 na na
 
 $$$$
 6r3s_altA_chainA
@@ -11793,7 +11853,7 @@ A
 GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 3 3 na
+4 4 4 4 4 4 3 3 na
 
 $$$$
 6y0a_altB_chainA
@@ -11843,7 +11903,7 @@ A
 GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 3 3 na
+4 4 4 4 4 4 3 3 na
 
 $$$$
 3lq5_chainA
@@ -11956,7 +12016,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 8 8 8 8 16 na na
+16 9 9 9 9 8 8 8 8 14 na na
 
 $$$$
 7nwk_chainA
@@ -12871,7 +12931,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 8 8 8 3 3 na
+14 14 14 14 14 14 4 4 4 3 3 na
 
 $$$$
 2hy0_chainA
@@ -13260,7 +13320,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 8 8 8 8 na
+16 9 9 9 9 9 9 8 8 8 8 na
 
 $$$$
 3tkh_chainA
@@ -13376,7 +13436,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 6 6 na na
+16 16 16 16 16 16 16 16 16 1 1 na na
 
 $$$$
 3u9n_chainA
@@ -13442,7 +13502,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 5 5 6 6 na na
+16 16 16 16 16 16 16 16 16 16 5 5 1 1 na na
 
 $$$$
 4fsm_altA_chainA
@@ -14130,7 +14190,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 6 3 3 3 3 3 14 14 14 14 14 14 14 na
+1 1 3 3 3 3 3 14 14 14 14 14 14 14 na
 
 $$$$
 4ftj_altA_chainA
@@ -14647,7 +14707,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 5 5 6 6 na na
+16 16 16 16 16 16 16 16 16 16 5 5 1 1 na na
 
 $$$$
 4qye_chainA
@@ -14871,7 +14931,7 @@ A
 GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-9 6 6 9 9 9 9 9 9 na na
+16 1 1 16 16 16 16 16 9 na na
 
 $$$$
 5f4n_altA_chainA
@@ -15191,7 +15251,7 @@ A
 GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 6 6 na
+5 5 5 1 1 na
 
 $$$$
 2wti_altB_chainA
@@ -15236,7 +15296,7 @@ A
 GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 6 6 na
+5 5 5 1 1 na
 
 $$$$
 2xk9_chainA
@@ -15838,7 +15898,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 8 8 8 3 16 16 16 16 16 16 na
+16 16 16 16 16 4 4 4 3 16 16 16 16 16 16 na
 
 $$$$
 4kb8_altB_chainA
@@ -17115,7 +17175,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-9 9 9 9 9 9 9 9 8 8 8 8 8 8 na
+9 16 16 16 16 16 16 16 8 8 8 8 8 8 na
 
 $$$$
 3at4_chainA
@@ -17180,7 +17240,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-9 9 9 9 9 9 9 9 8 8 8 8 8 8 na
+9 16 16 16 16 16 16 16 8 8 8 8 8 8 na
 
 $$$$
 3axw_chainA
@@ -17712,7 +17772,7 @@ A
 GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 6 14 14 6 6 na
+14 16 16 16 16 6 16 16 6 6 na
 
 $$$$
 4gub_chainA
@@ -18772,7 +18832,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 8 8 8 5 5 5 na
+8 4 4 4 4 4 4 4 4 5 5 5 na
 
 $$$$
 6hop_altC_chainA
@@ -18844,7 +18904,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-3 3 3 3 3 7 7 3 3 7 7 7 7 7 7 7 7 7 na
+3 3 3 3 3 16 16 3 3 16 16 16 16 16 16 16 7 16 na
 
 $$$$
 6hoq_altB_chainA
@@ -18962,7 +19022,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-3 3 3 3 3 7 7 3 3 7 7 7 7 7 7 7 7 7 na
+3 3 3 3 3 16 16 3 3 16 16 16 16 16 16 16 7 16 na
 
 $$$$
 6hot_altA_chainA
@@ -19034,7 +19094,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-7 7 7 7 3 7 3 3 7 7 7 7 7 7 3 3 3 3 na
+16 16 16 16 3 16 3 3 16 16 16 16 7 16 3 3 3 3 na
 
 $$$$
 6q38_altA_chainA
@@ -19250,7 +19310,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-3 3 3 3 3 7 7 3 3 7 7 7 7 7 7 7 7 7 na
+3 3 3 3 3 16 16 3 3 16 16 16 16 16 16 16 7 16 na
 
 $$$$
 6rcb_chainA
@@ -19322,7 +19382,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-3 3 3 3 7 7 7 7 7 7 7 7 7 7 7 3 3 3 na
+3 3 3 3 16 16 16 16 7 16 16 16 16 16 16 3 3 3 na
 
 $$$$
 6rcm_altB_chainA
@@ -19394,7 +19454,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-3 3 3 3 7 7 7 7 7 7 7 7 7 7 7 3 3 3 na
+3 3 3 3 16 16 16 16 16 16 16 16 16 7 16 3 3 3 na
 
 $$$$
 6rfe_altB_chainA
@@ -19466,7 +19526,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-7 7 3 3 3 3 7 7 7 7 7 7 7 7 7 3 3 3 na
+7 16 3 3 3 3 16 16 16 16 16 16 16 16 16 3 3 3 na
 
 $$$$
 6rff_altA_chainA
@@ -19535,7 +19595,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-7 7 7 7 7 7 7 7 7 7 7 7 7 3 3 7 na
+16 16 16 16 16 16 16 16 16 16 7 16 16 3 3 16 na
 
 $$$$
 6tei_altB_chainB
@@ -20208,7 +20268,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 8 8 8 8 16 16 16 16 16 16 16 na
+7 7 7 7 7 7 7 7 7 7 7 16 8 8 8 8 7 7 7 7 7 7 7 na
 
 $$$$
 7zwg_altA_chainA
@@ -20457,7 +20517,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-3 3 8 8 8 8 8 8 8 8 8 na
+3 3 4 4 4 4 4 4 8 4 4 na
 
 $$$$
 5m4u_altA_chainA
@@ -21005,7 +21065,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 16 16 16 16 16 16 16 na
+8 8 8 8 9 9 9 9 16 9 9 na
 
 $$$$
 6i5i_altB_chainA
@@ -21062,7 +21122,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 8 8 8 8 16 16 16 16 16 16 na
+9 8 8 8 8 9 9 9 16 9 9 na
 
 $$$$
 6i5k_altA_chainC
@@ -21120,7 +21180,7 @@ C
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 8 8 8 8 16 16 16 16 16 na
+9 16 8 8 8 8 9 9 9 9 9 na
 
 $$$$
 6i5l_altA_chainC
@@ -21177,7 +21237,7 @@ C
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 8 8 8 8 16 16 16 16 16 16 na
+9 8 8 8 8 9 9 9 16 9 9 na
 
 $$$$
 6khd_altA_chainB
@@ -21291,7 +21351,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
+8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 16 na
 
 $$$$
 6raa_altB_chainA
@@ -22074,6 +22134,1114 @@ RC8
 
 >  <chain>  (1) 
 E
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8bu1_chainB
+     RDKit          3D
+
+ 10  9  0  0  0  0  0  0  0  0999 V2000
+    1.6638   20.9320   40.9399 C   0  0  1  0  0  0  0  0  0  0  0  0
+    1.6479   22.0181   41.0307 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.0953   20.4635   41.0687 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.1056   20.5951   39.5788 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1030   19.5133   39.4448 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7242   21.0552   38.8083 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.0864   20.9733   39.5003 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4415   20.7155   41.9417 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7008   20.9272   40.2900 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8390   20.4008   42.0247 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  1
+  1  3  1  0
+  1  4  1  0
+  3  8  1  0
+  3  9  1  0
+  4  5  1  0
+  4  6  1  0
+  4  7  1  0
+  1 10  1  0
+M  RAD  1   3   2
+M  ISO  1  10  31
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bu1
+
+>  <ligand_pdb>  (1) 
+RQL
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8bu2_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    1.7471   20.8523   40.7526 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6564   21.9385   40.7621 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3626   20.4311   39.3391 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4302   19.3467   39.2521 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0415   20.8960   38.6241 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.3413   20.7495   39.1303 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.1721   20.3252   41.0207 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.1677   19.2355   40.9922 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.5053   20.6617   42.0024 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8500   20.7058   40.2567 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8870   20.4166   41.8312 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  7  1  0
+  3  4  1  0
+  3  5  1  0
+  3  6  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+  1 11  1  0
+M  ISO  1  11  46
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bu2
+
+>  <ligand_pdb>  (1) 
+RVQ
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8bu3_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    2.1280   20.9291   40.7311 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2937   21.9856   40.9421 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6231   20.7951   39.2898 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4518   19.7432   39.0611 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3684   21.1992   38.6046 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6902   21.3477   39.1787 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4571   20.1827   40.8835 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3051   19.1237   40.6749 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8267   20.3030   41.9019 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.1853   20.5903   40.1823 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1416   20.4662   41.6942 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  7  1  0
+  3  4  1  0
+  3  5  1  0
+  3  6  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+  1 11  1  0
+M  ISO  1  11  57
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bu3
+
+>  <ligand_pdb>  (1) 
+RSI
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8bu4_chainB
+     RDKit          3D
+
+ 12 12  0  0  0  0  0  0  0  0999 V2000
+    3.7488   20.7661   39.5325 N   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8445   20.3257   40.6665 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5138   20.4952   39.3579 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5224   20.4446   38.9323 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8524   20.9757   37.2620 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9098   21.1398   37.0544 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2826   21.8552   36.9623 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5027   20.1082   36.7024 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.2261   20.5165   40.7316 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8015   20.4676   41.6443 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6678   20.7398   38.6912 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9897   20.0505   41.7449 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  9  2  0
+  1 11  1  0
+  2  3  2  0
+  2  9  1  0
+  3  4  1  0
+  3 11  1  0
+  5  6  1  0
+  5  7  1  0
+  5  8  1  0
+  5 11  1  0
+  9 10  1  0
+  2 12  1  0
+M  ISO  1  12  50
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bu4
+
+>  <ligand_pdb>  (1) 
+RQL
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+9 16 9 9 8 8 8 8 9 9 9 na
+
+$$$$
+8bu5_chainB
+     RDKit          3D
+
+ 12 12  0  0  0  0  0  0  0  0999 V2000
+    1.1746   20.0801   40.1963 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6970   21.3600   40.0178 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6051   22.1595   40.7380 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7090   19.9913   36.9338 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4772   18.9684   36.6370 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7903   20.1270   36.9561 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2704   20.6858   36.2173 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4430   19.3994   39.0352 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1440   18.3911   38.7895 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3213   21.4734   38.8523 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1593   20.2491   38.2596 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.4317   19.6654   41.3131 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  8  2  0
+  2  3  1  0
+  2 10  2  0
+  4  5  1  0
+  4  6  1  0
+  4  7  1  0
+  4 11  1  0
+  8  9  1  0
+  8 11  1  0
+ 10 11  1  0
+  1 12  1  0
+M  ISO  1  12  46
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bu5
+
+>  <ligand_pdb>  (1) 
+RMF
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+16 9 9 8 8 8 8 9 9 9 9 na
+
+$$$$
+8bu6_chainB
+     RDKit          3D
+
+ 12 12  0  0  0  0  0  0  0  0999 V2000
+    0.8785   19.6229   40.4098 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2934   18.7511   39.4021 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1341   17.6829   39.4052 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4923   21.7528   37.9968 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3738   22.7213   38.4827 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9981   21.7707   37.0255 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.5531   21.5419   37.8608 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2670   20.8718   40.0096 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1028   21.7989   40.5386 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8958   20.7199   38.8244 N   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9132   19.4248   38.4373 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1764   19.1925   41.5634 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  8  2  0
+  2  3  1  0
+  2 11  2  0
+  4  5  1  0
+  4  6  1  0
+  4  7  1  0
+  4 10  1  0
+  8  9  1  0
+  8 10  1  0
+ 10 11  1  0
+  1 12  1  0
+M  ISO  1  12  44
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bu6
+
+>  <ligand_pdb>  (1) 
+RQE
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+16 9 9 8 8 8 8 9 9 9 9 na
+
+$$$$
+8bu9_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    1.9332   20.7590   41.3432 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2680   21.6370   41.8956 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3881   21.2222   40.0020 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0465   20.3589   39.4309 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1738   21.7363   39.4484 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5531   21.9036   40.1649 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.1370   19.8647   41.1747 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8497   18.9685   40.6248 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.5197   19.5821   42.1554 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9110   20.3975   40.6224 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8723   20.0997   42.1267 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  7  1  0
+  3  4  1  0
+  3  5  1  0
+  3  6  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+ 11  1  1  0
+M  ISO  1  11  19
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bu9
+
+>  <ligand_pdb>  (1) 
+RRC
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8buh_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    1.9197   21.7859   39.6541 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0330   21.3769   39.1697 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6630   22.0382   38.8979 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6485   22.6831   40.2106 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4959   20.7565   40.6051 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7860   19.8963   40.0018 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7338   21.2616   41.3137 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4747   22.1247   41.9270 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.4819   21.5516   40.5760 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.1365   20.4724   41.9487 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4860   20.3412   41.5970 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  4  1  0
+  1  5  1  0
+  5  6  1  0
+  5  7  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+ 11  5  1  0
+M  ISO  1  11   4
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8buh
+
+>  <ligand_pdb>  (1) 
+RR9
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8bui_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    1.7185   21.0813   41.4796 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7447   22.0457   41.9868 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2083   21.3335   40.0715 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1660   20.3908   39.5260 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8817   22.0202   39.5586 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2109   21.7707   40.1193 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.1296   20.5549   41.5218 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.1704   19.5847   41.0266 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4463   20.4469   42.5592 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7930   21.2522   41.0101 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7971   20.1616   42.1843 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  7  1  0
+  3  4  1  0
+  3  5  1  0
+  3  6  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+  1 11  1  0
+M  ISO  1  11  52
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bui
+
+>  <ligand_pdb>  (1) 
+RV6
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8buj_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    3.3819   20.4693   40.9628 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0626   20.8975   40.2270 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3109   19.3926   40.8088 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7590   20.6687   41.9659 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4407   20.9258   39.4022 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1298   21.3609   38.6784 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.4765   21.4296   39.3342 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3120   19.8646   39.1889 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0041   21.0964   40.8048 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1058   22.1689   40.9705 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0991   20.5219   41.7889 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  4  1  0
+  1  9  1  0
+  5  6  1  0
+  5  7  1  0
+  5  8  1  0
+  5  9  1  0
+  9 10  1  0
+  9 11  1  0
+M  ISO  1  11  58
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8buj
+
+>  <ligand_pdb>  (1) 
+RUW
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8buk_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    3.1025   20.2395   40.8098 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7174   20.7413   40.0627 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9362   19.2053   40.5084 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.6123   20.2597   41.7730 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7774   20.9476   40.9278 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9947   21.9577   41.2753 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0744   21.1109   39.6034 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8279   20.1289   39.1995 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7282   21.6364   38.9073 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1591   21.6852   39.7463 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9215   20.3038   41.9222 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  4  1  0
+  1  5  1  0
+  5  6  1  0
+  5  7  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+  5 11  1  0
+M  ISO  1  11  53
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8buk
+
+>  <ligand_pdb>  (1) 
+RWE
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8bul_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    1.9491   20.9480   40.5830 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7699   22.0232   40.5906 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6364   20.4688   39.1707 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8001   19.3931   39.1075 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2888   20.9780   38.4614 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5964   20.6926   38.9331 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4052   20.7377   40.9455 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.6281   19.6707   40.9495 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.5968   21.1526   41.9351 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0381   21.2384   40.2128 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0527   20.3657   41.5783 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  7  1  0
+  3  4  1  0
+  3  5  1  0
+  3  6  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+  1 11  1  0
+M  ISO  1  11  53
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bul
+
+>  <ligand_pdb>  (1) 
+RSU
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8bum_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    2.5553   21.0790   40.2406 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7336   22.1476   40.3604 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1164   20.8894   38.7936 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9212   19.8331   38.6086 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9057   21.2354   38.1262 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2084   21.4641   38.6111 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8801   20.4374   40.5844 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7947   19.3548   40.4906 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.1527   20.6930   41.6083 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6482   20.8017   39.9022 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4874   20.6721   41.1663 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  7  1  0
+  3  4  1  0
+  3  5  1  0
+  3  6  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+  1 11  1  0
+M  ISO  1  11  65
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bum
+
+>  <ligand_pdb>  (1) 
+T6X
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8bun_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    2.0812   21.1112   40.7338 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1494   22.1877   40.8907 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6876   20.8714   39.2862 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6124   19.7995   39.1029 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4434   21.3003   38.6283 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7245   21.3422   39.0887 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4348   20.5228   41.0412 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4036   19.4432   40.8944 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.6995   20.7413   42.0758 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.1801   20.9586   40.3758 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0567   20.5697   41.6385 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  7  1  0
+  3  4  1  0
+  3  5  1  0
+  3  6  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+  1 11  1  0
+M  ISO  1  11  59
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bun
+
+>  <ligand_pdb>  (1) 
+RNF
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8buo_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    2.3181   21.0154   40.7729 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4959   22.0525   41.0574 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8968   21.0173   39.3058 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7086   19.9942   38.9805 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6925   21.4507   38.6998 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9885   21.6085   39.1894 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.6193   20.2646   40.9809 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4831   19.2186   40.7065 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9131   20.3301   42.0285 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3969   20.7056   40.3572 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2573   20.5078   41.6397 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  7  1  0
+  3  4  1  0
+  3  5  1  0
+  3  6  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+  1 11  1  0
+M  ISO  1  11  58
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8buo
+
+>  <ligand_pdb>  (1) 
+RLC
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8bup_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    1.7370   21.0917   40.8588 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5470   22.1508   41.0330 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.2129   20.8441   41.0720 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4324   19.7897   40.9039 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4826   21.1130   42.0933 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7879   21.4509   40.3726 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3465   20.7782   39.4288 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5265   19.7224   39.2262 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9426   21.3857   38.7479 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2894   21.0009   39.2837 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9173   20.3662   41.8199 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  7  1  0
+  3  4  1  0
+  3  5  1  0
+  3  6  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+  1 11  1  0
+M  ISO  1  11  58
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bup
+
+>  <ligand_pdb>  (1) 
+RWN
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8buq_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    3.8271   20.9758   40.9652 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5795   21.1711   40.2012 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.1492   20.1407   41.5873 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7002   21.8631   41.5854 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5119   20.6323   40.3015 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6908   19.7354   39.7085 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0283   21.6898   39.3368 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8326   22.6146   39.8797 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1114   21.3503   38.8552 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7920   21.8676   38.5797 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4790   20.3642   41.3264 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  4  1  0
+  1  5  1  0
+  5  6  1  0
+  5  7  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+  5 11  1  0
+M  ISO  1  11  48
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8buq
+
+>  <ligand_pdb>  (1) 
+RQ9
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8bur_altA_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    2.5879   20.5823   40.4717 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5460   21.6682   40.3876 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9355   20.2161   41.0744 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0079   19.1329   41.1715 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0308   20.6763   42.0579 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.7337   20.5769   40.4256 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4257   20.0564   39.0646 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4587   18.9670   39.0778 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.2333   20.4369   38.4392 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4680   20.3860   38.6616 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4984   20.1646   41.3534 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  7  1  0
+  3  4  1  0
+  3  5  1  0
+  3  6  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+  1 11  1  0
+M  ISO  1  11  66
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bur
+
+>  <ligand_pdb>  (1) 
+RQU
+
+>  <alt>  (1) 
+A
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8bus_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    2.2676   20.1310   40.3967 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3927   19.2260   39.8022 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8562   21.2240   39.4385 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7177   22.1554   39.9876 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9213   20.9471   38.9512 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6326   21.3582   38.6854 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.5994   20.4229   41.0578 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.5143   21.3249   41.6638 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3607   20.5704   40.2917 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8813   19.5835   41.6933 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2336   19.8710   41.3930 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  7  1  0
+  3  4  1  0
+  3  5  1  0
+  3  6  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+  1 11  1  0
+M  ISO  1  11  66
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8bus
+
+>  <ligand_pdb>  (1) 
+RMX
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8but_chainB
+     RDKit          3D
+
+ 11 10  0  0  0  0  0  0  0  0999 V2000
+    1.1438   21.1612   39.4500 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8545   21.4061   38.6608 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7167   22.0798   39.8523 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.3475   20.5388   39.0416 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8509   20.4145   40.5474 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2164   19.4862   40.1083 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.0242   21.2311   41.0744 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6540   22.1581   41.5124 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7033   21.4627   40.2539 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.5545   20.6567   41.8339 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9664   20.0495   41.6439 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  4  1  0
+  1  5  1  0
+  5  6  1  0
+  5  7  1  0
+  7  8  1  0
+  7  9  1  0
+  7 10  1  0
+  5 11  1  0
+M  ISO  1  11  53
+M  END
+>  <kinase>  (1) 
+CRK7
+
+>  <family>  (1) 
+CDK
+
+>  <group>  (1) 
+CMGC
+
+>  <complex_pdb>  (1) 
+8but
+
+>  <ligand_pdb>  (1) 
+RQ5
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
 
 >  <atom.prop.subpocket>  (1) 
 GA GA GA GA GA GA GA GA GA GA AP
@@ -23066,7 +24234,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na na
+14 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
 6bqp_chainA
@@ -23135,7 +24303,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na na
+14 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
 6cmj_altB_chainB
@@ -23516,7 +24684,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-7 7 7 7 7 7 7 7 7 7 7 7 3 3 na
+7 16 16 16 16 16 16 16 16 16 16 16 3 3 na
 
 $$$$
 7ccv_altA_chainA
@@ -23582,7 +24750,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-7 7 7 7 7 7 7 7 7 7 7 3 3 3 3 na
+7 16 16 16 16 16 16 16 16 16 16 3 3 3 3 na
 
 $$$$
 8ie5_chainA
@@ -23648,7 +24816,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-7 7 7 7 7 3 3 7 7 7 7 3 3 7 7 na
+16 16 16 7 16 3 3 16 16 16 16 3 3 16 16 na
 
 $$$$
 3bqr_altA_chainA
@@ -23774,7 +24942,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA AP FP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 14 14 14 14 na na
+14 9 9 9 9 9 9 9 9 9 9 9 na na
 
 $$$$
 5cep_altB_chainA
@@ -24083,7 +25251,7 @@ A
 GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-5 5 6 6 na na
+5 5 1 1 na na
 
 $$$$
 3lm5_altA_chainA
@@ -24359,7 +25527,7 @@ C
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 6 16 16 16 16 6 3 3 3 3 3 na
+16 16 16 16 16 16 1 16 16 16 16 1 3 3 3 3 3 na
 
 $$$$
 4ylk_altB_chainA
@@ -24623,7 +25791,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 6 6 5 5 5 16 16 16 16 na
+16 16 16 16 16 16 1 1 5 5 5 16 16 16 16 na
 
 $$$$
 6eis_altB_chainA
@@ -25165,7 +26333,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+16 9 9 9 9 9 9 9 9 9 9 9 9 na na
 
 $$$$
 6yf8_chainD
@@ -25572,7 +26740,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 16 16 16 16 16 16 16 16 16 na
+5 5 5 14 16 14 14 14 14 14 14 14 na
 
 $$$$
 7a5n_chainA
@@ -25632,7 +26800,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 5 5 5 16 16 16 16 16 na
+16 14 14 14 5 5 5 14 14 14 14 14 na
 
 $$$$
 7aj2_altB_chainA
@@ -25692,7 +26860,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 5 5 5 16 16 16 16 16 na
+16 14 14 14 5 5 5 14 14 14 14 14 na
 
 $$$$
 7aj4_altB_chainA
@@ -25752,7 +26920,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 5 5 5 16 16 16 16 16 na
+16 14 14 14 5 5 5 14 14 14 14 14 na
 
 $$$$
 7aj5_altB_chainA
@@ -25816,7 +26984,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 5 5 5 16 16 5 5 5 16 16 16 16 16 na
+14 5 5 5 14 14 5 5 5 16 14 14 14 14 na
 
 $$$$
 7aj7_chainA
@@ -25880,7 +27048,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 16 5 5 5 16 16 16 16 16 16 16 na
+5 5 5 14 5 5 5 16 14 14 14 14 14 14 na
 
 $$$$
 7aj8_altA_chainA
@@ -25940,7 +27108,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 5 5 5 16 16 16 16 16 16 16 16 na
+14 5 5 5 14 14 14 14 14 16 14 14 na
 
 $$$$
 7aja_altB_chainA
@@ -25996,7 +27164,7 @@ A
 GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 na na
+14 14 14 14 16 14 14 14 14 na na
 
 $$$$
 7ajm_altA_chainA
@@ -26056,7 +27224,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 5 5 5 16 16 16 16 16 16 na na
+14 14 5 5 5 14 14 14 16 14 14 na na
 
 $$$$
 7ajs_altA_chainA
@@ -26120,7 +27288,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 16 5 5 5 16 16 16 16 16 16 16 na
+5 5 5 14 5 5 5 16 14 14 14 14 14 14 na
 
 $$$$
 7ajv_chainA
@@ -26184,7 +27352,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 16 5 5 5 16 16 16 16 16 16 16 na
+5 5 5 14 5 5 5 16 14 14 14 14 14 14 na
 
 $$$$
 7ajw_altB_chainA
@@ -26248,7 +27416,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 16 5 5 5 16 16 16 16 16 16 16 na
+5 5 5 14 5 5 5 16 14 14 14 14 14 14 na
 
 $$$$
 7ajy_chainA
@@ -26312,7 +27480,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 16 5 5 5 16 16 16 16 16 16 16 na
+5 5 5 14 5 5 5 16 14 14 14 14 14 14 na
 
 $$$$
 7ak2_chainA
@@ -26376,7 +27544,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 16 5 5 5 16 16 16 16 16 16 16 na
+5 5 5 14 5 5 5 16 14 14 14 14 14 14 na
 
 $$$$
 7aka_altB_chainA
@@ -26440,7 +27608,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 16 5 5 5 16 16 16 16 16 16 16 na
+5 5 5 14 5 5 5 16 14 14 14 14 14 14 na
 
 $$$$
 7akb_altB_chainA
@@ -26504,7 +27672,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 16 5 5 5 16 16 16 16 16 16 16 na
+5 5 5 14 5 5 5 16 14 14 14 14 14 14 na
 
 $$$$
 7ake_chainA
@@ -26568,7 +27736,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 16 5 5 5 16 16 16 16 16 16 16 na
+5 5 5 14 5 5 5 16 14 14 14 14 14 14 na
 
 $$$$
 7akl_chainA
@@ -26632,7 +27800,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 5 5 5 16 16 5 5 5 16 16 na
+16 14 14 14 5 5 5 14 14 5 5 5 14 14 na
 
 $$$$
 7fhs_altB_chainA
@@ -26807,7 +27975,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 8 8 8 8 16 16 16 na na
+9 9 9 9 16 9 9 9 14 8 8 8 8 9 9 9 na na
 
 $$$$
 7z5n_chainA
@@ -26951,7 +28119,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 8 8 8 8 8 na na
+5 5 5 5 5 5 5 5 8 5 5 na na
 
 $$$$
 5ztn_chainA
@@ -27023,7 +28191,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-7 7 7 7 7 7 3 3 3 3 3 7 3 3 7 7 7 7 na
+7 16 16 16 16 16 3 3 3 3 3 16 3 3 16 16 16 16 na
 
 $$$$
 6hdp_altB_chainA
@@ -27175,7 +28343,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-7 7 7 7 7 7 3 3 3 3 3 7 3 3 7 7 7 7 na
+7 16 16 16 16 16 3 3 3 3 3 16 3 3 16 16 16 16 na
 
 $$$$
 7akf_altA_chainA
@@ -27239,7 +28407,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 5 5 5 16 16 5 5 5 16 16 na
+16 14 14 14 5 5 5 14 14 5 5 5 14 14 na
 
 $$$$
 7dhc_chainA
@@ -27452,7 +28620,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 3 8 8 8 16 16 16 16 na na
+16 16 16 16 16 16 3 4 4 4 16 16 16 16 na na
 
 $$$$
 2ito_chainA
@@ -27580,7 +28748,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 16 16 16 16 16 16 16 16 16 16 16 na
+4 4 4 4 4 4 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 2itt_altB_chainA
@@ -27650,7 +28818,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 16 16 16 16 16 16 16 16 16 16 16 na
+4 4 4 4 4 4 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 2ity_chainA
@@ -27836,7 +29004,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 16 16 16 16 16 16 16 16 16 16 16 na
+4 4 4 4 4 4 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 2jiu_chainA
@@ -27906,7 +29074,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 16 16 16 16 16 16 16 16 16 16 16 na
+4 4 4 4 4 4 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 2rgp_chainA
@@ -27977,7 +29145,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
 >  <atom.prop.environment>  (1) 
-8 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 na na
+8 8 8 16 16 16 16 16 16 16 16 16 16 16 9 16 na na
 
 $$$$
 3bel_chainA
@@ -28048,7 +29216,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
 >  <atom.prop.environment>  (1) 
-8 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 na na
+8 8 8 16 16 16 16 16 16 16 16 16 16 16 9 16 na na
 
 $$$$
 3lzb_chainA
@@ -28778,7 +29946,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 8 8 8 8 8 3 3 na
+16 16 16 16 16 16 16 16 16 16 16 4 4 4 4 4 3 3 na
 
 $$$$
 4jq8_chainA
@@ -28850,7 +30018,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 3 3 16 16 16 16 16 16 16 16 16 16 16 na
+4 4 4 4 4 3 3 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 4jr3_chainA
@@ -28980,7 +30148,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 3 3 16 16 16 16 16 16 16 16 16 16 16 na
+4 4 4 4 4 3 3 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 4rj4_chainA
@@ -29056,7 +30224,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 3 3 3 3 3 na
+5 15 15 15 15 15 15 15 15 15 15 15 15 15 15 3 3 3 3 3 na
 
 $$$$
 4rj5_chainA
@@ -29236,7 +30404,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 5 5 5 5 5 5 5 5 5 5 5 3 3 3 3 3 5 na
+15 15 15 15 15 15 15 15 15 15 15 15 15 15 3 3 3 3 3 5 na
 
 $$$$
 4wkq_altB_chainA
@@ -29370,7 +30538,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 5 5 5 5 5 5 5 5 5 5 5 3 3 3 3 3 5 na
+15 15 15 15 15 15 15 15 15 15 15 15 15 15 3 3 3 3 3 5 na
 
 $$$$
 5cau_chainA
@@ -29446,7 +30614,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 3 3 3 3 3 na
+5 15 15 15 15 15 15 15 15 15 15 15 15 15 15 3 3 3 3 3 na
 
 $$$$
 5edq_chainA
@@ -29650,7 +30818,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 16 16 16 16 16 16 16 16 16 16 16 na
+4 4 4 8 4 4 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 5jeb_chainA
@@ -30556,7 +31724,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-6 6 16 16 16 16 16 16 16 16 16 16 5 5 na na
+1 1 16 16 16 16 16 16 16 16 16 16 5 5 na na
 
 $$$$
 6wak_altB_chainC
@@ -30622,7 +31790,7 @@ C
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 FP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 6 16 16 16 16 16 16 16 5 5 6 na na
+16 16 16 1 16 16 16 16 16 16 16 5 5 1 na na
 
 $$$$
 7u9a_chainA
@@ -30800,6 +31968,149 @@ GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
 16 16 16 16 16 16 16 16 16 16 16 3 na
+
+$$$$
+8f1z_chainA
+     RDKit          3D
+
+ 18 18  0  0  0  0  0  0  0  0999 V2000
+    4.3382   22.6730   39.3221 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3029   21.8523   38.9033 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9446   20.7057   39.6943 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.6868   20.5110   40.8743 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4516   19.6635   41.5011 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.7104   21.3661   41.2647 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.2409   21.1741   42.1856 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.0613   22.4618   40.4909 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.8630   23.1237   40.7837 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9953   21.3232   36.6219 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3877   21.6122   35.7642 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8348   20.2678   36.8417 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0480   21.4910   36.3945 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9096   19.8264   39.3450 N   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2344   20.2095   38.6989 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6265   22.0985   37.7422 O   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8556   24.0854   38.4351 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+    1.6484   18.4843   39.7465 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0
+  1  8  1  0
+  1 17  1  0
+  2  3  1  0
+  2 16  1  0
+  3  4  2  0
+  3 14  1  0
+  4  5  1  0
+  4  6  1  0
+  6  7  1  0
+  6  8  2  0
+  8  9  1  0
+ 10 11  1  0
+ 10 12  1  0
+ 10 13  1  0
+ 10 16  1  0
+ 14 15  1  0
+ 18 14  1  0
+M  ISO  1  18  20
+M  END
+>  <kinase>  (1) 
+EGFR
+
+>  <family>  (1) 
+EGFR
+
+>  <group>  (1) 
+TK
+
+>  <complex_pdb>  (1) 
+8f1z
+
+>  <ligand_pdb>  (1) 
+X9B
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+A
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
+
+>  <atom.prop.environment>  (1) 
+16 16 16 16 16 16 16 16 16 3 3 3 3 5 5 3 16 na
+
+$$$$
+8g63_chainA
+     RDKit          3D
+
+ 19 20  0  0  0  0  0  0  0  0999 V2000
+    3.5930   18.8176   40.7492 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1394   20.9229   40.2985 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.5951   22.9391   39.0571 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.6240   23.4781   38.1216 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9419   22.8601   41.4446 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.2385   23.3541   42.3581 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6846   19.4701   40.2143 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.7184   17.4226   39.5748 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1752   21.6231   39.0929 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8722   21.1327   38.1796 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9784   23.5586   40.2343 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.5262   21.5340   41.4805 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.5052   20.9897   42.4131 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.3833   24.8687   40.1895 F   0  0  0  0  0  0  0  0  0  0  0  0
+    5.3505   18.5934   39.4820 N   0  0  0  0  0  0  0  0  0  0  0  0
+    3.6522   17.5713   40.3545 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9967   16.8435   40.6013 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1370   16.1485   38.8765 R   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4859   19.3005   41.6979 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  7  2  0
+  1 16  1  0
+  2  7  1  0
+  2  9  1  0
+  2 12  2  0
+  3  4  1  0
+  3  9  2  0
+  3 11  1  0
+  5  6  1  0
+  5 11  2  0
+  5 12  1  0
+  7 15  1  0
+  8 15  2  0
+  8 16  1  0
+  9 10  1  0
+ 11 14  1  0
+ 12 13  1  0
+ 16 17  1  0
+  8 18  1  0
+  1 19  1  0
+M  ISO  2  18  40  19  37
+M  END
+>  <kinase>  (1) 
+EGFR
+
+>  <family>  (1) 
+EGFR
+
+>  <group>  (1) 
+TK
+
+>  <complex_pdb>  (1) 
+8g63
+
+>  <ligand_pdb>  (1) 
+YXT
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+A
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
+
+>  <atom.prop.environment>  (1) 
+14 16 16 16 16 16 14 14 16 16 16 16 16 16 14 14 14 na na
 
 $$$$
 5i9x_altB_chainA
@@ -31129,7 +32440,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
 
 $$$$
 5nk0_altA_chainA
@@ -31201,7 +32512,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 16 16 16 16 16 16 16 16 16 16 5 5 6 6 na
+8 8 8 8 16 16 16 16 16 16 16 16 16 16 5 5 1 1 na
 
 $$$$
 5nk1_altB_chainA
@@ -31341,7 +32652,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
 
 $$$$
 5nk3_altB_chainA
@@ -31481,7 +32792,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
 
 $$$$
 5nk5_altB_chainA
@@ -31689,7 +33000,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
 
 $$$$
 5nk8_altA_chainA
@@ -31965,7 +33276,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
 
 $$$$
 5nkc_altB_chainA
@@ -32241,7 +33552,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
 
 $$$$
 5nkg_altA_chainA
@@ -32449,7 +33760,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
 
 $$$$
 8bin_altA_chainA
@@ -33740,7 +35051,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 8 8 8 3 3 16 16 16 16 16 8 8 8 8 na
+16 16 16 16 4 4 4 3 3 16 16 16 16 16 8 8 8 8 na
 
 $$$$
 4bb4_altA_chainA
@@ -33868,7 +35179,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 16 16 16 16 16 8 8 8 8 5 5 16 16 16 16 16 6 na
+1 16 16 16 16 16 8 8 8 8 5 5 16 16 16 16 16 1 na
 
 $$$$
 3pp0_altA_chainA
@@ -33926,7 +35237,7 @@ A
 GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 3 16 16 16 16 na na
+16 14 14 14 14 3 14 14 14 14 na na
 
 $$$$
 3rcd_chainC
@@ -34118,7 +35429,7 @@ D
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 3 8 8 8 16 16 16 16 na na
+16 16 16 16 16 16 3 4 4 4 16 16 16 16 na na
 
 $$$$
 4qtb_altB_chainA
@@ -34184,7 +35495,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-6 6 15 15 15 15 15 15 15 15 15 15 15 15 na na
+1 1 15 5 5 5 5 5 5 5 5 5 5 5 na na
 
 $$$$
 1pme_chainA
@@ -34416,7 +35727,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-6 6 16 16 16 16 16 16 16 16 na na
+1 1 14 14 14 16 14 14 14 14 na na
 
 $$$$
 2oji_chainA
@@ -34474,7 +35785,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 6 6 na na
+16 14 14 14 14 14 14 14 1 1 na na
 
 $$$$
 2ojj_chainA
@@ -34532,7 +35843,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 6 6 16 16 16 16 16 16 na na
+14 14 1 1 14 14 14 16 14 14 na na
 
 $$$$
 4fux_chainA
@@ -34648,7 +35959,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-6 6 16 16 16 16 16 16 16 16 na na
+1 1 14 14 14 14 14 14 14 16 na na
 
 $$$$
 4fv2_altB_chainA
@@ -34710,7 +36021,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 na na
+1 1 5 5 14 14 14 14 14 14 14 16 na na
 
 $$$$
 4fv3_altB_chainA
@@ -34768,7 +36079,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 6 6 na na
+16 14 14 14 14 14 14 14 1 1 na na
 
 $$$$
 4fv7_altA_chainA
@@ -34998,7 +36309,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 na na
+1 1 5 5 14 14 14 14 14 14 14 16 na na
 
 $$$$
 4qta_altB_chainA
@@ -35068,7 +36379,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 15 15 15 15 15 15 15 15 15 15 15 15 na na
+1 1 5 5 15 5 5 5 5 5 5 5 5 5 5 5 na na
 
 $$$$
 5bue_chainA
@@ -35132,7 +36443,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-9 9 9 9 9 9 9 9 8 8 8 9 9 na na
+16 16 16 16 16 16 16 16 8 8 8 9 16 na na
 
 $$$$
 5v62_altB_chainA
@@ -35248,7 +36559,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 6 6 na na
+16 14 14 14 14 14 14 14 1 1 na na
 
 $$$$
 6g9d_altB_chainA
@@ -35317,7 +36628,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+10 10 10 10 10 10 10 10 16 10 10 10 10 10 10 na na
 
 $$$$
 6g9h_altB_chainA
@@ -35386,7 +36697,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+10 10 10 10 10 10 16 10 10 10 10 10 10 10 10 na na
 
 $$$$
 6g9k_altB_chainA
@@ -35455,7 +36766,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+10 10 10 10 10 16 10 10 10 10 10 10 10 10 10 na na
 
 $$$$
 6g9m_altB_chainA
@@ -35524,7 +36835,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+10 10 10 10 10 16 10 10 10 10 10 10 10 10 10 na na
 
 $$$$
 6g9m_altB_chainA
@@ -35651,7 +36962,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+10 10 10 10 10 16 10 10 10 10 10 10 10 10 10 na na
 
 $$$$
 6ge0_altA_chainA
@@ -35720,7 +37031,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+10 10 10 10 10 10 10 10 10 10 10 10 10 16 10 na na
 
 $$$$
 6gjd_altA_chainA
@@ -35790,7 +37101,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-15 15 15 15 15 15 15 15 15 15 15 15 6 6 5 5 na na
+5 5 5 5 5 5 5 15 5 5 5 5 1 1 5 5 na na
 
 $$$$
 6opi_chainA
@@ -35856,7 +37167,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2 FP
 
 >  <atom.prop.environment>  (1) 
-6 15 6 15 15 15 15 15 15 15 15 15 15 na na na
+1 15 1 5 5 5 5 5 5 5 5 5 5 na na na
 
 $$$$
 7auv_altA_chainA
@@ -35925,7 +37236,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+10 10 10 10 16 10 10 10 10 10 10 10 10 10 10 na na
 
 $$$$
 7nqq_altA_chainA
@@ -35994,7 +37305,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+10 16 10 10 10 10 10 10 10 10 10 10 10 10 10 na na
 
 $$$$
 7nqw_altB_chainA
@@ -36063,7 +37374,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+16 10 10 10 10 10 10 10 10 10 10 10 10 10 10 na na
 
 $$$$
 7nr3_altB_chainA
@@ -36132,7 +37443,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+16 10 10 10 10 10 10 10 10 10 10 10 10 10 10 na na
 
 $$$$
 7nr5_altA_chainA
@@ -36201,7 +37512,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+10 10 10 10 16 10 10 10 10 10 10 10 10 10 10 na na
 
 $$$$
 7nr8_altB_chainA
@@ -36270,7 +37581,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+10 10 10 16 10 10 10 10 10 10 10 10 10 10 10 na na
 
 $$$$
 7nr9_altB_chainA
@@ -36339,7 +37650,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+10 10 16 10 10 10 10 10 10 10 10 10 10 10 10 na na
 
 $$$$
 7opm_altB_chainA
@@ -36442,7 +37753,7 @@ A
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 8 8 8 8 14 14 14 14 14 na na
+14 8 8 8 8 9 9 9 9 14 na na
 
 $$$$
 6hkm_chainA
@@ -36514,7 +37825,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-15 15 15 15 15 6 6 15 15 15 15 15 15 15 15 15 15 na na
+5 5 5 15 5 1 1 5 5 5 5 5 5 5 5 5 5 na na
 
 $$$$
 6hkn_altA_chainA
@@ -36611,7 +37922,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 15 15 15 15 15 15 6 6 16 16 16 5 5 5 15 15 15 15 15 15 15 15 15 na na
+16 16 16 16 16 16 5 5 5 5 5 5 1 1 16 16 16 5 5 5 5 5 5 5 15 5 5 5 5 na na
 
 $$$$
 3bz3_altB_chainA
@@ -37268,7 +38579,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-3 3 3 3 3 8 8 8 8 8 8 8 8 8 na
+3 3 3 3 3 4 4 4 4 4 4 8 4 4 na
 
 $$$$
 4f65_altB_chainB
@@ -37703,7 +39014,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 5 5 5 5 5 5 6 6 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
+16 16 5 5 5 5 5 5 1 1 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 4uwc_altB_chainA
@@ -38120,7 +39431,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
+14 14 14 14 14 14 16 14 14 14 14 14 14 8 8 8 8 na
 
 $$$$
 5ew8_altB_chainB
@@ -38256,7 +39567,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 8 8 8 8 16 16 16 16 na
+16 9 9 8 8 8 8 9 9 9 9 na
 
 $$$$
 5zv2_chainA
@@ -38769,7 +40080,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 14 14 8 8 8 8 14 14 14 14 14 14 14 14 14 14 na
+8 8 8 8 16 16 8 8 8 8 16 16 16 16 16 16 14 16 16 16 na
 
 $$$$
 7ozb_altB_chainA
@@ -39172,88 +40483,6 @@ GA GA GA GA GA GA GA GA GA GA GA GA AP
 3 3 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
-8stg_chainA
-     RDKit          3D
-
- 24 25  0  0  0  0  0  0  0  0999 V2000
-    2.5251   19.0247   37.7381 C   0  0  0  0  0  0  0  0  0  0  0  0
-    3.6368   19.8412   38.0652 C   0  0  0  0  0  0  0  0  0  0  0  0
-    3.8243   21.1627   36.0287 C   0  0  0  0  0  0  0  0  0  0  0  0
-    4.7711   22.3443   32.6009 C   0  0  0  0  0  0  0  0  0  0  0  0
-    4.1609   22.9240   31.9082 H   0  0  0  0  0  0  0  0  0  0  0  0
-    5.0371   21.3923   32.1416 H   0  0  0  0  0  0  0  0  0  0  0  0
-    5.6786   22.8996   32.8379 H   0  0  0  0  0  0  0  0  0  0  0  0
-    2.6668   22.5777   34.0137 C   0  0  0  0  0  0  0  0  0  0  0  0
-    2.1925   23.1379   33.2216 H   0  0  0  0  0  0  0  0  0  0  0  0
-    1.9988   22.3085   35.2135 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.9923   22.6820   35.3315 H   0  0  0  0  0  0  0  0  0  0  0  0
-    3.8956   19.9967   39.4298 C   0  0  0  0  0  0  0  0  0  0  0  0
-    4.7298   20.6078   39.7415 H   0  0  0  0  0  0  0  0  0  0  0  0
-    1.9903   18.5879   40.0750 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.7151   18.4059   38.7115 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.8812   17.7907   38.4072 H   0  0  0  0  0  0  0  0  0  0  0  0
-    3.9846   22.0891   33.8782 C   0  0  0  0  0  0  0  0  0  0  0  0
-    3.0985   19.3786   40.4043 C   0  0  0  0  0  0  0  0  0  0  0  0
-    3.3482   19.5172   41.4459 H   0  0  0  0  0  0  0  0  0  0  0  0
-    2.2131   18.8232   36.4597 F   0  0  0  0  0  0  0  0  0  0  0  0
-    4.5801   21.3708   34.8846 N   0  0  0  0  0  0  0  0  0  0  0  0
-    2.5443   21.6053   36.2359 N   0  0  0  0  0  0  0  0  0  0  0  0
-    4.4082   20.4328   37.0579 O   0  0  0  0  0  0  0  0  0  0  0  0
-    1.1742   17.9329   41.1269 R   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  2  0
-  1 15  1  0
-  1 20  1  0
-  2 12  1  0
-  2 23  1  0
-  3 21  1  0
-  3 22  2  0
-  3 23  1  0
-  4  5  1  0
-  4  6  1  0
-  4  7  1  0
-  4 17  1  0
-  8  9  1  0
-  8 10  2  0
-  8 17  1  0
- 10 11  1  0
- 10 22  1  0
- 12 13  1  0
- 12 18  2  0
- 14 15  2  0
- 14 18  1  0
- 15 16  1  0
- 17 21  2  0
- 18 19  1  0
- 24 14  1  0
-M  END
->  <kinase>  (1) 
-FGFR2
-
->  <family>  (1) 
-FGFR
-
->  <group>  (1) 
-TK
-
->  <complex_pdb>  (1) 
-8stg
-
->  <ligand_pdb>  (1) 
-WCJ
-
->  <alt>  (1) 
- 
-
->  <chain>  (1) 
-A
-
->  <atom.prop.subpocket>  (1) 
-GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
-
->  <atom.prop.environment>  (1) 
-16 16 14 8 8 8 8 14 14 14 14 16 16 16 16 16 14 16 16 16 14 14 3 na
-
-$$$$
 6lvm_chainA
      RDKit          3D
 
@@ -39487,7 +40716,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 14 8 8 8 8 14 14 8 8 8 8 14 na
+14 16 16 16 16 16 16 16 16 8 8 8 8 16 16 8 8 8 8 16 na
 
 $$$$
 7f3m_chainA
@@ -39692,7 +40921,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 na na
+7 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 na na
 
 $$$$
 4c58_altB_chainA
@@ -40202,7 +41431,7 @@ A
 GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 na na
+14 14 14 14 16 14 14 14 14 na na
 
 $$$$
 5k5n_chainB
@@ -40667,7 +41896,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 3 5 5 3 3 3 3 6 6 na na
+16 16 16 16 16 16 16 16 16 3 5 5 3 3 3 3 1 1 na na
 
 $$$$
 2c0o_altB_chainA
@@ -40741,7 +41970,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 3 5 5 3 3 3 3 6 6 na na
+16 16 16 16 16 16 16 16 16 3 5 5 3 3 3 3 1 1 na na
 
 $$$$
 2c0t_altB_chainB
@@ -40815,7 +42044,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 3 5 5 3 3 3 3 6 6 na na
+16 16 16 16 16 16 16 16 16 3 5 5 3 3 3 3 1 1 na na
 
 $$$$
 2hk5_chainA
@@ -41081,7 +42310,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 na na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
 3vs2_chainB
@@ -42258,7 +43487,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-15 15 15 14 15 15 15 15 15 15 15 15 15 15 15 14 14 8 8 8 8 14 14 14 14 15 na
+5 5 5 14 15 5 5 5 5 5 5 5 5 5 5 16 16 8 8 8 8 16 16 16 16 5 na
 
 $$$$
 4u42_altA_chainA
@@ -42346,7 +43575,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-15 15 15 14 15 15 15 15 15 15 15 15 15 15 15 14 14 8 8 8 8 14 14 14 14 15 na
+5 5 5 14 15 5 5 5 5 5 5 5 5 5 5 16 16 8 8 8 8 16 16 16 16 5 na
 
 $$$$
 4u43_altB_chainA
@@ -42826,7 +44055,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 6 6 5 5 5 5 5 5 na na
+14 14 14 8 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 1 1 5 5 5 5 5 5 na na
 
 $$$$
 4yff_altB_chainB
@@ -42900,7 +44129,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 5 5 5 5 5 5 16 16 16 16 16 16 16 16 16 16 na na
+16 16 5 5 5 5 5 5 12 12 12 12 12 12 12 12 12 12 na na
 
 $$$$
 4yfi_altA_chainA
@@ -42973,7 +44202,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 5 5 5 5 5 5 16 16 16 16 16 na
+16 12 12 12 12 12 12 12 5 5 5 5 5 5 12 12 12 12 12 na
 
 $$$$
 6b5j_altA_chainD
@@ -43047,7 +44276,7 @@ D
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 5 5 5 5 5 5 16 16 16 16 16 16 16 16 16 16 16 16 na
+16 5 5 5 5 5 5 12 12 12 12 12 12 12 12 12 12 12 12 na
 
 $$$$
 6p5s_altA_chainA
@@ -43212,7 +44441,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 8 8 8 8 16 16 16 na na
+9 9 9 9 16 9 9 9 14 8 8 8 8 9 9 9 na na
 
 $$$$
 7kac_chainB
@@ -43542,7 +44771,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na na
+16 16 16 16 16 16 16 16 16 16 14 16 16 16 16 na na
 
 $$$$
 3f5p_chainA
@@ -43871,6 +45100,75 @@ GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
 16 16 16 16 16 16 16 16 16 16 3 na na
+
+$$$$
+8pyi_chainA
+     RDKit          3D
+
+ 17 18  0  0  0  0  0  0  0  0999 V2000
+    3.8307   22.0893   35.5219 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7961   20.4720   38.6281 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.4689   21.6122   37.7836 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.4687   22.0555   37.4825 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7566   21.2121   37.4275 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5854   21.7857   36.9997 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7231   20.3082   39.4719 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.5342   20.8608   38.9781 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.3764   20.7047   39.5375 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6641   22.6702   35.0438 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6435   23.2237   34.1167 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5194   22.5014   35.8239 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8471   21.3911   36.6796 N   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9035   19.9143   39.0571 F   0  0  0  0  0  0  0  0  0  0  0  0
+    0.3299   23.0390   35.4693 R   0  0  0  0  0  0  0  0  0  0  0  0
+    5.0159   22.2192   34.8068 R   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6994   19.4889   40.6213 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1 10  2  0
+  1 13  1  0
+  2  5  1  0
+  2  7  2  0
+  2 14  1  0
+  3  4  1  0
+  3  6  1  0
+  3  8  2  0
+  5  6  1  0
+  5 13  2  0
+  6 12  2  0
+  7  8  1  0
+  8  9  1  0
+ 10 11  1  0
+ 10 12  1  0
+ 12 15  1  0
+  1 16  1  0
+  7 17  1  0
+M  ISO  3  15  36  16   1  17  46
+M  END
+>  <kinase>  (1) 
+IGF1R
+
+>  <family>  (1) 
+InsR
+
+>  <group>  (1) 
+TK
+
+>  <complex_pdb>  (1) 
+8pyi
+
+>  <ligand_pdb>  (1) 
+IER
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+A
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 B2 AP
+
+>  <atom.prop.environment>  (1) 
+14 16 16 16 16 16 16 16 16 16 16 16 16 16 na na na
 
 $$$$
 5hhw_altB_chainA
@@ -44441,7 +45739,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 8 8 8 8 na
+16 9 9 9 9 9 9 8 8 8 8 na
 
 $$$$
 5t1s_chainC
@@ -44929,7 +46227,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-15 15 15 15 15 15 15 15 15 15 6 6 5 5 5 15 15 15 15 15 15 na
+15 15 15 15 15 15 15 15 15 15 1 1 5 5 5 15 15 15 15 15 15 na
 
 $$$$
 6f3g_chainB
@@ -45047,7 +46345,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 5 5 5 8 8 8 8 8 8 8 8 8 na
+8 1 5 5 5 1 1 1 1 1 1 1 1 1 na
 
 $$$$
 6lxy_chainB
@@ -45271,7 +46569,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 8 8 8 8 16 na
+14 14 14 14 14 14 16 8 8 8 8 14 na
 
 $$$$
 6thx_chainA
@@ -45376,7 +46674,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 8 8 8 8 16 16 16 na
+14 14 14 14 14 8 8 8 8 16 14 14 na
 
 $$$$
 6ti8_altB_chainD
@@ -45433,7 +46731,7 @@ D
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 5 5 5 5 5 5 5 5 5 6 na
+1 5 5 5 5 5 5 5 5 5 1 na
 
 $$$$
 6tia_chainB
@@ -45491,7 +46789,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 8 8 8 8 16 16 16 16 16 na
+16 9 8 8 8 8 9 9 9 9 9 na
 
 $$$$
 6vql_chainC
@@ -45616,7 +46914,7 @@ C
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 8 8 8 8 16 16 16 16 16 16 na
+16 14 14 8 8 8 8 14 14 14 14 14 14 na
 
 $$$$
 7qg1_chainA
@@ -45717,6 +47015,100 @@ GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
 8 8 8 8 8 8 8 8 8 8 na
+
+$$$$
+8atl_altB_chainA
+     RDKit          3D
+
+  9  8  0  0  0  0  0  0  0  0999 V2000
+    2.7484   17.9982   39.5060 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6307   18.8392   38.9234 C   0  0  2  0  0  0  0  0  0  0  0  0
+    0.7964   18.2108   38.6116 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1259   19.5198   37.7643 O   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8601   20.0717   38.0433 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.2033   17.2099   38.5509 F   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7224   18.7637   39.9552 F   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2499   17.2912   40.5040 F   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0893   19.7644   39.9555 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  6  1  0
+  1  7  1  0
+  1  8  1  0
+  2  3  1  6
+  2  4  1  0
+  4  5  1  0
+  2  9  1  0
+M  ISO  1   9   3
+M  END
+>  <kinase>  (1) 
+IRAK4
+
+>  <family>  (1) 
+IRAK
+
+>  <group>  (1) 
+TKL
+
+>  <complex_pdb>  (1) 
+8atl
+
+>  <ligand_pdb>  (1) 
+O6X
+
+>  <alt>  (1) 
+B
+
+>  <chain>  (1) 
+A
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+4 4 4 3 3 4 4 4 na
+
+$$$$
+8atn_altB_chainA
+     RDKit          3D
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    3.4116   18.8953   39.8589 F   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1880   19.2469   39.4994 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4838   18.1574   39.3288 F   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1963   19.9260   38.3602 F   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4121   20.0009   40.5671 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  2  3  1  0
+  2  4  1  0
+  2  5  1  0
+M  ISO  1   5  23
+M  END
+>  <kinase>  (1) 
+IRAK4
+
+>  <family>  (1) 
+IRAK
+
+>  <group>  (1) 
+TKL
+
+>  <complex_pdb>  (1) 
+8atn
+
+>  <ligand_pdb>  (1) 
+O06
+
+>  <alt>  (1) 
+B
+
+>  <chain>  (1) 
+A
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 na
 
 $$$$
 4u6r_chainA
@@ -46267,7 +47659,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 6 16 16 16 16 5 5 5 5 6 16 na na
+16 16 16 16 16 1 16 16 16 16 5 5 5 5 1 16 na na
 
 $$$$
 6xdd_chainA
@@ -46337,7 +47729,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 6 16 16 16 16 16 5 5 5 5 6 16 na na
+16 16 16 16 1 16 16 16 16 16 5 5 5 5 1 16 na na
 
 $$$$
 7bmk_altA_chainA
@@ -47926,7 +49318,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 6 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
+1 1 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 2o2u_chainA
@@ -47988,7 +49380,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 6 6 na
+16 16 16 16 16 16 16 16 16 16 16 1 1 na
 
 $$$$
 3cgf_chainA
@@ -49511,7 +50903,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 6 6 na na
+16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 1 1 na na
 
 $$$$
 3cjg_altB_chainA
@@ -49592,7 +50984,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-14 14 8 8 8 8 14 14 5 5 5 5 5 14 14 14 14 14 14 14 14 14 na
+16 16 8 8 8 8 16 16 5 5 5 5 5 16 16 16 16 14 16 16 16 16 na
 
 $$$$
 3wzd_altA_chainA
@@ -49774,7 +51166,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 16 16 16 8 8 8 8 16 16 16 na
+8 8 8 8 16 14 14 8 8 8 8 14 14 14 na
 
 $$$$
 5kkr_chainB
@@ -50420,7 +51812,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
 >  <atom.prop.environment>  (1) 
-5 5 16 16 16 16 8 8 8 8 16 16 16 16 16 6 6 na na
+5 5 16 16 16 16 8 8 8 8 16 16 16 16 16 1 1 na na
 
 $$$$
 3bym_chainA
@@ -50908,7 +52300,50 @@ L
 GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-8 14 8 8 14 14 14 14 8 14 na na
+8 14 8 8 14 14 9 14 8 14 na na
+
+$$$$
+8wsw_altB_chainA
+     RDKit          3D
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    4.8107   19.6658   38.3033 F   0  0  0  0  0  0  0  0  0  0  0  0
+    3.5234   19.9680   37.9860 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3074   21.0314   38.0890 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3554   19.5654   36.7026 F   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6054   19.2428   38.9008 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  2  3  1  0
+  2  4  1  0
+  5  2  1  0
+M  ISO  1   5   8
+M  END
+>  <kinase>  (1) 
+LIMK2
+
+>  <family>  (1) 
+LISK
+
+>  <group>  (1) 
+TKL
+
+>  <complex_pdb>  (1) 
+8wsw
+
+>  <ligand_pdb>  (1) 
+LH0
+
+>  <alt>  (1) 
+B
+
+>  <chain>  (1) 
+A
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+8 8 8 8 na
 
 $$$$
 2j7t_altA_chainA
@@ -51660,7 +53095,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+16 16 16 16 16 14 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
 3r30_altB_chainA
@@ -51754,7 +53189,7 @@ A
 GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 na na
+16 14 14 14 14 14 14 na na
 
 $$$$
 5es1_chainA
@@ -51818,7 +53253,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 16 16 16 16 16 16 8 8 8 8 na na
+8 8 8 14 14 14 16 14 14 8 8 8 8 na na
 
 $$$$
 4d2p_altA_chainD
@@ -52344,7 +53779,7 @@ A
 GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 3 6 3 3 3 3 na
+1 3 1 3 3 3 3 na
 
 $$$$
 5mah_altA_chainA
@@ -52813,7 +54248,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP B2
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 8 8 8 16 16 16 16 3 na na
+16 16 16 16 16 16 4 4 4 16 16 16 16 3 na na
 
 $$$$
 7avx_chainA
@@ -52879,7 +54314,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-6 16 16 16 16 16 16 16 16 16 16 5 5 6 na na
+1 16 16 16 16 16 16 16 16 16 16 5 5 1 na na
 
 $$$$
 7avy_chainA
@@ -52947,7 +54382,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-16 16 16 8 8 8 8 8 8 16 16 16 16 16 3 na na
+16 14 14 4 4 4 8 4 4 14 14 14 14 14 3 na na
 
 $$$$
 7aw2_chainA
@@ -53230,7 +54665,7 @@ A
 GA GA GA GA GA GA GA AP FP
 
 >  <atom.prop.environment>  (1) 
-3 8 8 8 8 8 8 na na
+3 4 4 4 4 4 4 na na
 
 $$$$
 3efk_chainB
@@ -53317,7 +54752,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 8 8 8 8 16 16 16 16 16 16 16 16 16 16 5 5 na na
+14 16 16 16 16 14 14 14 8 8 8 8 16 16 16 16 16 16 16 14 14 9 5 5 na na
 
 $$$$
 3u6h_altB_chainA
@@ -53383,7 +54818,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 5 5 6 6 na na
+16 16 16 16 16 16 16 16 16 16 5 5 1 1 na na
 
 $$$$
 3u6i_chainA
@@ -53449,7 +54884,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 5 5 6 6 16 na na
+16 16 16 16 16 16 16 16 16 5 5 1 1 16 na na
 
 $$$$
 4xmo_chainA
@@ -54037,7 +55472,7 @@ A
 GA GA GA GA FP AP FP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 na na na
+1 4 1 1 na na na
 
 $$$$
 6cjw_chainA
@@ -54377,7 +55812,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na na
+14 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
 4qms_altA_chainA
@@ -54449,7 +55884,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 16 16 16 16 16 8 8 8 8 5 5 16 16 16 16 16 6 na
+1 16 16 16 16 16 8 8 8 8 5 5 16 16 16 16 16 1 na
 
 $$$$
 4qmw_altA_chainA
@@ -54974,6 +56409,180 @@ STE
 
 >  <ligand_pdb>  (1) 
 SJL
+
+>  <alt>  (1) 
+B
+
+>  <chain>  (1) 
+A
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA B1 AP
+
+>  <atom.prop.environment>  (1) 
+16 16 16 16 16 16 16 16 16 16 na na
+
+$$$$
+8qlr_chainA
+     RDKit          3D
+
+ 12 12  0  0  0  0  0  0  0  0999 V2000
+    5.7560   20.9749   38.0507 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.6730   19.8861   38.6119 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7879   19.3558   38.2928 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.0043   20.8687   40.3352 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.2834   21.2841   41.9974 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+    5.9403   21.2687   39.4010 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.8186   21.8113   39.7181 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8647   20.1616   39.9678 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6079   20.2872   37.6749 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.4428   20.0619   36.6317 H   0  0  0  0  0  0  0  0  0  0  0  0
+    6.7906   21.3457   37.0516 R   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8810   19.6482   40.9564 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  6  2  0
+  1  9  1  0
+  2  3  1  0
+  2  8  1  0
+  2  9  2  0
+  4  5  1  0
+  4  6  1  0
+  4  8  2  0
+  6  7  1  0
+  9 10  1  0
+ 11  1  1  0
+  8 12  1  0
+M  ISO  2  11   7  12  26
+M  END
+>  <kinase>  (1) 
+MST3
+
+>  <family>  (1) 
+STE20
+
+>  <group>  (1) 
+STE
+
+>  <complex_pdb>  (1) 
+8qlr
+
+>  <ligand_pdb>  (1) 
+VYN
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+A
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA B1 AP
+
+>  <atom.prop.environment>  (1) 
+16 16 16 16 16 16 16 16 16 16 na na
+
+$$$$
+8qls_altA_chainA
+     RDKit          3D
+
+ 12 12  0  0  0  0  0  0  0  0999 V2000
+    5.6493   20.9466   37.9117 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5628   20.1514   37.5630 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.4461   19.8328   36.5376 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.6285   19.7612   38.5064 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7869   19.1545   38.2066 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7634   20.1434   39.8392 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8655   20.9203   40.1885 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7943   21.3213   39.2472 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.6362   21.9276   39.5471 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1164   21.3931   41.8389 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+    6.6369   21.3895   36.8957 R   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7777   19.6588   40.8350 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0
+  1  8  1  0
+  2  3  1  0
+  2  4  1  0
+  4  5  1  0
+  4  6  2  0
+  6  7  1  0
+  7  8  2  0
+  7 10  1  0
+  8  9  1  0
+ 11  1  1  0
+ 12  6  1  0
+M  ISO  2  11   4  12  10
+M  END
+>  <kinase>  (1) 
+MST3
+
+>  <family>  (1) 
+STE20
+
+>  <group>  (1) 
+STE
+
+>  <complex_pdb>  (1) 
+8qls
+
+>  <ligand_pdb>  (1) 
+VYH
+
+>  <alt>  (1) 
+A
+
+>  <chain>  (1) 
+A
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA GA GA GA GA GA B1 AP
+
+>  <atom.prop.environment>  (1) 
+16 16 16 16 16 16 16 16 16 16 na na
+
+$$$$
+8qlt_altB_chainA
+     RDKit          3D
+
+ 12 12  0  0  0  0  0  0  0  0999 V2000
+    5.8149   20.9692   37.9154 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6808   20.2558   37.5478 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.5307   19.9977   36.5098 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7410   19.8699   38.4849 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.8624   19.3262   38.1707 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.0562   20.8954   40.1917 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9910   21.2867   39.2578 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.8633   21.8418   39.5695 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9191   20.1777   39.8334 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.3362   21.3487   41.8363 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+    6.8165   21.3855   36.9078 R   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9396   19.6789   40.8335 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0
+  1  7  1  0
+  2  3  1  0
+  2  4  1  0
+  4  5  1  0
+  4  9  2  0
+  6  7  2  0
+  6  9  1  0
+  6 10  1  0
+  7  8  1  0
+ 11  1  1  0
+ 12  9  1  0
+M  ISO  2  11  10  12  17
+M  END
+>  <kinase>  (1) 
+MST3
+
+>  <family>  (1) 
+STE20
+
+>  <group>  (1) 
+STE
+
+>  <complex_pdb>  (1) 
+8qlt
+
+>  <ligand_pdb>  (1) 
+VZ2
 
 >  <alt>  (1) 
 B
@@ -55981,7 +57590,7 @@ C
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 3 3 na
+16 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 3 3 na
 
 $$$$
 6wpp_altB_chainA
@@ -56211,7 +57820,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-5 5 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 3 3 na na
+5 5 14 4 4 4 4 4 4 4 4 4 4 9 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 3 3 na na
 
 $$$$
 4p90_chainA
@@ -56281,7 +57890,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 6 16 16 16 16 8 8 8 3 3 16 16 6 na
+16 16 16 16 6 16 16 16 16 4 4 4 3 3 16 16 6 na
 
 $$$$
 4zy4_chainA
@@ -56741,7 +58350,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 8 8 8 8 16 16 16 8 8 8 3 3 na
+16 16 16 16 16 16 8 8 8 8 16 16 16 4 4 4 3 3 na
 
 $$$$
 5kbr_chainA
@@ -57021,7 +58630,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-5 5 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 3 3 na na
+5 5 14 4 4 4 4 4 4 4 4 4 4 9 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 3 3 na na
 
 $$$$
 4o0x_chainA
@@ -57131,7 +58740,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 3 3 na
+8 8 8 8 14 4 4 4 4 4 4 4 4 4 4 9 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 3 3 na
 
 $$$$
 4o0y_chainA
@@ -57220,7 +58829,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP AP
 
 >  <atom.prop.environment>  (1) 
-9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 3 3 na na
+14 4 4 4 4 4 4 4 4 4 4 9 4 4 4 4 4 4 4 4 4 4 4 3 3 na na
 
 $$$$
 5vee_chainA
@@ -57436,7 +59045,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 3 3 na na
+4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 16 4 4 4 4 4 4 4 4 4 4 4 4 4 4 9 3 3 na na
 
 $$$$
 7cp3_chainA
@@ -57542,7 +59151,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 3 3 na na
+4 4 4 4 4 4 4 4 4 4 4 16 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 9 3 3 na na
 
 $$$$
 7cp4_chainA
@@ -57648,7 +59257,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 3 3 na na
+4 4 4 4 4 4 4 4 4 4 4 4 4 16 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 9 3 3 na na
 
 $$$$
 4g34_altB_chainA
@@ -57719,7 +59328,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+16 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 na na
 
 $$$$
 4m7i_chainA
@@ -57796,7 +59405,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 16 8 8 na na
 
 $$$$
 4x7o_altA_chainA
@@ -57867,7 +59476,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 16 na na
 
 $$$$
 2o3p_altA_chainA
@@ -58807,7 +60416,7 @@ A
 GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 5 na
+1 1 5 5 5 na
 
 $$$$
 3vc4_chainA
@@ -58971,7 +60580,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP FP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 8 8 8 8 8 na na
+5 5 5 5 5 5 5 5 8 5 5 na na
 
 $$$$
 4k0y_altB_chainA
@@ -59036,7 +60645,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP FP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 14 14 14 3 3 na na
+16 14 14 14 14 14 14 14 14 14 14 3 3 na na
 
 $$$$
 4lm5_altB_chainA
@@ -59273,7 +60882,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 6 8 8 8 8 6 6 na
+14 16 16 16 16 14 6 8 8 8 8 6 6 na
 
 $$$$
 4n6y_chainA
@@ -59959,7 +61568,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA AP FP
 
 >  <atom.prop.environment>  (1) 
-9 9 8 8 8 8 9 9 9 9 5 5 na na
+9 16 8 8 8 8 14 14 14 14 5 5 na na
 
 $$$$
 6no9_chainA
@@ -60021,7 +61630,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA AP FP
 
 >  <atom.prop.environment>  (1) 
-9 9 8 8 8 8 9 9 9 9 5 5 na na
+9 16 8 8 8 8 14 14 14 14 5 5 na na
 
 $$$$
 6pcw_chainA
@@ -60066,7 +61675,7 @@ A
 GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 6 6 na
+5 5 5 1 1 na
 
 $$$$
 6qxk_altA_chainB
@@ -60127,7 +61736,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 8 8 8 8 8 8 8 na na
+8 5 5 5 5 5 5 5 5 5 5 na na
 
 $$$$
 7qb2_chainA
@@ -60558,6 +62167,51 @@ GA GA GA GA GA GA GA GA GA GA GA GA AP
 16 16 16 16 16 16 16 16 16 16 5 5 na
 
 $$$$
+8qel_chainB
+     RDKit          3D
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    2.4550   17.2444   37.5083 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9340   16.8040   36.7359 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9972   16.6777   38.2079 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4269   18.5704   37.6042 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9733   19.3099   36.7715 O   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7098   19.1818   38.7832 R   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  4  1  0
+  4  5  2  0
+  6  4  1  0
+M  ISO  1   6   8
+M  END
+>  <kinase>  (1) 
+PKR
+
+>  <family>  (1) 
+PEK
+
+>  <group>  (1) 
+Other
+
+>  <complex_pdb>  (1) 
+8qel
+
+>  <ligand_pdb>  (1) 
+UH3
+
+>  <alt>  (1) 
+ 
+
+>  <chain>  (1) 
+B
+
+>  <atom.prop.subpocket>  (1) 
+GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (1) 
+5 5 5 1 1 na
+
+$$$$
 2owb_altB_chainA
      RDKit          3D
 
@@ -60959,7 +62613,7 @@ A
 GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 6 6 na
+5 5 5 1 1 na
 
 $$$$
 6nec_altA_chainC
@@ -61008,7 +62662,7 @@ C
 GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 3 6 3 3 3 3 na
+1 3 1 3 3 3 3 na
 
 $$$$
 6vhg_altA_chainA
@@ -61500,7 +63154,7 @@ J
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 5 5 5 na
+16 14 14 14 14 14 14 14 14 5 5 5 na
 
 $$$$
 6fu5_chainA
@@ -61630,7 +63284,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 8 8 8 8 16 8 8 8 8 na
+14 14 14 14 14 8 8 8 8 16 8 8 8 8 na
 
 $$$$
 6rna_chainB
@@ -62012,7 +63666,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 5 5 6 6 16 16 16 16 na na
+16 16 16 16 16 16 5 5 1 1 16 16 16 16 na na
 
 $$$$
 7mx3_chainA
@@ -62277,7 +63931,7 @@ B
 GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 na na
+14 14 14 16 14 14 14 na na
 
 $$$$
 5hvu_chainA
@@ -62549,7 +64203,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 6 6 16 16 16 16 16 16 5 5 8 8 8 na na
+16 16 16 16 1 1 16 16 16 16 16 16 5 5 4 4 4 na na
 
 $$$$
 6ed6_chainB
@@ -62621,7 +64275,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 6 6 16 16 16 16 16 16 5 5 8 8 8 na na
+16 16 16 16 1 1 16 16 16 16 16 16 5 5 4 4 4 na na
 
 $$$$
 7jov_chainC
@@ -63563,7 +65217,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 14 5 5 6 6 na na
+16 16 16 16 14 16 16 16 16 5 5 1 1 na na
 
 $$$$
 4f4p_altB_chainA
@@ -64253,7 +65907,7 @@ A
 GA GA GA GA B1 FP
 
 >  <atom.prop.environment>  (1) 
-6 5 5 6 na na
+1 5 5 1 na na
 
 $$$$
 6rsr_chainA
@@ -64363,7 +66017,7 @@ A
 GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 na na
+16 9 9 9 9 9 9 na na
 
 $$$$
 6rsu_chainA
@@ -64417,7 +66071,7 @@ A
 GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 na na
+14 16 16 16 16 16 16 16 na na
 
 $$$$
 1py5_chainA
@@ -64665,7 +66319,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP FP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 8 8 8 8 14 8 8 8 8 14 14 na na
+16 16 16 16 8 8 8 8 14 8 8 8 8 16 14 na na
 
 $$$$
 2wou_chainA
@@ -64733,7 +66387,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 14 14 14 14 14 14 14 14 8 8 8 8 na
+8 8 8 8 14 16 16 16 16 16 14 16 8 8 8 8 na
 
 $$$$
 2x7o_chainE
@@ -64796,7 +66450,7 @@ E
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 4 4 4 4 4 4 4 6 5 5 5 5 5 na
+1 4 4 4 4 4 4 4 1 5 5 5 5 5 na
 
 $$$$
 3faa_chainE
@@ -65054,7 +66708,7 @@ C
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
 >  <atom.prop.environment>  (1) 
-3 3 3 3 3 8 8 8 16 16 16 16 16 16 16 16 16 16 na
+3 3 3 3 3 4 4 4 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 3tzm_altA_chainA
@@ -65417,7 +67071,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 3 3 3 3 16 3 na
+14 14 16 14 14 14 14 14 3 3 3 3 14 3 na
 
 $$$$
 5qim_altA_chainA
@@ -65481,7 +67135,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 14 3 3 3 3 14 3 na
+16 16 14 16 16 16 16 16 3 3 3 3 16 3 na
 
 $$$$
 5qtz_altA_chainA
@@ -65678,7 +67332,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 14 14 16 16 16 16 16 14 14 14 14 14 14 14 na
+16 16 16 16 16 16 16 16 16 16 16 16 16 14 16 16 16 16 16 16 na
 
 $$$$
 6b8y_altA_chainA
@@ -65798,7 +67452,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 3 3 3 3 16 3 na
+14 14 16 14 14 14 14 14 3 3 3 3 14 3 na
 
 $$$$
 7dv6_altB_chainA
@@ -65862,7 +67516,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-3 3 3 3 3 16 16 16 16 16 16 16 16 16 na
+3 3 3 3 3 14 14 14 14 14 14 14 14 16 na
 
 $$$$
 2x7f_altA_chainC
@@ -66093,7 +67747,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA AP FP
 
 >  <atom.prop.environment>  (1) 
-13 13 13 13 13 13 13 13 13 13 13 13 na na
+5 5 5 13 5 5 5 5 5 5 5 5 na na
 
 $$$$
 4at3_chainA
@@ -66393,7 +68047,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 3 3 na
+9 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 3 3 na
 
 $$$$
 7zho_altA_chainA
@@ -66484,7 +68138,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 3 3 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
+4 4 4 4 4 4 4 4 3 3 4 4 4 4 4 4 4 4 4 4 4 4 16 4 4 4 4 na
 
 $$$$
 6u0k_altA_chainA
@@ -66602,7 +68256,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 8 8 8 8 16 16 na
+16 9 9 9 9 8 8 8 8 9 9 na
 
 $$$$
 3wzj_chainA
@@ -66668,7 +68322,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 na na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
 3wzk_chainA
@@ -66749,7 +68403,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 15 15 15 15 15 15 15 15 16 16 16 16 16 16 16 16 16 16 na
+1 1 5 5 15 15 15 15 15 15 15 15 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 4c4e_altA_chainA
@@ -66909,7 +68563,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 8 8 8 8 na
+16 9 9 9 9 9 9 8 8 8 8 na
 
 $$$$
 4c4h_chainA
@@ -66967,7 +68621,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 8 8 8 8 na
+16 9 9 9 9 9 9 8 8 8 8 na
 
 $$$$
 4c4i_chainA
@@ -67075,7 +68729,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 16 16 16 16 16 16 16 na
+8 8 8 8 9 9 9 9 9 9 16 na
 
 $$$$
 4cv8_chainA
@@ -67133,7 +68787,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 8 8 8 8 16 16 na
+16 9 9 9 9 8 8 8 8 9 9 na
 
 $$$$
 4cv9_chainA
@@ -67317,7 +68971,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 8 8 8 8 16 6 16 16 6 5 5 na na
+16 16 16 16 16 16 8 8 8 8 16 1 16 16 1 5 5 na na
 
 $$$$
 5ap2_chainA
@@ -67375,7 +69029,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 8 8 8 8 16 16 na
+16 9 9 9 9 8 8 8 8 9 9 na
 
 $$$$
 5ap5_chainA
@@ -67433,7 +69087,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 8 8 8 8 na
+16 9 9 9 9 9 9 8 8 8 8 na
 
 $$$$
 5ap6_altA_chainA
@@ -67491,7 +69145,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 8 8 8 8 16 16 na
+16 9 9 9 9 8 8 8 8 9 9 na
 
 $$$$
 5ehl_chainA
@@ -67618,7 +69272,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 na na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
 5n9s_chainA
@@ -67752,7 +69406,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 8 8 8 8 16 16 6 6 5 5 na na
+16 16 16 16 16 16 16 8 8 8 8 16 16 1 1 5 5 na na
 
 $$$$
 6b4w_chainA
@@ -67821,7 +69475,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 16 16 16 16 16 16 16 16 16 16 16 16 na
+8 8 8 8 14 14 14 14 14 14 14 14 14 14 14 16 na
 
 $$$$
 6tn9_altB_chainA
@@ -68021,7 +69675,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 na na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
 6tnd_altA_chainA
@@ -68093,7 +69747,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 8 8 8 8 16 16 6 6 5 5 na na
+16 16 16 16 16 16 16 8 8 8 8 16 16 1 1 5 5 na na
 
 $$$$
 3nyx_altA_chainA
@@ -68149,7 +69803,7 @@ A
 GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-6 14 14 14 5 5 14 14 6 na na
+1 14 14 14 5 5 14 14 1 na na
 
 $$$$
 4wno_altB_chainA
@@ -70620,7 +72274,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 3 3 3 3 3 16 16 8 8 8 8 16 16 16 16 16 3 3 3 3 16 3 na
+16 16 16 16 16 3 3 3 3 3 16 16 8 8 8 8 16 14 16 16 16 3 3 3 3 16 3 na
 
 $$$$
 7z4v_altA_chainA
@@ -71013,7 +72667,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 14 14 14 14 14 14 na na
+16 16 16 16 16 16 16 16 16 16 16 9 9 9 9 14 14 na na
 
 $$$$
 1bmk_chainA
@@ -71086,7 +72740,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 14 14 14 14 14 14 na na
+16 16 16 16 16 16 16 16 16 16 16 9 14 14 9 9 9 na na
 
 $$$$
 1di9_chainA
@@ -71456,7 +73110,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-3 8 8 8 16 16 16 16 16 16 16 16 16 16 16 na
+3 4 4 4 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 1w84_chainA
@@ -71614,7 +73268,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-3 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 8 8 8 na
+3 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 4 4 4 na
 
 $$$$
 1yqj_chainA
@@ -72322,7 +73976,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-1 1 5 5 8 8 8 16 16 16 16 16 16 16 16 16 16 11 na na
+1 1 5 5 4 4 4 16 16 16 16 16 16 16 16 16 16 11 na na
 
 $$$$
 2zaz_altA_chainA
@@ -72627,7 +74281,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 6 6 8 8 8 8 5 5 5 5 5 5 5 5 6 6 na
+16 16 16 16 16 16 16 16 16 1 1 8 8 8 8 5 5 5 5 5 5 5 5 1 1 na
 
 $$$$
 3c5u_chainA
@@ -72766,7 +74420,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 8 16 16 16 16 16 16 6 6 16 16 16 na na
+8 8 8 8 16 16 16 16 16 16 1 1 16 16 16 na na
 
 $$$$
 3ds6_chainA
@@ -72834,7 +74488,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 6 16 16 16 16 16 8 8 8 8 6 na na
+16 16 16 16 1 16 16 16 16 16 8 8 8 8 1 na na
 
 $$$$
 3dt1_chainA
@@ -72902,7 +74556,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 6 16 16 16 8 8 8 8 6 na na
+16 16 16 16 16 16 1 16 16 16 8 8 8 8 1 na na
 
 $$$$
 3e92_chainA
@@ -72970,7 +74624,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 6 6 16 16 16 16 16 8 8 8 8 na na
+16 16 16 16 1 1 16 16 16 16 16 8 8 8 8 na na
 
 $$$$
 3fc1_chainX
@@ -73158,7 +74812,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 8 8 8 8 6 6 16 16 16 16 16 na na
+16 16 16 16 8 8 8 8 1 1 16 16 16 16 16 na na
 
 $$$$
 3fkn_chainA
@@ -73835,7 +75489,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 8 8 8 8 16 16 16 16 16 16 16 16 16 16 na
+14 16 16 14 16 16 8 8 8 8 14 14 16 16 16 16 16 16 16 16 na
 
 $$$$
 3fmk_chainA
@@ -74321,7 +75975,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 8 8 8 8 6 6 16 16 5 5 na na
+16 16 16 16 16 16 16 8 8 8 8 1 1 16 16 5 5 na na
 
 $$$$
 3ha8_altB_chainA
@@ -74402,7 +76056,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 5 6 na
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 1 5 1 na
 
 $$$$
 3hl7_chainA
@@ -74475,7 +76129,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na na
+14 14 14 14 14 16 16 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
 3hll_altB_chainA
@@ -74541,7 +76195,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 8 8 8 3 16 16 na
+16 16 16 16 16 16 16 16 16 4 4 4 3 16 16 na
 
 $$$$
 3hp5_chainA
@@ -74723,7 +76377,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-8 8 8 16 16 16 16 16 16 16 16 16 16 16 na
+4 4 4 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 3hvc_chainA
@@ -74849,7 +76503,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 8 8 8 8 6 16 16 6 na na
+16 16 16 16 16 16 16 8 8 8 8 1 16 16 1 na na
 
 $$$$
 3itz_chainA
@@ -74915,7 +76569,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 6 6 16 16 16 16 16 5 5 na na
+16 16 16 16 16 1 1 16 16 16 16 16 5 5 na na
 
 $$$$
 3kf7_chainA
@@ -75067,7 +76721,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 6 16 8 8 8 8 5 5 5 5 16 16 16 16 16 16 16 5 5 5 5 6 na
+16 1 16 8 8 8 8 5 5 5 5 16 16 16 16 16 16 16 5 5 5 5 1 na
 
 $$$$
 3lhj_chainA
@@ -75135,7 +76789,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 8 8 8 8 6 6 16 16 16 16 na na
+16 16 16 16 16 8 8 8 8 1 1 16 16 16 16 na na
 
 $$$$
 3mpa_chainA
@@ -75348,7 +77002,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-5 5 16 16 16 16 16 16 16 16 16 6 6 8 8 8 8 na na
+5 5 16 16 16 16 16 16 16 16 16 1 1 8 8 8 8 na na
 
 $$$$
 3mvm_chainB
@@ -75420,7 +77074,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-5 5 16 16 16 16 16 16 16 16 16 6 6 8 8 8 8 na na
+5 5 16 16 16 16 16 16 16 16 16 1 1 8 8 8 8 na na
 
 $$$$
 3mw1_chainA
@@ -75567,7 +77221,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 FP AP
 
 >  <atom.prop.environment>  (1) 
-14 14 14 14 14 14 14 16 16 16 16 16 16 16 16 16 16 8 8 8 5 5 1 1 na na na
+14 14 14 14 14 14 14 16 16 16 16 16 16 16 16 16 16 4 4 4 5 5 1 1 na na na
 
 $$$$
 3obg_chainA
@@ -75705,7 +77359,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 6 6 5 5 8 8 8 8 na na
+1 1 5 5 16 16 16 16 16 16 16 16 16 1 1 5 5 8 8 8 8 na na
 
 $$$$
 3rin_chainA
@@ -75773,7 +77427,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 8 8 8 8 6 6 na na
+16 16 16 16 16 16 16 16 16 8 8 8 8 1 1 na na
 
 $$$$
 3roc_chainA
@@ -75839,7 +77493,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 8 8 8 3 16 16 na
+16 16 16 16 16 16 16 16 16 4 4 4 3 16 16 na
 
 $$$$
 3s3i_chainA
@@ -75907,7 +77561,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 8 8 8 8 6 6 na na
+16 16 16 16 16 16 16 16 16 8 8 8 8 1 1 na na
 
 $$$$
 3s4q_chainA
@@ -75979,7 +77633,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-6 5 5 16 16 16 16 16 16 16 16 16 8 8 8 8 6 na na
+1 5 5 16 16 16 16 16 16 16 16 16 8 8 8 8 1 na na
 
 $$$$
 3u8w_chainA
@@ -76047,7 +77701,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-6 6 16 16 16 16 16 16 16 16 8 8 8 8 16 na na
+1 1 16 16 16 16 16 16 16 16 8 8 8 8 16 na na
 
 $$$$
 3uvp_altA_chainA
@@ -76117,7 +77771,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-6 16 16 16 16 16 16 16 5 5 5 5 6 16 16 16 na na
+1 16 16 16 16 16 16 16 5 5 5 5 1 16 16 16 na na
 
 $$$$
 3uvq_altA_chainA
@@ -76187,7 +77841,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-6 16 16 16 16 16 16 16 5 5 5 5 6 16 16 16 na na
+1 16 16 16 16 16 16 16 5 5 5 5 1 16 16 16 na na
 
 $$$$
 3zya_altB_chainA
@@ -76325,7 +77979,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 5 5 6 6 16 16 16 16 16 8 8 8 8 na na
+16 16 16 16 5 5 1 1 16 16 16 16 16 8 8 8 8 na na
 
 $$$$
 4aa5_chainA
@@ -76393,7 +78047,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 6 16 16 16 8 8 8 8 6 16 na na
+16 16 16 16 16 1 16 16 16 8 8 8 8 1 16 na na
 
 $$$$
 4aac_chainA
@@ -76461,7 +78115,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 6 6 16 16 16 16 16 8 8 8 8 na na
+16 16 16 16 1 1 16 16 16 16 16 8 8 8 8 na na
 
 $$$$
 4eh2_chainA
@@ -76724,7 +78378,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 8 8 8 8 5 5 6 6 6 6 na na
+16 16 16 16 16 16 16 16 16 8 8 8 8 5 5 1 1 1 1 na na
 
 $$$$
 4kip_chainA
@@ -76800,7 +78454,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 8 8 8 8 6 6 6 5 5 6 na na
+16 16 16 16 16 16 16 16 16 8 8 8 8 1 1 1 5 5 1 na na
 
 $$$$
 4kiq_chainB
@@ -76876,7 +78530,7 @@ B
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 5 5 6 6 16 16 16 16 16 16 16 16 8 8 8 8 6 6 na na
+16 5 5 1 1 16 16 16 16 16 16 16 16 8 8 8 8 1 1 na na
 
 $$$$
 4r3c_altB_chainA
@@ -77017,7 +78671,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-5 5 16 16 16 16 16 16 16 16 16 16 5 5 6 6 na na
+5 5 16 16 16 16 16 16 16 16 16 16 5 5 1 1 na na
 
 $$$$
 5mty_chainA
@@ -77087,7 +78741,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 5 5 na na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 5 5 na na
 
 $$$$
 5tbe_chainA
@@ -77157,7 +78811,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-5 5 16 16 16 16 16 16 16 16 16 16 5 5 6 6 na na
+5 5 16 16 16 16 16 16 16 16 16 16 5 5 1 1 na na
 
 $$$$
 5tco_chainA
@@ -77227,7 +78881,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-5 5 16 16 16 16 16 16 16 16 16 16 5 5 6 6 na na
+5 5 16 16 16 16 16 16 16 16 16 16 5 5 1 1 na na
 
 $$$$
 5xyx_altB_chainA
@@ -77295,7 +78949,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-5 5 8 8 8 16 16 16 16 16 16 16 16 16 16 16 na
+5 5 4 4 4 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
 5xyy_chainA
@@ -77363,7 +79017,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 16 16 16 16 16 16 16 8 8 8 5 5 na
+16 16 16 16 16 16 16 16 16 16 16 4 4 4 5 5 na
 
 $$$$
 6m9l_chainA
@@ -77493,7 +79147,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-16 16 16 16 8 8 8 8 16 16 16 6 16 16 6 na na
+16 16 16 16 8 8 8 8 16 16 16 1 16 16 1 na na
 
 $$$$
 6tca_altB_chainH
@@ -77571,7 +79225,7 @@ H
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
 >  <atom.prop.environment>  (1) 
-6 16 16 16 16 16 16 16 8 8 8 8 6 5 5 16 16 16 16 16 na na
+1 12 12 12 12 12 12 12 8 8 8 8 1 5 5 16 16 12 12 12 na na
 
 $$$$
 6zqs_chainA
@@ -77817,7 +79471,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 3 na na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 3 na na
 
 $$$$
 5eko_chainA
@@ -77885,7 +79539,7 @@ A
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
 >  <atom.prop.environment>  (1) 
-6 6 5 5 16 16 16 16 16 16 16 16 16 16 3 na na
+1 1 5 5 16 16 16 16 16 16 16 16 16 16 3 na na
 
 $$$$
 3wf7_altB_chainA
