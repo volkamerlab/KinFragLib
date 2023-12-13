@@ -242,11 +242,11 @@ def get_descriptors(fragment_library, fragment_library_reduced, fragment_library
 
     """
     descriptors = kfl_utils.get_descriptors_by_fragments(fragment_library)
-    descriptors_median = descriptors.groupby('subpocket').median()
+    descriptors_median = descriptors.groupby('subpocket').median(numeric_only=True)
     descriptors_reduced = kfl_utils.get_descriptors_by_fragments(fragment_library_reduced)
-    descriptors_reduced_median = descriptors_reduced.groupby('subpocket').median()
+    descriptors_reduced_median = descriptors_reduced.groupby('subpocket').median(numeric_only=True)
     descriptors_custom = kfl_utils.get_descriptors_by_fragments(fragment_library_custom)
-    descriptors_custom_median = descriptors_custom.groupby('subpocket').median()
+    descriptors_custom_median = descriptors_custom.groupby('subpocket').median(numeric_only=True)
 
     all_descriptors = pd.concat(
         [
@@ -259,9 +259,9 @@ def get_descriptors(fragment_library, fragment_library_reduced, fragment_library
     )
     # style creates strange floats
     all_descriptors = all_descriptors.style.set_properties(
-        **{"background-color": "lightgrey"},
+        #**{"background-color": "lightgrey"},
         subset=["pre-filtered", "custom"],
-    ).set_precision(precision=2)
+    ).format(precision=2)
 
     display(all_descriptors)
 
@@ -313,7 +313,7 @@ def get_descriptors_filters(fragment_library_filter_res, bool_keys):
     # first calculate the descriptors from the pre-filtered library and plot them
     print("\033[47;1m pre-filtered fragment library \033[0m")
     descriptors = kfl_utils.get_descriptors_by_fragments(fragment_library_filter_res)
-    descriptors_median = descriptors.groupby('subpocket').median()
+    descriptors_median = descriptors.groupby('subpocket').median(numeric_only=True)
 
     fig, ax = pylt.subplots(nrows=1, ncols=1)
     # get y axis limits
@@ -339,7 +339,7 @@ def get_descriptors_filters(fragment_library_filter_res, bool_keys):
         fraglib_filter = fraglib_concat[fraglib_concat[bool_key] == 1]
         fraglib_filter = prefilters._make_df_dict(fraglib_filter)
         descriptors = kfl_utils.get_descriptors_by_fragments(fraglib_filter)
-        descriptors_median = descriptors.groupby('subpocket').median()
+        descriptors_median = descriptors.groupby('subpocket').median(numeric_only=True)
         descriptor_dfs[bool_key] = descriptors_median   # add the descriptors to the descriptor df
 
         print("\033[47;1m " + bool_key.replace("bool_", "") + " filtered \033[0m")

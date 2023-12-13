@@ -10,6 +10,7 @@ from rdkit.Chem import Draw, MACCSkeys
 import seaborn as sns
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
+from IPython.display import display
 from kinfraglib import utils as kfl_utils
 from collections import Counter
 
@@ -617,7 +618,7 @@ def connection_frequencies(fragment_library, fragment_library_reduced, fragment_
     ax.set_ylabel("Connection Frequency")
     ax.set_title("Connection Frequencies of the different subsets")
 
-    fig.show()
+    display(fig)
     res = pd.concat(
         [
             connections_across_ligands,
@@ -673,9 +674,7 @@ def num_frags_development(filter_res):
     ax.set_xlabel("Subpocket")
     ax.set_ylabel("Number of fragments")
     ax.set_title("Development of the number of fragments per subpocket after each filter step")
-
-    fig.show()
-
+    display(fig)
     # return dataframe with number of fragments after each filtering step.
     return update_results
 
@@ -761,6 +760,8 @@ def plot_fragment_descriptors(descriptors, ylims):
         ax = sns.boxplot(
             x="subpocket",
             y=descriptor_name,
+            hue="subpocket",
+            legend=False,
             data=descriptors,
             palette=SUBPOCKET_COLORS,
             medianprops={"linewidth": 3, "linestyle": "-"},
@@ -800,7 +801,9 @@ def plot_fragment_similarity(similarities_by_groups, library_names, group_name):
             sns.boxplot(
                 x=similarities_by_group.columns[1],
                 y=similarities_by_group.columns[0],
+                hue=similarities_by_group.columns[1],
                 data=similarities_by_group,
+                legend=False,
                 palette=SUBPOCKET_COLORS,
             )
         except KeyError:
