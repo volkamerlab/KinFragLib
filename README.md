@@ -4,7 +4,7 @@
 
 ![KinFragLib workflow](./docs/img/toc_github_kinfraglib.png)
 
-Please note that this repository is constantly updated. You can retrieve the repository state for the published KinFragLib paper in release [v1.0.0](https://github.com/volkamerlab/KinFragLib/releases/tag/v1.0.0).
+Please note that this repository is constantly updated, hence the statistics and numbers derive from the paper. You can retrieve the repository state for the published KinFragLib paper in release [v1.0.0](https://github.com/volkamerlab/KinFragLib/releases/tag/v1.0.0).
 
 ## Table of contents
 

@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   # Base dependencies
-  - python
+  - python=3.8
   - pip
   # Package dependencies
   - biopandas
@@ -19,8 +19,7 @@ dependencies:
   - seaborn
   - opencadd
   ## CI tests
-  # Workaround for https://github.com/computationalmodelling/nbval/issues/153 -> SOLVED? TODO
-  - pytest # 5.*
+  - pytest=7.4
   - pytest-xdist
   - nbval
   - shyaml
