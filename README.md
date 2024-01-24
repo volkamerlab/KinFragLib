@@ -62,6 +62,7 @@ fragments in order to generate novel potential inhibitors.
     cd /path/to/KinFragLib   
  
     # Create environment
+    # Hint: if conda is too slow, consider mamba instead
     conda env create -f environment.yml
     # When using a MacBook with an M1 chip you may need instead:
     CONDA_SUBDIR=osx-64 conda env create -f environment.yml
