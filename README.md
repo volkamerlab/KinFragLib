@@ -117,3 +117,18 @@ URL = {https://doi.org/10.1021/acs.jcim.0c00839}
 }
 ```
 ## List of publications
+- https://pubs.acs.org/doi/full/10.1021/acs.jcim.1c00608 
+- https://www.sciencedirect.com/science/article/pii/S2001037023003495
+
+- https://doi.org/10.1021/acs.jmedchem.1c01803 ?
+- https://10.1021/acs.jmedchem.2c00931 ?
+- https://pubs.acs.org/doi/full/10.1021/acs.jcim.1c00630 ?
+- https://www.sciencedirect.com/science/article/pii/S1359644622001337 ?
+- https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c00050 (does not use kinfraglib but uses methodology) ?
+
+- https://chemrxiv.org/engage/chemrxiv/article-details/658441f7e9ebbb4db96d98e8
+- https://chemrxiv.org/engage/chemrxiv/article-details/60c759054c89195d4ead4ccd
+
+
+
+
