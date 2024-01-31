@@ -1,5 +1,9 @@
 # Notebooks
 
+<div class="alert alert-block alert-info">
+Note that results in all notebook may differ from the numbers shown in the publication because of new data added to ChEMBL and KLIFS, and updates on KinFragLib.
+</div>
+
 Overview on notebook content.
 
 ## 1. Quick start
