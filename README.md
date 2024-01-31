@@ -117,18 +117,27 @@ URL = {https://doi.org/10.1021/acs.jcim.0c00839}
 }
 ```
 ## List of publications
-- https://pubs.acs.org/doi/full/10.1021/acs.jcim.1c00608 
-- https://www.sciencedirect.com/science/article/pii/S2001037023003495
-
-- https://doi.org/10.1021/acs.jmedchem.1c01803 ?
-- https://10.1021/acs.jmedchem.2c00931 ?
-- https://pubs.acs.org/doi/full/10.1021/acs.jcim.1c00630 ?
-- https://www.sciencedirect.com/science/article/pii/S1359644622001337 ?
-- https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c00050 (does not use kinfraglib but uses methodology) ?
+- **Kinase Inhibitor Scaffold Hopping with Deep Learning Approaches**
+Lizhao Hu, Yuyao Yang, Shuangjia Zheng, Jun Xu, Ting Ran, and Hongming Chen
+*Journal of Chemical Information and Modeling* **2021**
+[10.1021/acs.jcim.1c00608](https://pubs.acs.org/doi/full/10.1021/acs.jcim.1c00608)
+- **TWN-FS method: A novel fragment screening method for drug discovery** 
+Yoon, Hye Ree and Park, Gyoung Jin and Balupuri, Anand and Kang, Nam Sook
+*Computational and Structural Biotechnology Journal* **2023**
+[10.1016/j.csbj.2023.09.037](https://doi.org/10.1016/j.csbj.2023.09.037)
+- **Efficient Hit-to-Lead Searching of Kinase Inhibitor Chemical Space via Computational Fragment Merging**
+Grigorii V. Andrianov, Wern Juin Gabriel Ong, Ilya Serebriiskii, and John Karanicolas
+*Journal of Chemical Information and Modeling* **2021** 
+[10.1021/acs.jcim.1c00630](https://doi.org/10.1021/acs.jcim.1c00630)
+- **KiSSim: Predicting Off-Targets from Structural Similarities in the Kinome**
+Dominique Sydow, Eva Aßmann, Albert J. Kooistra, Friedrich Rippmann, and Andrea Volkamer
+*Journal of Chemical Information and Modeling* **2022** 
+[10.1021/acs.jcim.2c00050](https://10.1021/acs.jcim.2c00050)
 
 - https://chemrxiv.org/engage/chemrxiv/article-details/658441f7e9ebbb4db96d98e8
 - https://chemrxiv.org/engage/chemrxiv/article-details/60c759054c89195d4ead4ccd
 
+- https://pubs.acs.org/doi/10.1021/acs.jmedchem.2c00931 ?
 
 
 
