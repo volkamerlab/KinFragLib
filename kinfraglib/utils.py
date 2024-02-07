@@ -557,7 +557,7 @@ def _get_descriptors_from_mol(mol):
     size = mol.GetNumHeavyAtoms()
 
     return pd.Series(
-        [smiles, mol, hbd, hba, logp, size], index="smiles mol hbd hba logp size".split()  # TODO why smiles
+        [smiles, mol, hbd, hba, logp, size], index="smiles mol hbd hba logp size".split()
     )
 
 
@@ -1152,7 +1152,7 @@ def get_protein_target_classifications(target_chembl_ids):
     pandas.DataFrame
         Protein target classifications for target ChEMBL IDs with columns:
         'l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'l7', 'l8',
-        'protein_class_id', 'target_chembl_id', 'component_id', 'protein_classification_id'.
+        'protein_class_id', 'target_chembl_id', 'component_id', 'protein_classification_id'. TODO false
     """
 
     results = []
@@ -1172,7 +1172,7 @@ def get_protein_target_classifications(target_chembl_ids):
             for protein_classification_id in protein_classification_ids:
 
                 # Go to `protein_class` endpoint and extract protein target classification.
-                protein_target_classification = _protein_target_classification_from_protein_class(
+                protein_target_classification = _construct_protein_target_classification(
                     protein_classification_id
                 )
 
@@ -1231,6 +1231,23 @@ def _protein_classification_id_from_target_components(component_id):
 
     return protein_classification_ids
 
+def _construct_protein_target_classification(protein_class_id):
+    """
+    Extract protein target classification and adds all necessary information
+    """
+    protein_class_from_chembl = _protein_target_classification_from_protein_class(protein_class_id)
+
+    # drop unneseccary information
+    result = pd.Series({"protein_class_id": protein_class_from_chembl["protein_class_id"]})
+
+    # add l1 to l8
+    levels = _level_information_from_protein_class(protein_class_from_chembl["parent_id"], protein_class_from_chembl["class_level"], protein_class_from_chembl["pref_name"])
+    for level in range(1, 9):
+        # add protein classification of current level else None
+        result[f"l{level}"] = levels.get(f"l{level}")
+
+    return result
+
 
 def _protein_target_classification_from_protein_class(protein_classification_id):
     """
@@ -1238,7 +1255,7 @@ def _protein_target_classification_from_protein_class(protein_classification_id)
     """
 
     protein_class_url = (
-        f"https://www.ebi.ac.uk/chembl/api/data/protein_class/{protein_classification_id}.json"
+        f"https://www.ebi.ac.uk/chembl/api/data/protein_classification/{protein_classification_id}.json"
     )
     # print(protein_class_url)
 
@@ -1247,6 +1264,21 @@ def _protein_target_classification_from_protein_class(protein_classification_id)
     result = response.json()
 
     return pd.Series(result)
+
+def _level_information_from_protein_class(parent_id, class_level, pref_name):
+    """
+    recursivly obtain all pref_names from parent_id of a given protein.
+    returns:
+        dict[str, str]: {l1, l2, ..., l8}
+    """
+    result = {f"l{class_level}": pref_name} # name of current level
+
+    for level in reversed(range(1, class_level)):
+        # obtain names of all parent levels
+        parent_classification = _protein_target_classification_from_protein_class(parent_id)
+        result[f"l{level}"] = parent_classification["pref_name"]
+        parent_id = parent_classification["parent_id"]
+    return result
 
 
 def construct_ligand(fragment_ids, bond_ids, fragment_library):
