@@ -133,11 +133,12 @@ Grigorii V. Andrianov, Wern Juin Gabriel Ong, Ilya Serebriiskii, and John Karani
 Dominique Sydow, Eva Aßmann, Albert J. Kooistra, Friedrich Rippmann, and Andrea Volkamer
 *Journal of Chemical Information and Modeling* **2022** 
 [10.1021/acs.jcim.2c00050](https://10.1021/acs.jcim.2c00050)
+- **Target-Focused Library Design by Pocket-Applied Computer Vision and Fragment Deep Generative Linking**
+Merveille Eguida, Christel Schmitt-Valencia, Marcel Hibert, Pascal Villa, and Didier Rognan
+*Journal of Medicinal Chemistry* **2022** 
+[10.1021/acs.jmedchem.2c00931](https://pubs.acs.org/doi/10.1021/acs.jmedchem.2c00931)
 
 - https://chemrxiv.org/engage/chemrxiv/article-details/658441f7e9ebbb4db96d98e8
-- https://chemrxiv.org/engage/chemrxiv/article-details/60c759054c89195d4ead4ccd
-
-- https://pubs.acs.org/doi/10.1021/acs.jmedchem.2c00931 ?
 
 
 
