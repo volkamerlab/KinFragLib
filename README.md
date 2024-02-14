@@ -137,8 +137,11 @@ Dominique Sydow, Eva Aßmann, Albert J. Kooistra, Friedrich Rippmann, and Andrea
 Merveille Eguida, Christel Schmitt-Valencia, Marcel Hibert, Pascal Villa, and Didier Rognan
 *Journal of Medicinal Chemistry* **2022** 
 [10.1021/acs.jmedchem.2c00931](https://pubs.acs.org/doi/10.1021/acs.jmedchem.2c00931)
+- **Guided docking as a data generation approach facilitates structure-based machine learning on kinases**
+Backenköhler M, Groß J, Wolf V, Volkamer A. 
+*ChemRxiv* **2023**
+[10.26434/chemrxiv-2023-prk53](https://chemrxiv.org/engage/chemrxiv/article-details/658441f7e9ebbb4db96d98e8)  *This content is a preprint and has not been peer-reviewed.*
 
-- https://chemrxiv.org/engage/chemrxiv/article-details/658441f7e9ebbb4db96d98e8
 
 
 
