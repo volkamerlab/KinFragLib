@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
       - "master"
+      - "dev"
   schedule:
     # Run a cron job once daily, weekdays only
     - cron: "0 3 1,15 * *"
