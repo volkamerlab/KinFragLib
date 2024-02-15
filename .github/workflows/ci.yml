@@ -39,7 +39,8 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: ${{ matrix.cfg.python-version }}
-          mamba-version: "*"
+          miniforge-variant: Mambaforge
+          miniforge-version: latest
           environment-file: environment.yml
           channels: conda-forge,defaults
           activate-environment: kinfraglib
