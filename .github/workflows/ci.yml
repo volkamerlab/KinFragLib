@@ -44,9 +44,9 @@ jobs:
           environment-file: environment.yml
           channels: conda-forge,defaults
           activate-environment: kinfraglib
-          auto-update-conda: false
-          auto-activate-base: false
-          show-channel-urls: true
+          # auto-update-conda: false
+          # auto-activate-base: false
+          # show-channel-urls: true
 
       - name: Additional info about the build
         shell: bash
