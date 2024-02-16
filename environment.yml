@@ -26,4 +26,5 @@ dependencies:
   - pip:
     - black-nb
     # KinFragLib itself
-    - https://github.com/volkamerlab/kinfraglib/archive/master.tar.gz
+    # - https://github.com/volkamerlab/kinfraglib/archive/master.tar.gz 
+    - .
