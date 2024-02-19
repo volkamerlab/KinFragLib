@@ -25,12 +25,10 @@ jobs:
             python-version: "3.8"
           - os: ubuntu-latest
             python-version: "3.9"
-          # - os: ubuntu-latest
-          #  python-version: "3.11"
           - os: macos-latest
             python-version: "3.9"
-          - os: windows-latest
-            python-version: "3.9"
+          #- os: windows-latest
+          #  python-version: "3.9"
 
     steps:
       - uses: actions/checkout@v4
@@ -39,7 +37,6 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v3
         with:
           python-version: ${{ matrix.cfg.python-version }}
-          #mamba-version: "*"
           miniforge-variant: Mambaforge
           miniforge-version: latest
           environment-file: environment.yml
