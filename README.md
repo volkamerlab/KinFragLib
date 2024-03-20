@@ -90,7 +90,7 @@ fragments in order to generate novel potential inhibitors.
 Please contact us if you have questions or suggestions.
 
 * Open an issue on our GitHub repository: https://github.com/volkamerlab/KinFragLib/issues
-* Or send us an email: andrea.volkamer@charite.de
+* Or send us an email: volkamer@cs.uni-saarland.de 
 
 We are looking forward to hearing from you!
 
