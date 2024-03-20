@@ -141,6 +141,7 @@ Merveille Eguida, Christel Schmitt-Valencia, Marcel Hibert, Pascal Villa, and Di
 Backenköhler M, Groß J, Wolf V, Volkamer A. 
 *ChemRxiv* **2023**
 [10.26434/chemrxiv-2023-prk53](https://chemrxiv.org/engage/chemrxiv/article-details/658441f7e9ebbb4db96d98e8)  *This content is a preprint and has not been peer-reviewed.*
+- **Constructing Innovative Covalent and Noncovalent Compound Libraries: Insights from 3D Protein–Ligand Interactions** Xiaohe Xu, Weijie Han, Xiangzhen Ning, Chengdong Zang, Chengcheng Xu, Chen Zeng, Chengtao Pu, Yanmin Zhang, Yadong Chen, and Haichun Liu *Journal of Chemical Information and Modeling* **2024**[10.1021/acs.jcim.3c01689](https://pubs.acs.org/doi/10.1021/acs.jcim.3c01689)
 
 
 
