@@ -63,7 +63,7 @@ jobs:
         shell: bash -l {0}
         run: |
           echo "Download combinatorial library from zenodo..."
-          wget -q -O data/combinatorial_library/combinatorial_library.tar.bz2 https://zenodo.org/record/3956580/files/combinatorial_library.tar.bz2?download=1
+          wget -q -O data/combinatorial_library/combinatorial_library.tar.bz2 https://zenodo.org/record/10843763/files/combinatorial_library.tar.bz2?download=1
           ls -l data/combinatorial_library/
           echo "Decompress selected files..."
           tar -xvf data/combinatorial_library/combinatorial_library.tar.bz2 combinatorial_library_deduplicated.json chembl_standardized_inchi.csv
