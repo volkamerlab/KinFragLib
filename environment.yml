@@ -13,8 +13,8 @@ dependencies:
   - jupyterlab
   - matplotlib
   - numpy
-  - pandas=1.1.2
-  - rdkit=2020.03.3
+  - pandas=1.5
+  - rdkit=2021.09
   - scikit-learn
   - seaborn
   - lich::syba

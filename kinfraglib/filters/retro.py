@@ -640,8 +640,7 @@ def compare_mols(para_result, pairs_frags_smiles):
                     if child1_mol.HasSubstructMatch(
                         frag1_mol
                     ) and child2_mol.HasSubstructMatch(frag2_mol):
-                        result_df = result_df.append(
-                            {
+                        result_df = pd.concat([result_df, pd.DataFrame([{
                                 "fragment ids": frag_ids,
                                 "fragment 1": cur_frag1_smiles,
                                 "fragment 2": cur_frag2_smiles,
@@ -649,14 +648,11 @@ def compare_mols(para_result, pairs_frags_smiles):
                                 "child 1": child1_smiles,
                                 "child 2": child2_smiles,
                                 "plausibility": cur_probs[num_cur_smiles],
-                            },
-                            ignore_index=True,
-                        )
+                            }])], ignore_index=True)
                     elif child1_mol.HasSubstructMatch(
                         frag2_mol
                     ) and child2_mol.HasSubstructMatch(frag1_mol):
-                        result_df = result_df.append(
-                            {
+                        result_df = pd.concat([result_df, pd.DataFrame([{
                                 "fragment ids": frag_ids,
                                 "fragment 1": cur_frag1_smiles,
                                 "fragment 2": cur_frag2_smiles,
@@ -664,12 +660,9 @@ def compare_mols(para_result, pairs_frags_smiles):
                                 "child 1": child2_smiles,
                                 "child 2": child1_smiles,
                                 "plausibility": cur_probs[num_cur_smiles],
-                            },
-                            ignore_index=True,
-                        )
+                            }])], ignore_index=True)
                     else:
-                        different_structure_df = different_structure_df.append(
-                            {
+                        different_structure_df = pd.concat([different_structure_df, pd.DataFrame([{
                                 "fragment ids": frag_ids,
                                 "fragment 1": cur_frag1_smiles,
                                 "fragment 2": cur_frag2_smiles,
@@ -677,12 +670,9 @@ def compare_mols(para_result, pairs_frags_smiles):
                                 "diff child 1": child2_smiles,
                                 "diff child 2": child1_smiles,
                                 "plausibility": cur_probs[num_cur_smiles],
-                            },
-                            ignore_index=True,
-                        )
+                            }])], ignore_index=True)
                 else:
-                    result_df = result_df.append(
-                        {
+                    result_df = pd.concat([result_df, pd.DataFrame([{
                             "fragment ids": frag_ids,
                             "fragment 1": cur_frag1_smiles,
                             "fragment 2": cur_frag2_smiles,
@@ -690,12 +680,9 @@ def compare_mols(para_result, pairs_frags_smiles):
                             "child 1": None,
                             "child 2": None,
                             "plausibility": 0,
-                        },
-                        ignore_index=True,
-                    )
+                        }])], ignore_index=True)
             else:
-                result_df = result_df.append(
-                    {
+                result_df = pd.concat([result_df, pd.DataFrame([{
                         "fragment ids": frag_ids,
                         "fragment 1": cur_frag1_smiles,
                         "fragment 2": cur_frag2_smiles,
@@ -703,9 +690,7 @@ def compare_mols(para_result, pairs_frags_smiles):
                         "child 1": None,
                         "child 2": None,
                         "plausibility": 0,
-                    },
-                    ignore_index=True,
-                )
+                    }])], ignore_index=True)
 
     return [result_df, different_structure_df]
 
