@@ -56,7 +56,8 @@ def read_fragment_library(path_to_lib):
     Returns
     -------
     dict of pandas.DataFrame
-        Fragment details, i.e. SMILES, kinase groups, and fragment RDKit molecules, (values) for each subpocket (key).
+        Fragment details, i.e. SMILES, kinase groups, and fragment RDKit molecules, (values) for
+        each subpocket (key).
     """
     # list of folders for each subpocket
     subpockets = ["AP", "FP", "SE", "GA", "B1", "B2", "X"]
@@ -88,7 +89,8 @@ def _read_subpocket_fragments(subpocket, path_to_lib):
     Returns
     -------
     pandas.DataFrame
-        Fragment details, i.e. SMILES, kinase groups, and fragment RDKit molecules, for input subpocket.
+        Fragment details, i.e. SMILES, kinase groups, and fragment RDKit molecules, for input
+        subpocket.
     """
 
     mol_supplier = Chem.SDMolSupplier(str(path_to_lib / f"{subpocket}.sdf"), removeHs=False)

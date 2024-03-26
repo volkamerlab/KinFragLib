@@ -21,8 +21,11 @@ This repository holds the following resources:
 
 1. Fragment library data and a link to the combinatorial library data.
 2. *Quick start* notebook explaining how to load and use the fragment library.  
-3. Notebooks covering the full analyses regarding the fragment and combinatorial libraries as described in 
-the corresponding paper.  
+3. Notebooks 
+
+    3.1. Notebooks covering the full analyses regarding the fragment and combinatorial libraries as described in 
+          the corresponding paper.  
+    3.2. WIP: Notebooks providing a custom filtering framework to reduce the fragment library size.
     
 Please find detailed description of files in `data/` and `notebooks/` in the folders' `README` files.
 
@@ -46,6 +49,8 @@ subpocket they occupy.
 Following this approach, a fragment library is created with respective subpocket pools. This fragment library enables 
 an in-depth analysis of the chemical space of known kinase inhibitors, and can be used to enumerate recombined 
 fragments in order to generate novel potential inhibitors.
+
+WIP: Custom KinFragLib provides a pipeline to filter the fragments in KinFragLib checking for unwanted substructures (PAINS and Brenk et al.), lead-/drug-likeness (Rule of Three and QED), synthesizability (similarity to buyable building blocks and SYBA) and pairwise retrosynthesizability. Each filter can be (de-)activated and the parameters can be modified by the user to create a customized filtered fragment library. 
 
 ## Quick start
 
