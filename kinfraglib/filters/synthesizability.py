@@ -1,6 +1,7 @@
 """
 Contains functions to filter for synthesizability
 """
+
 import pandas as pd
 from rdkit import Chem
 from syba.syba import SybaClassifier
@@ -11,15 +12,15 @@ from . import utils
 
 def check_building_blocks(fragment_library, path_to_building_blocks):
     """
-    Read in Enamine Building Blocks from SDFile created with DataWarrior and check if the fragment
-    molecules are a substructure of building block molecules.
+    Read in Enamine Building Blocks from SDFile created with filters/enamine_substructures.py
+    and check if the fragment molecules are a substructure of building block molecules.
 
     Parameters
     ----------
     fragment_library : dict
         fragments organized in subpockets including all information
     path_to_building_blocks : str
-        path to SDFile with resulting building blocks from DataWarrior is saved
+        path to SDFile with overlapping building blocks is saved
 
     Returns
     -------
@@ -63,7 +64,7 @@ def _read_bb_sdf(path_to_building_blocks):
     Parameters
     ----------
     path_to_building_blocks : str
-        path where SDFile with resulting building blocks from DataWarrior is saved
+        path where SDFile with resulting Enamine building blocks is saved
 
     Returns
     -------
@@ -71,7 +72,7 @@ def _read_bb_sdf(path_to_building_blocks):
         rdkit molecules of building blocks
     """
     enamine_bb = []
-    # read in DataWarrior file with Enamine Building Blocks
+    # read in Enamine file with Enamine Building Blocks
     curpath = str(path_to_building_blocks)
     suppl = Chem.SDMolSupplier(curpath)
     # go through molecules from the read file and save it in a list
