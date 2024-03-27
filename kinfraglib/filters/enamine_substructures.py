@@ -58,8 +58,13 @@ def substructure_search(queries, library, path):
     for key in queries.keys():
         print(f"Substructure matching for {key} subpocket")
         for q in queries[key].ROMol:
+            params = Chem.AdjustQueryParameters()
+            params.adjustRingCount = True
+            params.adjustRingChain = True
             # get all structure matches
-            indices = library.GetMatches(Chem.AdjustQueryProperties(q), maxResults=-1)
+            indices = library.GetMatches(
+                Chem.AdjustQueryProperties(q, params), maxResults=-1
+            )
             if len(indices) > 0:
                 # get index to smallest fragment which matches
                 min_ind = np.argmin(
