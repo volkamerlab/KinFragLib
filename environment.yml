@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   # Base dependencies
-  - python
+  - python>=3.8
   - pip
   # Package dependencies
   - biopandas
@@ -13,18 +13,18 @@ dependencies:
   - jupyterlab
   - matplotlib
   - numpy
-  - pandas=1.1.2
-  - rdkit=2020.03.3
+  - pandas=1.5    # pandas version above this, have problems in rendering images after PandasTools.AddMoleculeColumnToFrame is called
+  - rdkit=2021.09
   - scikit-learn
   - seaborn
   - opencadd
   ## CI tests
-  # Workaround for https://github.com/computationalmodelling/nbval/issues/153
-  - pytest 5.*
+  - pytest=7.4
   - pytest-xdist
   - nbval
   - shyaml
   - pip:
     - black-nb
     # KinFragLib itself
-    - https://github.com/volkamerlab/kinfraglib/archive/master.tar.gz
+    # - https://github.com/volkamerlab/kinfraglib/archive/master.tar.gz 
+    - .
