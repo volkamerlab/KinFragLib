@@ -93,31 +93,33 @@ def write_to_file(path, mols):
 
 
 def main():
-    HERE = Path().parent.resolve()
-    # path to data
-    PATH_DATA = HERE / "data"
-    # path to enamine data
-    PATH_ENAMINE = PATH_DATA / "filters" / "Enamine"
+    
+    parser = argparse.ArgumentParser()
+    # add cmd-line arguments
+    parser.add_argument('-e', '--enamine', type=str, help='file name of enamine building blocks sdf', required=True)
+    parser.add_argument('-f', '--fragmentlibrary', type=str, help='path to fragment library', required=True)
+    parser.add_argument('-o', '--output', type=str, help='output file name for matching building blocks sdf', required=True)
+    
+    # parse cmd-line arguments
+    args = parser.parse_args()
+    
+    PATH_ENAMINE = Path(args.enamine)
+    PATH_FRAG_LIB = Path(args.fragmentlibrary)
+    PATH_OUTPUT = Path(args.output)
 
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('-e', '--enamine', type=str, help='file name of enamine building blocks sdf', required=True)
-    # parser.add_argument('-o', '--output', type=str, help='output file name for matching building blocks sdf', required=True)
-    # args = parser.parse_args()
-
-    fragment_library = utils.read_fragment_library(PATH_DATA / "fragment_library")
+    fragment_library = utils.read_fragment_library(PATH_FRAG_LIB)
     fragment_library = filters.prefilters.pre_filters(fragment_library)
     print(f"Done reading in fragment library")
     # SDF contains all building blocks downloaded from enamine website
     enamine_library = read_enamine_sdf(
-        str(PATH_ENAMINE / "enamine_building_blocks_original.sdf")  # args.enamine
+        PATH_ENAMINE
     )
 
     substructure_search(
         fragment_library,
         enamine_library,
-        str(PATH_ENAMINE / "Enamine_Building_Blocks.sdf"),
+        PATH_OUTPUT,
     )
-    # write_to_file(str(PATH_ENAMINE / "Enamine_Building_Blocks.sdf"), enamine_mols)
 
 
 if __name__ == "__main__":
