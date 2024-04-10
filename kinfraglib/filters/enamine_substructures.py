@@ -53,7 +53,6 @@ def substructure_search(queries, library, path):
     path: str
         path to SDFile containing enamine building blocks which match at least one molecule from the query
     """
-    # enamine_mols = []
     f = Chem.SDWriter(path)
     for key in queries.keys():
         print(f"Substructure matching for {key} subpocket")
@@ -71,9 +70,7 @@ def substructure_search(queries, library, path):
                     [library.GetMol(ind).GetNumAtoms() for ind in indices]
                 )
                 f.write(library.GetMol(indices[int(min_ind)]))
-                # enamine_mols.append(library.GetMol(indices[int(min_ind)]))
     f.close()
-    # return enamine_mols
 
 
 def write_to_file(path, mols):
@@ -93,16 +90,34 @@ def write_to_file(path, mols):
 
 
 def main():
-    
+
     parser = argparse.ArgumentParser()
     # add cmd-line arguments
-    parser.add_argument('-e', '--enamine', type=str, help='file name of enamine building blocks sdf', required=True)
-    parser.add_argument('-f', '--fragmentlibrary', type=str, help='path to fragment library', required=True)
-    parser.add_argument('-o', '--output', type=str, help='output file name for matching building blocks sdf', required=True)
-    
+    parser.add_argument(
+        "-e",
+        "--enamine",
+        type=str,
+        help="file name of enamine building blocks sdf",
+        required=True,
+    )
+    parser.add_argument(
+        "-f",
+        "--fragmentlibrary",
+        type=str,
+        help="path to fragment library",
+        required=True,
+    )
+    parser.add_argument(
+        "-o",
+        "--output",
+        type=str,
+        help="output file name for matching building blocks sdf",
+        required=True,
+    )
+
     # parse cmd-line arguments
     args = parser.parse_args()
-    
+
     PATH_ENAMINE = Path(args.enamine)
     PATH_FRAG_LIB = Path(args.fragmentlibrary)
     PATH_OUTPUT = Path(args.output)
@@ -111,14 +126,12 @@ def main():
     fragment_library = filters.prefilters.pre_filters(fragment_library)
     print(f"Done reading in fragment library")
     # SDF contains all building blocks downloaded from enamine website
-    enamine_library = read_enamine_sdf(
-        PATH_ENAMINE
-    )
+    enamine_library = read_enamine_sdf(str(PATH_ENAMINE))
 
     substructure_search(
         fragment_library,
         enamine_library,
-        PATH_OUTPUT,
+        str(PATH_OUTPUT),
     )
 
 
