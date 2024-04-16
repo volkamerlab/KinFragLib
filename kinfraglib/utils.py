@@ -497,7 +497,7 @@ def draw_fragmented_ligand(
         mols = fragmented_ligand.ROMol.tolist()
 
     img = Draw.MolsToGridImage(
-        mols, legends=fragmented_ligand.subpocket.tolist(), molsPerRow=mols_per_row
+        mols, legends=fragmented_ligand.subpocket.tolist(), molsPerRow=mols_per_row , returnPNG=False  # to prevent image save error: https://stackoverflow.com/questions/65470233/attributeerror-image-object-has-no-attribute-save
     )
 
     return img
@@ -532,7 +532,7 @@ def draw_fragments_from_recombined_ligand(fragment_ids, fragment_library):
         fragments.append(fragment.ROMol_dummy)
         subpockets.append(subpocket)
 
-    img = Draw.MolsToGridImage(mols=fragments, legends=subpockets, molsPerRow=6)
+    img = Draw.MolsToGridImage(mols=fragments, legends=subpockets, molsPerRow=6, returnPNG=False) # to prevent image save error: https://stackoverflow.com/questions/65470233/attributeerror-image-object-has-no-attribute-save
 
     return img
 
@@ -615,6 +615,7 @@ def get_descriptors_by_fragments(fragment_library):
     descriptors = pd.concat(descriptors).reset_index()
 
     descriptors.drop("level_1", axis=1, inplace=True)
+
     descriptors.rename(
         columns={
             "level_0": "subpocket",
@@ -963,10 +964,12 @@ def plot_fragment_similarity(similarities_by_group, group_name):
         ax = sns.boxplot(
             x=similarities_by_group.columns[1],
             y=similarities_by_group.columns[0],
+            hue=similarities_by_group.columns[1],
             data=similarities_by_group,
             palette=SUBPOCKET_COLORS,
+            legend=False
         )
-    except KeyError:
+    except ValueError:
         ax = sns.boxplot(
             x=similarities_by_group.columns[1],
             y=similarities_by_group.columns[0],
@@ -994,9 +997,11 @@ def plot_fragment_descriptors(descriptors):
         sns.boxplot(
             x="subpocket",
             y=descriptor_name,
+            hue="subpocket",  
             data=descriptors,
             palette=SUBPOCKET_COLORS,
             medianprops={"linewidth": 3, "linestyle": "-"},
+            legend=False  
         )
         plt.ylabel(descriptor_name, fontsize=16)
         plt.xlabel("Subpocket", fontsize=16)
@@ -1024,7 +1029,6 @@ def draw_fragments(fragments, mols_per_row=10, max_mols=50):
     PIL.PngImagePlugin.PngImageFile
         Image of fragments.
     """
-
     image = Draw.MolsToGridImage(
         fragments.ROMol,
         molsPerRow=mols_per_row,
@@ -1034,7 +1038,7 @@ def draw_fragments(fragments, mols_per_row=10, max_mols=50):
             if x.alt == " "
             else f"{x.complex_pdb}|{x.chain}|{x.alt}:{x.ligand_pdb}",
             axis=1,
-        ).to_list(),
+        ).to_list(), returnPNG=False  # to prevent image save error: https://stackoverflow.com/questions/65470233/attributeerror-image-object-has-no-attribute-save
     )
 
     return image
@@ -1130,7 +1134,7 @@ def draw_ligands_from_pdb_ids(
         legends.append(f'{structure["complex_pdb"]}:{structure["ligand_pdb"]}')
 
     image = Draw.MolsToGridImage(
-        mols, subImgSize=sub_img_size, legends=legends, molsPerRow=mols_per_row, maxMols=max_mols
+        mols, subImgSize=sub_img_size, legends=legends, molsPerRow=mols_per_row, maxMols=max_mols, returnPNG=False  # to prevent image save error: https://stackoverflow.com/questions/65470233/attributeerror-image-object-has-no-attribute-save
     )
 
     return image
@@ -1150,7 +1154,7 @@ def get_protein_target_classifications(target_chembl_ids):
     pandas.DataFrame
         Protein target classifications for target ChEMBL IDs with columns:
         'l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'l7', 'l8',
-        'protein_class_id', 'target_chembl_id', 'component_id', 'protein_classification_id'.
+        'protein_class_id', 'target_chembl_id', 'component_id', 'protein_classification_id'. TODO false
     """
 
     results = []
@@ -1170,7 +1174,7 @@ def get_protein_target_classifications(target_chembl_ids):
             for protein_classification_id in protein_classification_ids:
 
                 # Go to `protein_class` endpoint and extract protein target classification.
-                protein_target_classification = _protein_target_classification_from_protein_class(
+                protein_target_classification = _construct_protein_target_classification(
                     protein_classification_id
                 )
 
@@ -1229,6 +1233,23 @@ def _protein_classification_id_from_target_components(component_id):
 
     return protein_classification_ids
 
+def _construct_protein_target_classification(protein_class_id):
+    """
+    Extract protein target classification and adds all necessary information
+    """
+    protein_class_from_chembl = _protein_target_classification_from_protein_class(protein_class_id)
+
+    # drop unneseccary information
+    result = pd.Series({"protein_class_id": protein_class_from_chembl["protein_class_id"]})
+
+    # add l1 to l8
+    levels = _level_information_from_protein_class(protein_class_from_chembl["parent_id"], protein_class_from_chembl["class_level"], protein_class_from_chembl["pref_name"])
+    for level in range(1, 9):
+        # add protein classification of current level else None
+        result[f"l{level}"] = levels.get(f"l{level}")
+
+    return result
+
 
 def _protein_target_classification_from_protein_class(protein_classification_id):
     """
@@ -1236,7 +1257,7 @@ def _protein_target_classification_from_protein_class(protein_classification_id)
     """
 
     protein_class_url = (
-        f"https://www.ebi.ac.uk/chembl/api/data/protein_class/{protein_classification_id}.json"
+        f"https://www.ebi.ac.uk/chembl/api/data/protein_classification/{protein_classification_id}.json"
     )
     # print(protein_class_url)
 
@@ -1245,6 +1266,21 @@ def _protein_target_classification_from_protein_class(protein_classification_id)
     result = response.json()
 
     return pd.Series(result)
+
+def _level_information_from_protein_class(parent_id, class_level, pref_name):
+    """
+    recursivly obtain all pref_names from parent_id of a given protein.
+    returns:
+        dict[str, str]: {l1, l2, ..., l8}
+    """
+    result = {f"l{class_level}": pref_name} # name of current level
+
+    for level in reversed(range(1, class_level)):
+        # obtain names of all parent levels
+        parent_classification = _protein_target_classification_from_protein_class(parent_id)
+        result[f"l{level}"] = parent_classification["pref_name"]
+        parent_id = parent_classification["parent_id"]
+    return result
 
 
 def construct_ligand(fragment_ids, bond_ids, fragment_library):

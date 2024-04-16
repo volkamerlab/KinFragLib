@@ -4,7 +4,9 @@
 
 ![KinFragLib workflow](./docs/img/toc_github_kinfraglib.png)
 
-Please note that this repository is constantly updated. You can retrieve the repository state for the published KinFragLib paper in release [v1.0.0](https://github.com/volkamerlab/KinFragLib/releases/tag/v1.0.0).
+**Note**: This repository is constantly updated, hence the statistics and numbers derive from the paper. 
+The current fragmentation library is based on the [KLIFS](https://klifs.net/) database downloaded on 06.12.2023. 
+You can retrieve the repository state for the published KinFragLib paper in release [v1.0.0](https://github.com/volkamerlab/KinFragLib/releases/tag/v1.0.0).
 
 ## Table of contents
 
@@ -66,8 +68,13 @@ WIP: Custom KinFragLib provides a pipeline to filter the fragments in KinFragLib
     # Change to KinFragLib directory
     cd /path/to/KinFragLib   
  
-    # Create and activate environment
+    # Create environment
+    # Hint: if conda is too slow, consider mamba instead
     conda env create -f environment.yml
+    # When using a MacBook with an M1 chip you may need instead:
+    CONDA_SUBDIR=osx-64 conda env create -f environment.yml
+
+    # Activate environment
     conda activate kinfraglib
 
     # Install the kinfraglib pip package
@@ -90,7 +97,7 @@ WIP: Custom KinFragLib provides a pipeline to filter the fragments in KinFragLib
 Please contact us if you have questions or suggestions.
 
 * Open an issue on our GitHub repository: https://github.com/volkamerlab/KinFragLib/issues
-* Or send us an email: andrea.volkamer@charite.de
+* Or send us an email: volkamer@cs.uni-saarland.de 
 
 We are looking forward to hearing from you!
 
@@ -100,7 +107,7 @@ This resource is licensed under the [MIT](https://opensource.org/licenses/MIT) l
 
 ## Citation
 
-Sydow, D., Schmiel, P., Mortier, J., and Volkamer, A. KinFragLib: Exploring the Kinase Inhibitor Space Using Subpocket-Focused Fragmentation and Recombination. J. Chem. Inf. Model. 2020. https://pubs.acs.org/doi/abs/10.1021/acs.jcim.0c00839
+[Sydow, D., Schmiel, P., Mortier, J., and Volkamer, A. KinFragLib: Exploring the Kinase Inhibitor Space Using Subpocket-Focused Fragmentation and Recombination. J. Chem. Inf. Model. 2020. https://pubs.acs.org/doi/abs/10.1021/acs.jcim.0c00839](CITATION.bib)
 
 ```bib
 @article{doi:10.1021/acs.jcim.0c00839,
@@ -116,3 +123,33 @@ note ={PMID: 33155465},
 URL = {https://doi.org/10.1021/acs.jcim.0c00839}
 }
 ```
+## List of publications
+- **Kinase Inhibitor Scaffold Hopping with Deep Learning Approaches**
+Lizhao Hu, Yuyao Yang, Shuangjia Zheng, Jun Xu, Ting Ran, and Hongming Chen
+*Journal of Chemical Information and Modeling* **2021**
+[10.1021/acs.jcim.1c00608](https://pubs.acs.org/doi/full/10.1021/acs.jcim.1c00608)
+- **TWN-FS method: A novel fragment screening method for drug discovery** 
+Yoon, Hye Ree and Park, Gyoung Jin and Balupuri, Anand and Kang, Nam Sook
+*Computational and Structural Biotechnology Journal* **2023**
+[10.1016/j.csbj.2023.09.037](https://doi.org/10.1016/j.csbj.2023.09.037)
+- **Efficient Hit-to-Lead Searching of Kinase Inhibitor Chemical Space via Computational Fragment Merging**
+Grigorii V. Andrianov, Wern Juin Gabriel Ong, Ilya Serebriiskii, and John Karanicolas
+*Journal of Chemical Information and Modeling* **2021** 
+[10.1021/acs.jcim.1c00630](https://doi.org/10.1021/acs.jcim.1c00630)
+- **KiSSim: Predicting Off-Targets from Structural Similarities in the Kinome**
+Dominique Sydow, Eva Aßmann, Albert J. Kooistra, Friedrich Rippmann, and Andrea Volkamer
+*Journal of Chemical Information and Modeling* **2022** 
+[10.1021/acs.jcim.2c00050](https://10.1021/acs.jcim.2c00050)
+- **Target-Focused Library Design by Pocket-Applied Computer Vision and Fragment Deep Generative Linking**
+Merveille Eguida, Christel Schmitt-Valencia, Marcel Hibert, Pascal Villa, and Didier Rognan
+*Journal of Medicinal Chemistry* **2022** 
+[10.1021/acs.jmedchem.2c00931](https://pubs.acs.org/doi/10.1021/acs.jmedchem.2c00931)
+- **Guided docking as a data generation approach facilitates structure-based machine learning on kinases**
+Backenköhler M, Groß J, Wolf V, Volkamer A. 
+*ChemRxiv* **2023**
+[10.26434/chemrxiv-2023-prk53](https://chemrxiv.org/engage/chemrxiv/article-details/658441f7e9ebbb4db96d98e8)  *This content is a preprint and has not been peer-reviewed.*
+- **Constructing Innovative Covalent and Noncovalent Compound Libraries: Insights from 3D Protein–Ligand Interactions** Xiaohe Xu, Weijie Han, Xiangzhen Ning, Chengdong Zang, Chengcheng Xu, Chen Zeng, Chengtao Pu, Yanmin Zhang, Yadong Chen, and Haichun Liu *Journal of Chemical Information and Modeling* **2024**[10.1021/acs.jcim.3c01689](https://pubs.acs.org/doi/10.1021/acs.jcim.3c01689)
+
+
+
+

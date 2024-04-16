@@ -1,17 +1,17 @@
 # KinFragLib: Combinatorial library 
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3956580.svg)](https://doi.org/10.5281/zenodo.3956580)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10843763.svg)](https://doi.org/10.5281/zenodo.10843763)
 
 This folder is meant for the metadata and properties of the KinFragLib combinatorial library, which is based on the KinFragLib fragment library at https://github.com/volkamerlab/KinFragLib. This dataset is used for the analysis of the combinatorial library.
 
-**Note**: Since this dataset contains large files, we provide it outside this repository at https://zenodo.org/record/3956580 (DOI: 10.5281/zenodo.3956580, v1.0.1).
+**Note**: Since this dataset contains large files, we provide it outside this repository at https://zenodo.org/record/10843763 (DOI: 10.5281/zenodo.10843763, v2.0.0).
 In order to run the analysis notebooks, please download this dataset to this folder. 
 
 ## Raw data
 
 - `combinatorial_library.json`: Full combinatorial library, please refer to `notebooks/kinfraglib/4_1_combinatorial_library_data_preparation.ipynb` at https://github.com/volkamerlab/KinFragLib for detailed information about this data format
 - `combinatorial_library_deduplicated.json`: Deduplicated combinatorial library (based on InChIs)
-- `chembl_standardized_inchi.csv`: Standardized ChEMBL 25 molecules in the form of InChI strings.
+- `chembl_standardized_inchi.csv`: Standardized ChEMBL 33 molecules in the form of InChI strings.
 
 ## Processed data
 
