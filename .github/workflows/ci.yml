@@ -76,4 +76,3 @@ jobs:
         run: |
           PYTEST_ARGS="--nbval-lax --nbval-current-env --nbval-cell-timeout=1800"
           pytest $PYTEST_ARGS
-
