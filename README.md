@@ -151,5 +151,3 @@ Backenköhler M, Groß J, Wolf V, Volkamer A.
 - **Constructing Innovative Covalent and Noncovalent Compound Libraries: Insights from 3D Protein–Ligand Interactions** Xiaohe Xu, Weijie Han, Xiangzhen Ning, Chengdong Zang, Chengcheng Xu, Chen Zeng, Chengtao Pu, Yanmin Zhang, Yadong Chen, and Haichun Liu *Journal of Chemical Information and Modeling* **2024**[10.1021/acs.jcim.3c01689](https://pubs.acs.org/doi/10.1021/acs.jcim.3c01689)
 
 
-
-
