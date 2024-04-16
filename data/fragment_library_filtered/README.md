@@ -11,4 +11,4 @@ In order to prepare a library with fragments tailored for recombination, we offe
 5. Keep "Rule of Three (Ro3)" compliant fragments (fragment-likeness)
 6. Filter AP subpocket fragments (typical hinge-like)
 
-Please refer to the notebook `notebooks/3_1_fragment_library_reduced.ipynb` to check how the data was generated and/or use it as a starting point for customized protocols.
+Please refer to the notebook `notebooks/kinfraglib/3_1_fragment_library_reduced.ipynb` to check how the data was generated and/or use it as a starting point for customized protocols.

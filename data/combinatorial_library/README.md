@@ -9,13 +9,13 @@ In order to run the analysis notebooks, please download this dataset to this fol
 
 ## Raw data
 
-- `combinatorial_library.json`: Full combinatorial library, please refer to `notebooks/4_1_combinatorial_library_data_preparation.ipynb` at https://github.com/volkamerlab/KinFragLib for detailed information about this data format
+- `combinatorial_library.json`: Full combinatorial library, please refer to `notebooks/kinfraglib/4_1_combinatorial_library_data_preparation.ipynb` at https://github.com/volkamerlab/KinFragLib for detailed information about this data format
 - `combinatorial_library_deduplicated.json`: Deduplicated combinatorial library (based on InChIs)
 - `chembl_standardized_inchi.csv`: Standardized ChEMBL 33 molecules in the form of InChI strings.
 
 ## Processed data
 
-Data extracted from `combinatorial_library_deduplicated.json`, performed in `notebooks/4_1_combinatorial_library_data_preparation.ipynb` at https://github.com/volkamerlab/KinFragLib.
+Data extracted from `combinatorial_library_deduplicated.json`, performed in `notebooks/kinfraglib/4_1_combinatorial_library_data_preparation.ipynb` at https://github.com/volkamerlab/KinFragLib.
 
 - `n_atoms.csv`: Number of atoms for each recombined ligand
 - `ro5.csv`: Number of ligands that fulfill Lipinski's rule of five (Ro5) and its individual criteria; number of ligands in total
