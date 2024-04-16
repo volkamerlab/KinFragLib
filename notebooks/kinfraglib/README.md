@@ -37,16 +37,16 @@ This notebook contains the code that was used to analyze the most common fragmen
 
 ### `3_1_fragment_library_reduced.ipynb`
 
-The fragment library resulting from the KinFragLib fragmentation procedure comprises of about 3000 fragments. Ultimately, we want to demonstrate how this library can be used for recombining ligands. Before this can be done, we need to address two considerations:
+The fragment library resulting from the KinFragLib fragmentation procedure comprises about 3000 fragments. Ultimately, we want to demonstrate how this library can be used for recombining ligands. Before this can be done, we need to address two considerations:
 
-1. Remove all fragments that are not useful in a recombination, i.e. duplicates, fragments in pool X, fragments without dummy atoms, and fragments with dummy atoms only connecting to pool X. Also remove all AP fragments that show no hydrogen bond donors and acceptors (not hinge-like).
+1. Remove all fragments that are not useful for recombination, i.e. duplicates, fragments in pool X, fragments without dummy atoms, and fragments with dummy atoms only connecting to pool X. Also remove all AP fragments that show no hydrogen bond donors and acceptors (not hinge-like).
 2. Select a diverse set of fragments (per subpocket) for recombination to (i) save computational cost and (ii) avoid recombination of highly similar fragments.
 
 ## 4. Combinatorial library
 
 ### `4_1_combinatorial_library_data.ipynb`
 
-The aim of this notebook is to extract information from the combinatorial library (`json` file) about e.g. ligand sizes, Lipinski's rule of five compliance, and matches in ChEMBL and KLIFS. Since the `json` file holds mulitple millions of ligands, we do this data processing once here at the beginning and save the results to separate files which will be used for analysis/visualization in the following notebooks.
+The aim of this notebook is to extract information from the combinatorial library (`json` file) about e.g. ligand sizes, Lipinski's rule of five compliance, and matches in ChEMBL and KLIFS. Since the `json` file holds multiple millions of ligands, we do this data processing once here at the beginning and save the results to separate files which will be used for analysis/visualization in the following notebooks.
 
 ### `4_2_combinatorial_library_properties.ipynb`
 
@@ -58,4 +58,7 @@ In this notebook, we want to compare the combinatorial library to the original K
 
 ### `4_4_combinatorial_library_comparison_chembl.ipynb`
 
-In this notebook, we want to compare the combinatorial library to the ChEMBL 25 dataset in order to find exact matches and the most similar ChEMBL molecule per recombined ligand.
+In this notebook, we want to compare the combinatorial library to the ChEMBL 33 dataset in order to find exact matches and the most similar ChEMBL molecule per recombined ligand.
+
+### `4_5_combinatorial_library_consrtuct_ligand.ipynb`
+In this notebook, we showcase how the molecules described via fragment and bond indices the combinatorial library can be build into `rdkit` molecule objects.
