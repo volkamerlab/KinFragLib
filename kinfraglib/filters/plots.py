@@ -1,6 +1,7 @@
 """
 Contains plotting functionalities for different filters.
 """
+
 import statistics
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
@@ -10,6 +11,7 @@ from rdkit.Chem import Draw, MACCSkeys
 import seaborn as sns
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
+from IPython.display import display
 from kinfraglib import utils as kfl_utils
 from collections import Counter
 
@@ -252,6 +254,7 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
                     ].ROMol
                 ),
             ),
+            returnPNG=False,
         )
         return img
     elif evaluate == "max":
@@ -286,6 +289,7 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
                 ]
                 .astype(str)
             ),
+            returnPNG=False,
         )
         return img
 
@@ -305,17 +309,21 @@ def create_tsne_plots(fragment_library):
 
     """
     fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
-    fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(MACCSkeys.GenMACCSKeys)
+    fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(
+        MACCSkeys.GenMACCSKeys
+    )
 
     pca = PCA(n_components=50)
     crds = pca.fit_transform(list(fragment_library_concat["maccs"]))
 
-    crds_embedded = TSNE(n_components=2, init='pca', learning_rate='auto').fit_transform(crds)
+    crds_embedded = TSNE(
+        n_components=2, init="pca", learning_rate="auto"
+    ).fit_transform(crds)
 
     tsne_df = pd.DataFrame(crds_embedded, columns=["X", "Y"])
     # add bool column from filtering steps here
-    tsne_df['reduced'] = fragment_library_concat["bool_reduced"]
-    tsne_df['custom'] = fragment_library_concat["bool_custom"]
+    tsne_df["reduced"] = fragment_library_concat["bool_reduced"]
+    tsne_df["custom"] = fragment_library_concat["bool_custom"]
     # create column defining if fragment is
     # *excluded in both subsets (0)
     # *included in custom (1)
@@ -344,17 +352,17 @@ def create_tsne_plots(fragment_library):
         data=tsne_df.query("reduced == 0"),
         x="X",
         y="Y",
-        color='lightcoral',
+        color="lightcoral",
         alpha=0.5,
-        label="excluded"
+        label="excluded",
     ).set_title("pre_filtered vs. reduced")
     sns.scatterplot(
         data=tsne_df.query("reduced == 1"),
         x="X",
         y="Y",
-        color='green',
+        color="green",
         alpha=0.5,
-        label="included"
+        label="included",
     )
 
     plt.subplot(2, 2, 2)
@@ -362,17 +370,17 @@ def create_tsne_plots(fragment_library):
         data=tsne_df.query("custom == 0"),
         x="X",
         y="Y",
-        color='lightcoral',
+        color="lightcoral",
         alpha=0.5,
-        label="excluded"
+        label="excluded",
     ).set_title("pre-filtered vs. custom")
     sns.scatterplot(
         data=tsne_df.query("custom == 1"),
         x="X",
         y="Y",
-        color='green',
+        color="green",
         alpha=0.5,
-        label="included"
+        label="included",
     )
 
     plt.subplot(2, 2, 3)
@@ -380,89 +388,96 @@ def create_tsne_plots(fragment_library):
         data=tsne_df.query("compare == 0"),
         x="X",
         y="Y",
-        color='lightcoral',
+        color="lightcoral",
         alpha=0.5,
-        label="excluded in both subsets"
+        label="excluded in both subsets",
     ).set_title("pre-filtered vs. reduced vs. custom")
     sns.scatterplot(
         data=tsne_df.query("compare == 1"),
         x="X",
         y="Y",
-        color='orange',
+        color="orange",
         alpha=0.5,
-        label="included in custom subset"
+        label="included in custom subset",
     )
     sns.scatterplot(
         data=tsne_df.query("compare == 2"),
         x="X",
         y="Y",
-        color='lightblue',
+        color="lightblue",
         alpha=0.5,
-        label="included in reduced subset"
+        label="included in reduced subset",
     )
     sns.scatterplot(
         data=tsne_df.query("compare == 3"),
         x="X",
         y="Y",
-        color='green',
+        color="green",
         alpha=0.5,
-        label="included in both subsets"
+        label="included in both subsets",
     )
-    plt.legend(loc='upper right', bbox_to_anchor=(1.425, 1), ncol=1)
+    plt.legend(loc="upper right", bbox_to_anchor=(1.425, 1), ncol=1)
 
     plt.show()
     num_lists = (len(tsne_df["compare"]), num0, num1, num2, num3)
-    print("""%s Pre-filtered fragments.
+    print(
+        """%s Pre-filtered fragments.
         Number of fragments excluded in both datasets: %s
         Number of fragments included in the custom dataset and excluded in the reduced dataset: %s
         Number of fragments included in the reduced dataset and excluded in the custom dataset: %s
-        Number of fragments in both datasets: %s """ % (num_lists))
-    tsne_df['smiles'] = fragment_library_concat["smiles"]
+        Number of fragments in both datasets: %s """
+        % (num_lists)
+    )
+    tsne_df["smiles"] = fragment_library_concat["smiles"]
     return tsne_df
 
 
 def create_tsne_plots_filters(fragment_library, saved_filter_results):
     """
-    Creates t-SNE plots with accepted (green) and rejected (red) fragments for each filtering step.
+    Creates t-SNE plots with accepted (green) and rejected (red) fragments for each filtering step.
 
-    ----------
-    fragment_library : dict
-        fragment library organized in subpockets containing boolean columuns
+    ----------
+    fragment_library : dict
+        fragment library organized in subpockets containing boolean columuns
     saved_filter_results : dataframe
         loaded file with saved filter results
 
-    """
+    """
     fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
-    fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(MACCSkeys.GenMACCSKeys)
+    fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(
+        MACCSkeys.GenMACCSKeys
+    )
 
     pca = PCA(n_components=50)
     crds = pca.fit_transform(list(fragment_library_concat["maccs"]))
 
-    crds_embedded = TSNE(n_components=2, init='pca', learning_rate='auto').fit_transform(crds)
+    crds_embedded = TSNE(
+        n_components=2, init="pca", learning_rate="auto"
+    ).fit_transform(crds)
 
     tsne_df = pd.DataFrame(crds_embedded, columns=["X", "Y"])
     # add bool column from filter steps
     filters = []
     if "bool_pains" in saved_filter_results.columns:
-        tsne_df['pains'] = saved_filter_results["bool_pains"]
+        tsne_df["pains"] = saved_filter_results["bool_pains"]
         filters.append("pains")
     if "bool_brenk" in saved_filter_results.columns:
-        tsne_df['brenk'] = saved_filter_results["bool_brenk"]
+        tsne_df["brenk"] = saved_filter_results["bool_brenk"]
         filters.append("brenk")
     if "bool_ro3" in saved_filter_results.columns:
-        tsne_df['ro3'] = saved_filter_results["bool_ro3"]
+        tsne_df["ro3"] = saved_filter_results["bool_ro3"]
         filters.append("ro3")
     if "bool_qed" in saved_filter_results.columns:
         tsne_df["qed"] = saved_filter_results["bool_qed"]
         filters.append("qed")
     if "bool_bb" in saved_filter_results.columns:
-        tsne_df['bb'] = saved_filter_results["bool_bb"]
+        tsne_df["bb"] = saved_filter_results["bool_bb"]
         filters.append("bb")
     if "bool_syba" in saved_filter_results.columns:
-        tsne_df['syba'] = saved_filter_results["bool_syba"]
+        tsne_df["syba"] = saved_filter_results["bool_syba"]
         filters.append("syba")
     if "bool_retro" in saved_filter_results.columns:
-        tsne_df['retro'] = saved_filter_results["bool_retro"]
+        tsne_df["retro"] = saved_filter_results["bool_retro"]
         filters.append("retro")
 
     tsne_df["smiles"] = saved_filter_results["smiles"]
@@ -477,7 +492,7 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results):
             data=tsne_df.query("%s == 1" % filter),
             x="X",
             y="Y",
-            color='green',
+            color="green",
             alpha=0.5,
             label="accepted",
         ).set_title(filter)
@@ -485,26 +500,28 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results):
             data=tsne_df.query("%s == 0" % filter),
             x="X",
             y="Y",
-            color='lightcoral',
+            color="lightcoral",
             label="rejected",
         )
     return tsne_df
 
 
-def connection_frequencies(fragment_library, fragment_library_reduced, fragment_library_custom):
+def connection_frequencies(
+    fragment_library, fragment_library_reduced, fragment_library_custom
+):
     """
-    Calculates the connection frequencies between the subpockets for all three subsets and
+    Calculates the connection frequencies between the subpockets for all three subsets and
     creates a barplot.
 
     *part of the code copied from https://github.com/sonjaleo/KinFragLib/blob/master/notebooks/2_2_fragment_analysis_statistics.ipynb   # noqa: E501
 
-    ----------
-    fragment_library : dict
-        pre-filtered fragment library organized in subpockets
+    ----------
+    fragment_library : dict
+        pre-filtered fragment library organized in subpockets
     fragment_library_reduced : dict
-        reduced fragment library organized in subpockets
+        reduced fragment library organized in subpockets
     fragment_library_custom : dict
-        custom filtered fragment library organized in subpockets
+        custom filtered fragment library organized in subpockets
 
     Returns
     ---------
@@ -512,25 +529,27 @@ def connection_frequencies(fragment_library, fragment_library_reduced, fragment_
         with the connection frequencies for every existing connection between subpockets for all
         three subsets
 
-    """
+    """
     # fragment library pre-filtered
     fragment_library_concat = pd.concat(fragment_library)
-    connections_by_fragment = kfl_utils.get_connections_by_fragment(fragment_library_concat)
+    connections_by_fragment = kfl_utils.get_connections_by_fragment(
+        fragment_library_concat
+    )
     connections_by_ligand = connections_by_fragment.groupby(
-        ['kinase', 'complex_pdb', 'ligand_pdb']
-    )['connections_name'].sum()
+        ["kinase", "complex_pdb", "ligand_pdb"]
+    )["connections_name"].sum()
     connections_by_ligand_count = connections_by_ligand.apply(lambda x: Counter(x))
     # Get connection count across ligands (count each connection per ligand only once)
     connections_across_ligands_count = pd.Series(
         Counter(connections_by_ligand_count.apply(list).sum())
     )
-    connections_across_ligands_count.name = 'count_pre-filtered'
+    connections_across_ligands_count.name = "count_pre-filtered"
 
     # Get connection frequency (100% = all ligands)
     connections_across_ligands_frequency = connections_across_ligands_count.apply(
         lambda x: round((x / connections_by_ligand_count.shape[0] * 100), 1)
     )
-    connections_across_ligands_frequency.name = 'frequency_pre-filtered'
+    connections_across_ligands_frequency.name = "frequency_pre-filtered"
 
     # Concatenate count and frequency data to DataFrame
     connections_across_ligands = pd.concat(
@@ -545,25 +564,32 @@ def connection_frequencies(fragment_library, fragment_library_reduced, fragment_
     )
 
     connections_by_ligand_reduced = connections_by_fragment_reduced.groupby(
-        ['kinase', 'complex_pdb', 'ligand_pdb']
-    )['connections_name'].sum()
-    connections_by_ligand_count_reduced = connections_by_ligand_reduced.apply(lambda x: Counter(x))
+        ["kinase", "complex_pdb", "ligand_pdb"]
+    )["connections_name"].sum()
+    connections_by_ligand_count_reduced = connections_by_ligand_reduced.apply(
+        lambda x: Counter(x)
+    )
 
     # Get connection count across ligands (count each connection per ligand only once)
     connections_across_ligands_count_reduced = pd.Series(
         Counter(connections_by_ligand_count_reduced.apply(list).sum())
     )
-    connections_across_ligands_count_reduced.name = 'count_reduced'
+    connections_across_ligands_count_reduced.name = "count_reduced"
 
     # Get connection frequency (100% = all ligands)
-    connections_across_ligands_frequency_reduced = connections_across_ligands_count_reduced.apply(
-        lambda x: round((x / connections_by_ligand_count_reduced.shape[0] * 100), 1)
+    connections_across_ligands_frequency_reduced = (
+        connections_across_ligands_count_reduced.apply(
+            lambda x: round((x / connections_by_ligand_count_reduced.shape[0] * 100), 1)
+        )
     )
-    connections_across_ligands_frequency_reduced.name = 'frequency_reduced'
+    connections_across_ligands_frequency_reduced.name = "frequency_reduced"
 
     # Concatenate count and frequency data to DataFrame
     connections_across_ligands_reduced = pd.concat(
-        [connections_across_ligands_count_reduced, connections_across_ligands_frequency_reduced],
+        [
+            connections_across_ligands_count_reduced,
+            connections_across_ligands_frequency_reduced,
+        ],
         axis=1,
     )
 
@@ -574,25 +600,32 @@ def connection_frequencies(fragment_library, fragment_library_reduced, fragment_
     )
 
     connections_by_ligand_custom = connections_by_fragment_custom.groupby(
-        ['kinase', 'complex_pdb', 'ligand_pdb']
-    )['connections_name'].sum()
-    connections_by_ligand_count_custom = connections_by_ligand_custom.apply(lambda x: Counter(x))
+        ["kinase", "complex_pdb", "ligand_pdb"]
+    )["connections_name"].sum()
+    connections_by_ligand_count_custom = connections_by_ligand_custom.apply(
+        lambda x: Counter(x)
+    )
 
     # Get connection count across ligands (count each connection per ligand only once)
     connections_across_ligands_count_custom = pd.Series(
         Counter(connections_by_ligand_count_custom.apply(list).sum())
     )
-    connections_across_ligands_count_custom.name = 'count_custom-filtered'
+    connections_across_ligands_count_custom.name = "count_custom-filtered"
 
     # Get connection frequency (100% = all ligands)
-    connections_across_ligands_frequency_custom = connections_across_ligands_count_custom.apply(
-        lambda x: round((x / connections_by_ligand_count_custom.shape[0] * 100), 1)
+    connections_across_ligands_frequency_custom = (
+        connections_across_ligands_count_custom.apply(
+            lambda x: round((x / connections_by_ligand_count_custom.shape[0] * 100), 1)
+        )
     )
-    connections_across_ligands_frequency_custom.name = 'frequency_custom_filtered'
+    connections_across_ligands_frequency_custom.name = "frequency_custom_filtered"
 
     # Concatenate count and frequency data to DataFrame
     connections_across_ligands_custom = pd.concat(
-        [connections_across_ligands_count_custom, connections_across_ligands_frequency_custom],
+        [
+            connections_across_ligands_count_custom,
+            connections_across_ligands_frequency_custom,
+        ],
         axis=1,
     )
 
@@ -617,12 +650,11 @@ def connection_frequencies(fragment_library, fragment_library_reduced, fragment_
     ax.set_ylabel("Connection Frequency")
     ax.set_title("Connection Frequencies of the different subsets")
 
-    fig.show()
     res = pd.concat(
         [
             connections_across_ligands,
             connections_across_ligands_reduced,
-            connections_across_ligands_custom
+            connections_across_ligands_custom,
         ],
         axis=1,
     )
@@ -634,10 +666,10 @@ def connection_frequencies(fragment_library, fragment_library_reduced, fragment_
 
 def num_frags_development(filter_res):
     """
-    Count the number of fragments passing each custom filter step
+    Count the number of fragments passing each custom filter step
 
-    ----------
-    filter_res : dataframe
+    ----------
+    filter_res : dataframe
         Contains the calculated values and the boolean for each filtering step if a fragment was
         accepted or not.
 
@@ -646,7 +678,7 @@ def num_frags_development(filter_res):
     dataframe
         with the number of fragments per subpocket after each filtering step
 
-    """
+    """
     # get the column names
     frag_keys = filter_res.keys()
     frag_keys.to_list()
@@ -655,13 +687,15 @@ def num_frags_development(filter_res):
     # create a dataframe to store the number of fragments left after each filtering step
     update_results = pd.DataFrame()
     # add number of fragments for the pre-filtered subset we are starting with
-    update_results["pre-filtered"] = filter_res.reset_index().groupby(
-        "subpocket", sort=False
-    ).size()
+    update_results["pre-filtered"] = (
+        filter_res.reset_index().groupby("subpocket", sort=False).size()
+    )
     # go through all boolean columns after one another and count the number of fragments passing
     for bool_key in bool_keys:
         filter_res = filter_res.loc[filter_res[bool_key] == 1]
-        update_results[bool_key] = filter_res.reset_index().groupby("subpocket", sort=False).size()
+        update_results[bool_key] = (
+            filter_res.reset_index().groupby("subpocket", sort=False).size()
+        )
 
     # create a bar plot showing the numbers of fragments passing
     ax = update_results.plot.bar(width=0.9)
@@ -672,10 +706,9 @@ def num_frags_development(filter_res):
 
     ax.set_xlabel("Subpocket")
     ax.set_ylabel("Number of fragments")
-    ax.set_title("Development of the number of fragments per subpocket after each filter step")
-
-    fig.show()
-
+    ax.set_title(
+        "Development of the number of fragments per subpocket after each filter step"
+    )
     # return dataframe with number of fragments after each filtering step.
     return update_results
 
@@ -712,15 +745,13 @@ def draw_clusters(clustered_fragments, show_subpockets=False):
     # clustered_fragments = clustered_fragments.sort_values("subpocket_count", ascending=False)
     if show_subpockets:
         legend = [
-            f'{row.cluster_id} | {row.subpocket_count} |  {row.subpockets}'
-            for index, row
-            in clustered_fragments.iterrows()
+            f"{row.cluster_id} | {row.subpocket_count} |  {row.subpockets}"
+            for index, row in clustered_fragments.iterrows()
         ]
     else:
         legend = [
-            f'{row.cluster_id} | {row.subpocket_count}'
-            for index, row
-            in clustered_fragments.iterrows()
+            f"{row.cluster_id} | {row.subpocket_count}"
+            for index, row in clustered_fragments.iterrows()
         ]
     img = Draw.MolsToGridImage(
         list(clustered_fragments.ROMol),
@@ -728,12 +759,12 @@ def draw_clusters(clustered_fragments, show_subpockets=False):
         molsPerRow=7,
         maxMols=100,
         subImgSize=(170, 170),
-        useSVG=True
+        useSVG=True,
     )
     if show_subpockets:
-        print('Legend: cluster ID | subpocket count | subpockets')
+        print("Legend: cluster ID | subpocket count | subpockets")
     else:
-        print('Legend: cluster ID | subpocket count')
+        print("Legend: cluster ID | subpocket count")
 
     return img
 
@@ -761,6 +792,8 @@ def plot_fragment_descriptors(descriptors, ylims):
         ax = sns.boxplot(
             x="subpocket",
             y=descriptor_name,
+            hue="subpocket",
+            legend=False,
             data=descriptors,
             palette=SUBPOCKET_COLORS,
             medianprops={"linewidth": 3, "linestyle": "-"},
@@ -800,7 +833,9 @@ def plot_fragment_similarity(similarities_by_groups, library_names, group_name):
             sns.boxplot(
                 x=similarities_by_group.columns[1],
                 y=similarities_by_group.columns[0],
+                hue=similarities_by_group.columns[1],
                 data=similarities_by_group,
+                legend=False,
                 palette=SUBPOCKET_COLORS,
             )
         except KeyError:
@@ -861,7 +896,9 @@ def most_common_in_subset(
     # if no fragments found that are in <=num_subpockets take one subpocket more (e.g. if no
     # fragment in 1 subpocket found take fragments in 2 subpockets)
     for i in range(num_subpockets, 7, 1):
-        subset = clustered_fragments_subset[clustered_fragments_subset["subpocket_count"] <= i]
+        subset = clustered_fragments_subset[
+            clustered_fragments_subset["subpocket_count"] <= i
+        ]
         subset = subset[subset["subpockets"].astype(str).str.contains(subpocket)]
         if subset.empty:
             i = i + 1
@@ -874,7 +911,7 @@ def most_common_in_subset(
         top_x=top_x,
     )
     # sort the most common fragments by the number of occourences of each fragment
-    most_common_frags.sort_values(by=['fragment_count'], ascending=False, inplace=True)
+    most_common_frags.sort_values(by=["fragment_count"], ascending=False, inplace=True)
 
     # compare the most common fragments from the original fragment library with the subset and keep
     # the ones that are in both
@@ -886,16 +923,10 @@ def most_common_in_subset(
     legend_lst = []
     for _, row_common in most_common_frags.iterrows():
         for _, row_subset in subset.iterrows():
-            if Chem.MolFromSmiles(
-                row_common["smiles"]).HasSubstructMatch(Chem.MolFromSmiles(
-                    row_subset["smiles"]
-                )
-            ) and Chem.MolFromSmiles(
-                row_subset["smiles"]
-            ).HasSubstructMatch(
-                Chem.MolFromSmiles(
-                    row_common["smiles"]
-                )
+            if Chem.MolFromSmiles(row_common["smiles"]).HasSubstructMatch(
+                Chem.MolFromSmiles(row_subset["smiles"])
+            ) and Chem.MolFromSmiles(row_subset["smiles"]).HasSubstructMatch(
+                Chem.MolFromSmiles(row_common["smiles"])
             ):
                 most_common_in_subset.append(row_subset["smiles"])
                 fragment_counts.append(row_common["fragment_count"])
@@ -911,7 +942,7 @@ def most_common_in_subset(
     if not most_common_subset_df.empty:
         # sort the fragments by clster_id ascending and fragment_count descending
         most_common_subset_df.sort_values(
-            by=['cluster_id', "fragment_count"], ascending=[True, False], inplace=True
+            by=["cluster_id", "fragment_count"], ascending=[True, False], inplace=True
         )
         # create the legend list with cluster_id, fragment_count and subpocket_count
         for _, row in most_common_subset_df.iterrows():
@@ -919,7 +950,10 @@ def most_common_in_subset(
                 f'{row["cluster_id"]} | {row["fragment_count"]} | {row["subpocket_count"]}'
             )
         # draw molecules
-        print(f'Legend: subset cluster ID | fragment count inside %s in complete fragment library | fragment subpocket count in subset' %subpocket)     # noqa E501
+        print(
+            f"Legend: subset cluster ID | fragment count inside %s in complete fragment library | fragment subpocket count in subset"
+            % subpocket
+        )  # noqa E501
         img = Draw.MolsToGridImage(
             [Chem.MolFromSmiles(smiles) for smiles in most_common_subset_df["smiles"]],
             legends=legend_lst,

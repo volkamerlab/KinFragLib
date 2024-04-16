@@ -13,7 +13,7 @@ dependencies:
   - jupyterlab
   - matplotlib
   - numpy
-  - pandas=1.5    # pandas version above this, have problems in rendering images after PandasTools.AddMoleculeColumnToFrame is called
+  - pandas=1.5
   - rdkit=2021.09
   - scikit-learn
   - seaborn
