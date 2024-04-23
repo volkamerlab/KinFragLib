@@ -1,6 +1,7 @@
 """
 Contains function to check the pairwise retrosynthesizability.
 """
+
 import multiprocessing as mp
 import pandas as pd
 import requests
@@ -108,64 +109,63 @@ def askcos_retro(smiles):
     cur_children1 = []
     cur_children2 = []
     cur_plausibilities = []
-    HOST = "https://askcos.mit.edu/"  # define ASKCOS host
+
+    HOST = "0.0.0.0"
+    PORT = "9100"  # define ASKCOSV2 host & port
+
     params = {
-        "smiles": smiles,  # required
-        # optional with defaults shown
-        "max_depth": 1,  # maximum number of reaction steps
-        "max_branching": 25,  # ?max number of branches are looked at to find "best"?
-        "expansion_time": 20,  # how long the expansion can run
-        "max_ppg": 100,  # maximum price per gram
-        "template_count": 100,
-        # "max_cum_prob"
-        # which common probability reached until no more templates are used
-        "max_cum_prob": 0.995,
-        # "chemical_property_logic"
-        # molecules are buyable or not, can be "none" (only price relevant),
-        # "and" (price and heavy atoms constraint) or
-        # "or" (one of both constraints is relevant)
-        "chemical_property_logic": "none",
-        # max heavy atom constraints if "and" or "or" is used in "chemical_property_logic"
-        "max_chemprop_c": 0,
-        "max_chemprop_n": 0,
-        "max_chemprop_o": 0,
-        "max_chemprop_h": 0,
-        # want to use popular chemicals as reasonable stopping points?
-        "chemical_popularity_logic": "none",
-        "min_chempop_reactants": 5,  # min frequency as popular reactant
-        "min_chempop_products": 5,  # min frequency as popular product
-        "filter_threshold": 0.75,
-        "return_first": "true",  # default is false
+        "smiles": "CCOc1ccc(Nc2cc(C)n[nH]2)cc1",
+        "expand_one_options": {
+            "template_count": 100,
+            "max_cum_template_prob": 0.995,
+            "filter_threshold": 0.75,
+        },
+        "build_tree_options": {
+            "expansion_time": 20,
+            "max_branching": 25,
+            "max_depth": 1,
+            "max_chemprop_c": 0,
+            "max_chemprop_n": 0,
+            "max_chemprop_o": 0,
+            "max_chemprop_h": 0,
+            "max_ppg": 100,  # maximum price per gram
+            "chemical_property_logic": "none",
+            "chemical_popularity_logic": "none",
+            "min_chempop_reactants": 5,  # min frequency as popular reactant
+            "min_chempop_products": 5,  # min frequency as popular product
+            "return_first": "true",  # default is false
+        },
     }
-    # get results from api
-    resp = requests.get(HOST + "/api/treebuilder/", params=params, verify=False)
+
+    resp = requests.post(
+        url=f"http://{HOST}:{PORT}/api/tree-search/mcts/call-sync-without-token",
+        json=params,  # ,
+        # verify=False
+    )
     retro = resp.json()
-
     # go through results and save them
-    if "trees" in retro:
-        if (len(retro["trees"])) > 0:
-            for num_tree in range(0, len(retro["trees"])):
-                if len(retro["trees"][num_tree]["children"][0]["children"]) == 2:
-                    plausibility = retro["trees"][0]["children"][0]["plausibility"]
-                    child1 = retro["trees"][num_tree]["children"][0]["children"][0][
-                        "smiles"
-                    ]
-                    child2 = retro["trees"][num_tree]["children"][0]["children"][1][
-                        "smiles"
-                    ]
-                    cur_children1.append(child1)
-                    cur_children2.append(child2)
-                    cur_plausibilities.append(plausibility)
+    if len(retro["result"]["paths"]):
+        pass
+        # find reactions
+        for path in retro["result"]["paths"]:
+            reactions = [node for node in path["nodes"] if node["type"] == "reaction"]
+            assert len(reactions) == 1  # max depth == 1
 
-        else:
-            cur_children1.append(None)
-            cur_children2.append(None)
-            cur_plausibilities.append(0)
+            children = reactions[0]["precursor_smiles"].split(".")
+            assert len(children) == 2
+
+            plausibility = reactions[0]["plausibility"]
+
+            cur_children1.append(children[0])
+            cur_children2.append(children[1])
+            cur_plausibilities.append(plausibility)
+
     # if no results retrieved save None/0
     else:
         cur_children1.append(None)
         cur_children2.append(None)
         cur_plausibilities.append(0)
+
     children1.append(cur_children1)
     children2.append(cur_children2)
     plausibilities.append(cur_plausibilities)
@@ -174,6 +174,7 @@ def askcos_retro(smiles):
         list(zip(pairs, children1, children2, plausibilities)),
         columns=["pair", "child 1", "child 2", "plausibility"],
     )
+
 
     return res
 
@@ -640,57 +641,107 @@ def compare_mols(para_result, pairs_frags_smiles):
                     if child1_mol.HasSubstructMatch(
                         frag1_mol
                     ) and child2_mol.HasSubstructMatch(frag2_mol):
-                        result_df = pd.concat([result_df, pd.DataFrame([{
-                                "fragment ids": frag_ids,
-                                "fragment 1": cur_frag1_smiles,
-                                "fragment 2": cur_frag2_smiles,
-                                "pair": cur_pair_smiles,
-                                "child 1": child1_smiles,
-                                "child 2": child2_smiles,
-                                "plausibility": cur_probs[num_cur_smiles],
-                            }])], ignore_index=True)
+                        result_df = pd.concat(
+                            [
+                                result_df,
+                                pd.DataFrame(
+                                    [
+                                        {
+                                            "fragment ids": frag_ids,
+                                            "fragment 1": cur_frag1_smiles,
+                                            "fragment 2": cur_frag2_smiles,
+                                            "pair": cur_pair_smiles,
+                                            "child 1": child1_smiles,
+                                            "child 2": child2_smiles,
+                                            "plausibility": cur_probs[num_cur_smiles],
+                                        }
+                                    ]
+                                ),
+                            ],
+                            ignore_index=True,
+                        )
                     elif child1_mol.HasSubstructMatch(
                         frag2_mol
                     ) and child2_mol.HasSubstructMatch(frag1_mol):
-                        result_df = pd.concat([result_df, pd.DataFrame([{
-                                "fragment ids": frag_ids,
-                                "fragment 1": cur_frag1_smiles,
-                                "fragment 2": cur_frag2_smiles,
-                                "pair": cur_pair_smiles,
-                                "child 1": child2_smiles,
-                                "child 2": child1_smiles,
-                                "plausibility": cur_probs[num_cur_smiles],
-                            }])], ignore_index=True)
+                        result_df = pd.concat(
+                            [
+                                result_df,
+                                pd.DataFrame(
+                                    [
+                                        {
+                                            "fragment ids": frag_ids,
+                                            "fragment 1": cur_frag1_smiles,
+                                            "fragment 2": cur_frag2_smiles,
+                                            "pair": cur_pair_smiles,
+                                            "child 1": child2_smiles,
+                                            "child 2": child1_smiles,
+                                            "plausibility": cur_probs[num_cur_smiles],
+                                        }
+                                    ]
+                                ),
+                            ],
+                            ignore_index=True,
+                        )
                     else:
-                        different_structure_df = pd.concat([different_structure_df, pd.DataFrame([{
-                                "fragment ids": frag_ids,
-                                "fragment 1": cur_frag1_smiles,
-                                "fragment 2": cur_frag2_smiles,
-                                "pair": cur_pair_smiles,
-                                "diff child 1": child2_smiles,
-                                "diff child 2": child1_smiles,
-                                "plausibility": cur_probs[num_cur_smiles],
-                            }])], ignore_index=True)
+                        different_structure_df = pd.concat(
+                            [
+                                different_structure_df,
+                                pd.DataFrame(
+                                    [
+                                        {
+                                            "fragment ids": frag_ids,
+                                            "fragment 1": cur_frag1_smiles,
+                                            "fragment 2": cur_frag2_smiles,
+                                            "pair": cur_pair_smiles,
+                                            "diff child 1": child2_smiles,
+                                            "diff child 2": child1_smiles,
+                                            "plausibility": cur_probs[num_cur_smiles],
+                                        }
+                                    ]
+                                ),
+                            ],
+                            ignore_index=True,
+                        )
                 else:
-                    result_df = pd.concat([result_df, pd.DataFrame([{
-                            "fragment ids": frag_ids,
-                            "fragment 1": cur_frag1_smiles,
-                            "fragment 2": cur_frag2_smiles,
-                            "pair": cur_pair_smiles,
-                            "child 1": None,
-                            "child 2": None,
-                            "plausibility": 0,
-                        }])], ignore_index=True)
+                    result_df = pd.concat(
+                        [
+                            result_df,
+                            pd.DataFrame(
+                                [
+                                    {
+                                        "fragment ids": frag_ids,
+                                        "fragment 1": cur_frag1_smiles,
+                                        "fragment 2": cur_frag2_smiles,
+                                        "pair": cur_pair_smiles,
+                                        "child 1": None,
+                                        "child 2": None,
+                                        "plausibility": 0,
+                                    }
+                                ]
+                            ),
+                        ],
+                        ignore_index=True,
+                    )
             else:
-                result_df = pd.concat([result_df, pd.DataFrame([{
-                        "fragment ids": frag_ids,
-                        "fragment 1": cur_frag1_smiles,
-                        "fragment 2": cur_frag2_smiles,
-                        "pair": cur_pair_smiles,
-                        "child 1": None,
-                        "child 2": None,
-                        "plausibility": 0,
-                    }])], ignore_index=True)
+                result_df = pd.concat(
+                    [
+                        result_df,
+                        pd.DataFrame(
+                            [
+                                {
+                                    "fragment ids": frag_ids,
+                                    "fragment 1": cur_frag1_smiles,
+                                    "fragment 2": cur_frag2_smiles,
+                                    "pair": cur_pair_smiles,
+                                    "child 1": None,
+                                    "child 2": None,
+                                    "plausibility": 0,
+                                }
+                            ]
+                        ),
+                    ],
+                    ignore_index=True,
+                )
 
     return [result_df, different_structure_df]
 
@@ -1023,7 +1074,6 @@ def get_pairs(valids, bonds, fragment_library):
 
 
 def checkvalid(data, fragment_library):
-
     """
     Function for checking if the fragment pairs are valid and can build connections.
 
@@ -1079,7 +1129,6 @@ def checkvalid(data, fragment_library):
 
 
 def get_valid_pairs(fragment_library):
-
     """
     *copied and adapted from kinase_focused_fragment_library*
     Function preparing the fragment library to build pairs.
@@ -1158,7 +1207,6 @@ def get_valid_pairs(fragment_library):
 
 
 def get_tuple(fragment, dummy_atoms):
-
     """
     **copied from https://github.com/volkamerlab/KinaseFocusedFragmentLibrary/blob/b7e684c26f75efffc2a9ba2383c9027cdd4c29a3/kinase_focused_fragment_library/recombination/classes_meta.py**  # noqa: E501
     For a given fragment, returns:
@@ -1197,7 +1245,6 @@ def get_tuple(fragment, dummy_atoms):
 
 
 class Compound:
-
     """
     **copied from https://github.com/volkamerlab/KinaseFocusedFragmentLibrary/blob/b7e684c26f75efffc2a9ba2383c9027cdd4c29a3/kinase_focused_fragment_library/recombination/classes_meta.py**  # noqa: E501
     Represents a combination of fragments including its dummy atoms
@@ -1223,7 +1270,6 @@ class Compound:
 
 
 class Fragment:
-
     """
     **copied from https://github.com/volkamerlab/KinaseFocusedFragmentLibrary/blob/b7e684c26f75efffc2a9ba2383c9027cdd4c29a3/kinase_focused_fragment_library/recombination/classes_meta.py**  # noqa: E501
     Represents a single fragment from the fragment library
@@ -1245,7 +1291,6 @@ class Fragment:
 
 
 class Port:
-
     """
     **copied from https://github.com/volkamerlab/KinaseFocusedFragmentLibrary/blob/b7e684c26f75efffc2a9ba2383c9027cdd4c29a3/kinase_focused_fragment_library/recombination/classes_meta.py**  # noqa: E501
     Represents a single dummy atom
@@ -1276,7 +1321,6 @@ class Port:
 
 
 class Combination:
-
     """
     **copied from https://github.com/volkamerlab/KinaseFocusedFragmentLibrary/blob/b7e684c26f75efffc2a9ba2383c9027cdd4c29a3/kinase_focused_fragment_library/recombination/classes_meta.py**  # noqa: E501
     Comparable representation of a combination of fragments
