@@ -114,7 +114,7 @@ def askcos_retro(smiles):
     PORT = "9100"  # define ASKCOSV2 host & port
 
     params = {
-        "smiles": "CCOc1ccc(Nc2cc(C)n[nH]2)cc1",
+        "smiles": smiles,
         "expand_one_options": {
             "template_count": 100,
             "max_cum_template_prob": 0.995,
@@ -143,6 +143,7 @@ def askcos_retro(smiles):
         # verify=False
     )
     retro = resp.json()
+
     # go through results and save them
     if len(retro["result"]["paths"]):
         pass
@@ -152,13 +153,18 @@ def askcos_retro(smiles):
             assert len(reactions) == 1  # max depth == 1
 
             children = reactions[0]["precursor_smiles"].split(".")
-            assert len(children) == 2
 
-            plausibility = reactions[0]["plausibility"]
+            # only add if askcos could retrieve 2 children for reaction
+            if len(children) == 2:
+                plausibility = reactions[0]["plausibility"]
 
-            cur_children1.append(children[0])
-            cur_children2.append(children[1])
-            cur_plausibilities.append(plausibility)
+                cur_children1.append(children[0])
+                cur_children2.append(children[1])
+                cur_plausibilities.append(plausibility)
+            else:
+                cur_children1.append(None)
+                cur_children2.append(None)
+                cur_plausibilities.append(0)
 
     # if no results retrieved save None/0
     else:
@@ -174,7 +180,6 @@ def askcos_retro(smiles):
         list(zip(pairs, children1, children2, plausibilities)),
         columns=["pair", "child 1", "child 2", "plausibility"],
     )
-
 
     return res
 
