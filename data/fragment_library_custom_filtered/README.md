@@ -1,4 +1,4 @@
-#Custom filtered fragment library
+# Custom filtered fragment library
 
 The (full) fragment library resulting from the KinFragLib fragmentation procedure comprises 7486 fragments, which are the basis for exploring the subpocket-based chemical space of ligands co-crystallized with kinases (see `data/fragment_library/`).
 
