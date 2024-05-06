@@ -27,9 +27,9 @@ This repository holds the following resources:
 
     3.1. Notebooks covering the full analyses regarding the fragment and combinatorial libraries as described in 
           the corresponding paper.  
-    3.2. WIP: Notebooks providing a custom filtering framework to reduce the fragment library size.
+    3.2. Notebooks providing a custom filtering framework to reduce the fragment library size.
     
-Please find detailed description of files in `data/` and `notebooks/` in the folders' `README` files.
+Please find detailed descriptions of files in `data/` and `notebooks/` in the folders' `README` files.
 
 ## Description
 
@@ -37,7 +37,7 @@ Please find detailed description of files in `data/` and `notebooks/` in the fol
 
 Protein kinases play a crucial role in many cell signaling processes, 
 making them one of the most important families of drug targets.
-Fragment-based drug design has proven useful as one approach to develop novel kinase inhibitors. 
+Fragment-based drug design has proven useful as one approach to developing novel kinase inhibitors. 
 Usually, fragment-based methods follow a knowledge-driven approach, i.e., optimizing a focused set of fragments into 
 molecular hits. 
 
@@ -49,10 +49,10 @@ well as back pocket 1 and 2 (B1 and B2), based on defined pocket-spanning residu
 Each co-crystallized ligand is fragmented using the BRICS algorithm and its fragments are assigned to the respective 
 subpocket they occupy. 
 Following this approach, a fragment library is created with respective subpocket pools. This fragment library enables 
-an in-depth analysis of the chemical space of known kinase inhibitors, and can be used to enumerate recombined 
+an in-depth analysis of the chemical space of known kinase inhibitors and can be used to enumerate recombined 
 fragments in order to generate novel potential inhibitors.
 
-WIP: Custom KinFragLib provides a pipeline to filter the fragments in KinFragLib checking for unwanted substructures (PAINS and Brenk et al.), lead-/drug-likeness (Rule of Three and QED), synthesizability (similarity to buyable building blocks and SYBA) and pairwise retrosynthesizability. Each filter can be (de-)activated and the parameters can be modified by the user to create a customized filtered fragment library. 
+We have added an extension with *CustomKinFragLib* which provides a pipeline to filter the fragments in KinFragLib checking for unwanted substructures (PAINS and Brenk et al.), lead-/drug-likeness (Rule of Three and QED), synthesizability (similarity to buyable building blocks and SYBA) and pairwise retrosynthesizability. Each filter can be (de-)activated and the parameters can be modified by the user to create a customized filtered fragment library. 
 
 ## Quick start
 
@@ -103,7 +103,7 @@ We are looking forward to hearing from you!
 
 ## License
 
-This resource is licensed under the [MIT](https://opensource.org/licenses/MIT) license, a permissive open source license.
+This resource is licensed under the [MIT](https://opensource.org/licenses/MIT) license, a permissive open-source license.
 
 ## Citation
 
