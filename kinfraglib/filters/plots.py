@@ -53,14 +53,16 @@ def make_hists(
     # create one plot for each subpocket
     for i in range(0, 2):
         for j in range(0, int((num_plots) / 2)):
-            if (i * 4) + j < num_plots:
+            if (i * 4) + j <= num_plots and subpocket_num < len(
+                fragment_library.keys()
+            ):
                 ax = plt.subplot(gs[i, j])
                 ax.hist(
                     fragment_library[keys[subpocket_num]][colname],
                     facecolor="#04D8B2",
                     edgecolor="#808080",
                 )
-                ax.set_title(keys[((i * 4) + j)])
+                ax.set_title(keys[subpocket_num])
                 if (
                     plot_stats
                 ):  # add statistics box (max, min, mean value per subpocket)
