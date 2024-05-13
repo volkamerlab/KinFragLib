@@ -1374,12 +1374,9 @@ def save_fragment_library_to_sdfs(path_output, fragment_library_concat):
     path_output.mkdir(parents=True, exist_ok=True)
 
     for subpocket, fragments in fragment_library_concat.groupby("subpocket"):
-
-        with open(path_output / f"{subpocket}.sdf", "w") as f:
-            w = Chem.SDWriter(f)
+        with Chem.SDWriter(str(path_output / f"{subpocket}.sdf")) as w:
             for mol in fragments.ROMol_original:
                 w.write(mol)
-            w.close()
 
 
 def save_filter_results(fragment_library, columns, PATH_DATA_CUSTOM):
