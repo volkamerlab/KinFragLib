@@ -98,9 +98,13 @@ def start_pipeline(
         os.makedirs(dir)
 
     PATH_DATA_CUSTOM = pathlib.Path(dir)    # define Path to custom data
+    
+    # to prevent showing personal paths in the notebooks
+    dir_print_version = str(dir).split("../../")[1] if len(str(dir).split("../../")) == 2 else dir
 
     print(
-        "Your custom kinfraglib, the chosen parameters log file and the filtering results will be stored in " + str(PATH_DATA_CUSTOM)    # noqa E501
+        "Your custom kinfraglib, the chosen parameters log file and the filtering results will be stored in " 
+        + dir_print_version   # noqa E501
     )
     # save chosen parameters in created timestamp dir to save log file and created library
     param_list = [
