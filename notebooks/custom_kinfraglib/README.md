@@ -22,3 +22,5 @@ single filtering steps and modify the parameters.
 This notebook analyzes the custom-filtered fragment library and compares it with the pre-filtered and the reduced fragment set from the previous study.
 ### `2_3_custom_filters_paper.ipynb` 
 This notebook contains all the code used to generate figures for the CustomKinFragLib paper. 
+## Requirements
+To succesfully apply the pairwise retrosynthesizability filters in `1_4_custom_filters_pairwise_retrosynthesizability.ipynb` and `2_1_custom_filters_pipeline.ipynb`, the ASCKOS API might need to be installed following the [Documenation](https://askcos-docs.mit.edu/guide/1-Introduction/1.1-Introduction.html). Note that for the data used in the notebooks, neccessary results from ASKCOS are already precomputed. Thus, ASKCOS does not need to be installed in that case. However, if the data is modified ASCKOS needs to be installed and running (using `make start` within the `askcos2_core` directory which is obtained following the [installion](https://askcos-docs.mit.edu/guide/1-Introduction/1.1-Introduction.html)).
