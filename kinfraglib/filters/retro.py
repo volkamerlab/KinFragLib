@@ -117,30 +117,44 @@ def askcos_retro(smiles):
         "smiles": smiles,
         "expand_one_options": {
             "template_count": 100,
+            # which common probability reached until no more templates are used
             "max_cum_template_prob": 0.995,
             "filter_threshold": 0.75,
         },
         "build_tree_options": {
+            # how long the expansion can run
             "expansion_time": 20,
+            # max number of branches are looked at to find "best"
             "max_branching": 25,
+            # maximum number of reaction steps
             "max_depth": 1,
+            # max heavy atom constraints if "and" or "or" is used in "chemical_property_logic"
             "max_chemprop_c": 0,
             "max_chemprop_n": 0,
             "max_chemprop_o": 0,
             "max_chemprop_h": 0,
-            "max_ppg": 100,  # maximum price per gram
+            # maximum price per gram
+            "max_ppg": 100,
+            # "chemical_property_logic"
+            # molecules are buyable or not, can be "none" (only price relevant),
+            # "and" (price and heavy atoms constraint) or
+            # "or" (one of both constraints is relevant)
             "chemical_property_logic": "none",
+            # want to use popular chemicals as reasonable stopping points?
             "chemical_popularity_logic": "none",
-            "min_chempop_reactants": 5,  # min frequency as popular reactant
-            "min_chempop_products": 5,  # min frequency as popular product
-            "return_first": "true",  # default is false
+            # min frequency as popular reactant
+            "min_chempop_reactants": 5,
+            # min frequency as popular product
+            "min_chempop_products": 5,
+            # default is false
+            "return_first": "true",
         },
     }
 
     resp = requests.post(
         url=f"http://{HOST}:{PORT}/api/tree-search/mcts/call-sync-without-token",
-        json=params,  # ,
-        # verify=False
+        json=params,
+        verify=False,
     )
     retro = resp.json()
 
