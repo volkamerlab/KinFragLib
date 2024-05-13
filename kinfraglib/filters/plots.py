@@ -75,7 +75,8 @@ def make_hists(
                             round(
                                 statistics.mean(
                                     fragment_library[keys[subpocket_num]][colname]
-                                )
+                                ),
+                                ndigits=2,
                             )
                         ),  # noqa: E501
                     )
