@@ -53,14 +53,16 @@ def make_hists(
     # create one plot for each subpocket
     for i in range(0, 2):
         for j in range(0, int((num_plots) / 2)):
-            if (i * 4) + j < num_plots:
+            if (i * 4) + j <= num_plots and subpocket_num < len(
+                fragment_library.keys()
+            ):
                 ax = plt.subplot(gs[i, j])
                 ax.hist(
                     fragment_library[keys[subpocket_num]][colname],
                     facecolor="#04D8B2",
                     edgecolor="#808080",
                 )
-                ax.set_title(keys[((i * 4) + j)])
+                ax.set_title(keys[subpocket_num])
                 if (
                     plot_stats
                 ):  # add statistics box (max, min, mean value per subpocket)
@@ -73,7 +75,8 @@ def make_hists(
                             round(
                                 statistics.mean(
                                     fragment_library[keys[subpocket_num]][colname]
-                                )
+                                ),
+                                ndigits=2,
                             )
                         ),  # noqa: E501
                     )
@@ -122,6 +125,13 @@ def make_retro_hists(
     cutoff : int or float
         cutoff value for drawing a cutoff line to the plots
     """
+    # only consider subpockets that are not empty after filtering
+    fragment_library = {
+        sp: data
+        for sp, data in fragment_library.items()
+        if any(fragment_library[sp][colname])
+    }
+
     # get even number if number of plots not even
     num_plots = round(len(fragment_library.keys()) + 0.5)
     plt.figure(figsize=(25, 29))
@@ -130,7 +140,9 @@ def make_retro_hists(
     subpocket_num = 0
     for i in range(0, 2):
         for j in range(0, int((num_plots) / 2)):
-            if (i * 4) + j <= num_plots:
+            if (i * 4) + j <= num_plots and subpocket_num < len(
+                fragment_library.keys()
+            ):
                 cur_data = fragment_library[keys[subpocket_num]][colname]
                 cur_binsize = round(max(cur_data) / 9)
                 bin_lst = list(range(0, max(cur_data) + cur_binsize, cur_binsize))
@@ -240,6 +252,8 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
             "%s %s fragments with no retrosynthetic route found"
             % (num_fragments, subpocket)
         )
+        if num_fragments == 0:
+            return
         img = Draw.MolsToGridImage(
             pd.Series(
                 fragment_library[subpocket][
@@ -272,6 +286,8 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
                 subpocket,
             )
         )
+        if num_fragments == 0:
+            return
         print("legend: number of retrosynthetic routes found")
         img = Draw.MolsToGridImage(
             pd.Series(
