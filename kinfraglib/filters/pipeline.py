@@ -1,6 +1,7 @@
 """
 Contains function to start the filters using the pipeline
 """
+
 from kinfraglib import filters
 import pandas as pd
 from IPython.display import display
@@ -8,8 +9,8 @@ import warnings
 import os
 import datetime
 import pathlib
-import json     # noqa F401
-import copy     # noqa F401
+import json  # noqa F401
+import copy  # noqa F401
 
 
 def start_pipeline(
@@ -91,20 +92,22 @@ def start_pipeline(
             num_passing = num_filters
     dir = os.path.join(
         global_parameters.get("custom_path"),
-        datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'),
+        datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"),
     )
 
     if not os.path.exists(dir):
         os.makedirs(dir)
 
-    PATH_DATA_CUSTOM = pathlib.Path(dir)    # define Path to custom data
-    
+    PATH_DATA_CUSTOM = pathlib.Path(dir)  # define Path to custom data
+
     # to prevent showing personal paths in the notebooks
-    dir_print_version = str(dir).split("../../")[1] if len(str(dir).split("../../")) == 2 else dir
+    dir_print_version = (
+        str(dir).split("../../")[1] if len(str(dir).split("../../")) == 2 else dir
+    )
 
     print(
-        "Your custom kinfraglib, the chosen parameters log file and the filtering results will be stored in " 
-        + dir_print_version   # noqa E501
+        "Your custom kinfraglib, the chosen parameters log file and the filtering results will be stored in "
+        + dir_print_version  # noqa E501
     )
     # save chosen parameters in created timestamp dir to save log file and created library
     param_list = [
@@ -121,15 +124,19 @@ def start_pipeline(
     for curdict in param_list:
         cur_dict = eval("copy.deepcopy(" + curdict + ")")
         for key in eval(curdict + ".keys()"):
-            if eval("isinstance(cur_dict[\"" + key + "\"], pathlib.Path)"):
+            if eval('isinstance(cur_dict["' + key + '"], pathlib.Path)'):
                 new_path = {key: str(cur_dict[key])}  # noqa F841
                 cur_dict.update(new_path)
                 cur_dict[key] = str(cur_dict[key])
-        with open(PATH_DATA_CUSTOM / "custom_filtering_parameters.log", 'a+') as fp:
+        with open(PATH_DATA_CUSTOM / "custom_filtering_parameters.log", "a+") as fp:
             fp.write(curdict + ": ")
 
-        eval("json.dump(cur_dict, open(\"" + str(PATH_DATA_CUSTOM) + "/custom_filtering_parameters.log\", \"a+\"))")     # noqa E501
-        with open(PATH_DATA_CUSTOM / "custom_filtering_parameters.log", 'a+') as fp:
+        eval(
+            'json.dump(cur_dict, open("'
+            + str(PATH_DATA_CUSTOM)
+            + '/custom_filtering_parameters.log", "a+"))'
+        )  # noqa E501
+        with open(PATH_DATA_CUSTOM / "custom_filtering_parameters.log", "a+") as fp:
             fp.write("\n")
 
     save_cols = []  # variable to store filter columns that are created during filtering
@@ -153,7 +160,10 @@ def start_pipeline(
                 axis=1,
             )
             num_fragments_pains = pd.concat(
-                [num_fragments_pains, num_fragments_pains.sum().rename("Total").to_frame().T]
+                [
+                    num_fragments_pains,
+                    num_fragments_pains.sum().rename("Total").to_frame().T,
+                ]
             )
             display(num_fragments_pains)
     # if brenk_filter is activated, apply brenk filter with the given parameters
@@ -177,7 +187,10 @@ def start_pipeline(
                 axis=1,
             )
             num_fragments_brenk = pd.concat(
-                [num_fragments_brenk, num_fragments_brenk.sum().rename("Total").to_frame().T]
+                [
+                    num_fragments_brenk,
+                    num_fragments_brenk.sum().rename("Total").to_frame().T,
+                ]
             )
             display(num_fragments_brenk)
 
@@ -205,7 +218,10 @@ def start_pipeline(
                 axis=1,
             )
             num_fragments_ro3 = pd.concat(
-                [num_fragments_ro3, num_fragments_ro3.sum().rename("Total").to_frame().T]
+                [
+                    num_fragments_ro3,
+                    num_fragments_ro3.sum().rename("Total").to_frame().T,
+                ]
             )
             display(num_fragments_ro3)
 
@@ -236,7 +252,10 @@ def start_pipeline(
                 axis=1,
             )
             num_fragments_qed = pd.concat(
-                [num_fragments_qed, num_fragments_qed.sum().rename("Total").to_frame().T]
+                [
+                    num_fragments_qed,
+                    num_fragments_qed.sum().rename("Total").to_frame().T,
+                ]
             )
             display(num_fragments_qed)
 
@@ -302,7 +321,10 @@ def start_pipeline(
                 axis=1,
             )
             num_fragments_syba = pd.concat(
-                [num_fragments_syba, num_fragments_syba.sum().rename("Total").to_frame().T]
+                [
+                    num_fragments_syba,
+                    num_fragments_syba.sum().rename("Total").to_frame().T,
+                ]
             )
             display(num_fragments_syba)
         if syba_parameters.get("do_plot"):
@@ -415,14 +437,16 @@ def start_pipeline(
                     subpocket=subpocket,
                     molsPerRow=10,
                 )
-                display(plt1)
+                if plt1:
+                    display(plt1)
                 plt2 = filters.plots.retro_routes_fragments(
                     fragment_library,
                     evaluate="max",
                     subpocket=subpocket,
                     molsPerRow=10,
                 )
-                display(plt2)
+                if plt2:
+                    display(plt2)
 
         # load results from filtering steps and add the pairwise retrosynthesizability results
         saved_filter_results = pd.read_csv(
@@ -448,7 +472,7 @@ def start_pipeline(
         )
 
     # save the filtered fragment library
-    print("Save custom filtered fragment library to %s" % str(PATH_DATA_CUSTOM))
+    print("Save custom filtered fragment library to %s" % str(dir_print_version))
     for subpocket in fragment_library.keys():
         fragment_library[subpocket].drop(
             fragment_library[subpocket]
@@ -457,7 +481,9 @@ def start_pipeline(
             inplace=True,
         )
     # remove fragments not passing the retro-filter
-    fragment_library_concat = fragment_library_concat[fragment_library_concat["bool_retro"] == 1]
+    fragment_library_concat = fragment_library_concat[
+        fragment_library_concat["bool_retro"] == 1
+    ]
     filters.retro.save_fragment_library_to_sdfs(
         PATH_DATA_CUSTOM,
         fragment_library_concat,
