@@ -18,15 +18,13 @@ dependencies:
   - scikit-learn
   - seaborn
   - opencadd
-  - importlib-metadata=7.1.0	# CI fails with version 8.0.0
-  - importlib_metadata=7.1.0	# CI fails with version 8.0.0
   ## CI tests
   - pytest=7.4
   - pytest-xdist
   - nbval
   - shyaml
   - pip:
-    - swagger_spec_validator==3.0.3 --force-reinstall	# CI fails with version 3.0.4
+    - swagger_spec_validator==3.0.3	# CI fails with version 3.0.4
     - black-nb
     # KinFragLib itself
     # - https://github.com/volkamerlab/kinfraglib/archive/master.tar.gz 
