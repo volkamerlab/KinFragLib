@@ -3,6 +3,7 @@ Contains function to check the pairwise retrosynthesizability.
 """
 
 import multiprocessing as mp
+import os
 import pandas as pd
 import requests
 import redo
@@ -1386,6 +1387,13 @@ def save_fragment_library_to_sdfs(path_output, fragment_library_concat):
 
     path_output = Path(path_output)
     path_output.mkdir(parents=True, exist_ok=True)
+
+    subpockets = ["AP", "SE", "FP", "GA", "B1", "B2", "X"]
+    # remove all {subpocket}.sdf files before writing to avoid death files
+    for subpocket in subpockets:
+        # check if files {subpocket}.sdf exists
+        if (path_output / f"{subpocket}.sdf").exists():
+            os.remove(path_output / f"{subpocket}.sdf")
 
     for subpocket, fragments in fragment_library_concat.groupby("subpocket"):
         with Chem.SDWriter(str(path_output / f"{subpocket}.sdf")) as w:

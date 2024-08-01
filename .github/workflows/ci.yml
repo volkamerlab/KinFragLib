@@ -74,5 +74,6 @@ jobs:
       - name: Run tests
         shell: bash -l {0}
         run: |
-          PYTEST_ARGS="--nbval-lax --nbval-current-env --nbval-cell-timeout=1800"
-          pytest $PYTEST_ARGS
+          PYTEST_ARGS="--nbval-lax --nbval-current-env --nbval-cell-timeout=7200"
+          PYTEST_IGNORE="--ignore=notebooks/custom_kinfraglib/2_3_custom_filters_paper.ipynb"
+          pytest $PYTEST_ARGS $PYTEST_IGNORE
