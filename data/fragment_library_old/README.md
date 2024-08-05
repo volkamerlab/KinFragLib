@@ -16,13 +16,13 @@ Please download the previous KinFragLib version from zenodo ([https://zenodo.org
 
 Fragments are organized by the subpockets they occupy. Each fragment subpocket pool is stored in an SDF file:
 
-	`AP.sdf`
-	`FP.sdf`
-	`GA.sdf`
-	`SE.sdf`
-	`B1.sdf`
-	`B2.sdf`
-	`X.sdf`
+	AP.sdf
+	FP.sdf
+	GA.sdf
+	SE.sdf
+	B1.sdf
+	B2.sdf
+	X.sdf
 
 Each fragment contains the following information:
 
@@ -36,13 +36,13 @@ co-crystallized with.
 - `atom.prop.subpocket`: Subpocket assignment for each of the fragment's atoms.
 - `atom.prop.environment`: BRICS environment IDs for each of the fragment's atoms.
 
-Please refer to `notebooks/1_1_quick_start.ipynb` on how to load and work with this dataset.
+Please refer to `notebooks/kinfraglib/1_1_quick_start.ipynb` on how to load and work with this dataset.
 
 ## Original ligands
 
 Original ligands that are composed of the fragments in the full fragment library are stored as a CSV file:
 
-    `original_ligands.csv`
+    original_ligands.csv
     
 Each ligand contains the following information:
 

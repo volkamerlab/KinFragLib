@@ -1,6 +1,6 @@
 # KinFragLib: Full fragment library
 
-The (full) fragment library resulting from the KinFragLib fragmentation procedure comprises of about 3,000 fragments, 
+The (full) fragment library resulting from the KinFragLib fragmentation procedure comprises about 3,000 fragments, 
 which are the basis for exploring the subpocket-based chemical space of ligands co-crystallized with kinases. 
 
 ## Fragment library
