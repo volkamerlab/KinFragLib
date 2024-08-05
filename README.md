@@ -10,12 +10,14 @@ You can retrieve the repository state for the published KinFragLib paper in rele
 
 ## Table of contents
 
-- [Description](#description)
 - [Repository content](#repository-content)
+- [Description](#description)
 - [Quick start](#quick-start)
 - [Contact](#contact)
 - [License](#license)
 - [Citation](#citation)
+- [List of publications](#list-of-publications)
+
 
 ## Repository content
 
@@ -25,9 +27,9 @@ This repository holds the following resources:
 2. *Quick start* notebook explaining how to load and use the fragment library.  
 3. Notebooks 
 
-    3.1. Notebooks covering the full analyses regarding the fragment and combinatorial libraries as described in 
+    3.1. *KinFragLib*: Notebooks covering the full analyses regarding the fragment and combinatorial libraries as described in 
           the corresponding paper.  
-    3.2. Notebooks providing a custom filtering framework to reduce the fragment library size.
+    3.2. *CustomKinFragLib*: Notebooks providing a custom filtering framework to reduce the fragment library size.
     
 Please find detailed descriptions of files in `data/` and `notebooks/` in the folders' `README` files.
 
@@ -52,7 +54,7 @@ Following this approach, a fragment library is created with respective subpocket
 an in-depth analysis of the chemical space of known kinase inhibitors and can be used to enumerate recombined 
 fragments in order to generate novel potential inhibitors.
 
-We have added an extension with *CustomKinFragLib* which provides a pipeline to filter the fragments in KinFragLib checking for unwanted substructures (PAINS and Brenk et al.), lead-/drug-likeness (Rule of Three and QED), synthesizability (similarity to buyable building blocks and SYBA) and pairwise retrosynthesizability. Each filter can be (de-)activated and the parameters can be modified by the user to create a customized filtered fragment library. 
+We have added an extension with *CustomKinFragLib* which provides a pipeline to filter the fragments in KinFragLib checking for unwanted substructures (PAINS and Brenk et al.), drug-likeness (Rule of Three and QED), synthesizability (similarity to buyable building blocks and SYBA) and pairwise retrosynthesizability. Each filter can be (de-)activated and the parameters can be modified by the user to create a customized filtered fragment library. 
 
 ## Quick start
 

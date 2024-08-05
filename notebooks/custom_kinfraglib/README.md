@@ -8,7 +8,7 @@ This notebook filters out fragments not fulfilling the Rule of Three and the Qua
 of Druglikeness (QED), which both reflect the molecular properties of the fragments.
 ### `1_3_custom_filters_synthesizability.ipynb`
 This notebook filters the fragments for synthesizability using a buyable building block
-filter and the SYnthetic Bayesian Accessibility (SYBA).
+filter and the SYnthetic Bayesian Accessibility (SYBA) score.
 ### `1_4_custom_filters_pairwise_retrosynthesizability.ipynb`
 This notebook builds fragment pairs using only those fragments that passed all custom filtering steps.
 Next, it uses the ASKCOS API to check if a one-step retrosynthetic route for this pair can be found and children, building this fragment pair, are returned from ASKCOS.
