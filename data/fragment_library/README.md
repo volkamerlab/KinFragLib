@@ -1,6 +1,6 @@
 # KinFragLib: Full fragment library
 
-The (full) fragment library resulting from the KinFragLib fragmentation procedure comprises of about 3,000 fragments, 
+The (full) fragment library resulting from the KinFragLib fragmentation procedure comprises about 3,000 fragments, 
 which are the basis for exploring the subpocket-based chemical space of ligands co-crystallized with kinases. 
 
 ## Fragment library
@@ -27,7 +27,7 @@ co-crystallized with.
 - `atom.prop.subpocket`: Subpocket assignment for each of the fragment's atoms.
 - `atom.prop.environment`: BRICS environment IDs for each of the fragment's atoms.
 
-Please refer to `notebooks/1_1_quick_start.ipynb` on how to load and work with this dataset.
+Please refer to `notebooks/kinfraglib/1_1_quick_start.ipynb` on how to load and work with this dataset.
 
 ## Original ligands
 
@@ -48,4 +48,4 @@ aC-helix conformation for the KLIFS structure that the ligand was co-crystallize
 - `smiles`:
 Ligand's SMILES string.
 
-Please refer to `notebooks/2_1_fragment_analysis_original_ligands.ipynb` where this data is generated.
+Please refer to `notebooks/kinfraglib/2_1_fragment_analysis_original_ligands.ipynb` where this data is generated.

@@ -1,6 +1,6 @@
 # KinFragLib: Kinase-focused fragment library
 
-[![GitHub Actions Build Status](https://github.com/volkamerlab/KinFragLib/workflows/CI/badge.svg)](https://github.com/volkamerlab/KinFragLib/actions?query=workflow%3ACI)
+[![GitHub Actions Build Status](https://github.com/volkamerlab/KinFragLib/actions/workflows/ci.yml/badge.svg)](https://github.com/volkamerlab/KinFragLib/actions?query=branch%3Amaster+workflow%3ACI)
 
 ![KinFragLib workflow](./docs/img/toc_github_kinfraglib.png)
 
@@ -10,12 +10,14 @@ You can retrieve the repository state for the published KinFragLib paper in rele
 
 ## Table of contents
 
-- [Description](#description)
 - [Repository content](#repository-content)
+- [Description](#description)
 - [Quick start](#quick-start)
 - [Contact](#contact)
 - [License](#license)
 - [Citation](#citation)
+- [List of publications](#list-of-publications)
+
 
 ## Repository content
 
@@ -23,10 +25,13 @@ This repository holds the following resources:
 
 1. Fragment library data and a link to the combinatorial library data.
 2. *Quick start* notebook explaining how to load and use the fragment library.  
-3. Notebooks covering the full analyses regarding the fragment and combinatorial libraries as described in 
-the corresponding paper.  
+3. Notebooks 
+
+    3.1. *KinFragLib*: Notebooks covering the full analyses regarding the fragment and combinatorial libraries as described in 
+          the corresponding paper.  
+    3.2. *CustomKinFragLib*: Notebooks providing a custom filtering framework to reduce the fragment library size.
     
-Please find detailed description of files in `data/` and `notebooks/` in the folders' `README` files.
+Please find detailed descriptions of files in `data/` and `notebooks/` in the folders' `README` files.
 
 ## Description
 
@@ -34,7 +39,7 @@ Please find detailed description of files in `data/` and `notebooks/` in the fol
 
 Protein kinases play a crucial role in many cell signaling processes, 
 making them one of the most important families of drug targets.
-Fragment-based drug design has proven useful as one approach to develop novel kinase inhibitors. 
+Fragment-based drug design has proven useful as one approach to developing novel kinase inhibitors. 
 Usually, fragment-based methods follow a knowledge-driven approach, i.e., optimizing a focused set of fragments into 
 molecular hits. 
 
@@ -46,8 +51,10 @@ well as back pocket 1 and 2 (B1 and B2), based on defined pocket-spanning residu
 Each co-crystallized ligand is fragmented using the BRICS algorithm and its fragments are assigned to the respective 
 subpocket they occupy. 
 Following this approach, a fragment library is created with respective subpocket pools. This fragment library enables 
-an in-depth analysis of the chemical space of known kinase inhibitors, and can be used to enumerate recombined 
+an in-depth analysis of the chemical space of known kinase inhibitors and can be used to enumerate recombined 
 fragments in order to generate novel potential inhibitors.
+
+We have added an extension with *CustomKinFragLib* which provides a pipeline to filter the fragments in KinFragLib checking for unwanted substructures (PAINS and Brenk et al.), drug-likeness (Rule of Three and QED), synthesizability (similarity to buyable building blocks and SYBA) and pairwise retrosynthesizability. Each filter can be (de-)activated and the parameters can be modified by the user to create a customized filtered fragment library. 
 
 ## Quick start
 
@@ -98,7 +105,7 @@ We are looking forward to hearing from you!
 
 ## License
 
-This resource is licensed under the [MIT](https://opensource.org/licenses/MIT) license, a permissive open source license.
+This resource is licensed under the [MIT](https://opensource.org/licenses/MIT) license, a permissive open-source license.
 
 ## Citation
 
@@ -144,7 +151,5 @@ Backenköhler M, Groß J, Wolf V, Volkamer A.
 *ChemRxiv* **2023**
 [10.26434/chemrxiv-2023-prk53](https://chemrxiv.org/engage/chemrxiv/article-details/658441f7e9ebbb4db96d98e8)  *This content is a preprint and has not been peer-reviewed.*
 - **Constructing Innovative Covalent and Noncovalent Compound Libraries: Insights from 3D Protein–Ligand Interactions** Xiaohe Xu, Weijie Han, Xiangzhen Ning, Chengdong Zang, Chengcheng Xu, Chen Zeng, Chengtao Pu, Yanmin Zhang, Yadong Chen, and Haichun Liu *Journal of Chemical Information and Modeling* **2024**[10.1021/acs.jcim.3c01689](https://pubs.acs.org/doi/10.1021/acs.jcim.3c01689)
-
-
 
 
