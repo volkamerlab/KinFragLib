@@ -26,7 +26,7 @@ dependencies:
   - nbval
   - shyaml
   - pip:
-    - swagger_spec_validator==3.0.3	# CI fails with version 3.0.4
+    - swagger_spec_validator==3.0.3 # CI fails with version 3.0.4
     - black-nb
     # KinFragLib itself
     # - https://github.com/volkamerlab/kinfraglib/archive/master.tar.gz 

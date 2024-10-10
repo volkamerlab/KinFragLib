@@ -37,7 +37,6 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v3
         with:
           python-version: ${{ matrix.cfg.python-version }}
-          miniforge-variant: Mambaforge
           miniforge-version: latest
           environment-file: environment.yml
           channels: conda-forge,defaults
