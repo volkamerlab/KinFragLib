@@ -324,18 +324,23 @@ def create_tsne_plots(fragment_library):
         `bool_custom`defining if the fragments are part of the subsets
 
     """
+    print("tsne begin")
     fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
     fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(
         MACCSkeys.GenMACCSKeys
     )
 
+    print("maccs done")
     pca = PCA(n_components=50)
     crds = pca.fit_transform(list(fragment_library_concat["maccs"]))
+
+    print("PCA done")
 
     crds_embedded = TSNE(
         n_components=2, init="pca", learning_rate="auto"
     ).fit_transform(crds)
 
+    print("tsne done")
     tsne_df = pd.DataFrame(crds_embedded, columns=["X", "Y"])
     # add bool column from filtering steps here
     tsne_df["reduced"] = fragment_library_concat["bool_reduced"]
