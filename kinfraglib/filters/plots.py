@@ -332,9 +332,9 @@ def debug_tsne(fragment_library):
     pca = PCA(n_components=50)
     crds = pca.fit_transform(list(fragment_library_concat["maccs"]))
 
-    crds_embedded = TSNE(
-        n_components=2, init="pca", learning_rate="auto"
-    ).fit_transform(crds)
+    # crds_embedded = TSNE(
+    #    n_components=2, init="pca", learning_rate="auto"
+    # ).fit_transform(crds)
 
 
 def create_tsne_plots(fragment_library):
