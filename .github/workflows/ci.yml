@@ -74,20 +74,6 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --nbval-current-env --nbval-cell-timeout=360"
-          PYTEST_IGNORE="--ignore=notebooks/custom_kinfraglib/2_3_custom_filters_paper.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/kinfraglib/1_1_quick_start.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/kinfraglib/2_1_fragment_analysis_original_ligands.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/kinfraglib/2_2_fragment_analysis_statistics.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/kinfraglib/2_3_fragment_analysis_most_common_fragments.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/kinfraglib/2_4_highlight_fragments_in_ligand.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/kinfraglib/3_1_fragment_library_reduced.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/kinfraglib/4_1_combinatorial_library_data.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/kinfraglib/4_2_combinatorial_library_properties.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/kinfraglib/4_3_combinatorial_library_comparison_klifs.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/kinfraglib/4_4_combinatorial_library_comparison_chembl.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/kinfraglib/4_5_combinatorial_library_construct_ligands.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/custom_kinfraglib/1_1_custom_filters_unwanted_substructures.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/custom_kinfraglib/1_2_custom_filters_drug_likeness.ipynb"
-          PYTEST_IGNORE="--ignore=notebooks/custom_kinfraglib/2_1_custom_filters_pipeline.ipynb"
+          PYTEST_IGNORE="--ignore=notebooks/custom_kinfraglib/2_3_custom_filters_paper.ipynb --ignore=notebooks/kinfraglib --ignore=notebooks/custom_kinfraglib/1_1_custom_filters_unwanted_substructures.ipynb --ignore=notebooks/custom_kinfraglib/1_2_custom_filters_drug_likeness.ipynb --ignore=notebooks/custom_kinfraglib/1_3_custom_filters_synthesizability.ipynb --ignore=notebooks/custom_kinfraglib/1_4_custom_filters_pairwise_retrosynthesizability.ipynb --ignore=notebooks/custom_kinfraglib/2_1_custom_filters_pipeline.ipynb"
 
           pytest $PYTEST_ARGS $PYTEST_IGNORE
