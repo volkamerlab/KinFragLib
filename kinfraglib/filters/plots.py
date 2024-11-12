@@ -310,6 +310,33 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
         return img
 
 
+def debug_tsne(fragment_library):
+    """
+    Creates t-SNE plots comparing
+    a) pre-filtered and reduced fragment library
+    b) pre-filtered and custom filtered fragment library
+    c) pre-filtered, reduced and custom fragment library
+
+    and prints number of fragments in the subsets.
+    ----------
+    fragment_library : dict
+        fragment library organized in subpockets containing boolean columuns `bool_reduced`and
+        `bool_custom`defining if the fragments are part of the subsets
+
+    """
+    fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
+    fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(
+        MACCSkeys.GenMACCSKeys
+    )
+
+    pca = PCA(n_components=50)
+    crds = pca.fit_transform(list(fragment_library_concat["maccs"]))
+
+    crds_embedded = TSNE(
+        n_components=2, init="pca", learning_rate="auto"
+    ).fit_transform(crds)
+
+
 def create_tsne_plots(fragment_library):
     """
     Creates t-SNE plots comparing
