@@ -310,7 +310,7 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
         return img
 
 
-def debug_tsne(fragment_library):
+def create_tsne_plots(fragment_library, sample):
     """
     Creates t-SNE plots comparing
     a) pre-filtered and reduced fragment library
@@ -322,52 +322,30 @@ def debug_tsne(fragment_library):
     fragment_library : dict
         fragment library organized in subpockets containing boolean columuns `bool_reduced`and
         `bool_custom`defining if the fragments are part of the subsets
+    sample : float
+        fraction of dataset to be sampled, `1.0` if the whole dataset should be plotted
 
     """
-    fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
+    fragment_library_subset = {}
+    if sample != 1.0:
+        for subpocket in fragment_library.keys():
+            sample_num = int(len(fragment_library[subpocket]) * sample)
+            fragment_library_subset[subpocket] = fragment_library[subpocket].sample(
+                sample_num, random_state=1
+            )
+
+    fragment_library_concat = pd.concat(fragment_library_subset).reset_index(drop=True)
     fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(
         MACCSkeys.GenMACCSKeys
     )
 
-    pca = PCA(n_components=50)
-    crds = pca.fit_transform(list(fragment_library_concat["maccs"]))[:1500]
-
-    crds_embedded = TSNE(
-        n_components=2, init="pca", learning_rate="auto", random_state=0
-    ).fit_transform(crds)
-
-
-def create_tsne_plots(fragment_library):
-    """
-    Creates t-SNE plots comparing
-    a) pre-filtered and reduced fragment library
-    b) pre-filtered and custom filtered fragment library
-    c) pre-filtered, reduced and custom fragment library
-
-    and prints number of fragments in the subsets.
-    ----------
-    fragment_library : dict
-        fragment library organized in subpockets containing boolean columuns `bool_reduced`and
-        `bool_custom`defining if the fragments are part of the subsets
-
-    """
-    print("tsne begin")
-    fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
-    fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(
-        MACCSkeys.GenMACCSKeys
-    )
-
-    print("maccs done")
     pca = PCA(n_components=50)
     crds = pca.fit_transform(list(fragment_library_concat["maccs"]))
-
-    print("PCA done")
 
     crds_embedded = TSNE(
         n_components=2, init="pca", learning_rate="auto"
     ).fit_transform(crds)
 
-    print("tsne done")
     tsne_df = pd.DataFrame(crds_embedded, columns=["X", "Y"])
     # add bool column from filtering steps here
     tsne_df["reduced"] = fragment_library_concat["bool_reduced"]
@@ -480,7 +458,7 @@ def create_tsne_plots(fragment_library):
     return tsne_df
 
 
-def create_tsne_plots_filters(fragment_library, saved_filter_results):
+def create_tsne_plots_filters(fragment_library, saved_filter_results, sample=1.0):
     """
     Creates t-SNE plots with accepted (green) and rejected (red) fragments for each filtering step.
 
@@ -489,9 +467,19 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results):
         fragment library organized in subpockets containing boolean columuns
     saved_filter_results : dataframe
         loaded file with saved filter results
+    sample : float
+        fraction of dataset to be sampled, `1.0` if the whole dataset should be plotted
 
     """
-    fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
+    fragment_library_subset = {}
+    if sample != 1.0:
+        for subpocket in fragment_library.keys():
+            sample_num = int(len(fragment_library[subpocket]) * sample)
+            fragment_library_subset[subpocket] = fragment_library[subpocket].sample(
+                sample_num, random_state=1
+            )
+
+    fragment_library_concat = pd.concat(fragment_library_subset).reset_index(drop=True)
     fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(
         MACCSkeys.GenMACCSKeys
     )
