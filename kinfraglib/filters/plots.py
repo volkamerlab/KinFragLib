@@ -500,24 +500,6 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results, sample=1.0
     if "bool_pains" in saved_filter_results.columns:
         tsne_df["pains"] = saved_filter_results["bool_pains"]
         filters.append("pains")
-    if "bool_brenk" in saved_filter_results.columns:
-        tsne_df["brenk"] = saved_filter_results["bool_brenk"]
-        filters.append("brenk")
-    if "bool_ro3" in saved_filter_results.columns:
-        tsne_df["ro3"] = saved_filter_results["bool_ro3"]
-        filters.append("ro3")
-    if "bool_qed" in saved_filter_results.columns:
-        tsne_df["qed"] = saved_filter_results["bool_qed"]
-        filters.append("qed")
-    if "bool_bb" in saved_filter_results.columns:
-        tsne_df["bb"] = saved_filter_results["bool_bb"]
-        filters.append("bb")
-    if "bool_syba" in saved_filter_results.columns:
-        tsne_df["syba"] = saved_filter_results["bool_syba"]
-        filters.append("syba")
-    if "bool_retro" in saved_filter_results.columns:
-        tsne_df["retro"] = saved_filter_results["bool_retro"]
-        filters.append("retro")
 
     tsne_df["smiles"] = saved_filter_results["smiles"]
 
