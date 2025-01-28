@@ -478,8 +478,11 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results, sample=1.0
             fragment_library_subset[subpocket] = fragment_library[subpocket].sample(
                 sample_num, random_state=1
             )
-
-    fragment_library_concat = pd.concat(fragment_library_subset).reset_index(drop=True)
+        fragment_library_concat = pd.concat(fragment_library_subset).reset_index(
+            drop=True
+        )
+    else:
+        fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
     fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(
         MACCSkeys.GenMACCSKeys
     )
@@ -519,11 +522,11 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results, sample=1.0
     tsne_df["smiles"] = saved_filter_results["smiles"]
 
     # create the plots for all filters
-    plt.figure(figsize=(15, 21))
+    # plt.figure(figsize=(15, 21))
     i = 0
     for filter in filters:
         i = i + 1
-        plt.subplot(4, 2, i)
+        # plt.subplot(4, 2, i)
         sns.scatterplot(
             data=tsne_df.query("%s == 1" % filter),
             x="X",
@@ -539,6 +542,7 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results, sample=1.0
             color="lightcoral",
             label="rejected",
         )
+        plt.show()
     return tsne_df
 
 
