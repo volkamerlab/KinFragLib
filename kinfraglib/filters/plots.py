@@ -311,6 +311,16 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
 
 
 def sample_subset(fragment_library, sample):
+    """
+    Samples a random subset of the given fragment library
+    ----------
+    fragment_library : dict
+        fragment library organized in subpockets
+    sample : float
+        fraction of data to be sampled
+
+    """
+
     fragment_library_subset = {}
     if sample != 1.0:
         for subpocket in fragment_library.keys():
@@ -323,18 +333,10 @@ def sample_subset(fragment_library, sample):
 
 def create_tsne_embeddings(fragment_library):
     """
-    Creates t-SNE plots comparing
-    a) pre-filtered and reduced fragment library
-    b) pre-filtered and custom filtered fragment library
-    c) pre-filtered, reduced and custom fragment library
-
-    and prints number of fragments in the subsets.
+    Creates the t-SNE embedding for all following t-SNE plots
     ----------
     fragment_library : dict
-        fragment library organized in subpockets containing boolean columuns `bool_reduced`and
-        `bool_custom`defining if the fragments are part of the subsets
-    sample : float
-        fraction of dataset to be sampled, `1.0` if the whole dataset should be plotted
+        fragment library organized in subpockets
 
     """
 
@@ -353,7 +355,21 @@ def create_tsne_embeddings(fragment_library):
 
 
 def create_tsne_plots(crds_embedded, fragment_library):
+    """
+    Creates t-SNE plots comparing
+    a) pre-filtered and reduced fragment library
+    b) pre-filtered and custom filtered fragment library
+    c) pre-filtered, reduced and custom fragment library
 
+    and prints number of fragments in the subsets.
+    ----------
+    crds_embedded : list
+        t-SNE embedding of the fragment library
+    fragment_library : dict
+        fragment library organized in subpockets containing boolean columuns `bool_reduced`and
+        `bool_custom`defining if the fragments are part of the subsets
+
+    """
     fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
     tsne_df = pd.DataFrame(crds_embedded, columns=["X", "Y"])
     # add bool column from filtering steps here
@@ -472,8 +488,10 @@ def create_tsne_plots_filters(crds_embedded, fragment_library, saved_filter_resu
     Creates t-SNE plots with accepted (green) and rejected (red) fragments for each filtering step.
 
     ----------
+    crds_embedded : list
+        t-SNE embeddings of the fragment library
     fragment_library : dict
-        fragment library organized in subpockets containing boolean columuns
+        fragment library organized in subpockets containing boolean columuns
     saved_filter_results : dataframe
         loaded file with saved filter results
 
