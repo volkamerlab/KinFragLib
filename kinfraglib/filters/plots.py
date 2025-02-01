@@ -343,7 +343,7 @@ def create_tsne_embeddings(fragment_library):
         MACCSkeys.GenMACCSKeys
     )
 
-    pca = PCA(n_components=50)
+    pca = PCA(n_components=30)
     crds = pca.fit_transform(list(fragment_library_concat["maccs"]))
 
     crds_embedded = TSNE(
