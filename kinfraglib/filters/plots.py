@@ -310,7 +310,18 @@ def retro_routes_fragments(fragment_library, evaluate, subpocket, molsPerRow=10)
         return img
 
 
-def create_tsne_plots(fragment_library, sample):
+def sample_subset(fragment_library, sample):
+    fragment_library_subset = {}
+    if sample != 1.0:
+        for subpocket in fragment_library.keys():
+            sample_num = int(len(fragment_library[subpocket]) * sample)
+            fragment_library_subset[subpocket] = fragment_library[subpocket].sample(
+                sample_num, random_state=1
+            )
+    return fragment_library_subset
+
+
+def create_tsne_embeddings(fragment_library):
     """
     Creates t-SNE plots comparing
     a) pre-filtered and reduced fragment library
@@ -326,15 +337,8 @@ def create_tsne_plots(fragment_library, sample):
         fraction of dataset to be sampled, `1.0` if the whole dataset should be plotted
 
     """
-    fragment_library_subset = {}
-    if sample != 1.0:
-        for subpocket in fragment_library.keys():
-            sample_num = int(len(fragment_library[subpocket]) * sample)
-            fragment_library_subset[subpocket] = fragment_library[subpocket].sample(
-                sample_num, random_state=1
-            )
 
-    fragment_library_concat = pd.concat(fragment_library_subset).reset_index(drop=True)
+    fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
     fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(
         MACCSkeys.GenMACCSKeys
     )
@@ -345,7 +349,12 @@ def create_tsne_plots(fragment_library, sample):
     crds_embedded = TSNE(
         n_components=2, init="pca", learning_rate="auto"
     ).fit_transform(crds)
+    return crds_embedded
 
+
+def create_tsne_plots(crds_embedded, fragment_library):
+
+    fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
     tsne_df = pd.DataFrame(crds_embedded, columns=["X", "Y"])
     # add bool column from filtering steps here
     tsne_df["reduced"] = fragment_library_concat["bool_reduced"]
@@ -458,7 +467,7 @@ def create_tsne_plots(fragment_library, sample):
     return tsne_df
 
 
-def create_tsne_plots_filters(fragment_library, saved_filter_results, sample=1.0):
+def create_tsne_plots_filters(crds_embedded, fragment_library, saved_filter_results):
     """
     Creates t-SNE plots with accepted (green) and rejected (red) fragments for each filtering step.
 
@@ -467,32 +476,16 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results, sample=1.0
         fragment library organized in subpockets containing boolean columuns
     saved_filter_results : dataframe
         loaded file with saved filter results
-    sample : float
-        fraction of dataset to be sampled, `1.0` if the whole dataset should be plotted
 
     """
-    fragment_library_subset = {}
-    if sample != 1.0:
-        for subpocket in fragment_library.keys():
-            sample_num = int(len(fragment_library[subpocket]) * sample)
-            fragment_library_subset[subpocket] = fragment_library[subpocket].sample(
-                sample_num, random_state=1
-            )
-        fragment_library_concat = pd.concat(fragment_library_subset).reset_index(
-            drop=True
-        )
-    else:
-        fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
-    fragment_library_concat["maccs"] = fragment_library_concat.ROMol.apply(
-        MACCSkeys.GenMACCSKeys
-    )
-
-    pca = PCA(n_components=50)
-    crds = pca.fit_transform(list(fragment_library_concat["maccs"]))
-
-    crds_embedded = TSNE(
-        n_components=2, init="pca", learning_rate="auto"
-    ).fit_transform(crds)
+    # get sampled subset from saved filter results
+    fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
+    bool_samples = [
+        i
+        for i, smi in enumerate(saved_filter_results["smiles"])
+        if smi in list(fragment_library_concat["smiles"])
+    ]
+    saved_filter_results = saved_filter_results.iloc[bool_samples]
 
     tsne_df = pd.DataFrame(crds_embedded, columns=["X", "Y"])
     # add bool column from filter steps
@@ -500,15 +493,33 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results, sample=1.0
     if "bool_pains" in saved_filter_results.columns:
         tsne_df["pains"] = saved_filter_results["bool_pains"]
         filters.append("pains")
+    if "bool_brenk" in saved_filter_results.columns:
+        tsne_df["brenk"] = saved_filter_results["bool_brenk"]
+        filters.append("brenk")
+    if "bool_ro3" in saved_filter_results.columns:
+        tsne_df["ro3"] = saved_filter_results["bool_ro3"]
+        filters.append("ro3")
+    if "bool_qed" in saved_filter_results.columns:
+        tsne_df["qed"] = saved_filter_results["bool_qed"]
+        filters.append("qed")
+    if "bool_bb" in saved_filter_results.columns:
+        tsne_df["bb"] = saved_filter_results["bool_bb"]
+        filters.append("bb")
+    if "bool_syba" in saved_filter_results.columns:
+        tsne_df["syba"] = saved_filter_results["bool_syba"]
+        filters.append("syba")
+    if "bool_retro" in saved_filter_results.columns:
+        tsne_df["retro"] = saved_filter_results["bool_retro"]
+        filters.append("retro")
 
     tsne_df["smiles"] = saved_filter_results["smiles"]
 
     # create the plots for all filters
-    # plt.figure(figsize=(15, 21))
+    plt.figure(figsize=(15, 21))
     i = 0
     for filter in filters:
         i = i + 1
-        # plt.subplot(4, 2, i)
+        plt.subplot(4, 2, i)
         sns.scatterplot(
             data=tsne_df.query("%s == 1" % filter),
             x="X",
@@ -524,7 +535,7 @@ def create_tsne_plots_filters(fragment_library, saved_filter_results, sample=1.0
             color="lightcoral",
             label="rejected",
         )
-        plt.show()
+        # plt.show()
     return tsne_df
 
 
