@@ -331,7 +331,7 @@ def sample_subset(fragment_library, sample):
     return fragment_library_subset
 
 
-def create_tsne_embeddings(fragment_library):
+def create_tsne_embeddings(fragment_library, n_components):
     """
     Creates the t-SNE embedding for all following t-SNE plots
     ----------
@@ -345,7 +345,7 @@ def create_tsne_embeddings(fragment_library):
         MACCSkeys.GenMACCSKeys
     )
 
-    pca = PCA(n_components=30)
+    pca = PCA(n_components)
     crds = pca.fit_transform(list(fragment_library_concat["maccs"]))
 
     crds_embedded = TSNE(
