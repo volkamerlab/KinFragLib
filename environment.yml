@@ -23,6 +23,7 @@ dependencies:
   ## CI tests
   - pytest=7.4
   - pytest-xdist
+  - pyparsing=3.1.4  # CI fails with version 3.2.0
   - nbval
   - shyaml
   - pip:
