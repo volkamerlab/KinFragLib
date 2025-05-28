@@ -152,8 +152,7 @@ def main():
     fragment_library = utils.read_fragment_library(PATH_FRAG_LIB)
     fragment_library = filters.prefilters.pre_filters(fragment_library)
     fragment_library = apply_enamine_filter(
-        fragment_library,
-        str(str(PATH_ENAMINE) + "/Enamine_Building_Blocks.sdf"),
+        fragment_library, "data/filters/Enamine/Enamine_Building_Blocks.sdf",
     )
     print(f"Done reading in fragment library")
     # SDF contains all building blocks downloaded from enamine website
