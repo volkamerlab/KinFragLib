@@ -39,6 +39,29 @@ def read_enamine_sdf(path):
     return library
 
 
+def neutralize_atoms(mol):
+    """Neutralize molecules (code taken from RDKit cookbook)
+
+    Args:
+        mol (RDKit Mol): input molecule
+
+    Returns:
+        RDKit mol: neutralized molecule
+    """
+    pattern = Chem.MolFromSmarts("[+1!h0!$([*]~[-1,-2,-3,-4]),-1!$([*]~[+1,+2,+3,+4])]")
+    at_matches = mol.GetSubstructMatches(pattern)
+    at_matches_list = [y[0] for y in at_matches]
+    if len(at_matches_list) > 0:
+        for at_idx in at_matches_list:
+            atom = mol.GetAtomWithIdx(at_idx)
+            chg = atom.GetFormalCharge()
+            hcount = atom.GetTotalNumHs()
+            atom.SetFormalCharge(0)
+            atom.SetNumExplicitHs(hcount - chg)
+            atom.UpdatePropertyCache()
+    return mol
+
+
 def substructure_search(queries, library, path):
     """
     Performs a substructure match for each query molecule against a library of molecules and
@@ -87,6 +110,17 @@ def write_to_file(path, mols):
     with Chem.SDWriter(path) as w:
         for m in mols:
             w.write(m)
+
+
+def apply_enamine_filter(fragment_library):
+    fragment_library = filters.synthesizability.check_building_blocks(
+        fragment_library, "data/filters/Enamine/enamine_substructures_neutralized.sdf"
+    )
+    for key in fragment_library.keys():
+        fragment_library[key] = fragment_library[key].loc[
+            fragment_library[key]["bool_bb"] == 0
+        ]
+    return fragment_library
 
 
 def main():
