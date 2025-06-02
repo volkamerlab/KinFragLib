@@ -157,7 +157,7 @@ def main():
     print(f"Done reading in fragment library")
     # SDF contains all building blocks downloaded from enamine website
     enamine_mols = read_enamine_sdf(str(PATH_ENAMINE))
-    print(f"Done reading enamine molecules")
+    print(f"Done reading Enamine molecules")
     find_most_similar_fragment(
         fragment_library,
         enamine_mols,
