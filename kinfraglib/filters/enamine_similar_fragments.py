@@ -72,7 +72,7 @@ def find_most_similar_fragment(fragment_library, enamine_mols, file_path):
 
     Args:
         fragment_library (DataFrame): KinFragLib fragmentation library
-        enamine_mols (list): list of RDKit molecules containing enamine building blocks
+        enamine_mols (list): list of RDKit molecules containing Enamine building blocks
         file_path (str): path to output file
     """
     f = Chem.SDWriter(file_path)
