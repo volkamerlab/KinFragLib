@@ -124,7 +124,7 @@ def main():
         "-e",
         "--enamine",
         type=str,
-        help="file name of enamine building blocks sdf",
+        help="file name of Enamine building blocks sdf",
         required=True,
     )
     parser.add_argument(
