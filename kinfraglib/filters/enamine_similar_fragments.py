@@ -48,7 +48,7 @@ def calculate_fingerprints(mols):
 
 
 def most_similar_fragment(fp_array, fp):
-    """Calculate Tanimoto similarity and save most similar fragment
+    """Calculate Tanimoto similarity and determines most similar fragment
 
     Args:
         fp_array (list): List of fingerprints of Enamine building blocks
