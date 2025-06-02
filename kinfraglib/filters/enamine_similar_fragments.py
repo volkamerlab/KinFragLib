@@ -26,7 +26,7 @@ def read_enamine_sdf(path):
         list of RDKit molecules
     """
 
-    mols = []
+    mols = [mol for mol in Chem.SDMolSupplier(path) if if mol is not None]
     for mol in Chem.SDMolSupplier(path):
         if mol is not None:
             mols.append(mol)
