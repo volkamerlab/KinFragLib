@@ -138,7 +138,7 @@ def main():
         "-o",
         "--output",
         type=str,
-        help="output file name for most similar enamine sdf",
+        help="output file name for most similar Enamine sdf",
         required=True,
     )
 
