@@ -68,7 +68,7 @@ def most_similar_fragment(fp_array, fp):
 
 
 def find_most_similar_fragment(fragment_library, enamine_mols, file_path):
-    """Find most similar Enamine fragment for each KinFragLib fragment not matching with Enamine
+    """Find the most similar Enamine fragment for each KinFragLib fragment not matching with Enamine
 
     Args:
         fragment_library (DataFrame): KinFragLib fragmentation library
