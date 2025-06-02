@@ -18,7 +18,7 @@ def read_enamine_sdf(path):
     Parameters
     ----------
     path : str
-        path to SDFile with all enamine building blocks
+        path to SDFile with all Enamine building blocks
 
     Returns
     -------
