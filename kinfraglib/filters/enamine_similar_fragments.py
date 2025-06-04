@@ -22,25 +22,26 @@ def read_enamine_sdf(path):
 
     Returns
     -------
-    obj
+    list(rdkit.Chem.rdchem.Mol)
         list of RDKit molecules
     """
-
-    mols = [mol for mol in Chem.SDMolSupplier(path) if if mol is not None]
-    for mol in Chem.SDMolSupplier(path):
-        if mol is not None:
-            mols.append(mol)
+    mols = [mol for mol in Chem.SDMolSupplier(path) if mol is not None]
     return mols
 
 
 def calculate_fingerprints(mols):
-    """Calculate RDKit fingerprints for given molecules
+    """
+    Calculate RDKit fingerprints for given molecules.
 
-    Args:
-        mols (list): List of RDKit molecules
+    Parameters
+    ----------
+    mols : list(rdkit.Chem.rdchem.Mol)
+        list of RDKit molecules
 
-    Returns:
-        list: List of fingerprints 
+    Returns
+    -------
+    list 
+        list of fingerprints 
     """
     rdkit_gen = rdFingerprintGenerator.GetRDKitFPGenerator(maxPath=5)
     fingerprints = [rdkit_gen.GetFingerprint(mol) for mol in mols]
@@ -48,14 +49,20 @@ def calculate_fingerprints(mols):
 
 
 def most_similar_fragment(fp_array, fp):
-    """Calculate Tanimoto similarity and determines most similar fragment
+    """
+    Calculate Tanimoto similarity and determines most similar fragment.
 
-    Args:
-        fp_array (list): List of fingerprints of Enamine building blocks
-        fp (RDKit): Query fingerprint from KinFragLib
+    Parameters
+    ----------
+    fp_array  : list
+        list of fingerprints of Enamine building blocks
+    fp : rdkit.Chem.rdchem.Mol
+        query fingerprint from KinFragLib
 
-    Returns:
-        float, int: Tanimoto similarity and index of most similar fragment
+    Returns
+    -------
+    float, int
+        Tanimoto similarity and index of most similar fragment
     """
     sim = 0
     ind = -1
@@ -68,12 +75,17 @@ def most_similar_fragment(fp_array, fp):
 
 
 def find_most_similar_fragment(fragment_library, enamine_mols, file_path):
-    """Find the most similar Enamine fragment for each KinFragLib fragment not matching with Enamine
+    """
+    Find the most similar Enamine fragment for each KinFragLib fragment not matching with Enamine.
 
-    Args:
-        fragment_library (DataFrame): KinFragLib fragmentation library
-        enamine_mols (list): list of RDKit molecules containing Enamine building blocks
-        file_path (str): path to output file
+    Parameters
+    ----------
+        fragment_library : dict(pandas.DataFrame)
+            KinFragLib fragmentation library
+        enamine_mols : list(rdkit.Chem.rdchem.Mol)
+            list of RDKit molecules containing Enamine building blocks
+        file_path : str
+            path to output file
     """
     f = Chem.SDWriter(file_path)
     enamine_fps = calculate_fingerprints(enamine_mols)
@@ -97,14 +109,20 @@ def find_most_similar_fragment(fragment_library, enamine_mols, file_path):
 
 
 def apply_enamine_filter(fragment_library, path):
-    """Apply Enamine building blocks filter
+    """
+    Apply Enamine building blocks filter
 
-    Args:
-        fragment_library (DataFrame): current fragment library per subpocket
-        path (str): path to output file
+    Parameters
+    ----------
+        fragment_library : dict(pandas.DataFrame) 
+            current fragment library per subpocket
+        path : str
+            path to output file
 
-    Returns:
-        DataFrame: fragment library with building blocks filter added
+    Returns
+    -------
+    dict(pandas.DataFrame)  
+        fragment library with building blocks filter added
     """
     fragment_library = filters.synthesizability.check_building_blocks(
         fragment_library, path
