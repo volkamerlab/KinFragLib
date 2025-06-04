@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 
 from __future__ import print_function
-from rdkit import Chem
-from rdkit import DataStructs
-import numpy as np
-from pathlib import Path
+
 import argparse
-from kinfraglib import utils, filters
+import logging
+from pathlib import Path
+
 import pandas as pd
+from rdkit import Chem, DataStructs
 from rdkit.Chem import rdFingerprintGenerator
+
+from kinfraglib import filters, utils
 
 
 def read_enamine_sdf(path):
@@ -40,8 +42,8 @@ def calculate_fingerprints(mols):
 
     Returns
     -------
-    list 
-        list of fingerprints 
+    list
+        list of fingerprints
     """
     rdkit_gen = rdFingerprintGenerator.GetRDKitFPGenerator(maxPath=5)
     fingerprints = [rdkit_gen.GetFingerprint(mol) for mol in mols]
@@ -89,21 +91,21 @@ def find_most_similar_fragment(fragment_library, enamine_mols, file_path):
     """
     f = Chem.SDWriter(file_path)
     enamine_fps = calculate_fingerprints(enamine_mols)
-    print(f"Calculated fingerprints")
+    logging.info(f"Calculated fingerprints")
     fragment_library_concat = pd.concat(fragment_library).reset_index(drop=True)
     for frag in fragment_library_concat.ROMol:
         fp = calculate_fingerprints([frag])[0]
         sim, ind = most_similar_fragment(enamine_fps, fp)
         match = enamine_mols[ind]
 
-        # rename enamine molecule to link to KinFragLib fragment  
+        # rename enamine molecule to link to KinFragLib fragment
         match.SetProp("_Name", str(frag.GetProp("_Name") + "_enamine"))
-        # set Tanimoto similarity 
+        # set Tanimoto similarity
         match.SetProp("Similarity", str(sim))
         frag.SetProp("Similarity", str(sim))
-        # write KinFragLib fragment to file 
+        # write KinFragLib fragment to file
         f.write(frag)
-        # write matching Enamine fragment to file 
+        # write matching Enamine fragment to file
         f.write(match)
     f.close()
 
@@ -114,14 +116,14 @@ def apply_enamine_filter(fragment_library, path):
 
     Parameters
     ----------
-        fragment_library : dict(pandas.DataFrame) 
+        fragment_library : dict(pandas.DataFrame)
             current fragment library per subpocket
         path : str
             path to output file
 
     Returns
     -------
-    dict(pandas.DataFrame)  
+    dict(pandas.DataFrame)
         fragment library with building blocks filter added
     """
     fragment_library = filters.synthesizability.check_building_blocks(
@@ -159,6 +161,12 @@ def main():
         help="output file name for most similar Enamine sdf",
         required=True,
     )
+    parser.add_argument(
+        "-log",
+        "--loglevel",
+        default="INFO",
+        help="Logging level (error, warning, info, or debug). Example --loglevel debug, default=info",
+    )
 
     # parse cmd-line arguments
     args = parser.parse_args()
@@ -167,15 +175,27 @@ def main():
     PATH_FRAG_LIB = Path(args.fragmentlibrary)
     PATH_OUTPUT = Path(args.output)
 
+    # init logging
+    numeric_level = getattr(logging, args.loglevel.upper(), None)
+    if not isinstance(numeric_level, int):
+        raise ValueError("Invalid log level: %s" % args.loglevel)
+
+    logging.basicConfig(
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        level=numeric_level,
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+
     fragment_library = utils.read_fragment_library(PATH_FRAG_LIB)
     fragment_library = filters.prefilters.pre_filters(fragment_library)
     fragment_library = apply_enamine_filter(
-        fragment_library, "data/filters/Enamine/Enamine_Building_Blocks.sdf",
+        fragment_library,
+        "data/filters/Enamine/Enamine_Building_Blocks.sdf",
     )
-    print(f"Done reading in fragment library")
+    logging.info(f"Done reading in fragment library")
     # SDF contains all building blocks downloaded from enamine website
     enamine_mols = read_enamine_sdf(str(PATH_ENAMINE))
-    print(f"Done reading Enamine molecules")
+    logging.info(f"Done reading Enamine molecules")
     find_most_similar_fragment(
         fragment_library,
         enamine_mols,
