@@ -74,7 +74,7 @@ We have added an extension with *CustomKinFragLib* which provides a pipeline to 
     # Hint: if conda is too slow, consider mamba instead
     conda env create -f environment.yml
     # When using a MacBook with an M1 chip you may need instead:
-    CONDA_SUBDIR=osx-64 conda env create -f environment.yml
+    # CONDA_SUBDIR=osx-64 conda env create -f environment.yml
 
     # Activate environment
     conda activate kinfraglib
