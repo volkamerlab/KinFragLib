@@ -74,7 +74,7 @@ We have added an extension with *CustomKinFragLib* which provides a pipeline to 
     # Hint: if conda is too slow, consider mamba instead
     conda env create -f environment.yml
     # When using a MacBook with an M1 chip you may need instead:
-    CONDA_SUBDIR=osx-64 conda env create -f environment.yml
+    # CONDA_SUBDIR=osx-64 conda env create -f environment.yml
 
     # Activate environment
     conda activate kinfraglib
@@ -108,6 +108,22 @@ We are looking forward to hearing from you!
 This resource is licensed under the [MIT](https://opensource.org/licenses/MIT) license, a permissive open-source license.
 
 ## Citation
+
+#### CustomKinFragLib publication
+
+Kramer, P. L., Buchthal, K., Sydow, D., Leo, K. L., and Volkamer, A. CustomKinFragLib: Filtering the kinase-focused fragmentation library. ChemRxiv preprint. 2025. https://doi.org/10.26434/chemrxiv-2025-3gz92
+
+```bib 
+@article{doi:10.26434/chemrxiv-2025-3gz92,
+  author = {Kramer, Paula Linh and Buchthal, Katharina and Sydow, Dominique and Leo, Katharina Sonja and Volkamer, Andrea},
+  title = {CustomKinFragLib: Filtering the kinase-focused fragmentation library},
+  journal = {ChemRxiv},
+  year = {2025},
+  URL = {https://doi.org/10.26434/chemrxiv-2025-3gz92}
+}
+```
+
+#### Original KinFragLib publication 
 
 [Sydow, D., Schmiel, P., Mortier, J., and Volkamer, A. KinFragLib: Exploring the Kinase Inhibitor Space Using Subpocket-Focused Fragmentation and Recombination. J. Chem. Inf. Model. 2020. https://pubs.acs.org/doi/abs/10.1021/acs.jcim.0c00839](CITATION.bib)
 
