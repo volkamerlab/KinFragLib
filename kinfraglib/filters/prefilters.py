@@ -3,6 +3,7 @@ Contains functions to apply the basic filtering steps
 """
 import pandas as pd
 from kinfraglib import utils
+from rdkit import Chem
 
 
 def pre_filters(fragment_library):
@@ -42,6 +43,8 @@ def pre_filters(fragment_library):
 
     return fragment_library
 
+def _standardized_inchi(mol):
+    return Chem.inchi.MolToInchiKey(utils.standardize_mol(mol))
 
 def _remove_duplicates(fragment_library):
     """
@@ -59,14 +62,15 @@ def _remove_duplicates(fragment_library):
     """
     # remove duplicates
     fragment_library = pd.concat(fragment_library).reset_index(drop=True)
-    fragment_library.groupby("subpocket", sort=False)
-    # Get fragment count (by SMILES) per subpocket
+    # add inchi of standardized molecules (TODO @Paula: should we now deduplicate incooperating dummy atom)
+    fragment_library['standardized_inchi'] = fragment_library["ROMol"].apply(_standardized_inchi)
+    # Get fragment count (by inchi) per subpocket
     fragment_count = fragment_library.groupby(
-        ["subpocket", "smiles"], sort=False
+        ["subpocket", "standardized_inchi"], sort=False
     ).size()
-    # Get first occurrence of SMILES per subpocket
+    # Get first occurrence of inchi per subpocket
     fragment_library = fragment_library.groupby(
-        ["subpocket", "smiles"], sort=False
+        ["subpocket", "standardized_inchi"], sort=False
     ).first()
     # Add fragment count to these representative fragments
     fragment_library["fragment_count"] = fragment_count
