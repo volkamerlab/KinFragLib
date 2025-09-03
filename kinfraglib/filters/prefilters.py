@@ -43,8 +43,8 @@ def pre_filters(fragment_library):
 
     return fragment_library
 
-def _standardized_inchi(mol):
-    return Chem.inchi.MolToInchiKey(utils.standardize_mol(mol))
+def _standardized_inchi(smiles):
+    return Chem.inchi.MolToInchiKey(utils.standardize_mol(Chem.MolFromSmiles(smiles)))
 
 def _remove_duplicates(fragment_library):
     """
@@ -63,7 +63,7 @@ def _remove_duplicates(fragment_library):
     # remove duplicates
     fragment_library = pd.concat(fragment_library).reset_index(drop=True)
     # add inchi of standardized molecules (TODO @Paula: should we now deduplicate incooperating dummy atom)
-    fragment_library['standardized_inchi'] = fragment_library["ROMol"].apply(_standardized_inchi)
+    fragment_library['standardized_inchi'] = fragment_library["smiles"].apply(_standardized_inchi)
     # Get fragment count (by inchi) per subpocket
     fragment_count = fragment_library.groupby(
         ["subpocket", "standardized_inchi"], sort=False
