@@ -61,7 +61,7 @@ def start_pipeline(
 
     global_parameters: dict
         containing the following parameters: 'show_stats'(boolean), 'custom_path'(Path),
-        'num_passing'(int)
+        'num_passing'(int), (optionally)'exclude_subpockets'=[](list), (optionally)'keep'=True(boolean)
 
     Returns
     dict
@@ -94,6 +94,9 @@ def start_pipeline(
         global_parameters.get("custom_path"),
         datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"),
     )
+    
+    excluding_subpockets = global_parameters.get("exclude_subpockets") or []
+    keep_excluding_subpockets = global_parameters.get("keep") or True
 
     if not os.path.exists(dir):
         os.makedirs(dir)
