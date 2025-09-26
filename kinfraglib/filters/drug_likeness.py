@@ -59,7 +59,7 @@ def get_ro3_frags(fragment_library, min_fulfilled=6, cutoff_crit=">="):
     return fragment_library_bool
 
 
-def get_qed(fragment_library, cutoff_val=0.492, cutoff_crit=">"):
+def get_qed(fragment_library, cutoff_val=0.464, cutoff_crit=">"):
     """
     Calculates the Quantitative Estimate of Druglikeness.
 
@@ -68,7 +68,7 @@ def get_qed(fragment_library, cutoff_val=0.492, cutoff_crit=">"):
     fragment_library : dict
         fragments organized in subpockets including all information
     cutoff_val : int
-        A value defining the cutoff for accepted/rejected fragments. By default, cutoff_val=0.492.
+        A value defining the cutoff for accepted/rejected fragments. By default, cutoff_val=0.464.
     cutoff_crit : str
         Defining whether the QED value should be ">", "<", ">=", "<=", "==" or "!=" compared to
         the cutoff-value. By default ,cutoff_crit=">".
