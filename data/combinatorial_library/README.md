@@ -11,7 +11,7 @@ In order to run the analysis notebooks, please download this dataset to this fol
 
 - `combinatorial_library.json`: Full combinatorial library, please refer to `notebooks/kinfraglib/4_1_combinatorial_library_data_preparation.ipynb` at https://github.com/volkamerlab/KinFragLib for detailed information about this data format
 - `combinatorial_library_deduplicated.json`: Deduplicated combinatorial library (based on InChIs)
-- `chembl_standardized_inchi.csv`: Standardized ChEMBL 33 molecules in the form of InChI strings.
+- `chembl_standardized_inchi.csv`: Standardized ChEMBL 36 molecules in the form of InChI strings.
 - `KLIFS_download_summary.csv`: PDB codes of all KLIFS structures used to generate the KinFragLib fragmentation library. 
 
 ## Processed data
