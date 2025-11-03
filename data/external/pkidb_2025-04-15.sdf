@@ -62482,7 +62482,7 @@ Bristol Myers Squibb
 nan
 
 >  <Canonical_Smiles>  (351) 
-C[2H]C([2H])([2H])NC(=O)c1nnc(NC(=O)C2CC2)cc1Nc1cccc(-c2ncn(C)n2)c1OC
+[2H]C([2H])([2H])NC(=O)c1n[nH]c(=NC(=O)C2CC2)cc1Nc1cccc(-c2ncn(C)n2)c1OC
 
 >  <Chirality>  (351) 
 nan
