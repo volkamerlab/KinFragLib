@@ -2439,6 +2439,78 @@ GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
+6hop_altC_chainA
+     RDKit          3D
+
+ 19 19  0  0  0  0  0  0  0  0999 V2000
+    3.7468   16.4538   37.3322 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2368   15.9076   36.5262 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7527   16.0396   37.5001 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3371   16.3627   38.2440 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.6349   17.8218   36.9763 O   0  0  0  0  0  0  0  0  0  0  0  0
+    3.0244   18.6881   37.9004 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9364   20.0374   37.5584 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4475   20.4603   36.3276 O   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3576   21.3998   36.1522 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3537   20.9709   38.4143 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2898   22.0114   38.1321 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8578   20.5382   39.6345 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4094   21.2476   40.3142 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.9347   19.1960   39.9876 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5220   18.2603   39.1315 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5864   17.2210   39.4179 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3681   18.7974   41.3414 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0342   19.5662   42.0225 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2747   17.5083   41.7070 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  1  4  1  0
+  1  5  1  0
+  5  6  1  0
+  6  7  2  0
+  6 15  1  0
+  7  8  1  0
+  7 10  1  0
+  8  9  1  0
+ 10 11  1  0
+ 10 12  2  0
+ 12 13  1  0
+ 12 14  1  0
+ 14 15  2  0
+ 14 17  1  0
+ 15 16  1  0
+ 17 18  1  0
+ 17 19  2  0
+V   19 *
+M  END
+>  <kinase>  (39) 
+CK2a1
+
+>  <family>  (39) 
+CK2
+
+>  <group>  (39) 
+CMGC
+
+>  <complex_pdb>  (39) 
+6hop
+
+>  <ligand_pdb>  (39) 
+GJK
+
+>  <alt>  (39) 
+C
+
+>  <chain>  (39) 
+A
+
+>  <atom.prop.subpocket>  (39) 
+GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (39) 
+3 3 3 3 3 16 16 3 3 16 16 16 16 16 16 16 7 16 na
+
+$$$$
 6qy7_altA_chainA
      RDKit          3D
 
@@ -2471,31 +2543,31 @@ $$$$
  13  1  1  0
 V   13 *
 M  END
->  <kinase>  (39) 
+>  <kinase>  (40) 
 CK2a1
 
->  <family>  (39) 
+>  <family>  (40) 
 CK2
 
->  <group>  (39) 
+>  <group>  (40) 
 CMGC
 
->  <complex_pdb>  (39) 
+>  <complex_pdb>  (40) 
 6qy7
 
->  <ligand_pdb>  (39) 
+>  <ligand_pdb>  (40) 
 041
 
->  <alt>  (39) 
+>  <alt>  (40) 
 A
 
->  <chain>  (39) 
+>  <chain>  (40) 
 A
 
->  <atom.prop.subpocket>  (39) 
+>  <atom.prop.subpocket>  (40) 
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (39) 
+>  <atom.prop.environment>  (40) 
 16 16 16 16 16 16 16 16 16 16 3 3 na
 
 $$$$
@@ -2544,32 +2616,99 @@ $$$$
  19 18  1  0
 V   19 *
 M  END
->  <kinase>  (40) 
+>  <kinase>  (41) 
 CLK1
 
->  <family>  (40) 
+>  <family>  (41) 
 CLK
 
->  <group>  (40) 
+>  <group>  (41) 
 CMGC
 
->  <complex_pdb>  (40) 
+>  <complex_pdb>  (41) 
 6r8j
 
->  <ligand_pdb>  (40) 
+>  <ligand_pdb>  (41) 
 JUW
 
->  <alt>  (40) 
+>  <alt>  (41) 
 B
 
->  <chain>  (40) 
+>  <chain>  (41) 
 A
 
->  <atom.prop.subpocket>  (40) 
+>  <atom.prop.subpocket>  (41) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (40) 
+>  <atom.prop.environment>  (41) 
 8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 16 na
+
+$$$$
+2jam_altA_chainA
+     RDKit          3D
+
+ 16 17  0  0  0  0  0  0  0  0999 V2000
+    0.9127   19.0143   41.3484 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6146   19.6161   40.2883 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2803   19.0984   39.1876 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3171   18.0311   39.0270 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9026   19.9661   38.2884 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7447   19.2923   36.9414 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+    2.8668   21.3591   38.4801 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3483   22.0197   37.7743 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2025   21.8782   39.5922 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1751   22.9449   39.7594 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.5716   21.0079   40.4903 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8715   21.2359   41.6148 N   0  0  0  0  0  0  0  0  0  0  0  0
+    0.6806   22.1485   42.0030 H   0  0  0  0  0  0  0  0  0  0  0  0
+    0.4682   20.0868   42.1398 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.1885   20.0457   43.1882 O   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7239   17.6098   41.4621 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1 14  1  0
+  2  3  2  0
+  2 11  1  0
+  3  4  1  0
+  3  5  1  0
+  5  6  1  0
+  5  7  2  0
+  7  8  1  0
+  7  9  1  0
+  9 10  1  0
+  9 11  2  0
+ 11 12  1  0
+ 12 13  1  0
+ 12 14  1  0
+ 14 15  2  0
+ 16  1  2  0
+V   16 *
+M  END
+>  <kinase>  (42) 
+CaMK1g
+
+>  <family>  (42) 
+CAMK1
+
+>  <group>  (42) 
+CAMK
+
+>  <complex_pdb>  (42) 
+2jam
+
+>  <ligand_pdb>  (42) 
+J60
+
+>  <alt>  (42) 
+A
+
+>  <chain>  (42) 
+A
+
+>  <atom.prop.subpocket>  (42) 
+GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (42) 
+7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 na
 
 $$$$
 5auy_chainA
@@ -2606,32 +2745,96 @@ $$$$
  14  1  1  0
 V   14 *
 M  END
->  <kinase>  (41) 
+>  <kinase>  (43) 
 DAPK1
 
->  <family>  (41) 
+>  <family>  (43) 
 DAPK
 
->  <group>  (41) 
+>  <group>  (43) 
 CAMK
 
->  <complex_pdb>  (41) 
+>  <complex_pdb>  (43) 
 5auy
 
->  <ligand_pdb>  (41) 
+>  <ligand_pdb>  (43) 
 MRI
 
->  <alt>  (41) 
+>  <alt>  (43) 
  
 
->  <chain>  (41) 
+>  <chain>  (43) 
 A
 
->  <atom.prop.subpocket>  (41) 
+>  <atom.prop.subpocket>  (43) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (41) 
+>  <atom.prop.environment>  (43) 
 16 16 16 16 16 16 3 3 16 16 16 3 3 na
+
+$$$$
+7ccu_altA_chainA
+     RDKit          3D
+
+ 15 15  0  0  0  0  0  0  0  0999 V2000
+    2.3325   19.5246   38.7322 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4365   18.4573   38.8611 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7548   20.2019   37.5849 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7286   19.5999   36.8281 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.1301   18.6437   37.1294 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.1939   20.2091   35.6894 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9625   19.7337   35.0981 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.6775   21.4343   35.2987 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6849   22.0647   36.0459 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2799   23.0168   35.7360 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2263   21.4356   37.2053 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4624   21.9043   37.8080 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.1609   21.9600   34.1718 O   0  0  0  0  0  0  0  0  0  0  0  0
+    5.0755   21.7395   33.9810 H   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7181   20.4260   39.7724 *   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0
+  1  3  1  0
+  3  4  2  0
+  3 11  1  0
+  4  5  1  0
+  4  6  1  0
+  6  7  1  0
+  6  8  2  0
+  8  9  1  0
+  8 13  1  0
+  9 10  1  0
+  9 11  2  0
+ 11 12  1  0
+ 13 14  1  0
+ 15  1  2  0
+V   15 *
+M  END
+>  <kinase>  (44) 
+DAPK1
+
+>  <family>  (44) 
+DAPK
+
+>  <group>  (44) 
+CAMK
+
+>  <complex_pdb>  (44) 
+7ccu
+
+>  <ligand_pdb>  (44) 
+STL
+
+>  <alt>  (44) 
+A
+
+>  <chain>  (44) 
+A
+
+>  <atom.prop.subpocket>  (44) 
+GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
+
+>  <atom.prop.environment>  (44) 
+7 16 16 16 16 16 16 16 16 16 16 16 3 3 na
 
 $$$$
 4mq2_altA_chainC
@@ -2676,31 +2879,31 @@ $$$$
   1 18  1  0
 V   18 *
 M  END
->  <kinase>  (42) 
+>  <kinase>  (45) 
 DYRK1A
 
->  <family>  (42) 
+>  <family>  (45) 
 DYRK
 
->  <group>  (42) 
+>  <group>  (45) 
 CMGC
 
->  <complex_pdb>  (42) 
+>  <complex_pdb>  (45) 
 4mq2
 
->  <ligand_pdb>  (42) 
+>  <ligand_pdb>  (45) 
 2C4
 
->  <alt>  (42) 
+>  <alt>  (45) 
 A
 
->  <chain>  (42) 
+>  <chain>  (45) 
 C
 
->  <atom.prop.subpocket>  (42) 
+>  <atom.prop.subpocket>  (45) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (42) 
+>  <atom.prop.environment>  (45) 
 16 16 16 16 16 16 1 16 16 16 16 1 3 3 3 3 3 na
 
 $$$$
@@ -2739,31 +2942,31 @@ $$$$
  14  1  1  0
 V   14 *
 M  END
->  <kinase>  (43) 
+>  <kinase>  (46) 
 DYRK1A
 
->  <family>  (43) 
+>  <family>  (46) 
 DYRK
 
->  <group>  (43) 
+>  <group>  (46) 
 CMGC
 
->  <complex_pdb>  (43) 
+>  <complex_pdb>  (46) 
 6s14
 
->  <ligand_pdb>  (43) 
+>  <ligand_pdb>  (46) 
 KQW
 
->  <alt>  (43) 
+>  <alt>  (46) 
 A
 
->  <chain>  (43) 
+>  <chain>  (46) 
 A
 
->  <atom.prop.subpocket>  (43) 
+>  <atom.prop.subpocket>  (46) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (43) 
+>  <atom.prop.environment>  (46) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -2805,31 +3008,31 @@ $$$$
 V   14 *
 V   15 *
 M  END
->  <kinase>  (44) 
+>  <kinase>  (47) 
 DYRK1A
 
->  <family>  (44) 
+>  <family>  (47) 
 DYRK
 
->  <group>  (44) 
+>  <group>  (47) 
 CMGC
 
->  <complex_pdb>  (44) 
+>  <complex_pdb>  (47) 
 6uip
 
->  <ligand_pdb>  (44) 
+>  <ligand_pdb>  (47) 
 Q8J
 
->  <alt>  (44) 
+>  <alt>  (47) 
  
 
->  <chain>  (44) 
+>  <chain>  (47) 
 B
 
->  <atom.prop.subpocket>  (44) 
+>  <atom.prop.subpocket>  (47) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
->  <atom.prop.environment>  (44) 
+>  <atom.prop.environment>  (47) 
 16 9 9 9 9 9 9 9 9 9 9 9 9 na na
 
 $$$$
@@ -2865,31 +3068,31 @@ $$$$
  13  5  1  0
 V   13 *
 M  END
->  <kinase>  (45) 
+>  <kinase>  (48) 
 DYRK1A
 
->  <family>  (45) 
+>  <family>  (48) 
 DYRK
 
->  <group>  (45) 
+>  <group>  (48) 
 CMGC
 
->  <complex_pdb>  (45) 
+>  <complex_pdb>  (48) 
 7a5l
 
->  <ligand_pdb>  (45) 
+>  <ligand_pdb>  (48) 
 QZW
 
->  <alt>  (45) 
+>  <alt>  (48) 
 A
 
->  <chain>  (45) 
+>  <chain>  (48) 
 A
 
->  <atom.prop.subpocket>  (45) 
+>  <atom.prop.subpocket>  (48) 
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (45) 
+>  <atom.prop.environment>  (48) 
 5 5 5 14 16 14 14 14 14 14 14 14 na
 
 $$$$
@@ -2932,31 +3135,31 @@ $$$$
 V   15 *
 V   16 *
 M  END
->  <kinase>  (46) 
+>  <kinase>  (49) 
 EGFR
 
->  <family>  (46) 
+>  <family>  (49) 
 EGFR
 
->  <group>  (46) 
+>  <group>  (49) 
 TK
 
->  <complex_pdb>  (46) 
+>  <complex_pdb>  (49) 
 1xkk
 
->  <ligand_pdb>  (46) 
+>  <ligand_pdb>  (49) 
 FMM
 
->  <alt>  (46) 
+>  <alt>  (49) 
  
 
->  <chain>  (46) 
+>  <chain>  (49) 
 A
 
->  <atom.prop.subpocket>  (46) 
+>  <atom.prop.subpocket>  (49) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B1
 
->  <atom.prop.environment>  (46) 
+>  <atom.prop.environment>  (49) 
 16 16 16 16 16 16 3 4 4 4 16 16 16 16 na na
 
 $$$$
@@ -2990,31 +3193,31 @@ $$$$
  12  1  1  0
 V   12 *
 M  END
->  <kinase>  (47) 
+>  <kinase>  (50) 
 EGFR
 
->  <family>  (47) 
+>  <family>  (50) 
 EGFR
 
->  <group>  (47) 
+>  <group>  (50) 
 TK
 
->  <complex_pdb>  (47) 
+>  <complex_pdb>  (50) 
 2ito
 
->  <ligand_pdb>  (47) 
+>  <ligand_pdb>  (50) 
 IRE
 
->  <alt>  (47) 
+>  <alt>  (50) 
  
 
->  <chain>  (47) 
+>  <chain>  (50) 
 A
 
->  <atom.prop.subpocket>  (47) 
+>  <atom.prop.subpocket>  (50) 
 GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (47) 
+>  <atom.prop.environment>  (50) 
 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -3055,31 +3258,31 @@ $$$$
  15  1  1  0
 V   15 *
 M  END
->  <kinase>  (48) 
+>  <kinase>  (51) 
 EGFR
 
->  <family>  (48) 
+>  <family>  (51) 
 EGFR
 
->  <group>  (48) 
+>  <group>  (51) 
 TK
 
->  <complex_pdb>  (48) 
+>  <complex_pdb>  (51) 
 5edq
 
->  <ligand_pdb>  (48) 
+>  <ligand_pdb>  (51) 
 5N3
 
->  <alt>  (48) 
+>  <alt>  (51) 
  
 
->  <chain>  (48) 
+>  <chain>  (51) 
 A
 
->  <atom.prop.subpocket>  (48) 
+>  <atom.prop.subpocket>  (51) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
->  <atom.prop.environment>  (48) 
+>  <atom.prop.environment>  (51) 
 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$
@@ -3124,31 +3327,31 @@ $$$$
  17  1  1  0
 V   17 *
 M  END
->  <kinase>  (49) 
+>  <kinase>  (52) 
 EGFR
 
->  <family>  (49) 
+>  <family>  (52) 
 EGFR
 
->  <group>  (49) 
+>  <group>  (52) 
 TK
 
->  <complex_pdb>  (49) 
+>  <complex_pdb>  (52) 
 5edr
 
->  <ligand_pdb>  (49) 
+>  <ligand_pdb>  (52) 
 5N4
 
->  <alt>  (49) 
+>  <alt>  (52) 
 A
 
->  <chain>  (49) 
+>  <chain>  (52) 
 A
 
->  <atom.prop.subpocket>  (49) 
+>  <atom.prop.subpocket>  (52) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
->  <atom.prop.environment>  (49) 
+>  <atom.prop.environment>  (52) 
 5 5 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$
@@ -3194,31 +3397,31 @@ $$$$
  18  1  1  0
 V   18 *
 M  END
->  <kinase>  (50) 
+>  <kinase>  (53) 
 EGFR
 
->  <family>  (50) 
+>  <family>  (53) 
 EGFR
 
->  <group>  (50) 
+>  <group>  (53) 
 TK
 
->  <complex_pdb>  (50) 
+>  <complex_pdb>  (53) 
 5em5
 
->  <ligand_pdb>  (50) 
+>  <ligand_pdb>  (53) 
 5Q2
 
->  <alt>  (50) 
+>  <alt>  (53) 
  
 
->  <chain>  (50) 
+>  <chain>  (53) 
 A
 
->  <atom.prop.subpocket>  (50) 
+>  <atom.prop.subpocket>  (53) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (50) 
+>  <atom.prop.environment>  (53) 
 4 4 4 8 4 4 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -3254,31 +3457,31 @@ $$$$
   1 13  1  0
 V   13 *
 M  END
->  <kinase>  (51) 
+>  <kinase>  (54) 
 EGFR
 
->  <family>  (51) 
+>  <family>  (54) 
 EGFR
 
->  <group>  (51) 
+>  <group>  (54) 
 TK
 
->  <complex_pdb>  (51) 
+>  <complex_pdb>  (54) 
 7u9a
 
->  <ligand_pdb>  (51) 
+>  <ligand_pdb>  (54) 
 M19
 
->  <alt>  (51) 
+>  <alt>  (54) 
  
 
->  <chain>  (51) 
+>  <chain>  (54) 
 A
 
->  <atom.prop.subpocket>  (51) 
+>  <atom.prop.subpocket>  (54) 
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (51) 
+>  <atom.prop.environment>  (54) 
 16 16 16 16 16 16 16 16 16 3 3 16 na
 
 $$$$
@@ -3328,31 +3531,31 @@ $$$$
 V   18 *
 V   19 *
 M  END
->  <kinase>  (52) 
+>  <kinase>  (55) 
 EGFR
 
->  <family>  (52) 
+>  <family>  (55) 
 EGFR
 
->  <group>  (52) 
+>  <group>  (55) 
 TK
 
->  <complex_pdb>  (52) 
+>  <complex_pdb>  (55) 
 8g63
 
->  <ligand_pdb>  (52) 
+>  <ligand_pdb>  (55) 
 YXT
 
->  <alt>  (52) 
+>  <alt>  (55) 
  
 
->  <chain>  (52) 
+>  <chain>  (55) 
 A
 
->  <atom.prop.subpocket>  (52) 
+>  <atom.prop.subpocket>  (55) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
->  <atom.prop.environment>  (52) 
+>  <atom.prop.environment>  (55) 
 14 16 16 16 16 16 14 14 16 16 16 16 16 16 14 14 14 na na
 
 $$$$
@@ -3399,31 +3602,31 @@ $$$$
  18  1  1  0
 V   18 *
 M  END
->  <kinase>  (53) 
+>  <kinase>  (56) 
 EphA3
 
->  <family>  (53) 
+>  <family>  (56) 
 Eph
 
->  <group>  (53) 
+>  <group>  (56) 
 TK
 
->  <complex_pdb>  (53) 
+>  <complex_pdb>  (56) 
 4gk4
 
->  <ligand_pdb>  (53) 
+>  <ligand_pdb>  (56) 
 L90
 
->  <alt>  (53) 
+>  <alt>  (56) 
 B
 
->  <chain>  (53) 
+>  <chain>  (56) 
 A
 
->  <atom.prop.subpocket>  (53) 
+>  <atom.prop.subpocket>  (56) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (53) 
+>  <atom.prop.environment>  (56) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
 
 $$$$
@@ -3465,31 +3668,31 @@ $$$$
  16  1  1  0
 V   16 *
 M  END
->  <kinase>  (54) 
+>  <kinase>  (57) 
 EphA3
 
->  <family>  (54) 
+>  <family>  (57) 
 Eph
 
->  <group>  (54) 
+>  <group>  (57) 
 TK
 
->  <complex_pdb>  (54) 
+>  <complex_pdb>  (57) 
 4p4c
 
->  <ligand_pdb>  (54) 
+>  <ligand_pdb>  (57) 
 25Q
 
->  <alt>  (54) 
+>  <alt>  (57) 
  
 
->  <chain>  (54) 
+>  <chain>  (57) 
 A
 
->  <atom.prop.subpocket>  (54) 
+>  <atom.prop.subpocket>  (57) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
->  <atom.prop.environment>  (54) 
+>  <atom.prop.environment>  (57) 
 16 16 16 16 16 16 16 16 16 16 3 3 3 3 3 na
 
 $$$$
@@ -3535,31 +3738,31 @@ $$$$
  10 18  1  0
 V   18 *
 M  END
->  <kinase>  (55) 
+>  <kinase>  (58) 
 EphA3
 
->  <family>  (55) 
+>  <family>  (58) 
 Eph
 
->  <group>  (55) 
+>  <group>  (58) 
 TK
 
->  <complex_pdb>  (55) 
+>  <complex_pdb>  (58) 
 4two
 
->  <ligand_pdb>  (55) 
+>  <ligand_pdb>  (58) 
 37W
 
->  <alt>  (55) 
+>  <alt>  (58) 
 B
 
->  <chain>  (55) 
+>  <chain>  (58) 
 A
 
->  <atom.prop.subpocket>  (55) 
+>  <atom.prop.subpocket>  (58) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (55) 
+>  <atom.prop.environment>  (58) 
 8 8 8 8 16 16 16 16 16 16 16 16 16 8 8 8 8 na
 
 $$$$
@@ -3595,31 +3798,31 @@ $$$$
   1 13  1  0
 V   13 *
 M  END
->  <kinase>  (56) 
+>  <kinase>  (59) 
 EphB1
 
->  <family>  (56) 
+>  <family>  (59) 
 Eph
 
->  <group>  (56) 
+>  <group>  (59) 
 TK
 
->  <complex_pdb>  (56) 
+>  <complex_pdb>  (59) 
 5mja
 
->  <ligand_pdb>  (56) 
+>  <ligand_pdb>  (59) 
 7O3
 
->  <alt>  (56) 
+>  <alt>  (59) 
  
 
->  <chain>  (56) 
+>  <chain>  (59) 
 A
 
->  <atom.prop.subpocket>  (56) 
+>  <atom.prop.subpocket>  (59) 
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (56) 
+>  <atom.prop.environment>  (59) 
 16 16 16 16 16 16 16 16 16 16 3 3 na
 
 $$$$
@@ -3667,31 +3870,31 @@ $$$$
  19  1  1  0
 V   19 *
 M  END
->  <kinase>  (57) 
+>  <kinase>  (60) 
 EphB4
 
->  <family>  (57) 
+>  <family>  (60) 
 Eph
 
->  <group>  (57) 
+>  <group>  (60) 
 TK
 
->  <complex_pdb>  (57) 
+>  <complex_pdb>  (60) 
 2xvd
 
->  <ligand_pdb>  (57) 
+>  <ligand_pdb>  (60) 
 AS6
 
->  <alt>  (57) 
+>  <alt>  (60) 
 A
 
->  <chain>  (57) 
+>  <chain>  (60) 
 A
 
->  <atom.prop.subpocket>  (57) 
+>  <atom.prop.subpocket>  (60) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (57) 
+>  <atom.prop.environment>  (60) 
 16 16 16 16 4 4 4 3 3 16 16 16 16 16 8 8 8 8 na
 
 $$$$
@@ -3726,31 +3929,31 @@ $$$$
 V   11 *
 V   12 *
 M  END
->  <kinase>  (58) 
+>  <kinase>  (61) 
 ErbB2
 
->  <family>  (58) 
+>  <family>  (61) 
 EGFR
 
->  <group>  (58) 
+>  <group>  (61) 
 TK
 
->  <complex_pdb>  (58) 
+>  <complex_pdb>  (61) 
 3pp0
 
->  <ligand_pdb>  (58) 
+>  <ligand_pdb>  (61) 
 03Q
 
->  <alt>  (58) 
+>  <alt>  (61) 
 A
 
->  <chain>  (58) 
+>  <chain>  (61) 
 A
 
->  <atom.prop.subpocket>  (58) 
+>  <atom.prop.subpocket>  (61) 
 GA GA GA GA GA GA GA GA GA GA B1 AP
 
->  <atom.prop.environment>  (58) 
+>  <atom.prop.environment>  (61) 
 16 14 14 14 14 3 14 14 14 14 na na
 
 $$$$
@@ -3789,31 +3992,31 @@ $$$$
 V   13 *
 V   14 *
 M  END
->  <kinase>  (59) 
+>  <kinase>  (62) 
 Erk2
 
->  <family>  (59) 
+>  <family>  (62) 
 MAPK
 
->  <group>  (59) 
+>  <group>  (62) 
 CMGC
 
->  <complex_pdb>  (59) 
+>  <complex_pdb>  (62) 
 4fv2
 
->  <ligand_pdb>  (59) 
+>  <ligand_pdb>  (62) 
 EK5
 
->  <alt>  (59) 
+>  <alt>  (62) 
 B
 
->  <chain>  (59) 
+>  <chain>  (62) 
 A
 
->  <atom.prop.subpocket>  (59) 
+>  <atom.prop.subpocket>  (62) 
 GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
->  <atom.prop.environment>  (59) 
+>  <atom.prop.environment>  (62) 
 1 1 5 5 14 14 14 14 14 14 14 16 na na
 
 $$$$
@@ -3847,31 +4050,31 @@ $$$$
  11 12  1  0
 V   12 *
 M  END
->  <kinase>  (60) 
+>  <kinase>  (63) 
 Erk2
 
->  <family>  (60) 
+>  <family>  (63) 
 MAPK
 
->  <group>  (60) 
+>  <group>  (63) 
 CMGC
 
->  <complex_pdb>  (60) 
+>  <complex_pdb>  (63) 
 4fv9
 
->  <ligand_pdb>  (60) 
+>  <ligand_pdb>  (63) 
 E71
 
->  <alt>  (60) 
+>  <alt>  (63) 
 B
 
->  <chain>  (60) 
+>  <chain>  (63) 
 A
 
->  <atom.prop.subpocket>  (60) 
+>  <atom.prop.subpocket>  (63) 
 GA GA GA GA GA GA GA GA GA GA GA FP
 
->  <atom.prop.environment>  (60) 
+>  <atom.prop.environment>  (63) 
 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -3912,31 +4115,31 @@ $$$$
 V   14 *
 V   15 *
 M  END
->  <kinase>  (61) 
+>  <kinase>  (64) 
 Erk2
 
->  <family>  (61) 
+>  <family>  (64) 
 MAPK
 
->  <group>  (61) 
+>  <group>  (64) 
 CMGC
 
->  <complex_pdb>  (61) 
+>  <complex_pdb>  (64) 
 5bue
 
->  <ligand_pdb>  (61) 
+>  <ligand_pdb>  (64) 
 4V8
 
->  <alt>  (61) 
+>  <alt>  (64) 
  
 
->  <chain>  (61) 
+>  <chain>  (64) 
 A
 
->  <atom.prop.subpocket>  (61) 
+>  <atom.prop.subpocket>  (64) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
->  <atom.prop.environment>  (61) 
+>  <atom.prop.environment>  (64) 
 16 16 16 16 16 16 16 16 8 8 8 9 16 na na
 
 $$$$
@@ -3986,31 +4189,31 @@ $$$$
  20  1  1  0
 V   20 *
 M  END
->  <kinase>  (62) 
+>  <kinase>  (65) 
 FGFR1
 
->  <family>  (62) 
+>  <family>  (65) 
 FGFR
 
->  <group>  (62) 
+>  <group>  (65) 
 TK
 
->  <complex_pdb>  (62) 
+>  <complex_pdb>  (65) 
 2fgi
 
->  <ligand_pdb>  (62) 
+>  <ligand_pdb>  (65) 
 PD1
 
->  <alt>  (62) 
+>  <alt>  (65) 
  
 
->  <chain>  (62) 
+>  <chain>  (65) 
 B
 
->  <atom.prop.subpocket>  (62) 
+>  <atom.prop.subpocket>  (65) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (62) 
+>  <atom.prop.environment>  (65) 
 16 16 16 16 16 16 16 16 16 3 3 3 3 3 3 3 3 3 3 na
 
 $$$$
@@ -4049,31 +4252,31 @@ $$$$
  12 15  1  0
 V   15 *
 M  END
->  <kinase>  (63) 
+>  <kinase>  (66) 
 FGFR1
 
->  <family>  (63) 
+>  <family>  (66) 
 FGFR
 
->  <group>  (63) 
+>  <group>  (66) 
 TK
 
->  <complex_pdb>  (63) 
+>  <complex_pdb>  (66) 
 4f64
 
->  <ligand_pdb>  (63) 
+>  <ligand_pdb>  (66) 
 0S8
 
->  <alt>  (63) 
+>  <alt>  (66) 
 B
 
->  <chain>  (63) 
+>  <chain>  (66) 
 B
 
->  <atom.prop.subpocket>  (63) 
+>  <atom.prop.subpocket>  (66) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (63) 
+>  <atom.prop.environment>  (66) 
 3 3 3 3 3 4 4 4 4 4 4 8 4 4 na
 
 $$$$
@@ -4123,31 +4326,31 @@ $$$$
  20  1  1  0
 V   20 *
 M  END
->  <kinase>  (64) 
+>  <kinase>  (67) 
 FGFR1
 
->  <family>  (64) 
+>  <family>  (67) 
 FGFR
 
->  <group>  (64) 
+>  <group>  (67) 
 TK
 
->  <complex_pdb>  (64) 
+>  <complex_pdb>  (67) 
 4nka
 
->  <ligand_pdb>  (64) 
+>  <ligand_pdb>  (67) 
 2K7
 
->  <alt>  (64) 
+>  <alt>  (67) 
  
 
->  <chain>  (64) 
+>  <chain>  (67) 
 B
 
->  <atom.prop.subpocket>  (64) 
+>  <atom.prop.subpocket>  (67) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (64) 
+>  <atom.prop.environment>  (67) 
 16 16 16 16 16 16 16 3 3 3 3 3 3 3 3 3 16 16 3 na
 
 $$$$
@@ -4208,31 +4411,31 @@ $$$$
   2 25  1  0
 V   25 *
 M  END
->  <kinase>  (65) 
+>  <kinase>  (68) 
 FGFR1
 
->  <family>  (65) 
+>  <family>  (68) 
 FGFR
 
->  <group>  (65) 
+>  <group>  (68) 
 TK
 
->  <complex_pdb>  (65) 
+>  <complex_pdb>  (68) 
 4rwl
 
->  <ligand_pdb>  (65) 
+>  <ligand_pdb>  (68) 
 3ZC
 
->  <alt>  (65) 
+>  <alt>  (68) 
  
 
->  <chain>  (65) 
+>  <chain>  (68) 
 B
 
->  <atom.prop.subpocket>  (65) 
+>  <atom.prop.subpocket>  (68) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (65) 
+>  <atom.prop.environment>  (68) 
 16 16 5 5 5 5 5 5 1 1 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -4279,31 +4482,31 @@ $$$$
  18  7  1  0
 V   18 *
 M  END
->  <kinase>  (66) 
+>  <kinase>  (69) 
 FGFR1
 
->  <family>  (66) 
+>  <family>  (69) 
 FGFR
 
->  <group>  (66) 
+>  <group>  (69) 
 TK
 
->  <complex_pdb>  (66) 
+>  <complex_pdb>  (69) 
 5b7v
 
->  <ligand_pdb>  (66) 
+>  <ligand_pdb>  (69) 
 LWJ
 
->  <alt>  (66) 
+>  <alt>  (69) 
  
 
->  <chain>  (66) 
+>  <chain>  (69) 
 B
 
->  <atom.prop.subpocket>  (66) 
+>  <atom.prop.subpocket>  (69) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (66) 
+>  <atom.prop.environment>  (69) 
 14 14 14 14 14 14 16 14 14 14 14 14 14 8 8 8 8 na
 
 $$$$
@@ -4351,31 +4554,31 @@ $$$$
  19  1  1  0
 V   19 *
 M  END
->  <kinase>  (67) 
+>  <kinase>  (70) 
 FGFR1
 
->  <family>  (67) 
+>  <family>  (70) 
 FGFR
 
->  <group>  (67) 
+>  <group>  (70) 
 TK
 
->  <complex_pdb>  (67) 
+>  <complex_pdb>  (70) 
 7ozf
 
->  <ligand_pdb>  (67) 
+>  <ligand_pdb>  (70) 
 466
 
->  <alt>  (67) 
+>  <alt>  (70) 
 B
 
->  <chain>  (67) 
+>  <chain>  (70) 
 A
 
->  <atom.prop.subpocket>  (67) 
+>  <atom.prop.subpocket>  (70) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (67) 
+>  <atom.prop.environment>  (70) 
 16 16 16 16 16 16 16 16 16 16 3 4 4 4 4 4 4 4 na
 
 $$$$
@@ -4437,31 +4640,31 @@ $$$$
  26 21  1  0
 V   26 *
 M  END
->  <kinase>  (68) 
+>  <kinase>  (71) 
 FGFR3
 
->  <family>  (68) 
+>  <family>  (71) 
 FGFR
 
->  <group>  (68) 
+>  <group>  (71) 
 TK
 
->  <complex_pdb>  (68) 
+>  <complex_pdb>  (71) 
 6lvm
 
->  <ligand_pdb>  (68) 
+>  <ligand_pdb>  (71) 
 EVR
 
->  <alt>  (68) 
+>  <alt>  (71) 
  
 
->  <chain>  (68) 
+>  <chain>  (71) 
 A
 
->  <atom.prop.subpocket>  (68) 
+>  <atom.prop.subpocket>  (71) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (68) 
+>  <atom.prop.environment>  (71) 
 16 16 16 16 16 16 16 16 16 3 3 3 3 3 3 3 3 8 8 8 8 8 8 3 3 na
 
 $$$$
@@ -4501,31 +4704,31 @@ $$$$
  15  1  1  0
 V   15 *
 M  END
->  <kinase>  (69) 
+>  <kinase>  (72) 
 GSK3A
 
->  <family>  (69) 
+>  <family>  (72) 
 GSK
 
->  <group>  (69) 
+>  <group>  (72) 
 CMGC
 
->  <complex_pdb>  (69) 
+>  <complex_pdb>  (72) 
 7sxg
 
->  <ligand_pdb>  (69) 
+>  <ligand_pdb>  (72) 
 D1E
 
->  <alt>  (69) 
+>  <alt>  (72) 
 B
 
->  <chain>  (69) 
+>  <chain>  (72) 
 A
 
->  <atom.prop.subpocket>  (69) 
+>  <atom.prop.subpocket>  (72) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (69) 
+>  <atom.prop.environment>  (72) 
 16 16 16 16 16 16 16 3 3 3 3 16 16 3 na
 
 $$$$
@@ -4572,31 +4775,31 @@ $$$$
 V   17 *
 V   18 *
 M  END
->  <kinase>  (70) 
+>  <kinase>  (73) 
 HCK
 
->  <family>  (70) 
+>  <family>  (73) 
 Src
 
->  <group>  (70) 
+>  <group>  (73) 
 TK
 
->  <complex_pdb>  (70) 
+>  <complex_pdb>  (73) 
 3vrz
 
->  <ligand_pdb>  (70) 
+>  <ligand_pdb>  (73) 
 VRZ
 
->  <alt>  (70) 
+>  <alt>  (73) 
  
 
->  <chain>  (70) 
+>  <chain>  (73) 
 A
 
->  <atom.prop.subpocket>  (70) 
+>  <atom.prop.subpocket>  (73) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
->  <atom.prop.environment>  (70) 
+>  <atom.prop.environment>  (73) 
 16 16 16 16 16 16 16 16 16 16 5 5 1 1 5 5 na na
 
 $$$$
@@ -4637,31 +4840,31 @@ $$$$
  15  1  1  0
 V   15 *
 M  END
->  <kinase>  (71) 
+>  <kinase>  (74) 
 HCK
 
->  <family>  (71) 
+>  <family>  (74) 
 Src
 
->  <group>  (71) 
+>  <group>  (74) 
 TK
 
->  <complex_pdb>  (71) 
+>  <complex_pdb>  (74) 
 3vs7
 
->  <ligand_pdb>  (71) 
+>  <ligand_pdb>  (74) 
 KS1
 
->  <alt>  (71) 
+>  <alt>  (74) 
  
 
->  <chain>  (71) 
+>  <chain>  (74) 
 B
 
->  <atom.prop.subpocket>  (71) 
+>  <atom.prop.subpocket>  (74) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (71) 
+>  <atom.prop.environment>  (74) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -4707,31 +4910,31 @@ $$$$
  18  7  1  0
 V   18 *
 M  END
->  <kinase>  (72) 
+>  <kinase>  (75) 
 HGK
 
->  <family>  (72) 
+>  <family>  (75) 
 STE20
 
->  <group>  (72) 
+>  <group>  (75) 
 STE
 
->  <complex_pdb>  (72) 
+>  <complex_pdb>  (75) 
 5di1
 
->  <ligand_pdb>  (72) 
+>  <ligand_pdb>  (75) 
 5DF
 
->  <alt>  (72) 
+>  <alt>  (75) 
  
 
->  <chain>  (72) 
+>  <chain>  (75) 
 A
 
->  <atom.prop.subpocket>  (72) 
+>  <atom.prop.subpocket>  (75) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (72) 
+>  <atom.prop.environment>  (75) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -4786,31 +4989,31 @@ $$$$
  22 10  1  0
 V   22 *
 M  END
->  <kinase>  (73) 
+>  <kinase>  (76) 
 HPK1
 
->  <family>  (73) 
+>  <family>  (76) 
 STE20
 
->  <group>  (73) 
+>  <group>  (76) 
 STE
 
->  <complex_pdb>  (73) 
+>  <complex_pdb>  (76) 
 7kac
 
->  <ligand_pdb>  (73) 
+>  <ligand_pdb>  (76) 
 W9D
 
->  <alt>  (73) 
+>  <alt>  (76) 
  
 
->  <chain>  (73) 
+>  <chain>  (76) 
 B
 
->  <atom.prop.subpocket>  (73) 
+>  <atom.prop.subpocket>  (76) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (73) 
+>  <atom.prop.environment>  (76) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -4857,31 +5060,31 @@ V   15 *
 V   16 *
 V   17 *
 M  END
->  <kinase>  (74) 
+>  <kinase>  (77) 
 IGF1R
 
->  <family>  (74) 
+>  <family>  (77) 
 InsR
 
->  <group>  (74) 
+>  <group>  (77) 
 TK
 
->  <complex_pdb>  (74) 
+>  <complex_pdb>  (77) 
 8pyi
 
->  <ligand_pdb>  (74) 
+>  <ligand_pdb>  (77) 
 IER
 
->  <alt>  (74) 
+>  <alt>  (77) 
  
 
->  <chain>  (74) 
+>  <chain>  (77) 
 A
 
->  <atom.prop.subpocket>  (74) 
+>  <atom.prop.subpocket>  (77) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 B2 AP
 
->  <atom.prop.environment>  (74) 
+>  <atom.prop.environment>  (77) 
 14 16 16 16 16 16 16 16 16 16 16 16 16 16 na na na
 
 $$$$
@@ -4920,31 +5123,31 @@ $$$$
  14  1  1  0
 V   14 *
 M  END
->  <kinase>  (75) 
+>  <kinase>  (78) 
 IRAK4
 
->  <family>  (75) 
+>  <family>  (78) 
 IRAK
 
->  <group>  (75) 
+>  <group>  (78) 
 TKL
 
->  <complex_pdb>  (75) 
+>  <complex_pdb>  (78) 
 4xs2
 
->  <ligand_pdb>  (75) 
+>  <ligand_pdb>  (78) 
 42P
 
->  <alt>  (75) 
+>  <alt>  (78) 
  
 
->  <chain>  (75) 
+>  <chain>  (78) 
 C
 
->  <atom.prop.subpocket>  (75) 
+>  <atom.prop.subpocket>  (78) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (75) 
+>  <atom.prop.environment>  (78) 
 14 14 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$
@@ -4978,31 +5181,31 @@ $$$$
  12  1  1  0
 V   12 *
 M  END
->  <kinase>  (76) 
+>  <kinase>  (79) 
 IRAK4
 
->  <family>  (76) 
+>  <family>  (79) 
 IRAK
 
->  <group>  (76) 
+>  <group>  (79) 
 TKL
 
->  <complex_pdb>  (76) 
+>  <complex_pdb>  (79) 
 5t1s
 
->  <ligand_pdb>  (76) 
+>  <ligand_pdb>  (79) 
 76Q
 
->  <alt>  (76) 
+>  <alt>  (79) 
  
 
->  <chain>  (76) 
+>  <chain>  (79) 
 C
 
->  <atom.prop.subpocket>  (76) 
+>  <atom.prop.subpocket>  (79) 
 GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (76) 
+>  <atom.prop.environment>  (79) 
 16 16 16 16 16 16 16 16 16 3 3 na
 
 $$$$
@@ -5047,31 +5250,31 @@ $$$$
   1 17  1  0
 V   17 *
 M  END
->  <kinase>  (77) 
+>  <kinase>  (80) 
 IRAK4
 
->  <family>  (77) 
+>  <family>  (80) 
 IRAK
 
->  <group>  (77) 
+>  <group>  (80) 
 TKL
 
->  <complex_pdb>  (77) 
+>  <complex_pdb>  (80) 
 5w84
 
->  <ligand_pdb>  (77) 
+>  <ligand_pdb>  (80) 
 9YY
 
->  <alt>  (77) 
+>  <alt>  (80) 
  
 
->  <chain>  (77) 
+>  <chain>  (80) 
 A
 
->  <atom.prop.subpocket>  (77) 
+>  <atom.prop.subpocket>  (80) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (77) 
+>  <atom.prop.environment>  (80) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -5110,31 +5313,31 @@ $$$$
  14  1  1  0
 V   14 *
 M  END
->  <kinase>  (78) 
+>  <kinase>  (81) 
 IRAK4
 
->  <family>  (78) 
+>  <family>  (81) 
 IRAK
 
->  <group>  (78) 
+>  <group>  (81) 
 TKL
 
->  <complex_pdb>  (78) 
+>  <complex_pdb>  (81) 
 6lxy
 
->  <ligand_pdb>  (78) 
+>  <ligand_pdb>  (81) 
 EXF
 
->  <alt>  (78) 
+>  <alt>  (81) 
  
 
->  <chain>  (78) 
+>  <chain>  (81) 
 B
 
->  <atom.prop.subpocket>  (78) 
+>  <atom.prop.subpocket>  (81) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (78) 
+>  <atom.prop.environment>  (81) 
 14 14 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$
@@ -5170,31 +5373,31 @@ $$$$
  13  7  1  0
 V   13 *
 M  END
->  <kinase>  (79) 
+>  <kinase>  (82) 
 IRAK4
 
->  <family>  (79) 
+>  <family>  (82) 
 IRAK
 
->  <group>  (79) 
+>  <group>  (82) 
 TKL
 
->  <complex_pdb>  (79) 
+>  <complex_pdb>  (82) 
 6thw
 
->  <ligand_pdb>  (79) 
+>  <ligand_pdb>  (82) 
 NBK
 
->  <alt>  (79) 
+>  <alt>  (82) 
  
 
->  <chain>  (79) 
+>  <chain>  (82) 
 A
 
->  <atom.prop.subpocket>  (79) 
+>  <atom.prop.subpocket>  (82) 
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (79) 
+>  <atom.prop.environment>  (82) 
 14 14 14 14 14 14 16 8 8 8 8 14 na
 
 $$$$
@@ -5232,31 +5435,31 @@ $$$$
   1 14  1  0
 V   14 *
 M  END
->  <kinase>  (80) 
+>  <kinase>  (83) 
 IRAK4
 
->  <family>  (80) 
+>  <family>  (83) 
 IRAK
 
->  <group>  (80) 
+>  <group>  (83) 
 TKL
 
->  <complex_pdb>  (80) 
+>  <complex_pdb>  (83) 
 7c2v
 
->  <ligand_pdb>  (80) 
+>  <ligand_pdb>  (83) 
 FJ0
 
->  <alt>  (80) 
+>  <alt>  (83) 
 A
 
->  <chain>  (80) 
+>  <chain>  (83) 
 C
 
->  <atom.prop.subpocket>  (80) 
+>  <atom.prop.subpocket>  (83) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (80) 
+>  <atom.prop.environment>  (83) 
 16 14 14 8 8 8 8 14 14 14 14 14 14 na
 
 $$$$
@@ -5289,31 +5492,31 @@ $$$$
 V   10 *
 V   11 *
 M  END
->  <kinase>  (81) 
+>  <kinase>  (84) 
 IRE1
 
->  <family>  (81) 
+>  <family>  (84) 
 IRE
 
->  <group>  (81) 
+>  <group>  (84) 
 Other
 
->  <complex_pdb>  (81) 
+>  <complex_pdb>  (84) 
 6w3k
 
->  <ligand_pdb>  (81) 
+>  <ligand_pdb>  (84) 
 SJS
 
->  <alt>  (81) 
+>  <alt>  (84) 
  
 
->  <chain>  (81) 
+>  <chain>  (84) 
 A
 
->  <atom.prop.subpocket>  (81) 
+>  <atom.prop.subpocket>  (84) 
 GA GA GA GA GA GA GA GA GA FP AP
 
->  <atom.prop.environment>  (81) 
+>  <atom.prop.environment>  (84) 
 14 14 14 14 14 14 14 14 14 na na
 
 $$$$
@@ -5353,31 +5556,31 @@ $$$$
  15  8  1  0
 V   15 *
 M  END
->  <kinase>  (82) 
+>  <kinase>  (85) 
 ITK
 
->  <family>  (82) 
+>  <family>  (85) 
 Tec
 
->  <group>  (82) 
+>  <group>  (85) 
 TK
 
->  <complex_pdb>  (82) 
+>  <complex_pdb>  (85) 
 3qgy
 
->  <ligand_pdb>  (82) 
+>  <ligand_pdb>  (85) 
 L7O
 
->  <alt>  (82) 
+>  <alt>  (85) 
 A
 
->  <chain>  (82) 
+>  <chain>  (85) 
 B
 
->  <atom.prop.subpocket>  (82) 
+>  <atom.prop.subpocket>  (85) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (82) 
+>  <atom.prop.environment>  (85) 
 5 5 14 14 14 14 14 14 14 14 5 5 5 5 na
 
 $$$$
@@ -5408,31 +5611,31 @@ $$$$
 V    9 *
 V   10 *
 M  END
->  <kinase>  (83) 
+>  <kinase>  (86) 
 JAK2
 
->  <family>  (83) 
+>  <family>  (86) 
 JakA
 
->  <group>  (83) 
+>  <group>  (86) 
 TK
 
->  <complex_pdb>  (83) 
+>  <complex_pdb>  (86) 
 4yth
 
->  <ligand_pdb>  (83) 
+>  <ligand_pdb>  (86) 
 467
 
->  <alt>  (83) 
+>  <alt>  (86) 
 B
 
->  <chain>  (83) 
+>  <chain>  (86) 
 A
 
->  <atom.prop.subpocket>  (83) 
+>  <atom.prop.subpocket>  (86) 
 GA GA GA GA GA GA GA GA FP AP
 
->  <atom.prop.environment>  (83) 
+>  <atom.prop.environment>  (86) 
 14 14 14 14 14 14 14 14 na na
 
 $$$$
@@ -5480,31 +5683,31 @@ $$$$
  19  7  1  0
 V   19 *
 M  END
->  <kinase>  (84) 
+>  <kinase>  (87) 
 JAK2
 
->  <family>  (84) 
+>  <family>  (87) 
 JakA
 
->  <group>  (84) 
+>  <group>  (87) 
 TK
 
->  <complex_pdb>  (84) 
+>  <complex_pdb>  (87) 
 5tq3
 
->  <ligand_pdb>  (84) 
+>  <ligand_pdb>  (87) 
 7GZ
 
->  <alt>  (84) 
+>  <alt>  (87) 
 B
 
->  <chain>  (84) 
+>  <chain>  (87) 
 B
 
->  <atom.prop.subpocket>  (84) 
+>  <atom.prop.subpocket>  (87) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (84) 
+>  <atom.prop.environment>  (87) 
 16 16 16 16 16 16 16 8 8 8 8 8 8 8 16 16 3 3 na
 
 $$$$
@@ -5552,31 +5755,31 @@ $$$$
   5 19  1  0
 V   19 *
 M  END
->  <kinase>  (85) 
+>  <kinase>  (88) 
 JAK2
 
->  <family>  (85) 
+>  <family>  (88) 
 JakA
 
->  <group>  (85) 
+>  <group>  (88) 
 TK
 
->  <complex_pdb>  (85) 
+>  <complex_pdb>  (88) 
 5tq8
 
->  <ligand_pdb>  (85) 
+>  <ligand_pdb>  (88) 
 7GS
 
->  <alt>  (85) 
+>  <alt>  (88) 
  
 
->  <chain>  (85) 
+>  <chain>  (88) 
 A
 
->  <atom.prop.subpocket>  (85) 
+>  <atom.prop.subpocket>  (88) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (85) 
+>  <atom.prop.environment>  (88) 
 16 16 16 16 16 8 8 8 8 8 8 8 16 3 3 16 16 16 na
 
 $$$$
@@ -5610,31 +5813,31 @@ $$$$
  12  1  1  0
 V   12 *
 M  END
->  <kinase>  (86) 
+>  <kinase>  (89) 
 JNK3
 
->  <family>  (86) 
+>  <family>  (89) 
 MAPK
 
->  <group>  (86) 
+>  <group>  (89) 
 CMGC
 
->  <complex_pdb>  (86) 
+>  <complex_pdb>  (89) 
 1pmn
 
->  <ligand_pdb>  (86) 
+>  <ligand_pdb>  (89) 
 984
 
->  <alt>  (86) 
+>  <alt>  (89) 
  
 
->  <chain>  (86) 
+>  <chain>  (89) 
 A
 
->  <atom.prop.subpocket>  (86) 
+>  <atom.prop.subpocket>  (89) 
 GA GA GA GA GA GA GA GA GA GA GA FP
 
->  <atom.prop.environment>  (86) 
+>  <atom.prop.environment>  (89) 
 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -5691,31 +5894,31 @@ $$$$
  23  9  1  0
 V   23 *
 M  END
->  <kinase>  (87) 
+>  <kinase>  (90) 
 KDR
 
->  <family>  (87) 
+>  <family>  (90) 
 VEGFR
 
->  <group>  (87) 
+>  <group>  (90) 
 TK
 
->  <complex_pdb>  (87) 
+>  <complex_pdb>  (90) 
 3cjg
 
->  <ligand_pdb>  (87) 
+>  <ligand_pdb>  (90) 
 KIM
 
->  <alt>  (87) 
+>  <alt>  (90) 
 B
 
->  <chain>  (87) 
+>  <chain>  (90) 
 A
 
->  <atom.prop.subpocket>  (87) 
+>  <atom.prop.subpocket>  (90) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (87) 
+>  <atom.prop.environment>  (90) 
 16 16 8 8 8 8 16 16 5 5 5 5 5 16 16 16 16 14 16 16 16 16 na
 
 $$$$
@@ -5755,31 +5958,31 @@ $$$$
   7 15  1  0
 V   15 *
 M  END
->  <kinase>  (88) 
+>  <kinase>  (91) 
 KIT
 
->  <family>  (88) 
+>  <family>  (91) 
 PDGFR
 
->  <group>  (88) 
+>  <group>  (91) 
 TK
 
->  <complex_pdb>  (88) 
+>  <complex_pdb>  (91) 
 7khk
 
->  <ligand_pdb>  (88) 
+>  <ligand_pdb>  (91) 
 WEJ
 
->  <alt>  (88) 
+>  <alt>  (91) 
  
 
->  <chain>  (88) 
+>  <chain>  (91) 
 A
 
->  <atom.prop.subpocket>  (88) 
+>  <atom.prop.subpocket>  (91) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (88) 
+>  <atom.prop.environment>  (91) 
 8 8 8 8 16 14 14 8 8 8 8 14 14 14 na
 
 $$$$
@@ -5822,31 +6025,31 @@ $$$$
 V   15 *
 V   16 *
 M  END
->  <kinase>  (89) 
+>  <kinase>  (92) 
 KSR2
 
->  <family>  (89) 
+>  <family>  (92) 
 RAF
 
->  <group>  (89) 
+>  <group>  (92) 
 TKL
 
->  <complex_pdb>  (89) 
+>  <complex_pdb>  (92) 
 5kkr
 
->  <ligand_pdb>  (89) 
+>  <ligand_pdb>  (92) 
 6U7
 
->  <alt>  (89) 
+>  <alt>  (92) 
  
 
->  <chain>  (89) 
+>  <chain>  (92) 
 B
 
->  <atom.prop.subpocket>  (89) 
+>  <atom.prop.subpocket>  (92) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
->  <atom.prop.environment>  (89) 
+>  <atom.prop.environment>  (92) 
 16 16 8 8 8 8 16 16 16 16 16 16 16 3 na na
 
 $$$$
@@ -5892,31 +6095,31 @@ $$$$
  18  1  1  0
 V   18 *
 M  END
->  <kinase>  (90) 
+>  <kinase>  (93) 
 LCK
 
->  <family>  (90) 
+>  <family>  (93) 
 Src
 
->  <group>  (90) 
+>  <group>  (93) 
 TK
 
->  <complex_pdb>  (90) 
+>  <complex_pdb>  (93) 
 3byo
 
->  <ligand_pdb>  (90) 
+>  <ligand_pdb>  (93) 
 AM9
 
->  <alt>  (90) 
+>  <alt>  (93) 
  
 
->  <chain>  (90) 
+>  <chain>  (93) 
 A
 
->  <atom.prop.subpocket>  (90) 
+>  <atom.prop.subpocket>  (93) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (90) 
+>  <atom.prop.environment>  (93) 
 16 16 16 16 16 16 16 16 16 8 8 8 8 8 8 8 8 na
 
 $$$$
@@ -5951,31 +6154,31 @@ $$$$
 V   11 *
 V   12 *
 M  END
->  <kinase>  (91) 
+>  <kinase>  (94) 
 LIMK1
 
->  <family>  (91) 
+>  <family>  (94) 
 LISK
 
->  <group>  (91) 
+>  <group>  (94) 
 TKL
 
->  <complex_pdb>  (91) 
+>  <complex_pdb>  (94) 
 8aau
 
->  <ligand_pdb>  (91) 
+>  <ligand_pdb>  (94) 
 LH0
 
->  <alt>  (91) 
+>  <alt>  (94) 
 B
 
->  <chain>  (91) 
+>  <chain>  (94) 
 L
 
->  <atom.prop.subpocket>  (91) 
+>  <atom.prop.subpocket>  (94) 
 GA GA GA GA GA GA GA GA GA GA FP AP
 
->  <atom.prop.environment>  (91) 
+>  <atom.prop.environment>  (94) 
 8 14 8 8 14 14 9 14 8 14 na na
 
 $$$$
@@ -6019,31 +6222,31 @@ $$$$
  17  1  1  0
 V   17 *
 M  END
->  <kinase>  (92) 
+>  <kinase>  (95) 
 LOK
 
->  <family>  (92) 
+>  <family>  (95) 
 STE20
 
->  <group>  (92) 
+>  <group>  (95) 
 STE
 
->  <complex_pdb>  (92) 
+>  <complex_pdb>  (95) 
 2j7t
 
->  <ligand_pdb>  (92) 
+>  <ligand_pdb>  (95) 
 274
 
->  <alt>  (92) 
+>  <alt>  (95) 
 A
 
->  <chain>  (92) 
+>  <chain>  (95) 
 A
 
->  <atom.prop.subpocket>  (92) 
+>  <atom.prop.subpocket>  (95) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (92) 
+>  <atom.prop.environment>  (95) 
 5 5 5 5 5 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -6098,31 +6301,31 @@ $$$$
  22  1  1  0
 V   22 *
 M  END
->  <kinase>  (93) 
+>  <kinase>  (96) 
 LOK
 
->  <family>  (93) 
+>  <family>  (96) 
 STE20
 
->  <group>  (93) 
+>  <group>  (96) 
 STE
 
->  <complex_pdb>  (93) 
+>  <complex_pdb>  (96) 
 4use
 
->  <ligand_pdb>  (93) 
+>  <ligand_pdb>  (96) 
 R09
 
->  <alt>  (93) 
+>  <alt>  (96) 
 B
 
->  <chain>  (93) 
+>  <chain>  (96) 
 A
 
->  <atom.prop.subpocket>  (93) 
+>  <atom.prop.subpocket>  (96) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
->  <atom.prop.environment>  (93) 
+>  <atom.prop.environment>  (96) 
 16 16 16 16 16 16 16 16 16 3 3 3 3 3 16 16 16 16 16 16 16 na
 
 $$$$
@@ -6154,31 +6357,31 @@ $$$$
   1 11  1  0
 V   11 *
 M  END
->  <kinase>  (94) 
+>  <kinase>  (97) 
 MAP2K1
 
->  <family>  (94) 
+>  <family>  (97) 
 STE7
 
->  <group>  (94) 
+>  <group>  (97) 
 STE
 
->  <complex_pdb>  (94) 
+>  <complex_pdb>  (97) 
 7xnc
 
->  <ligand_pdb>  (94) 
+>  <ligand_pdb>  (97) 
 GIK
 
->  <alt>  (94) 
+>  <alt>  (97) 
  
 
->  <chain>  (94) 
+>  <chain>  (97) 
 A
 
->  <atom.prop.subpocket>  (94) 
+>  <atom.prop.subpocket>  (97) 
 GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (94) 
+>  <atom.prop.environment>  (97) 
 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -6206,31 +6409,31 @@ $$$$
   2  9  1  0
 V    9 *
 M  END
->  <kinase>  (95) 
+>  <kinase>  (98) 
 MAP3K5
 
->  <family>  (95) 
+>  <family>  (98) 
 STE11
 
->  <group>  (95) 
+>  <group>  (98) 
 STE
 
->  <complex_pdb>  (95) 
+>  <complex_pdb>  (98) 
 3vw6
 
->  <ligand_pdb>  (95) 
+>  <ligand_pdb>  (98) 
 IM6
 
->  <alt>  (95) 
+>  <alt>  (98) 
 B
 
->  <chain>  (95) 
+>  <chain>  (98) 
 B
 
->  <atom.prop.subpocket>  (95) 
+>  <atom.prop.subpocket>  (98) 
 GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (95) 
+>  <atom.prop.environment>  (98) 
 9 9 9 9 9 9 9 9 na
 
 $$$$
@@ -6271,31 +6474,31 @@ $$$$
 V   14 *
 V   15 *
 M  END
->  <kinase>  (96) 
+>  <kinase>  (99) 
 MARK4
 
->  <family>  (96) 
+>  <family>  (99) 
 CAMKL
 
->  <group>  (96) 
+>  <group>  (99) 
 CAMK
 
->  <complex_pdb>  (96) 
+>  <complex_pdb>  (99) 
 5es1
 
->  <ligand_pdb>  (96) 
+>  <ligand_pdb>  (99) 
 5RC
 
->  <alt>  (96) 
+>  <alt>  (99) 
  
 
->  <chain>  (96) 
+>  <chain>  (99) 
 A
 
->  <atom.prop.subpocket>  (96) 
+>  <atom.prop.subpocket>  (99) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
->  <atom.prop.environment>  (96) 
+>  <atom.prop.environment>  (99) 
 8 8 8 14 14 14 16 14 14 8 8 8 8 na na
 
 $$$$
@@ -6331,31 +6534,31 @@ $$$$
  12 13  1  0
 V   13 *
 M  END
->  <kinase>  (97) 
+>  <kinase>  (100) 
 MELK
 
->  <family>  (97) 
+>  <family>  (100) 
 CAMKL
 
->  <group>  (97) 
+>  <group>  (100) 
 CAMK
 
->  <complex_pdb>  (97) 
+>  <complex_pdb>  (100) 
 5tvt
 
->  <ligand_pdb>  (97) 
+>  <ligand_pdb>  (100) 
 7LV
 
->  <alt>  (97) 
+>  <alt>  (100) 
  
 
->  <chain>  (97) 
+>  <chain>  (100) 
 A
 
->  <atom.prop.subpocket>  (97) 
+>  <atom.prop.subpocket>  (100) 
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (97) 
+>  <atom.prop.environment>  (100) 
 3 3 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -6398,31 +6601,31 @@ $$$$
 V   15 *
 V   16 *
 M  END
->  <kinase>  (98) 
+>  <kinase>  (101) 
 MER
 
->  <family>  (98) 
+>  <family>  (101) 
 Axl
 
->  <group>  (98) 
+>  <group>  (101) 
 TK
 
->  <complex_pdb>  (98) 
+>  <complex_pdb>  (101) 
 7aaz
 
->  <ligand_pdb>  (98) 
+>  <ligand_pdb>  (101) 
 R6K
 
->  <alt>  (98) 
+>  <alt>  (101) 
 A
 
->  <chain>  (98) 
+>  <chain>  (101) 
 A
 
->  <atom.prop.subpocket>  (98) 
+>  <atom.prop.subpocket>  (101) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP B2
 
->  <atom.prop.environment>  (98) 
+>  <atom.prop.environment>  (101) 
 16 16 16 16 16 16 4 4 4 16 16 16 16 3 na na
 
 $$$$
@@ -6467,31 +6670,31 @@ $$$$
 V   16 *
 V   17 *
 M  END
->  <kinase>  (99) 
+>  <kinase>  (102) 
 MER
 
->  <family>  (99) 
+>  <family>  (102) 
 Axl
 
->  <group>  (99) 
+>  <group>  (102) 
 TK
 
->  <complex_pdb>  (99) 
+>  <complex_pdb>  (102) 
 7avy
 
->  <ligand_pdb>  (99) 
+>  <ligand_pdb>  (102) 
 S4E
 
->  <alt>  (99) 
+>  <alt>  (102) 
  
 
->  <chain>  (99) 
+>  <chain>  (102) 
 A
 
->  <atom.prop.subpocket>  (99) 
+>  <atom.prop.subpocket>  (102) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP B2
 
->  <atom.prop.environment>  (99) 
+>  <atom.prop.environment>  (102) 
 16 14 14 4 4 4 8 4 4 14 14 14 14 14 3 na na
 
 $$$$
@@ -6526,31 +6729,31 @@ $$$$
 V   11 *
 V   12 *
 M  END
->  <kinase>  (100) 
+>  <kinase>  (103) 
 MST3
 
->  <family>  (100) 
+>  <family>  (103) 
 STE20
 
->  <group>  (100) 
+>  <group>  (103) 
 STE
 
->  <complex_pdb>  (100) 
+>  <complex_pdb>  (103) 
 8bzi
 
->  <ligand_pdb>  (100) 
+>  <ligand_pdb>  (103) 
 SJL
 
->  <alt>  (100) 
+>  <alt>  (103) 
 B
 
->  <chain>  (100) 
+>  <chain>  (103) 
 A
 
->  <atom.prop.subpocket>  (100) 
+>  <atom.prop.subpocket>  (103) 
 GA GA GA GA GA GA GA GA GA GA B1 AP
 
->  <atom.prop.environment>  (100) 
+>  <atom.prop.environment>  (103) 
 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
@@ -6598,31 +6801,31 @@ $$$$
  16 19  1  0
 V   19 *
 M  END
->  <kinase>  (101) 
+>  <kinase>  (104) 
 MYT1
 
->  <family>  (101) 
+>  <family>  (104) 
 WEE
 
->  <group>  (101) 
+>  <group>  (104) 
 Other
 
->  <complex_pdb>  (101) 
+>  <complex_pdb>  (104) 
 8d6c
 
->  <ligand_pdb>  (101) 
+>  <ligand_pdb>  (104) 
 QGR
 
->  <alt>  (101) 
+>  <alt>  (104) 
  
 
->  <chain>  (101) 
+>  <chain>  (104) 
 A
 
->  <atom.prop.subpocket>  (101) 
+>  <atom.prop.subpocket>  (104) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
->  <atom.prop.environment>  (101) 
+>  <atom.prop.environment>  (104) 
 8 8 8 8 16 16 16 16 16 16 16 8 8 8 8 16 3 3 na
 
 $$$$
@@ -6662,31 +6865,31 @@ $$$$
   6 15  1  0
 V   15 *
 M  END
->  <kinase>  (102) 
+>  <kinase>  (105) 
 NIK
 
->  <family>  (102) 
+>  <family>  (105) 
 STE-Unique
 
->  <group>  (102) 
+>  <group>  (105) 
 STE
 
->  <complex_pdb>  (102) 
+>  <complex_pdb>  (105) 
 6wpp
 
->  <ligand_pdb>  (102) 
+>  <ligand_pdb>  (105) 
 PZ4
 
->  <alt>  (102) 
+>  <alt>  (105) 
 B
 
->  <chain>  (102) 
+>  <chain>  (105) 
 A
 
->  <atom.prop.subpocket>  (102) 
+>  <atom.prop.subpocket>  (105) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (102) 
+>  <atom.prop.environment>  (105) 
 5 5 5 5 14 14 14 14 14 5 5 14 14 14 na
 
 $$$$
@@ -6734,31 +6937,31 @@ $$$$
 V   17 *
 V   18 *
 M  END
->  <kinase>  (103) 
+>  <kinase>  (106) 
 PEK
 
->  <family>  (103) 
+>  <family>  (106) 
 PEK
 
->  <group>  (103) 
+>  <group>  (106) 
 Other
 
->  <complex_pdb>  (103) 
+>  <complex_pdb>  (106) 
 4g34
 
->  <ligand_pdb>  (103) 
+>  <ligand_pdb>  (106) 
 924
 
->  <alt>  (103) 
+>  <alt>  (106) 
 B
 
->  <chain>  (103) 
+>  <chain>  (106) 
 A
 
->  <atom.prop.subpocket>  (103) 
+>  <atom.prop.subpocket>  (106) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
->  <atom.prop.environment>  (103) 
+>  <atom.prop.environment>  (106) 
 16 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 na na
 
 $$$$
@@ -6800,31 +7003,31 @@ $$$$
 V   14 *
 V   15 *
 M  END
->  <kinase>  (104) 
+>  <kinase>  (107) 
 PIM1
 
->  <family>  (104) 
+>  <family>  (107) 
 PIM
 
->  <group>  (104) 
+>  <group>  (107) 
 CAMK
 
->  <complex_pdb>  (104) 
+>  <complex_pdb>  (107) 
 4k0y
 
->  <ligand_pdb>  (104) 
+>  <ligand_pdb>  (107) 
 1OA
 
->  <alt>  (104) 
+>  <alt>  (107) 
 B
 
->  <chain>  (104) 
+>  <chain>  (107) 
 A
 
->  <atom.prop.subpocket>  (104) 
+>  <atom.prop.subpocket>  (107) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP FP
 
->  <atom.prop.environment>  (104) 
+>  <atom.prop.environment>  (107) 
 16 14 14 14 14 14 14 14 14 14 14 3 3 na na
 
 $$$$
@@ -6863,31 +7066,31 @@ $$$$
 M  CHG  1  12  -1
 V   14 *
 M  END
->  <kinase>  (105) 
+>  <kinase>  (108) 
 PIM1
 
->  <family>  (105) 
+>  <family>  (108) 
 PIM
 
->  <group>  (105) 
+>  <group>  (108) 
 CAMK
 
->  <complex_pdb>  (105) 
+>  <complex_pdb>  (108) 
 4mta
 
->  <ligand_pdb>  (105) 
+>  <ligand_pdb>  (108) 
 2D2
 
->  <alt>  (105) 
+>  <alt>  (108) 
  
 
->  <chain>  (105) 
+>  <chain>  (108) 
 A
 
->  <atom.prop.subpocket>  (105) 
+>  <atom.prop.subpocket>  (108) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (105) 
+>  <atom.prop.environment>  (108) 
 14 16 16 16 16 14 6 8 8 8 8 6 6 na
 
 $$$$
@@ -6930,31 +7133,31 @@ $$$$
   3 16  1  0
 V   16 *
 M  END
->  <kinase>  (106) 
+>  <kinase>  (109) 
 PIM1
 
->  <family>  (106) 
+>  <family>  (109) 
 PIM
 
->  <group>  (106) 
+>  <group>  (109) 
 CAMK
 
->  <complex_pdb>  (106) 
+>  <complex_pdb>  (109) 
 5n4u
 
->  <ligand_pdb>  (106) 
+>  <ligand_pdb>  (109) 
 8MZ
 
->  <alt>  (106) 
+>  <alt>  (109) 
 A
 
->  <chain>  (106) 
+>  <chain>  (109) 
 A
 
->  <atom.prop.subpocket>  (106) 
+>  <atom.prop.subpocket>  (109) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (106) 
+>  <atom.prop.environment>  (109) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -6993,31 +7196,31 @@ $$$$
 V   13 *
 V   14 *
 M  END
->  <kinase>  (107) 
+>  <kinase>  (110) 
 PIM1
 
->  <family>  (107) 
+>  <family>  (110) 
 PIM
 
->  <group>  (107) 
+>  <group>  (110) 
 CAMK
 
->  <complex_pdb>  (107) 
+>  <complex_pdb>  (110) 
 6no8
 
->  <ligand_pdb>  (107) 
+>  <ligand_pdb>  (110) 
 KUY
 
->  <alt>  (107) 
+>  <alt>  (110) 
  
 
->  <chain>  (107) 
+>  <chain>  (110) 
 A
 
->  <atom.prop.subpocket>  (107) 
+>  <atom.prop.subpocket>  (110) 
 GA GA GA GA GA GA GA GA GA GA GA GA AP FP
 
->  <atom.prop.environment>  (107) 
+>  <atom.prop.environment>  (110) 
 9 16 8 8 8 8 14 14 14 14 5 5 na na
 
 $$$$
@@ -7053,31 +7256,31 @@ $$$$
  13 11  1  0
 V   13 *
 M  END
->  <kinase>  (108) 
+>  <kinase>  (111) 
 PKCi
 
->  <family>  (108) 
+>  <family>  (111) 
 PKC
 
->  <group>  (108) 
+>  <group>  (111) 
 AGC
 
->  <complex_pdb>  (108) 
+>  <complex_pdb>  (111) 
 6ilz
 
->  <ligand_pdb>  (108) 
+>  <ligand_pdb>  (111) 
 AFU
 
->  <alt>  (108) 
+>  <alt>  (111) 
  
 
->  <chain>  (108) 
+>  <chain>  (111) 
 G
 
->  <atom.prop.subpocket>  (108) 
+>  <atom.prop.subpocket>  (111) 
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (108) 
+>  <atom.prop.environment>  (111) 
 16 16 16 16 16 16 16 16 16 16 5 5 na
 
 $$$$
@@ -7111,31 +7314,31 @@ $$$$
  12  1  1  0
 V   12 *
 M  END
->  <kinase>  (109) 
+>  <kinase>  (112) 
 RET
 
->  <family>  (109) 
+>  <family>  (112) 
 Ret
 
->  <group>  (109) 
+>  <group>  (112) 
 TK
 
->  <complex_pdb>  (109) 
+>  <complex_pdb>  (112) 
 2ivu
 
->  <ligand_pdb>  (109) 
+>  <ligand_pdb>  (112) 
 ZD6
 
->  <alt>  (109) 
+>  <alt>  (112) 
  
 
->  <chain>  (109) 
+>  <chain>  (112) 
 A
 
->  <atom.prop.subpocket>  (109) 
+>  <atom.prop.subpocket>  (112) 
 GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (109) 
+>  <atom.prop.environment>  (112) 
 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -7173,31 +7376,31 @@ $$$$
  14  9  1  0
 V   14 *
 M  END
->  <kinase>  (110) 
+>  <kinase>  (113) 
 RET
 
->  <family>  (110) 
+>  <family>  (113) 
 Ret
 
->  <group>  (110) 
+>  <group>  (113) 
 TK
 
->  <complex_pdb>  (110) 
+>  <complex_pdb>  (113) 
 7dua
 
->  <ligand_pdb>  (110) 
+>  <ligand_pdb>  (113) 
 HJ0
 
->  <alt>  (110) 
+>  <alt>  (113) 
 A
 
->  <chain>  (110) 
+>  <chain>  (113) 
 A
 
->  <atom.prop.subpocket>  (110) 
+>  <atom.prop.subpocket>  (113) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (110) 
+>  <atom.prop.environment>  (113) 
 14 14 14 14 8 8 8 8 5 5 14 14 14 na
 
 $$$$
@@ -7238,31 +7441,31 @@ $$$$
   1 15  1  0
 V   15 *
 M  END
->  <kinase>  (111) 
+>  <kinase>  (114) 
 RIPK2
 
->  <family>  (111) 
+>  <family>  (114) 
 RIPK
 
->  <group>  (111) 
+>  <group>  (114) 
 TKL
 
->  <complex_pdb>  (111) 
+>  <complex_pdb>  (114) 
 5j7b
 
->  <ligand_pdb>  (111) 
+>  <ligand_pdb>  (114) 
 6GD
 
->  <alt>  (111) 
+>  <alt>  (114) 
  
 
->  <chain>  (111) 
+>  <chain>  (114) 
 B
 
->  <atom.prop.subpocket>  (111) 
+>  <atom.prop.subpocket>  (114) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (111) 
+>  <atom.prop.environment>  (114) 
 14 14 14 14 14 14 14 14 14 14 14 14 14 14 na
 
 $$$$
@@ -7311,31 +7514,31 @@ $$$$
 V   18 *
 V   19 *
 M  END
->  <kinase>  (112) 
+>  <kinase>  (115) 
 ROCK1
 
->  <family>  (112) 
+>  <family>  (115) 
 DMPK
 
->  <group>  (112) 
+>  <group>  (115) 
 AGC
 
->  <complex_pdb>  (112) 
+>  <complex_pdb>  (115) 
 6e9w
 
->  <ligand_pdb>  (112) 
+>  <ligand_pdb>  (115) 
 J0P
 
->  <alt>  (112) 
+>  <alt>  (115) 
  
 
->  <chain>  (112) 
+>  <chain>  (115) 
 B
 
->  <atom.prop.subpocket>  (112) 
+>  <atom.prop.subpocket>  (115) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B2 AP
 
->  <atom.prop.environment>  (112) 
+>  <atom.prop.environment>  (115) 
 16 16 16 16 1 1 16 16 16 16 16 16 5 5 4 4 4 na na
 
 $$$$
@@ -7368,31 +7571,31 @@ $$$$
 V   10 *
 V   11 *
 M  END
->  <kinase>  (113) 
+>  <kinase>  (116) 
 SYK
 
->  <family>  (113) 
+>  <family>  (116) 
 Syk
 
->  <group>  (113) 
+>  <group>  (116) 
 TK
 
->  <complex_pdb>  (113) 
+>  <complex_pdb>  (116) 
 3emg
 
->  <ligand_pdb>  (113) 
+>  <ligand_pdb>  (116) 
 685
 
->  <alt>  (113) 
+>  <alt>  (116) 
  
 
->  <chain>  (113) 
+>  <chain>  (116) 
 A
 
->  <atom.prop.subpocket>  (113) 
+>  <atom.prop.subpocket>  (116) 
 GA GA GA GA GA GA GA GA GA FP AP
 
->  <atom.prop.environment>  (113) 
+>  <atom.prop.environment>  (116) 
 14 14 14 14 14 8 8 8 8 na na
 
 $$$$
@@ -7443,31 +7646,31 @@ $$$$
  20  1  1  0
 V   20 *
 M  END
->  <kinase>  (114) 
+>  <kinase>  (117) 
 SYK
 
->  <family>  (114) 
+>  <family>  (117) 
 Syk
 
->  <group>  (114) 
+>  <group>  (117) 
 TK
 
->  <complex_pdb>  (114) 
+>  <complex_pdb>  (117) 
 4yju
 
->  <ligand_pdb>  (114) 
+>  <ligand_pdb>  (117) 
 4DO
 
->  <alt>  (114) 
+>  <alt>  (117) 
 A
 
->  <chain>  (114) 
+>  <chain>  (117) 
 A
 
->  <atom.prop.subpocket>  (114) 
+>  <atom.prop.subpocket>  (117) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (114) 
+>  <atom.prop.environment>  (117) 
 5 5 5 5 5 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -7512,31 +7715,31 @@ $$$$
 V   16 *
 V   17 *
 M  END
->  <kinase>  (115) 
+>  <kinase>  (118) 
 TGFbR1
 
->  <family>  (115) 
+>  <family>  (118) 
 STKR
 
->  <group>  (115) 
+>  <group>  (118) 
 TKL
 
->  <complex_pdb>  (115) 
+>  <complex_pdb>  (118) 
 2wot
 
->  <ligand_pdb>  (115) 
+>  <ligand_pdb>  (118) 
 ZZG
 
->  <alt>  (115) 
+>  <alt>  (118) 
 B
 
->  <chain>  (115) 
+>  <chain>  (118) 
 A
 
->  <atom.prop.subpocket>  (115) 
+>  <atom.prop.subpocket>  (118) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP FP
 
->  <atom.prop.environment>  (115) 
+>  <atom.prop.environment>  (118) 
 16 16 16 16 8 8 8 8 14 8 8 8 8 16 14 na na
 
 $$$$
@@ -7580,31 +7783,31 @@ $$$$
  10 17  1  0
 V   17 *
 M  END
->  <kinase>  (116) 
+>  <kinase>  (119) 
 TGFbR1
 
->  <family>  (116) 
+>  <family>  (119) 
 STKR
 
->  <group>  (116) 
+>  <group>  (119) 
 TKL
 
->  <complex_pdb>  (116) 
+>  <complex_pdb>  (119) 
 2wou
 
->  <ligand_pdb>  (116) 
+>  <ligand_pdb>  (119) 
 ZZF
 
->  <alt>  (116) 
+>  <alt>  (119) 
  
 
->  <chain>  (116) 
+>  <chain>  (119) 
 A
 
->  <atom.prop.subpocket>  (116) 
+>  <atom.prop.subpocket>  (119) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (116) 
+>  <atom.prop.environment>  (119) 
 8 8 8 8 14 16 16 16 16 16 14 16 8 8 8 8 na
 
 $$$$
@@ -7642,31 +7845,31 @@ $$$$
  14  1  1  0
 V   14 *
 M  END
->  <kinase>  (117) 
+>  <kinase>  (120) 
 TGFbR1
 
->  <family>  (117) 
+>  <family>  (120) 
 STKR
 
->  <group>  (117) 
+>  <group>  (120) 
 TKL
 
->  <complex_pdb>  (117) 
+>  <complex_pdb>  (120) 
 3faa
 
->  <ligand_pdb>  (117) 
+>  <ligand_pdb>  (120) 
 55F
 
->  <alt>  (117) 
+>  <alt>  (120) 
  
 
->  <chain>  (117) 
+>  <chain>  (120) 
 E
 
->  <atom.prop.subpocket>  (117) 
+>  <atom.prop.subpocket>  (120) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
->  <atom.prop.environment>  (117) 
+>  <atom.prop.environment>  (120) 
 14 14 14 14 14 14 14 14 8 8 8 8 14 na
 
 $$$$
@@ -7714,31 +7917,31 @@ $$$$
  16 19  1  0
 V   19 *
 M  END
->  <kinase>  (118) 
+>  <kinase>  (121) 
 TGFbR1
 
->  <family>  (118) 
+>  <family>  (121) 
 STKR
 
->  <group>  (118) 
+>  <group>  (121) 
 TKL
 
->  <complex_pdb>  (118) 
+>  <complex_pdb>  (121) 
 3kcf
 
->  <ligand_pdb>  (118) 
+>  <ligand_pdb>  (121) 
 JZO
 
->  <alt>  (118) 
+>  <alt>  (121) 
  
 
->  <chain>  (118) 
+>  <chain>  (121) 
 C
 
->  <atom.prop.subpocket>  (118) 
+>  <atom.prop.subpocket>  (121) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
->  <atom.prop.environment>  (118) 
+>  <atom.prop.environment>  (121) 
 3 3 3 3 3 4 4 4 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -7778,31 +7981,31 @@ $$$$
   3 15  1  0
 V   15 *
 M  END
->  <kinase>  (119) 
+>  <kinase>  (122) 
 TGFbR1
 
->  <family>  (119) 
+>  <family>  (122) 
 STKR
 
->  <group>  (119) 
+>  <group>  (122) 
 TKL
 
->  <complex_pdb>  (119) 
+>  <complex_pdb>  (122) 
 5qil
 
->  <ligand_pdb>  (119) 
+>  <ligand_pdb>  (122) 
 J2V
 
->  <alt>  (119) 
+>  <alt>  (122) 
 A
 
->  <chain>  (119) 
+>  <chain>  (122) 
 A
 
->  <atom.prop.subpocket>  (119) 
+>  <atom.prop.subpocket>  (122) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
->  <atom.prop.environment>  (119) 
+>  <atom.prop.environment>  (122) 
 14 14 16 14 14 14 14 14 3 3 3 3 14 3 na
 
 $$$$
@@ -7842,31 +8045,31 @@ $$$$
   3 15  1  0
 V   15 *
 M  END
->  <kinase>  (120) 
+>  <kinase>  (123) 
 TGFbR1
 
->  <family>  (120) 
+>  <family>  (123) 
 STKR
 
->  <group>  (120) 
+>  <group>  (123) 
 TKL
 
->  <complex_pdb>  (120) 
+>  <complex_pdb>  (123) 
 5qim
 
->  <ligand_pdb>  (120) 
+>  <ligand_pdb>  (123) 
 J2Y
 
->  <alt>  (120) 
+>  <alt>  (123) 
 A
 
->  <chain>  (120) 
+>  <chain>  (123) 
 A
 
->  <atom.prop.subpocket>  (120) 
+>  <atom.prop.subpocket>  (123) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
->  <atom.prop.environment>  (120) 
+>  <atom.prop.environment>  (123) 
 16 16 14 16 16 16 16 16 3 3 3 3 16 3 na
 
 $$$$
@@ -7902,31 +8105,31 @@ $$$$
  13  1  1  0
 V   13 *
 M  END
->  <kinase>  (121) 
+>  <kinase>  (124) 
 TTBK1
 
->  <family>  (121) 
+>  <family>  (124) 
 TTBK
 
->  <group>  (121) 
+>  <group>  (124) 
 CK1
 
->  <complex_pdb>  (121) 
+>  <complex_pdb>  (124) 
 4nfn
 
->  <ligand_pdb>  (121) 
+>  <ligand_pdb>  (124) 
 2KC
 
->  <alt>  (121) 
+>  <alt>  (124) 
 B
 
->  <chain>  (121) 
+>  <chain>  (124) 
 A
 
->  <atom.prop.subpocket>  (121) 
+>  <atom.prop.subpocket>  (124) 
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (121) 
+>  <atom.prop.environment>  (124) 
 16 16 16 16 16 16 16 16 16 3 3 16 na
 
 $$$$
@@ -7983,31 +8186,31 @@ $$$$
  18 23  1  0
 V   23 *
 M  END
->  <kinase>  (122) 
+>  <kinase>  (125) 
 TTK
 
->  <family>  (122) 
+>  <family>  (125) 
 TTK
 
->  <group>  (122) 
+>  <group>  (125) 
 Other
 
->  <complex_pdb>  (122) 
+>  <complex_pdb>  (125) 
 3wzk
 
->  <ligand_pdb>  (122) 
+>  <ligand_pdb>  (125) 
 O23
 
->  <alt>  (122) 
+>  <alt>  (125) 
  
 
->  <chain>  (122) 
+>  <chain>  (125) 
 A
 
->  <atom.prop.subpocket>  (122) 
+>  <atom.prop.subpocket>  (125) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (122) 
+>  <atom.prop.environment>  (125) 
 1 1 5 5 15 15 15 15 15 15 15 15 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -8056,31 +8259,31 @@ $$$$
 V   18 *
 V   19 *
 M  END
->  <kinase>  (123) 
+>  <kinase>  (126) 
 TTK
 
->  <family>  (123) 
+>  <family>  (126) 
 TTK
 
->  <group>  (123) 
+>  <group>  (126) 
 Other
 
->  <complex_pdb>  (123) 
+>  <complex_pdb>  (126) 
 4zeg
 
->  <ligand_pdb>  (123) 
+>  <ligand_pdb>  (126) 
 052
 
->  <alt>  (123) 
+>  <alt>  (126) 
  
 
->  <chain>  (123) 
+>  <chain>  (126) 
 A
 
->  <atom.prop.subpocket>  (123) 
+>  <atom.prop.subpocket>  (126) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA B1 AP
 
->  <atom.prop.environment>  (123) 
+>  <atom.prop.environment>  (126) 
 16 16 16 16 16 16 8 8 8 8 16 1 16 16 1 5 5 na na
 
 $$$$
@@ -8125,31 +8328,31 @@ $$$$
  16 17  1  0
 V   17 *
 M  END
->  <kinase>  (124) 
+>  <kinase>  (127) 
 TTK
 
->  <family>  (124) 
+>  <family>  (127) 
 TTK
 
->  <group>  (124) 
+>  <group>  (127) 
 Other
 
->  <complex_pdb>  (124) 
+>  <complex_pdb>  (127) 
 6b4w
 
->  <ligand_pdb>  (124) 
+>  <ligand_pdb>  (127) 
 CQ7
 
->  <alt>  (124) 
+>  <alt>  (127) 
  
 
->  <chain>  (124) 
+>  <chain>  (127) 
 A
 
->  <atom.prop.subpocket>  (124) 
+>  <atom.prop.subpocket>  (127) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (124) 
+>  <atom.prop.environment>  (127) 
 8 8 8 8 14 14 14 14 14 14 14 14 14 14 14 16 na
 
 $$$$
@@ -8197,31 +8400,31 @@ $$$$
  19  1  1  0
 V   19 *
 M  END
->  <kinase>  (125) 
+>  <kinase>  (128) 
 TTK
 
->  <family>  (125) 
+>  <family>  (128) 
 TTK
 
->  <group>  (125) 
+>  <group>  (128) 
 Other
 
->  <complex_pdb>  (125) 
+>  <complex_pdb>  (128) 
 6tn9
 
->  <ligand_pdb>  (125) 
+>  <ligand_pdb>  (128) 
 NN5
 
->  <alt>  (125) 
+>  <alt>  (128) 
 B
 
->  <chain>  (125) 
+>  <chain>  (128) 
 A
 
->  <atom.prop.subpocket>  (125) 
+>  <atom.prop.subpocket>  (128) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (125) 
+>  <atom.prop.environment>  (128) 
 16 16 16 16 16 16 16 8 8 8 8 3 3 16 8 8 8 8 na
 
 $$$$
@@ -8257,31 +8460,31 @@ $$$$
   8 13  1  0
 V   13 *
 M  END
->  <kinase>  (126) 
+>  <kinase>  (129) 
 VRK1
 
->  <family>  (126) 
+>  <family>  (129) 
 VRK
 
->  <group>  (126) 
+>  <group>  (129) 
 CK1
 
->  <complex_pdb>  (126) 
+>  <complex_pdb>  (129) 
 5uvf
 
->  <ligand_pdb>  (126) 
+>  <ligand_pdb>  (129) 
 7DZ
 
->  <alt>  (126) 
+>  <alt>  (129) 
  
 
->  <chain>  (126) 
+>  <chain>  (129) 
 A
 
->  <atom.prop.subpocket>  (126) 
+>  <atom.prop.subpocket>  (129) 
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (126) 
+>  <atom.prop.environment>  (129) 
 16 16 16 16 16 16 16 16 3 3 16 16 na
 
 $$$$
@@ -8324,31 +8527,31 @@ $$$$
   3 16  1  0
 V   16 *
 M  END
->  <kinase>  (127) 
+>  <kinase>  (130) 
 VRK1
 
->  <family>  (127) 
+>  <family>  (130) 
 VRK
 
->  <group>  (127) 
+>  <group>  (130) 
 CK1
 
->  <complex_pdb>  (127) 
+>  <complex_pdb>  (130) 
 6npn
 
->  <ligand_pdb>  (127) 
+>  <ligand_pdb>  (130) 
 KWJ
 
->  <alt>  (127) 
+>  <alt>  (130) 
  
 
->  <chain>  (127) 
+>  <chain>  (130) 
 A
 
->  <atom.prop.subpocket>  (127) 
+>  <atom.prop.subpocket>  (130) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (127) 
+>  <atom.prop.environment>  (130) 
 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -8390,31 +8593,31 @@ $$$$
  16  1  1  0
 V   16 *
 M  END
->  <kinase>  (128) 
+>  <kinase>  (131) 
 p38a
 
->  <family>  (128) 
+>  <family>  (131) 
 MAPK
 
->  <group>  (128) 
+>  <group>  (131) 
 CMGC
 
->  <complex_pdb>  (128) 
+>  <complex_pdb>  (131) 
 1di9
 
->  <ligand_pdb>  (128) 
+>  <ligand_pdb>  (131) 
 MSQ
 
->  <alt>  (128) 
+>  <alt>  (131) 
  
 
->  <chain>  (128) 
+>  <chain>  (131) 
 A
 
->  <atom.prop.subpocket>  (128) 
+>  <atom.prop.subpocket>  (131) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (128) 
+>  <atom.prop.environment>  (131) 
 16 16 16 16 16 16 16 16 16 16 11 11 11 11 11 na
 
 $$$$
@@ -8454,31 +8657,31 @@ $$$$
  15  1  1  0
 V   15 *
 M  END
->  <kinase>  (129) 
+>  <kinase>  (132) 
 p38a
 
->  <family>  (129) 
+>  <family>  (132) 
 MAPK
 
->  <group>  (129) 
+>  <group>  (132) 
 CMGC
 
->  <complex_pdb>  (129) 
+>  <complex_pdb>  (132) 
 1ouk
 
->  <ligand_pdb>  (129) 
+>  <ligand_pdb>  (132) 
 084
 
->  <alt>  (129) 
+>  <alt>  (132) 
  
 
->  <chain>  (129) 
+>  <chain>  (132) 
 A
 
->  <atom.prop.subpocket>  (129) 
+>  <atom.prop.subpocket>  (132) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP
 
->  <atom.prop.environment>  (129) 
+>  <atom.prop.environment>  (132) 
 16 16 16 16 16 16 16 16 16 16 8 8 8 8 na
 
 $$$$
@@ -8533,31 +8736,31 @@ $$$$
   5 22  1  0
 V   22 *
 M  END
->  <kinase>  (130) 
+>  <kinase>  (133) 
 p38a
 
->  <family>  (130) 
+>  <family>  (133) 
 MAPK
 
->  <group>  (130) 
+>  <group>  (133) 
 CMGC
 
->  <complex_pdb>  (130) 
+>  <complex_pdb>  (133) 
 1w84
 
->  <ligand_pdb>  (130) 
+>  <ligand_pdb>  (133) 
 L12
 
->  <alt>  (130) 
+>  <alt>  (133) 
  
 
->  <chain>  (130) 
+>  <chain>  (133) 
 A
 
->  <atom.prop.subpocket>  (130) 
+>  <atom.prop.subpocket>  (133) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (130) 
+>  <atom.prop.environment>  (133) 
 16 8 8 8 8 8 8 16 16 16 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -8612,31 +8815,31 @@ $$$$
  22  1  1  0
 V   22 *
 M  END
->  <kinase>  (131) 
+>  <kinase>  (134) 
 p38a
 
->  <family>  (131) 
+>  <family>  (134) 
 MAPK
 
->  <group>  (131) 
+>  <group>  (134) 
 CMGC
 
->  <complex_pdb>  (131) 
+>  <complex_pdb>  (134) 
 1wbw
 
->  <ligand_pdb>  (131) 
+>  <ligand_pdb>  (134) 
 LI4
 
->  <alt>  (131) 
+>  <alt>  (134) 
  
 
->  <chain>  (131) 
+>  <chain>  (134) 
 A
 
->  <atom.prop.subpocket>  (131) 
+>  <atom.prop.subpocket>  (134) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (131) 
+>  <atom.prop.environment>  (134) 
 3 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 4 4 4 na
 
 $$$$
@@ -8683,31 +8886,31 @@ $$$$
  17 18  1  0
 V   18 *
 M  END
->  <kinase>  (132) 
+>  <kinase>  (135) 
 p38a
 
->  <family>  (132) 
+>  <family>  (135) 
 MAPK
 
->  <group>  (132) 
+>  <group>  (135) 
 CMGC
 
->  <complex_pdb>  (132) 
+>  <complex_pdb>  (135) 
 1zzl
 
->  <ligand_pdb>  (132) 
+>  <ligand_pdb>  (135) 
 TZY
 
->  <alt>  (132) 
+>  <alt>  (135) 
  
 
->  <chain>  (132) 
+>  <chain>  (135) 
 A
 
->  <atom.prop.subpocket>  (132) 
+>  <atom.prop.subpocket>  (135) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (132) 
+>  <atom.prop.environment>  (135) 
 14 14 16 16 16 16 16 16 16 16 16 16 16 14 14 14 14 na
 
 $$$$
@@ -8743,31 +8946,31 @@ $$$$
  12 13  1  0
 V   13 *
 M  END
->  <kinase>  (133) 
+>  <kinase>  (136) 
 p38a
 
->  <family>  (133) 
+>  <family>  (136) 
 MAPK
 
->  <group>  (133) 
+>  <group>  (136) 
 CMGC
 
->  <complex_pdb>  (133) 
+>  <complex_pdb>  (136) 
 3fi4
 
->  <ligand_pdb>  (133) 
+>  <ligand_pdb>  (136) 
 FI4
 
->  <alt>  (133) 
+>  <alt>  (136) 
  
 
->  <chain>  (133) 
+>  <chain>  (136) 
 A
 
->  <atom.prop.subpocket>  (133) 
+>  <atom.prop.subpocket>  (136) 
 GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (133) 
+>  <atom.prop.environment>  (136) 
 16 16 16 16 16 16 16 16 16 16 16 3 na
 
 $$$$
@@ -8820,31 +9023,31 @@ $$$$
   2 21  1  0
 V   21 *
 M  END
->  <kinase>  (134) 
+>  <kinase>  (137) 
 p38a
 
->  <family>  (134) 
+>  <family>  (137) 
 MAPK
 
->  <group>  (134) 
+>  <group>  (137) 
 CMGC
 
->  <complex_pdb>  (134) 
+>  <complex_pdb>  (137) 
 3fmj
 
->  <ligand_pdb>  (134) 
+>  <ligand_pdb>  (137) 
 FMJ
 
->  <alt>  (134) 
+>  <alt>  (137) 
  
 
->  <chain>  (134) 
+>  <chain>  (137) 
 A
 
->  <atom.prop.subpocket>  (134) 
+>  <atom.prop.subpocket>  (137) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (134) 
+>  <atom.prop.environment>  (137) 
 14 16 16 14 16 16 8 8 8 8 14 14 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -8894,31 +9097,31 @@ $$$$
 V   18 *
 V   19 *
 M  END
->  <kinase>  (135) 
+>  <kinase>  (138) 
 p38a
 
->  <family>  (135) 
+>  <family>  (138) 
 MAPK
 
->  <group>  (135) 
+>  <group>  (138) 
 CMGC
 
->  <complex_pdb>  (135) 
+>  <complex_pdb>  (138) 
 3hl7
 
->  <ligand_pdb>  (135) 
+>  <ligand_pdb>  (138) 
 I47
 
->  <alt>  (135) 
+>  <alt>  (138) 
  
 
->  <chain>  (135) 
+>  <chain>  (138) 
 A
 
->  <atom.prop.subpocket>  (135) 
+>  <atom.prop.subpocket>  (138) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA FP AP
 
->  <atom.prop.environment>  (135) 
+>  <atom.prop.environment>  (138) 
 14 14 14 14 14 16 16 16 16 16 16 16 16 16 16 16 16 na na
 
 $$$$
@@ -8960,31 +9163,31 @@ $$$$
  13 16  1  0
 V   16 *
 M  END
->  <kinase>  (136) 
+>  <kinase>  (139) 
 p38a
 
->  <family>  (136) 
+>  <family>  (139) 
 MAPK
 
->  <group>  (136) 
+>  <group>  (139) 
 CMGC
 
->  <complex_pdb>  (136) 
+>  <complex_pdb>  (139) 
 3hll
 
->  <ligand_pdb>  (136) 
+>  <ligand_pdb>  (139) 
 I45
 
->  <alt>  (136) 
+>  <alt>  (139) 
 B
 
->  <chain>  (136) 
+>  <chain>  (139) 
 A
 
->  <atom.prop.subpocket>  (136) 
+>  <atom.prop.subpocket>  (139) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (136) 
+>  <atom.prop.environment>  (139) 
 16 16 16 16 16 16 16 16 16 4 4 4 3 16 16 na
 
 $$$$
@@ -9024,31 +9227,31 @@ $$$$
  15  1  1  0
 V   15 *
 M  END
->  <kinase>  (137) 
+>  <kinase>  (140) 
 p38a
 
->  <family>  (137) 
+>  <family>  (140) 
 MAPK
 
->  <group>  (137) 
+>  <group>  (140) 
 CMGC
 
->  <complex_pdb>  (137) 
+>  <complex_pdb>  (140) 
 3hub
 
->  <ligand_pdb>  (137) 
+>  <ligand_pdb>  (140) 
 469
 
->  <alt>  (137) 
+>  <alt>  (140) 
  
 
->  <chain>  (137) 
+>  <chain>  (140) 
 A
 
->  <atom.prop.subpocket>  (137) 
+>  <atom.prop.subpocket>  (140) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (137) 
+>  <atom.prop.environment>  (140) 
 4 4 4 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -9094,31 +9297,31 @@ $$$$
  18  1  1  0
 V   18 *
 M  END
->  <kinase>  (138) 
+>  <kinase>  (141) 
 p38a
 
->  <family>  (138) 
+>  <family>  (141) 
 MAPK
 
->  <group>  (138) 
+>  <group>  (141) 
 CMGC
 
->  <complex_pdb>  (138) 
+>  <complex_pdb>  (141) 
 3kf7
 
->  <ligand_pdb>  (138) 
+>  <ligand_pdb>  (141) 
 L9G
 
->  <alt>  (138) 
+>  <alt>  (141) 
  
 
->  <chain>  (138) 
+>  <chain>  (141) 
 A
 
->  <atom.prop.subpocket>  (138) 
+>  <atom.prop.subpocket>  (141) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (138) 
+>  <atom.prop.environment>  (141) 
 8 8 8 8 8 8 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
@@ -9162,31 +9365,31 @@ $$$$
  17  1  1  0
 V   17 *
 M  END
->  <kinase>  (139) 
+>  <kinase>  (142) 
 p38a
 
->  <family>  (139) 
+>  <family>  (142) 
 MAPK
 
->  <group>  (139) 
+>  <group>  (142) 
 CMGC
 
->  <complex_pdb>  (139) 
+>  <complex_pdb>  (142) 
 5xyx
 
->  <ligand_pdb>  (139) 
+>  <ligand_pdb>  (142) 
 FTZ
 
->  <alt>  (139) 
+>  <alt>  (142) 
 B
 
->  <chain>  (139) 
+>  <chain>  (142) 
 A
 
->  <atom.prop.subpocket>  (139) 
+>  <atom.prop.subpocket>  (142) 
 GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA GA AP
 
->  <atom.prop.environment>  (139) 
+>  <atom.prop.environment>  (142) 
 5 5 4 4 4 16 16 16 16 16 16 16 16 16 16 16 na
 
 $$$$
