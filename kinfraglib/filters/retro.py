@@ -447,7 +447,7 @@ def get_retro_results(PATH_DATA_RETRO, valid_fragment_pairs, fragment_library):
     # create equal sized splits of the retro results
     df_split = np.array_split(retro_df, mp.cpu_count())
     # start comparison of fragments and ASKCOS children parallel
-    mol_comps = Parallel(n_jobs=mp.cpu_count())(
+    mol_comps = Parallel(n_jobs=mp.cpu_count() - 2)(
         delayed(compare_mols)(split, pairs_frags_smiles) for split in df_split
     )
     # seperate the two resulting dataframes retrieved by each parallel process and combine the
