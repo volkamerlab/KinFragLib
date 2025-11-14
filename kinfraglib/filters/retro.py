@@ -323,7 +323,7 @@ def get_pairwise_retrosynthesizability(
     # start as many processes as there are cores
     processes = [
         mp.Process(target=worker_retro, args=(working_q, output_q, retro_file))
-        for i in range(mp.cpu_count())
+        for i in range(mp.cpu_count() - 2)
     ]
     for proc in processes:
         proc.start()
