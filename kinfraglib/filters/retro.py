@@ -323,7 +323,7 @@ def get_pairwise_retrosynthesizability(
     # start as many processes as there are cores
     processes = [
         mp.Process(target=worker_retro, args=(working_q, output_q, retro_file))
-        for i in range(mp.cpu_count())
+        for i in range(mp.cpu_count() - 2)
     ]
     for proc in processes:
         proc.start()
@@ -445,9 +445,9 @@ def get_retro_results(PATH_DATA_RETRO, valid_fragment_pairs, fragment_library):
         columns=("fragment ids", "fragment 1", "fragment 2", "pair"),
     )
     # create equal sized splits of the retro results
-    df_split = np.array_split(retro_df, mp.cpu_count())
+    df_split = np.array_split(retro_df, mp.cpu_count() - 2)
     # start comparison of fragments and ASKCOS children parallel
-    mol_comps = Parallel(n_jobs=mp.cpu_count())(
+    mol_comps = Parallel(n_jobs=mp.cpu_count() - 2)(
         delayed(compare_mols)(split, pairs_frags_smiles) for split in df_split
     )
     # seperate the two resulting dataframes retrieved by each parallel process and combine the

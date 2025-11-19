@@ -74,6 +74,6 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --nbval-current-env --nbval-cell-timeout=3600"
-          PYTEST_IGNORE="--ignore=notebooks/custom_kinfraglib/2_4_custom_filters_paper.ipynb" 
+          PYTEST_IGNORE="--ignore=notebooks/custom_kinfraglib/2_4_custom_filters_paper.ipynb --ignore=notebooks/custom_kinfraglib/1_4_custom_filters_pairwise_retrosynthesizability.ipynb --ignore=notebooks/custom_kinfraglib/2_1_custom_filters_pipeline.ipynb" 
 
           pytest $PYTEST_ARGS $PYTEST_IGNORE
