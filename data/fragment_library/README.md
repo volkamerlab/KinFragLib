@@ -5,15 +5,15 @@ which are the basis for exploring the subpocket-based chemical space of ligands 
 
 ## Fragment library
 
-Fragments are organized by the subpockets they occupy. Each fragment subpocket pool is stored in a SDF file:
+Fragments are organized by the subpockets they occupy. Each fragment subpocket pool is stored in an SDF file:
 
-	`AP.sdf`
-	`FP.sdf`
-	`GA.sdf`
-	`SE.sdf`
-	`B1.sdf`
-	`B2.sdf`
-	`X.sdf`
+	AP.sdf
+	FP.sdf
+	GA.sdf
+	SE.sdf
+	B1.sdf
+	B2.sdf
+	X.sdf
 
 Each fragment contains the following information:
 
@@ -33,7 +33,7 @@ Please refer to `notebooks/kinfraglib/1_1_quick_start.ipynb` on how to load and 
 
 Original ligands that are composed of the fragments in the full fragment library are stored as CSV file:
 
-    `original_ligands.csv`
+    original_ligands.csv
     
 Each ligand contains the following information:
 

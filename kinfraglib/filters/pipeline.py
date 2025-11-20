@@ -61,7 +61,7 @@ def start_pipeline(
 
     global_parameters: dict
         containing the following parameters: 'show_stats'(boolean), 'custom_path'(Path),
-        'num_passing'(int)
+        'num_passing'(int), (optionally)'exclude_subpockets'=[](list), (optionally)'keep'=True(boolean)
 
     Returns
     dict
@@ -82,18 +82,21 @@ def start_pipeline(
         ]
     )
     num_passing = global_parameters.get("num_passing")
-    if retro_parameters.get("retro_filter"):
-        if num_filters < num_passing:
-            print_str = (
-                "Only %s filters are activated before applying pairwise retrosynthesizability. \n"
-                "Setting `num_passing` to %s." % (num_filters, num_filters)
-            )
-            print(print_str)
-            num_passing = num_filters
+
+    if num_filters < num_passing:
+        print_str = (
+            "Only %s filters are activated excluding pairwise retrosynthesizability. \n"
+            "Setting `num_passing` to %s." % (num_filters, num_filters)
+        )
+        print(print_str)
+        num_passing = num_filters
     dir = os.path.join(
         global_parameters.get("custom_path"),
         datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"),
     )
+
+    excluding_subpockets = global_parameters.get("exclude_subpockets") or []
+    keep_excluding_subpockets = global_parameters.get("keep") or True
 
     if not os.path.exists(dir):
         os.makedirs(dir)
@@ -166,6 +169,8 @@ def start_pipeline(
                 ]
             )
             display(num_fragments_pains)
+    else: 
+        pains_df = None
     # if brenk_filter is activated, apply brenk filter with the given parameters
     if brenk_parameters.get("brenk_filter"):
         save_cols.append("bool_brenk")
@@ -193,7 +198,8 @@ def start_pipeline(
                 ]
             )
             display(num_fragments_brenk)
-
+    else: 
+        brenk_structs = None
     # if ro3_filter is activated, apply ro3 filter with the given parameters
     if ro3_parameters.get("ro3_filter"):
         save_cols.append("bool_ro3")
@@ -358,7 +364,6 @@ def start_pipeline(
         columns=pd.Series(filter_cols),
         min_accepted=num_passing,
     )
-
     # save only fragments passing the defined min. number of filters
     for subpocket in fragment_library.keys():
         fragment_library[subpocket].drop(
@@ -376,7 +381,7 @@ def start_pipeline(
                 nfrags,
                 filters.analysis.count_fragments(
                     fragment_library,
-                    "number of fragments used for pairwise retrosynthesizability",
+                    "number of fragments excl. pairwise retrosynthesizability",
                 ),
             ],
             axis=1,
@@ -471,19 +476,25 @@ def start_pipeline(
             PATH_DATA_CUSTOM / "custom_filter_results.csv", index=False
         )
 
-    # save the filtered fragment library
-    print("Save custom filtered fragment library to %s" % str(dir_print_version))
-    for subpocket in fragment_library.keys():
-        fragment_library[subpocket].drop(
-            fragment_library[subpocket]
-            .loc[fragment_library[subpocket]["bool_retro"] == 0]
-            .index,
-            inplace=True,
-        )
-    # remove fragments not passing the retro-filter
-    fragment_library_concat = fragment_library_concat[
-        fragment_library_concat["bool_retro"] == 1
-    ]
+        # save the filtered fragment library
+        print("Save custom filtered fragment library to %s" % str(dir_print_version))
+        for subpocket in fragment_library.keys():
+            fragment_library[subpocket].drop(
+                fragment_library[subpocket]
+                .loc[fragment_library[subpocket]["bool_retro"] == 0]
+                .index,
+                inplace=True,
+            )
+        # remove fragments not passing the retro-filter
+        fragment_library_concat = fragment_library_concat[
+            fragment_library_concat["bool_retro"] == 1
+        ]
+    # no retro filter 
+    else: 
+        fragment_library_concat = pd.concat(fragment_library)
+        mol_df = None
+        diff_df = None
+    
     filters.retro.save_fragment_library_to_sdfs(
         PATH_DATA_CUSTOM,
         fragment_library_concat,

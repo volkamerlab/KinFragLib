@@ -158,31 +158,33 @@ def askcos_retro(smiles):
         verify=False,
     )
     retro = resp.json()
-
     # go through results and save them
-    if len(retro["result"]["paths"]):
+    if len(retro["result"]["uds"]):
         pass
         # find reactions
-        for path in retro["result"]["paths"]:
-            reactions = [node for node in path["nodes"] if node["type"] == "reaction"]
-            assert len(reactions) == 1  # max depth == 1
-
-            children = reactions[0]["precursor_smiles"].split(".")
+        #for path in retro["result"].values():
+        #    print(path)
+        #    print(path.keys())
+        reactions = [node for node in retro['result']['uds']["node_dict"].values() if node["type"] == "reaction"]
+        #assert len(reactions) == 1  # max depth == 1
+        for reaction in reactions: 
+            children = reaction['smiles'].split(">>")[0]
+            children = children.split(".")
 
             # only add if askcos could retrieve 2 children for reaction
             if len(children) == 2:
-                plausibility = reactions[0]["plausibility"]
+                plausibility = reaction["plausibility"]
 
                 cur_children1.append(children[0])
                 cur_children2.append(children[1])
                 cur_plausibilities.append(plausibility)
-            else:
-                cur_children1.append(None)
-                cur_children2.append(None)
-                cur_plausibilities.append(0)
+            #else:
+            #    cur_children1.append(None)
+            #    cur_children2.append(None)
+            #    cur_plausibilities.append(0)
 
     # if no results retrieved save None/0
-    else:
+    if not len(cur_children1):
         cur_children1.append(None)
         cur_children2.append(None)
         cur_plausibilities.append(0)
@@ -321,7 +323,7 @@ def get_pairwise_retrosynthesizability(
     # start as many processes as there are cores
     processes = [
         mp.Process(target=worker_retro, args=(working_q, output_q, retro_file))
-        for i in range(mp.cpu_count())
+        for i in range(mp.cpu_count() - 2)
     ]
     for proc in processes:
         proc.start()
@@ -443,9 +445,9 @@ def get_retro_results(PATH_DATA_RETRO, valid_fragment_pairs, fragment_library):
         columns=("fragment ids", "fragment 1", "fragment 2", "pair"),
     )
     # create equal sized splits of the retro results
-    df_split = np.array_split(retro_df, mp.cpu_count())
+    df_split = np.array_split(retro_df, mp.cpu_count() - 2)
     # start comparison of fragments and ASKCOS children parallel
-    mol_comps = Parallel(n_jobs=mp.cpu_count())(
+    mol_comps = Parallel(n_jobs=mp.cpu_count() - 2)(
         delayed(compare_mols)(split, pairs_frags_smiles) for split in df_split
     )
     # seperate the two resulting dataframes retrieved by each parallel process and combine the

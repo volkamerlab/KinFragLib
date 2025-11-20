@@ -57,7 +57,7 @@ In this notebook, we want to compare the combinatorial library to the original K
 
 ### `4_4_combinatorial_library_comparison_chembl.ipynb`
 
-In this notebook, we want to compare the combinatorial library to the ChEMBL 33 dataset in order to find exact matches and the most similar ChEMBL molecule per recombined ligand.
+In this notebook, we want to compare the combinatorial library to the ChEMBL 36 dataset in order to find exact matches and the most similar ChEMBL molecule per recombined ligand.
 
 ### `4_5_combinatorial_library_consrtuct_ligand.ipynb`
 In this notebook, we showcase how the molecules described via fragment and bond indices from the combinatorial library can be built into `rdkit` molecule objects.
