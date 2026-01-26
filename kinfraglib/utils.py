@@ -1340,7 +1340,7 @@ def construct_ligand(fragment_ids, bond_ids, fragment_library):
             raise RuntimeError(f'This should not happen: Dummy atoms found for bond {bond} are unambigious')
         
         dummy_1 = dummy_1_candidates[0]
-        dummy_2 = dummy_2_candidates[1]
+        dummy_2 = dummy_2_candidates[0]
         
         atom_1 = dummy_1.GetNeighbors()[0]
         atom_2 = dummy_2.GetNeighbors()[0]
