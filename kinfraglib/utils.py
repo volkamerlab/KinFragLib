@@ -1328,16 +1328,20 @@ def construct_ligand(fragment_ids, bond_ids, fragment_library):
     ed_combo = Chem.EditableMol(combo)
     replaced_dummies = []
 
-    atoms = combo.GetAtoms()
-
     for bond in bond_ids:
 
-        dummy_1 = next(
-            atom for atom in combo.GetAtoms() if atom.GetProp("fragment_atom_id") == bond[0]
-        )
-        dummy_2 = next(
-            atom for atom in combo.GetAtoms() if atom.GetProp("fragment_atom_id") == bond[1]
-        )
+        # should be a one element lists
+        dummy_1_candidates = [atom for atom in combo.GetAtoms() if atom.GetProp("fragment_atom_id") == bond[0]]
+        dummy_2_candidates = [atom for atom in combo.GetAtoms() if atom.GetProp("fragment_atom_id") == bond[1]]
+        
+        if len(dummy_1_candidates) == 0 or len(dummy_2_candidates) == 0:
+            raise RuntimeError(f'Dummy atoms for bond {bond} not found')
+        elif len(dummy_1_candidates) > 1 or len(dummy_2_candidates) > 1:
+            raise RuntimeError(f'This should not happen: Dummy atoms found for bond {bond} are unambigious')
+        
+        dummy_1 = dummy_1_candidates[0]
+        dummy_2 = dummy_2_candidates[0]
+        
         atom_1 = dummy_1.GetNeighbors()[0]
         atom_2 = dummy_2.GetNeighbors()[0]
 
