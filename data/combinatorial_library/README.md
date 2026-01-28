@@ -1,18 +1,20 @@
 # KinFragLib: Combinatorial library 
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17368450.svg)](https://doi.org/10.5281/zenodo.17368450)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18386001.svg)](https://doi.org/10.5281/zenodo.18386001)
 
 This folder is meant for the metadata and properties of the KinFragLib combinatorial library, which is based on the KinFragLib fragment library at https://github.com/volkamerlab/KinFragLib. This dataset is used for the analysis of the combinatorial library.
 
-**Note**: Since this dataset contains large files, we provide it outside this repository at https://zenodo.org/records/17368450 (DOI: 10.5281/zenodo.17368450, v2.0.2).
+**Note**: Since this dataset contains large files, we provide it outside this repository at https://zenodo.org/records/18386001 (DOI: 10.5281/zenodo.18386001, v2.0.3).
 In order to run the analysis notebooks, please download this dataset to this folder. 
 
 ## Raw data
 
 - `combinatorial_library.json`: Full combinatorial library, please refer to `notebooks/kinfraglib/4_1_combinatorial_library_data_preparation.ipynb` at https://github.com/volkamerlab/KinFragLib for detailed information about this data format
 - `combinatorial_library_deduplicated.json`: Deduplicated combinatorial library (based on InChIs)
-- `chembl_standardized_inchi.csv`: Standardized ChEMBL 36 molecules in the form of InChI strings.
+- `chembl_standardized_inchi.csv`: Standardized ChEMBL36 molecules in the form of InChI strings.
 - `KLIFS_download_summary.csv`: PDB codes of all KLIFS structures used to generate the KinFragLib fragmentation library. 
+- `combinatorial_library_custom_sampled.sdf`: Combinatorial library created from a subset of CustomKinFragLib fragments. 
+- `combinatorial_library_rejected_sampled.sdf`: Combinatorial library created from a subset of fragments rejected by the CustomKinFragLib filtering pipeline 
 
 ## Processed data
 
@@ -26,3 +28,5 @@ Data extracted from `combinatorial_library_deduplicated.json`, performed in `not
 - `chembl_exact.json`: Ligands with exact matches in ChEMBL
 - `chembl_most_similar.json`: Most similar ligand in ChEMBL for each recombined ligand 
 - `chembl_highly_similar.json`: Most similar ligand in ChEMBL for each recombined ligand with similarity greater than 0.9.
+- `custom_enamine_search_sampled.csv`: Most similar molecule from Enamine REAL Space for each molecule in the CustomKinFragLib combinatorial library. 
+- `reference_enamine_search_sampled.csv`: Most similar molecule from Enamine REAL Space for each molecule in the rejected fragments combinatorial library. 
