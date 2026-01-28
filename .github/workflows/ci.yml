@@ -62,7 +62,7 @@ jobs:
         shell: bash -l {0}
         run: |
           echo "Download combinatorial library from zenodo..."
-          wget -q -O data/combinatorial_library/combinatorial_library.tar.bz2 https://zenodo.org/record/17368450/files/combinatorial_library.tar.bz2?download=1
+          wget -q -O data/combinatorial_library/combinatorial_library.tar.bz2 https://zenodo.org/record/18386001/files/combinatorial_library.tar.bz2?download=1
           ls -l data/combinatorial_library/
           echo "Decompress selected files..."
           tar -xvf data/combinatorial_library/combinatorial_library.tar.bz2 combinatorial_library/combinatorial_library_deduplicated.json combinatorial_library/chembl_standardized_inchi.csv
@@ -74,6 +74,6 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --nbval-current-env --nbval-cell-timeout=3600"
-          PYTEST_IGNORE="--ignore=notebooks/custom_kinfraglib/2_4_custom_filters_paper.ipynb --ignore=notebooks/custom_kinfraglib/1_4_custom_filters_pairwise_retrosynthesizability.ipynb --ignore=notebooks/custom_kinfraglib/2_1_custom_filters_pipeline.ipynb" 
+          PYTEST_IGNORE="--ignore=notebooks/custom_kinfraglib/2_5_custom_filters_paper.ipynb --ignore=notebooks/custom_kinfraglib/1_4_custom_filters_pairwise_retrosynthesizability.ipynb --ignore=notebooks/custom_kinfraglib/2_1_custom_filters_pipeline.ipynb --ignore=notebooks/custom_kinfraglib/2_4_custom_filters_enumeration_analysis.ipynb" 
 
           pytest $PYTEST_ARGS $PYTEST_IGNORE
